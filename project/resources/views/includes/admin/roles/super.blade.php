@@ -1,5 +1,5 @@
 <li>
-        <a href="#order" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"><i class="fas fa-hand-holding-usd"></i>{{ __('Orders') }}</a>
+        <a href="#order" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false"><i class="fas fa-hand-holding-usd"></i>{{ __('Orders') }}aaaaaaaaaaa</a>
         <ul class="collapse list-unstyled" id="order" data-parent="#accordion" >
                <li>
                 <a href="{{route('admin-order-index')}}"> {{ __('All Orders') }}</a>
