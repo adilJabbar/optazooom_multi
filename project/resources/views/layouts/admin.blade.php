@@ -167,7 +167,7 @@
 
 						</ul>
 					@if(Auth::guard('admin')->user()->IsSuper())
-					<p class="version-name"> {{ __('Version') }}: 3.0</p>
+					<p class="version-name">c OptaZoom | Developed by Baron Tech (Pvt) Ltd</p>
 					@endif
 					</nav>
 					<!-- Main Content Area Start -->
