@@ -50313,3 +50313,8 @@ p.product-unit-price {
     transition: all 0.3s ease-in-out;
     color: #585858;
 }
+
+.footer-wrap {
+    border-top: 1px solid #e1e1e1;
+    padding-top: 30px;
+}

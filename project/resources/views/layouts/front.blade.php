@@ -525,7 +525,8 @@
 	<!-- Footer Area Start -->
 	<footer class="footer" id="footer">
 		<div class="container-fluid">
-			<div class="row">
+			<div class="row footer-wrap">
+			
 				<div class="col-md-6 col-lg-3">
 				<div class="footer-widget info-link-widget">
 						<h4 class="title">
