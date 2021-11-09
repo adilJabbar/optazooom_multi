@@ -287,8 +287,8 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<ul class="cat-title">
+							<div class="dropdown">
 								<li>
-						<div class="dropdown">
 							<a href="javascript:void(0)">Categories</a>
 							<div class="dropdown-content">
 							
