@@ -1,0 +1,402 @@
+/*
+--------------------------
+	Css Indexing
+--------------------------
+	Table of Css Content
+	------- *** -------
+--------------------------
+** 
+--------------------------
+**  
+--------------------------
+**
+--------------------------
+** 
+--------------------------
+** 
+--------------------------
+** 
+--------------------------
+** 
+--------------------------
+
+*/
+/*-----------------
+    @Typography
+-----------------*/
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+/*---------------------------
+** Global style
+---------------------------*/
+.mybtn1 {
+  font-size: 16Px;
+  font-weight: 400;
+  padding: 12px 30px;
+  display: inline-block;
+  color: #fff;
+  background: #3c92da;
+  border: 0px;
+  cursor: pointer;
+  border-radius: 50px;
+  -webkit-box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 5px 14px rgba(0, 0, 0, 0.15);
+  border: 1px solid #3c92da;
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in; }
+  .mybtn1:hover {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    color: #050e33;
+    background: #fff; }
+
+
+
+.input-field {
+  width: 100%;
+  height: 60px;
+  padding: 0 0px;
+  border-radius: 0px;
+  color: #050e33;
+  margin-bottom: 15px;
+  border: 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2); }
+  .input-field::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color: #050e33; }
+  .input-field:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color: #050e33; }
+  .input-field::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #050e33; }
+  .input-field:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color: #050e33; }
+  .input-field:focus {
+    border: 0px !important;
+    border-bottom: 1px solid #3c92da !important; }
+  .input-field.textarea {
+    min-height: 137px;
+    padding: 15px 0px;
+    resize: none; }
+  .input-field.error {
+    border: 0px;
+    border-bottom: 1px solid red; }
+
+/*====================
+** Normalize
+====================*/
+html {
+  font-family: "Open Sans", sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  overflow-x: hidden; }
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  margin: 0;
+  color: #050e33;
+  overflow-x: hidden;
+  background: #f3fbff; }
+
+h1 {
+  font-size: 60px;
+  line-height: 1.0833333333333333; }
+
+h2 {
+  font-size: 52px;
+  line-height: 1.4444444444444444; }
+
+h3 {
+  font-size: 26px;
+  line-height: 1.0833333333333333; }
+
+h4 {
+  font-size: 22px;
+  line-height: 1.2380952380952381; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #050e33;
+  font-family: "Open Sans", sans-serif; }
+
+p {
+  font-size: 16px;
+  color: #050e33;
+  line-height: 1.625;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto; }
+
+a {
+  color: #050e33;
+  text-decoration: none; }
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  outline: none; }
+
+a i {
+  padding: 0 2px; }
+
+img {
+  max-width: 100%; }
+
+ul {
+  padding: 0;
+  margin: 0; }
+  ul li {
+    list-style: none; }
+
+/*input and button type focus outline disable*/
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+textarea:focus,
+input[type="button"]:focus,
+input[type="reset"]:focus,
+input[type="submit"]:focus,
+select:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #ddd; }
+
+/**
+ * 5.0 - Alignments
+ */
+.alignleft {
+  float: left; }
+
+.alignright {
+  float: right; }
+
+.aligncenter {
+  clear: both;
+  display: block;
+  margin: 0 auto 1.75em; }
+
+.installer-wrapper {
+  position: relative;
+  width: 100%;
+  display: block;
+  margin-top: 100px; }
+  .installer-wrapper .installer-box {
+    width: 100%;
+    display: block;
+    -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: #fff; }
+    .installer-wrapper .installer-box .heading-area {
+      text-align: center;
+      background: #3c92da;
+      padding: 45px 20px 53px; }
+      .installer-wrapper .installer-box .heading-area .title {
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2); }
+        .installer-wrapper .installer-box .heading-area .title i {
+          font-size: 22px;
+          text-shadow: 1px 2px 1px rgba(0, 0, 0, 0.2);
+          margin-right: 5px; }
+    .installer-wrapper .installer-box .content {
+      padding: 30px 30px 30px; }
+    .installer-wrapper .installer-box .process-steps-area {
+      margin-top: -61px;
+      margin-bottom: 50px;
+      display: block; }
+      .installer-wrapper .installer-box .process-steps-area .process-steps {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: block; }
+      .installer-wrapper .installer-box .process-steps-area .user-dashbord .user-profile-details .order-details .header-area {
+        display: block;
+        margin-top: 80px; }
+      .installer-wrapper .installer-box .process-steps-area .process-steps li {
+        width: 20%;
+        float: left;
+        text-align: center;
+        position: relative; }
+      .installer-wrapper .installer-box .process-steps-area .process-steps li .title {
+        font-weight: 600;
+        font-size: 13px;
+        color: #777;
+        margin-top: 8px; }
+      .installer-wrapper .installer-box .process-steps-area .process-steps li .icon {
+        height: 55px;
+        width: 55px;
+        margin: auto;
+        background: #f3fbff;
+        border-radius: 50%;
+        line-height: 52px;
+        border: 2px solid #fff;
+        font-size: 20px;
+        font-weight: 700;
+        color: #1b7aca;
+        position: relative;
+        display: inline-block;
+        z-index: 99;
+        -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1); }
+      .installer-wrapper .installer-box .process-steps-area .process-steps li:after {
+        position: absolute;
+        content: "";
+        height: 5px;
+        width: calc(100% - 30px);
+        background: #85c7ff;
+        top: 27px;
+        z-index: 0;
+        right: calc(50% + 15px); }
+      .installer-wrapper .installer-box .process-steps-area .process-steps li:first-child::after {
+        display: none; }
+      .installer-wrapper .installer-box .process-steps-area .process-steps li.done .icon {
+        color: transparent; }
+      .installer-wrapper .installer-box .process-steps-area .process-steps li.done:after,
+      .installer-wrapper .installer-box .process-steps-area .process-steps li.active:after,
+      .installer-wrapper .installer-box .process-steps-area .process-steps li.active .icon {
+        color: #fff;
+        background: #1b7aca; }
+      .installer-wrapper .installer-box .process-steps-area .process-steps li.active:after {
+        background: #1b7aca; }
+      .installer-wrapper .installer-box .process-steps-area .process-steps li.done .icon:before {
+        position: absolute;
+        content: "";
+        left: 11px;
+        top: 7px;
+        width: 8px;
+        height: 14px;
+        border: solid #fff;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg); }
+    .installer-wrapper .installer-box .main-content {
+      margin-top: 85px;
+      display: block; }
+      .installer-wrapper .installer-box .main-content .tab-pane .title-4 {
+        /* text-align: center; */
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        color: #777; }
+      .installer-wrapper .installer-box .main-content .tab-pane .footer-area {
+        display: block;
+        text-align: center; }
+        .installer-wrapper .installer-box .main-content .tab-pane .footer-area .next-btn {
+          background: #3c92da;
+          color: #fff;
+          padding: 6px 20px;
+          font-size: 14px;
+          font-weight: 400;
+          margin-top: 21px;
+          border-radius: 3px;
+          display: inline-block;
+          -webkit-transition: all 0.3s ease-in;
+          -o-transition: all 0.3s ease-in;
+          transition: all 0.3s ease-in; }
+          .installer-wrapper .installer-box .main-content .tab-pane .footer-area .next-btn i {
+            margin-left: 4px;
+            font-size: 12px; }
+          .installer-wrapper .installer-box .main-content .tab-pane .footer-area .next-btn:hover {
+            background: #1b7aca; }
+      .installer-wrapper .installer-box .main-content .tab-pane .inner-box .list-group .list-group-item .right {
+        font-size: 18px;
+        font-weight: 600;
+        color: green; }
+      .installer-wrapper .installer-box .main-content .tab-pane .inner-box .install-form .form-input {
+        position: relative;
+        margin-bottom: 15px; }
+      .installer-wrapper .installer-box .main-content .tab-pane .inner-box .install-form .form-input input {
+        width: 100%;
+        height: 50px;
+        background: #ffffff;
+        padding: 0px 30px 0px 35px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+        margin-bottom: 0px; }
+      .installer-wrapper .installer-box .main-content .tab-pane .inner-box .install-form .form-input i {
+        position: absolute;
+        height: 100%;
+        left: 0px;
+        color: #3c92da;
+        width: 30px;
+        line-height: 50px;
+        text-align: center; }
+      .installer-wrapper .installer-box .main-content .tab-pane .inner-box .confirm-message {
+        text-align: center;
+        background: rgba(0, 128, 0, 0.06);
+        padding: 30px 20px 28px; }
+        .installer-wrapper .installer-box .main-content .tab-pane .inner-box .confirm-message i {
+          font-size: 40px;
+          color: green;
+          margin-bottom: 10px; }
+        .installer-wrapper .installer-box .main-content .tab-pane .inner-box .confirm-message p {
+          color: green;
+          font-size: 14px;
+          font-weight: 600;
+          margin-bottom: 0px; }
+      .installer-wrapper .installer-box .main-content .tab-pane .inner-box .info-table {
+        margin-top: 30px; }
+        .installer-wrapper .installer-box .main-content .tab-pane .inner-box .info-table .table {
+          border: 1px solid rgba(0, 0, 0, 0.1); }
+          .installer-wrapper .installer-box .main-content .tab-pane .inner-box .info-table .table tr td {
+            font-size: 14px; }
+            .installer-wrapper .installer-box .main-content .tab-pane .inner-box .info-table .table tr td:first-child {
+              font-weight: 400; }
+            .installer-wrapper .installer-box .main-content .tab-pane .inner-box .info-table .table tr td p {
+              margin-bottom: 0px;
+              font-size: 14px; }
+.you-can{
+  color: #16a085;
+}
+.you-cant{
+  color: #e74c3c;
+}
+.blink_me {
+  color: #3c92da;
+  animation: blinker 2s infinite;
+}
+
+@keyframes blinker {  
+ 10% { opacity: 0; }
+}
+a[disabled] {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
+.check-error{
+  color: red;
+  text-align: center;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.gocover {
+  display:none;
+  position: absolute;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
