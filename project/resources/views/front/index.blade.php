@@ -95,6 +95,7 @@
 
 @endsection
 
+
 @section('scripts')
 	<script>
         $(window).on('load',function() {
