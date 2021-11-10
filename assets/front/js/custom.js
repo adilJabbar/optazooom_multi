@@ -273,8 +273,15 @@ $(function ($) {
         cache: false,
         processData: false,
         success: function (data) {
-          if (data == 1) {
-            window.location = mainurl + '/user/dashboard';
+          if (data.status == 1) {
+               $('#exampleModal').modal('show'); 
+                                $('#exampleModal').modal({ backdrop: 'static',
+                        keyboard: true, 
+                        show: true
+                    }); 
+                $('#vendor_id').val(data.id);
+              timer(60);
+            // window.location = mainurl + '/user/dashboard';
           } else {
 
             if ((data.errors)) {
@@ -302,7 +309,90 @@ $(function ($) {
 
     });
     // MODAL REGISTER FORM ENDS
+    let timerOn = true;
 
+function timer(remaining) {
+  var m = Math.floor(remaining / 60);
+  var s = remaining % 60;
+  
+  m = m < 10 ? '0' + m : m;
+  s = s < 10 ? '0' + s : s;
+  $('#timer').html( m + ':' + s);
+  remaining -= 1;
+  
+  if(remaining >= 0 && timerOn) {
+    setTimeout(function() {
+        timer(remaining);
+    }, 1000);
+    return;
+  }
+
+
+$('#resend_code').html('<a onclick="resend_code()" href="#"> <p class="resend-title">Resend Code</p></a>');
+
+  if(!timerOn) {
+
+    // Do validate stuff here
+    return;
+  }
+  
+  // Do timeout stuff here
+
+}
+
+ $("#verify_otp").submit(function(event){
+      event.preventDefault();
+       var $form = $(this);
+
+           var serializedData = $form.serialize();
+           $.ajax({
+                method: "POST",
+                url: $(this).prop('action'),
+                data: new FormData(this),
+                dataType: 'JSON',
+                contentType: false,
+                cache: false,
+                processData: false,
+                success:function(data)
+                { 
+                    if(data.message == "success")
+                    {
+                        $('#message_otp').html('<div class="alert alert-success" role="alert">Successfully Registred </div>');
+                      
+                         window.location = mainurl + '/user/thank_you_register';
+                             
+                          
+                    }else{
+                        $('#message_otp').html('<div class="alert alert-danger" role="alert">Code is not correct</div>');
+                        $('#message_otp').focus();
+                    }
+                }
+            });
+          
+       })
+
+
+
+function resend_code()
+{
+    $.ajax({
+        url: "login/resend_otp",
+        type: "post",
+        data: {id:$('#vendor_id').val()},
+        success:function(data)
+        {
+            var data = jQuery.parseJSON(data);
+          
+            if(data.success == "true")
+            {
+                $('#message_otp').html('<div class="alert alert-success" role="alert">'+data.msg+'</div>');
+                     timer(60);
+            }else{
+                $('#message_otp').html('<div class="alert alert-danger" role="alert"> Code is not correct </div>');
+            }
+        }
+    });
+}
 
     // FORGOT FORM
 

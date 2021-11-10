@@ -89,9 +89,20 @@
                   {{ csrf_field() }}
 
                   <div class="form-input">
-                    <input type="text" class="User Name" name="name" placeholder="{{ $langg->lang182 }}" required="">
+                    <input type="text" class="User Name" name="name" placeholder="First Name" required="">
                     <i class="icofont-user-alt-5"></i>
                   </div>
+
+                  <div class="form-input">
+                    <input type="text" class="User Name" name="l_name" placeholder="Last Name" required="">
+                    <i class="icofont-user-alt-5"></i>
+                  </div>
+
+                   <div class="form-input">
+                    <input type="text" class="User Name" name="company" placeholder="Company Name" required="">
+                    <i class="icofont-cart"></i>
+                  </div>
+
 
                   <div class="form-input">
                     <input type="email" class="User Name" name="email" placeholder="{{ $langg->lang183 }}" required="">
@@ -99,12 +110,38 @@
                   </div>
 
                   <div class="form-input">
-                    <input type="text" class="User Name" name="phone" placeholder="{{ $langg->lang184 }}" required="">
+                    <input type="text" class="User Name" name="work_phone" placeholder="Work Phone" required="">
+                    <i class="icofont-phone"></i>
+                  </div>
+
+                   <div class="form-input">
+                    <input type="text" class="User Name" name="phone" placeholder="Mobile Phone" required="">
                     <i class="icofont-phone"></i>
                   </div>
 
                   <div class="form-input">
-                    <input type="text" class="User Name" name="address" placeholder="{{ $langg->lang185 }}" required="">
+                      <select style="    width: 100%;
+    height: 50
+px
+;
+    background: #f3f8fc;
+    padding: 0
+px
+ 30
+px
+ 0
+px
+ 45
+px
+;
+    border: 1
+px
+ solid rgba(0, 0, 0, 0.1);
+    font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
+                        <option  value="">How Did You Hear About Us?</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="instagram">Instagram</option>
+                      </select>
                     <i class="icofont-location-pin"></i>
                   </div>
 
@@ -122,7 +159,7 @@
 
                   @if($gs->is_capcha == 1)
 
-                  <ul class="captcha-area">
+               <!--    <ul class="captcha-area">
                     <li>
                       <p><img class="codeimg1" src="{{asset("assets/images/capcha_code.png")}}" alt=""> <i
                           class="fas fa-sync-alt pointer refresh_code "></i></p>
@@ -132,7 +169,7 @@
                   <div class="form-input">
                     <input type="text" class="Password" name="codes" placeholder="{{ $langg->lang51 }}" required="">
                     <i class="icofont-refresh"></i>
-                  </div>
+                  </div> -->
 
                   @endif
 
@@ -150,5 +187,54 @@
     </div>
   </div>
 </section>
+
+
+
+  <!--Modal Popup start for OTP Verification-->
+
+    <div class="modal fade pt-100" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">       
+          <div class="modal-content">
+            <div class="modal-header">
+            </div>
+            <div class="login-verification text-center">
+                <h3 class="modal-input-heading">Registration Verification</h3>
+                <p class="modal-description">We have sent you an authentication<br>
+                    code via SMS for Phone Number verification</p>
+                    </div>
+            <div class="modal-body ">
+                <div class="position-relative" >
+                    <div class="p-2 text-center"> 
+                   <div id="message_otp"></div>
+                    <div id="msg"></div>     
+                        <div> 
+                            <p class="code-title">Enter Code Here</p>
+                        </div>
+                        <form id="verify_otp" action="{{route('user-verify-otp')}}" method="POST">
+                             {{ csrf_field() }}
+                        <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2 " >
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="first" value="" type="text" id="first" maxlength="1" /> 
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="second" value="" type="text" id="second" maxlength="1" /> 
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="third" type="text" id="third" maxlength="1" /> 
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs"   name="fourth"  type="text" id="fourth" maxlength="1" /> 
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="fifth" type="text" id="fifth" maxlength="1" /> 
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" type="text" name="sixth" id="sixth" maxlength="1" /> </div>
+                        <button class="register-otp-button" type="submit"><i class="fa fa-long-arrow-right circle-icon-arrow"></i> </button>
+                        <!-- <a href="#"><i class="fa fa-long-arrow-right circle-icon-arrow"></i></a> -->
+                        <input type="hidden" name="id" value="" id="vendor_id">
+                        </form>
+                        <div class="card-2">
+                             <div id="resend_code">
+                        </div>
+                          <!-- <a onclick="resend_code()" href="#"> <p class="resend-title">Resend Code</p></a> -->
+                             <a href="#" class="text-decoration-none ms-3"><span class="time" id="timer">00:59</span></a> </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+          </div>
+        </div>
+
 
 @endsection

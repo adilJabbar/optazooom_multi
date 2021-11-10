@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use Session;
-
+use Twilio\Rest\Client;
 use Validator;
 
 class LoginController extends Controller
@@ -18,6 +18,10 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
+     
+
+       
+
       $this->code_image();
       return view('user.login');
     }

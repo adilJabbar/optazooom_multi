@@ -8,6 +8,7 @@ use App\Models\Generalsetting;
 use App\Models\User;
 use App\Classes\GeniusMailer;
 use App\Models\Notification;
+use Twilio\Rest\Client;
 use Auth;
 
 use Validator;
@@ -18,15 +19,15 @@ class RegisterController extends Controller
     public function register(Request $request)
     {
 
-    	$gs = Generalsetting::findOrFail(1);
 
-    	if($gs->is_capcha == 1)
-    	{
-	        $value = session('captcha_string');
-	        if ($request->codes != $value){
-	            return response()->json(array('errors' => [ 0 => 'Please enter Correct Capcha Code.' ]));    
-	        }    		
-    	}
+    	$gs = Generalsetting::findOrFail(1);
+    	// if($gs->is_capcha == 1)
+    	// {
+	    //     $value = session('captcha_string');
+	    //     if ($request->codes != $value){
+	    //         return response()->json(array('errors' => [ 0 => 'Please enter Correct Capcha Code.' ]));    
+	    //     }    		
+    	// }
 
 
         //--- Validation Section
@@ -48,7 +49,9 @@ class RegisterController extends Controller
 	        $token = md5(time().$request->name.$request->email);
 	        $input['verification_link'] = $token;
 	        $input['affilate_code'] = md5($request->name.$request->email);
-
+	        $input['mobile_varification_code'] = rand(100000,999999);
+	        $input['mobile_varification_status'] = 0;
+	        $input['admin_approval'] = 0;
 	          if(!empty($request->vendor))
 	          {
 					//--- Validation Section
@@ -69,13 +72,15 @@ class RegisterController extends Controller
 
 			  }
 			  
-			$user->fill($input)->save();
+			$id = $user->fill($input)->save();
+
 	        if($gs->is_verification_email == 1)
 	        {
 	        $to = $request->email;
 	        $subject = 'Verify your email address.';
 	        $msg = "Dear Customer,<br> We noticed that you need to verify your email address. <a href=".url('user/register/verify/'.$token).">Simply click here to verify. </a>";
 	        //Sending Email To Customer
+
 	        if($gs->is_smtp == 1)
 	        {
 	        $data = [
@@ -101,8 +106,10 @@ class RegisterController extends Controller
 	        $notification = new Notification;
 	        $notification->user_id = $user->id;
 	        $notification->save();
-            Auth::guard('web')->login($user); 
-          	return response()->json(1);
+
+            // Auth::guard('web')->login($user); 
+            $this->send_message( $user->phone,$input['mobile_varification_code']);
+          	return response()->json(['status'=>1,'id'=>$user->id]);
 	        }
 
     }
@@ -128,5 +135,75 @@ class RegisterController extends Controller
     		else {
     		return redirect()->back();	
     		}
+    }
+
+    private function send_message($reciever_number,$vcode)
+    {
+    	$message = "OptaZoom verification code: ".$vcode;
+      	// $recipients = '+923099481244';
+       	$account_sid = getenv("TWILIO_SID");
+
+        $auth_token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_number = getenv("TWILIO_NUMBER");
+        $client = new Client($account_sid, $auth_token);
+       // dd($client);
+          try {
+  
+            $account_sid = getenv("TWILIO_SID");
+            $auth_token = getenv("TWILIO_TOKEN");
+            $twilio_number = getenv("TWILIO_NUMBER");
+
+ 
+            $client = new Client($account_sid, $auth_token);
+           $clientt =  $client->messages->create($reciever_number, [
+                'from' => $twilio_number, 
+                'body' => $message]);
+  
+            // dd( 'SMS Sent Successfully.');
+  
+        } catch (Exception $e) {
+            dd("Error: ". $e->getMessage());
+        }
+        // $msg = $client->messages->create($recipients, ['from' => $twilio_number, 'body' => $message]);
+    }
+
+    public function verify_otp(Request $request)
+    {
+    	
+			$otp_number = $request->get('first').$request->get('second').$request->get('third').$request->get('fourth').$request->get('fifth').$request->get('sixth');
+				$id = $request->get('id');
+				$mobile_verification_code = User::find($id);
+
+				$mobile_verification_code = $mobile_verification_code->mobile_varification_code;
+			if($otp_number == $mobile_verification_code )
+			{
+
+				// if($_POST['forgot_pass']){
+				// 	$link_activate = base_url()."login/verify_email/".$data['email_verification_code'];
+				// 	$email = $mobile_verification_code = $this->db->get_where('users',['id'=>$id])->row()->email;
+				// 	$msg = 'Hi '.$this->db->get_where('users',['id'=>$id])->row()->f_name.', Your password updation link is activated. You can change your password by clicking the below link  
+				// 	</br>'.base_url('login/password_update/').$id.'/'.$this->db->get_where('users',['id'=>$id])->row()->password; 
+		          
+		  //           $email = $this->et->do_email('Optazoom','Optazoom',$email,'Updation Password',$msg);
+				// }
+				$user = User::find($id);
+				$user->mobile_varification_status = 1;
+				$user->mobile_varification_code = '';
+				$user->update();
+				return response()->json(['message'=>'success']);
+				exit;
+				// echo json_encode(['message'=>'success']);
+				
+			}else{
+				return response()->json(['message'=>'error']);
+				 exit;
+			}
+		
+
+    }
+
+    public function thank_you()
+    {
+    	  return view('user.thank_you');
     }
 }
