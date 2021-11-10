@@ -46,6 +46,21 @@ class LoginController extends Controller
         // if successful, then redirect to their intended location
 
         // Check If Email is verified or not
+
+         if(Auth::guard('web')->user()->mobile_varification_status   == '' || Auth::guard('web')->user()->mobile_varification_status   == 0)
+          {
+            Auth::guard('web')->logout();
+            return response()->json(array('errors' => [ 0 => 'You phone is not verified' ]));   
+          }
+
+          if(Auth::guard('web')->user()->admin_approval   == '' || Auth::guard('web')->user()->admin_approval   == 0)
+          {
+            Auth::guard('web')->logout();
+            return response()->json(array('errors' => [ 0 => 'You are not approved by admin' ]));   
+          }
+
+
+
           if(Auth::guard('web')->user()->email_verified == 'No')
           {
             Auth::guard('web')->logout();

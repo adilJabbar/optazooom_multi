@@ -1062,7 +1062,13 @@
 
                           <div class="col-lg-6">
                             <div class="form-input">
-                                <input type="text" class="User Name" name="name" placeholder="{{ $langg->lang182 }}" required="">
+                                <input type="text" class="User Name" name="name" placeholder="First Name" required="">
+                                <i class="icofont-user-alt-5"></i>
+                            	</div>
+                           </div>
+                            <div class="col-lg-6">
+                           <div class="form-input">
+                                <input type="text" class="User Name" name="l_name" placeholder="Last Name" required="">
                                 <i class="icofont-user-alt-5"></i>
                             	</div>
                            </div>
@@ -1076,22 +1082,22 @@
                            	</div>
                            <div class="col-lg-6">
     <div class="form-input">
-                                <input type="text" class="User Name" name="phone" placeholder="{{ $langg->lang184 }}" required="">
+                                <input type="text" class="User Name" name="phone" placeholder="Mobile Number" required="">
                                 <i class="icofont-phone"></i>
                             </div>
 
                            	</div>
-                           <div class="col-lg-6">
+                          <!--  <div class="col-lg-6">
 
 <div class="form-input">
                                 <input type="text" class="User Name" name="address" placeholder="{{ $langg->lang185 }}" required="">
                                 <i class="icofont-location-pin"></i>
                             </div>
-                           	</div>
+                           	</div> -->
 
                            <div class="col-lg-6">
  <div class="form-input">
-                                <input type="text" class="User Name" name="shop_name" placeholder="{{ $langg->lang238 }}" required="">
+                                <input type="text" class="User Name" name="shop_name" placeholder="Company" required="">
                                 <i class="icofont-cart-alt"></i>
                             </div>
 
@@ -1099,38 +1105,99 @@
                            <div class="col-lg-6">
 
  <div class="form-input">
-                                <input type="text" class="User Name" name="owner_name" placeholder="{{ $langg->lang239 }}" required="">
+                                <input type="text" class="User Name" name="website" placeholder="Website">
                                 <i class="icofont-cart"></i>
                             </div>
                            	</div>
-                           <div class="col-lg-6">
+                           <div class="col-lg-12">
 
 <div class="form-input">
-                                <input type="text" class="User Name" name="shop_number" placeholder="{{ $langg->lang240 }}" required="">
-                                <i class="icofont-shopping-cart"></i>
+                               
+                                    <label>Select Supplier Category (You can check more then one)</label>
+                                    <div style="border-bottom: 1px solid #cfcfcf;"></div>
+                                    <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
+                                        <input type="checkbox" id="cases" name="category[]" value="case">
+                                        <label for="cases">Cases</label>
+                                        
+                                    </span>
+                                    <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
+                                        <input type="checkbox" id="frames" name="category[]" value="frames">
+                                        <label for="frames">Frames</label>
+                                        
+                                    </span>
+                                    <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
+                                        <input type="checkbox" id="supplies" name="category[]" value="supplies">
+                                        <label for="supplies">Supplies</label>
+                                        
+                                    </span>
+                                    <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
+                                        <input type="checkbox" id="lenses" name="category[]" value="lenses">
+                                        <label for="lenses">Contact Lenses</label>
+                                        
+                                    </span>
+                                    <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
+                                        <input type="checkbox"  id="all" name="category[]" value="all">
+                                        <label for="all">All</label>
+                                        
+                                    </span>
+
+                   
+                                    <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
+                                        <input type="checkbox" id="other" name="category[]" value="other">
+                                        <label for="other">Others</label>
+                                    </span>
+                                    
+                                
+     
                             </div>
                            	</div>
-                           <div class="col-lg-6">
+                         <!--   <div class="col-lg-6">
 
  <div class="form-input">
                                 <input type="text" class="User Name" name="shop_address" placeholder="{{ $langg->lang241 }}" required="">
                                 <i class="icofont-opencart"></i>
                             </div>
-                           	</div>
-                           <div class="col-lg-6">
+                           	</div> -->
+                          <!--  <div class="col-lg-6">
 
 <div class="form-input">
                                 <input type="text" class="User Name" name="reg_number" placeholder="{{ $langg->lang242 }}" required="">
                                 <i class="icofont-ui-cart"></i>
                             </div>
-                           	</div>
+                           	</div> -->
                            <div class="col-lg-6">
 
- <div class="form-input">
-                                <input type="text" class="User Name" name="shop_message" placeholder="{{ $langg->lang243 }}" required="">
-                                <i class="icofont-envelope"></i>
-                            </div>
+<div class="form-input">
+                      <select style=" width: 100%;height: 50px;
+    background: #f3f8fc;
+    padding: 0px 30px 0px 45px;
+    border: 1px
+    solid rgba(0, 0, 0, 0.1);
+    font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
+                        <option  value="">How Did You Hear About Us?</option>
+                        <option value="facebook">Facebook</option>
+                        <option value="instagram">Instagram</option>
+                      </select>
+           
+                  </div>
                            	</div>
+
+<div class="col-lg-6">
+	<div class="form-input">
+              <select style=" width: 100%;height: 50px;
+			    background: #f3f8fc;
+			    padding: 0px 30px 0px 45px;
+			    border: 1px
+			    solid rgba(0, 0, 0, 0.1);
+			    font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
+                <option  value="">Country(Optional)</option>
+                <option value="usa">USA</option>
+                <option value="uae">UAE</option>
+                <option value="uk">United Kingdom</option>
+              </select>
+           
+    </div>
+</div>
 
                            <div class="col-lg-6">
   <div class="form-input">
@@ -1148,7 +1215,7 @@
 
                             @if($gs->is_capcha == 1)
 
-<div class="col-lg-6">
+<!-- <div class="col-lg-6">
 
 
                             <ul class="captcha-area">
@@ -1161,9 +1228,9 @@
                             </ul>
 
 
-</div>
+</div> -->
 
-<div class="col-lg-6">
+<!-- <div class="col-lg-6">
 
  <div class="form-input">
                                 <input type="text" class="Password" name="codes" placeholder="{{ $langg->lang51 }}" required="">
@@ -1173,7 +1240,7 @@
 
 
 
-                          </div>
+                          </div> -->
 
                           @endif
 

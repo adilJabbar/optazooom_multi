@@ -274,12 +274,15 @@ $(function ($) {
         processData: false,
         success: function (data) {
           if (data.status == 1) {
+                $("#vendor-login").modal("hide");
                $('#exampleModal').modal('show'); 
                                 $('#exampleModal').modal({ backdrop: 'static',
                         keyboard: true, 
                         show: true
                     }); 
                 $('#vendor_id').val(data.id);
+            
+              
               timer(60);
             // window.location = mainurl + '/user/dashboard';
           } else {

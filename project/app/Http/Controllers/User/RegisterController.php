@@ -55,24 +55,27 @@ class RegisterController extends Controller
 	          if(!empty($request->vendor))
 	          {
 					//--- Validation Section
-					$rules = [
-						'shop_name' => 'unique:users',
-						'shop_number'  => 'max:10'
-							];
-					$customs = [
-						'shop_name.unique' => 'This Shop Name has already been taken.',
-						'shop_number.max'  => 'Shop Number Must Be Less Then 10 Digit.'
-					];
-
-					$validator = Validator::make($request->all(), $rules, $customs);
-					if ($validator->fails()) {
-					return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
-					}
+					
 					$input['is_vendor'] = 1;
 
 			  }
-			  
+			 
 			$id = $user->fill($input)->save();
+
+
+		  if(!empty($request->vendor))
+          {
+          	foreach($request->category as $k => $v)
+          	{
+          		$dataa['category']  = $v;
+				$dataa['user_id'] =  $user->id ;
+				$dataa['created_at'] =  date('y:m:d h:i:s') ;
+				
+          		\DB::table('vendor_category')->insert($dataa);
+          	}
+				
+
+		  }
 
 	        if($gs->is_verification_email == 1)
 	        {

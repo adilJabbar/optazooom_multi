@@ -120,23 +120,11 @@
                   </div>
 
                   <div class="form-input">
-                      <select style="    width: 100%;
-    height: 50
-px
-;
+                      <select style=" width: 100%;height: 50px;
     background: #f3f8fc;
-    padding: 0
-px
- 30
-px
- 0
-px
- 45
-px
-;
-    border: 1
-px
- solid rgba(0, 0, 0, 0.1);
+    padding: 0px 30px 0px 45px;
+    border: 1px
+    solid rgba(0, 0, 0, 0.1);
     font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
                         <option  value="">How Did You Hear About Us?</option>
                         <option value="facebook">Facebook</option>
