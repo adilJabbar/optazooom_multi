@@ -29349,10 +29349,9 @@
     [dir='rtl'] .slick-slide {
         float: right;
     }
-    
-    .slick-slide img {
+    /* .slick-slide img {
         display: block;
-    }
+    } */
     
     .slick-slide.slick-loading img {
         display: none;
@@ -48048,6 +48047,9 @@ Faq Page Start
     
     .item {
         border: 1px solid rgba(0, 0, 0, 0)!important;
+        box-shadow: 0px 0px 4px lightgrey;
+        margin: 12px;
+        position: relative;
     }
     
     .item:hover {
@@ -50292,4 +50294,172 @@ Faq Page Start
         font-weight: 300;
         color: #505050;
         word-spacing: 5px;
+    }
+    
+    .save-section .savetime {
+        display: flex;
+        grid-column-gap: 10px;
+    }
+    
+    .savetime>div p:first-child {
+        text-transform: uppercase;
+        font-size: 18px;
+    }
+    
+    .savetime>div p {
+        color: #7e7a79;
+    }
+    
+    .save-section p {
+        margin-bottom: 8px;
+    }
+    
+    .save-section {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 20px;
+        padding: 80px 0px;
+    }
+    
+    .save-section img {
+        height: 30px;
+    }
+    
+    .about-optazoom h3 {
+        color: #505050;
+    }
+    
+    .about-optazoom p {
+        font-size: 16px;
+        font-weight: 300;
+        margin-bottom: 35 px;
+    }
+    
+    .creation-account button {
+        padding: 6px 40px;
+        border-radius: 8px;
+        background: #fcad38;
+        border: 1px solid #fcad38;
+        color: #000;
+        font-weight: 500;
+        cursor: pointer;
+        margin-bottom: 10px;
+    }
+    
+    .creation-account {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    
+    .creation-account button:hover {
+        border: 1px solid #fcad38;
+        background-color: transparent;
+        color: #fcad38;
+    }
+    /* Testimonials */
+    
+    .profesional-profile {
+        text-align: center;
+    }
+    
+    .professionals {
+        text-align: center;
+    }
+    
+    .professionals img {
+        border-radius: 50%;
+        border: 1px solid lightgray;
+    }
+    
+    .testimonails-p {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 25px;
+        height: 190px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    
+    .profesional-profile hr {
+        margin: 30px auto 20px auto;
+        padding: 0px;
+        border-bottom: 2px solid #fcad38;
+        border-top: 0px;
+        width: 80%;
+    }
+    
+    .profesional-profile h5 {
+        color: #74a6db;
+        font-weight: 400;
+        margin-bottom: 0px;
+    }
+    
+    .profesional-profile p:last-child {
+        text-transform: uppercase;
+        font-size: 15px;
+    }
+    
+    .profesional-profile>div {
+        width: 130px;
+        height: 130px;
+        margin: 30px auto;
+    }
+    
+    .login-verification {
+        text-align: center;
+        padding-left: 60px;
+        padding-right: 60px;
+        font-weight: 400;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+    }
+    
+    .modal-description {
+        line-height: 24px;
+        color: #5a5a5a;
+        margin-top: 15 px;
+        margin-bottom: 15 px;
+        font-size: 18px;
+        font-weight: 300;
+    }
+    
+    .code-title {
+        font-size: 20px;
+        color: #7d7d7de3;
+        font-weight: 500;
+    }
+    
+    #otp {
+        padding-bottom: 30 px;
+    }
+    
+    .inputs input {
+        width: 40 px;
+        height: 50 px;
+    }
+    
+    .inputs input {
+        width: 40 px;
+        height: 50 px;
+    }
+    
+    .tabs {
+        width: 100%;
+        display: flex;
+        margin-bottom: 24 px;
+        background-color: #E1E1E1;
+    }
+    
+    .card-2 {
+        padding-top: 30 px;
+    }
+    
+    .resend-title {
+        font-size: 17px;
+    }
+    
+    .time {
+        font-size: 18px;
+        color: #000;
     }
