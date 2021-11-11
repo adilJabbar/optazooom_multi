@@ -29500,12 +29500,12 @@
     /* Dots */
     
     .slick-dotted.slick-slider {
-        margin-bottom: 30px;
+        margin-bottom: 80px;
     }
     
     .slick-dots {
         position: absolute;
-        bottom: -50px;
+        bottom: -35px;
         display: block;
         width: 100%;
         padding: 0;
@@ -50341,7 +50341,7 @@ Faq Page Start
         background: #fcad38;
         border: 1px solid #fcad38;
         color: #000;
-        font-weight: 500;
+        font-weight: 400;
         cursor: pointer;
         margin-bottom: 10px;
     }
