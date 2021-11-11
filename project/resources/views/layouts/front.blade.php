@@ -176,6 +176,7 @@
 								</div>
 								<button type="submit"><img src="{{asset('assets/images/search.png')}}" class="search"></button>
 							</form>
+							
 						</div>
 					</div>
 				</div>

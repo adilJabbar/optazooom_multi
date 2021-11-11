@@ -38693,7 +38693,7 @@ Logo Header Area Start
             .logo-header .search-box .categori-container {
                 position: absolute;
                 height: 50px;
-                width: 135px;
+                width: 110px;
                 z-index: 2;
             }
             
@@ -49852,7 +49852,7 @@ Faq Page Start
                 margin-top: 5px;
                 border-radius: 4px;
                 color: black;
-                background: #ffbe5c;
+                background: #fdac38;
                 padding: 7px 70px;
             }
             
@@ -50496,5 +50496,5 @@ Faq Page Start
                 font-size: 32px;
                 color: #fff;
                 border-radius: 50%;
-                padding: 20 px;
+                padding: 20px;
             }
