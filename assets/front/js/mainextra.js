@@ -1,18 +1,18 @@
-$(function ($) {
+$(function($) {
     "use strict";
 
 
-    $(document).ready(function () {
+    $(document).ready(function() {
 
-        $(function(){
+        $(function() {
 
             var url = window.location.pathname,
-                urlRegExp = new RegExp(url.replace(/\/$/,'') + "$");
+                urlRegExp = new RegExp(url.replace(/\/$/, '') + "$");
 
             // now grab every link from the navigation
-            $('.core-nav-list li a').each(function(){
+            $('.core-nav-list li a').each(function() {
                 // and test its normalized href against the url pathname regexp
-                if(urlRegExp.test(this.href.replace(/\/$/,''))){
+                if (urlRegExp.test(this.href.replace(/\/$/, ''))) {
                     $(this).addClass('active');
                 }
             });
@@ -34,9 +34,9 @@ $(function ($) {
 
 
         $('#example').DataTable({
-            "paging":   true,
+            "paging": true,
             "ordering": true,
-            "info":     true
+            "info": true
         });
 
 
@@ -49,7 +49,7 @@ $(function ($) {
         });
 
 
-// Tooltip Section
+        // Tooltip Section
 
         $('[data-toggle="tooltip"]').tooltip({
 
@@ -57,16 +57,16 @@ $(function ($) {
 
         $('[rel-toggle="tooltip"]').tooltip();
 
-        $('[data-toggle="tooltip"]').on('click',function(){
+        $('[data-toggle="tooltip"]').on('click', function() {
             $(this).tooltip('hide');
         })
 
 
-        $('[rel-toggle="tooltip"]').on('click',function(){
+        $('[rel-toggle="tooltip"]').on('click', function() {
             $(this).tooltip('hide');
         })
 
-// Tooltip Section Ends
+        // Tooltip Section Ends
 
         /*-----------------------------
             Accordion Active js
@@ -118,10 +118,10 @@ $(function ($) {
 
 
         // Product deal countdown
-        $('[data-countdown]').each(function () {
+        $('[data-countdown]').each(function() {
             var $this = $(this),
                 finalDate = $(this).data('countdown');
-            $this.countdown(finalDate, function (event) {
+            $this.countdown(finalDate, function(event) {
                 $this.html(event.strftime('<span>%D : <small>Days</small></span> <span>%H : <small>Hrs</small></span>  <span>%M : <small>Min</small></span> <span>%S <small>Sec</small></span>'));
             });
         });
@@ -158,13 +158,48 @@ $(function ($) {
             }
         });
 
+        //Featured Vendors
 
+        $('.main-slider-check').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
 
         // trending item  slider
         var $hot_new_slider = $('.hot-and-new-item-slider');
 
 
-        $( $hot_new_slider ).each(function() {
+        $($hot_new_slider).each(function() {
 
 
             if ($(this).children().length > 1) {
@@ -189,10 +224,10 @@ $(function ($) {
                         }
                     }
                 });
-    
+
             }
 
-          });
+        });
 
 
 
@@ -231,12 +266,12 @@ $(function ($) {
             fade: true,
             asNavFor: '.all-item-slider',
             responsive: [{
-                breakpoint: 991,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                }
-            },
+                    breakpoint: 991,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                },
                 {
                     breakpoint: 767,
                     settings: {
@@ -278,12 +313,12 @@ $(function ($) {
         fade: true,
         asNavFor: '.quick-all-item-slider',
         responsive: [{
-            breakpoint: 991,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-            }
-        },
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
             {
                 breakpoint: 767,
                 settings: {
@@ -347,3 +382,21 @@ $(function ($) {
     });
 
 });
+
+
+$('.owl-carousel').owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 3
+        },
+        1000: {
+            items: 5
+        }
+    }
+})

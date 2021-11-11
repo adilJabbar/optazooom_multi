@@ -49,7 +49,6 @@
 @endif
 
 
-
 	@yield('styles')
 
 </head>
@@ -1322,7 +1321,7 @@
         </div>
     </div>
 <!-- Order Tracking modal End -->
-
+				
 <script type="text/javascript">
   var mainurl = "{{url('/')}}";
   var gs      = {!! json_encode(\App\Models\Generalsetting::first()->makeHidden(['stripe_key', 'stripe_secret', 'smtp_pass', 'instamojo_key', 'instamojo_token', 'paystack_key', 'paystack_email', 'paypal_business', 'paytm_merchant', 'paytm_secret', 'paytm_website', 'paytm_industry', 'paytm_mode', 'molly_key', 'razorpay_key', 'razorpay_secret'])) !!};
@@ -1350,6 +1349,7 @@
 	<script src="{{asset('assets/front/js/main.js')}}"></script>
 	<!-- custom -->
 	<script src="{{asset('assets/front/js/custom.js')}}"></script>
+	
 
     {!! $seo->google_analytics !!}
 
