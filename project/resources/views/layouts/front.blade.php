@@ -509,7 +509,7 @@
                                             </ul>
                                         </li>
                                        
-                                         <li><a href="#">OptaZoom News</a></li>
+                                         <li><a href="{{route('user.optanews')}}">OptaZoom News</a></li>
                                           <li><a href="#">Vendors</a></li>
                                 </nav>
                             </div>

@@ -719,6 +719,31 @@ public function deleteDir($dirPath) {
 }
 
 
+public function optanews()
+{
+     $this->code_image();
+         if(!empty($request->reff))
+         {
+            $affilate_user = User::where('affilate_code','=',$request->reff)->first();
+            if(!empty($affilate_user))
+            {
+                $gs = Generalsetting::findOrFail(1);
+                if($gs->is_affilate == 1)
+                {
+                    Session::put('affilate', $affilate_user->id);
+                    return redirect()->route('front.index');
+                }
+
+            }
+
+         }
+        $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
+        $sliders = DB::table('sliders')->get();
+       
+        $ps = DB::table('pagesettings')->find(1);
+     return view('front.optanews',compact('ps','sliders'));
+}
+
 // -------------------------------- PRINT SECTION ENDS ----------------------------------------
 
 }

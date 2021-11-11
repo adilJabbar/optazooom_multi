@@ -8,7 +8,7 @@ use Auth;
 use Session;
 use Twilio\Rest\Client;
 use Validator;
-
+use Feed;
 class LoginController extends Controller
 {
     public function __construct()
@@ -18,8 +18,9 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-     
-
+     $url = 'https://visionmonday.com/rss/eyecare/';
+    $rss = Feed::loadRss($url);
+    // dd($rss);
        
 
       $this->code_image();

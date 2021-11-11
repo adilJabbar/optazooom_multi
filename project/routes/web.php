@@ -1460,6 +1460,9 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
 
   Route::get('/', 'Front\FrontendController@index')->name('front.index');
   Route::get('/extras', 'Front\FrontendController@extraIndex')->name('front.extraIndex');
+    // Optanews RSS feed 
+
+  Route::get('/optanews', 'Front\FrontendController@optanews')->name('user.optanews');
   
   Route::get('/currency/{id}', 'Front\FrontendController@currency')->name('front.currency');
   Route::get('/language/{id}', 'Front\FrontendController@language')->name('front.language');
