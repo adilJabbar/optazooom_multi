@@ -21,35 +21,6 @@
 		</section>
 		<!-- Banner Area One Start -->
 	@endif
-		@if($ps->featured == 1)
-		<!-- Trending Item Area Start -->
-		<section  class="trending">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 remove-padding">
-						<div class="section-top">
-							<h2 class="section-title">
-								{{ $langg->lang26 }}
-							</h2>
-							{{-- <a href="#" class="link">View All</a> --}}
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 remove-padding">
-						<div class="trending-item-slider">
-							@foreach($feature_products as $prod)
-								@include('includes.product.slider-product')
-							@endforeach
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</section>
-		<!-- Tranding Item Area End -->
-	@endif
-
 	
 	@if($ps->best == 1)
 		<!-- Phone and Accessories Area Start -->
@@ -478,6 +449,35 @@
     </div>
 </div>
 			<!-- End Icon Section -->
+
+			@if($ps->featured == 1)
+		<!-- Trending Item Area Start -->
+		<section  class="trending">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 remove-padding">
+						<div class="section-top">
+							<h2 class="section-title">
+								{{ $langg->lang26 }}
+							</h2>
+							{{-- <a href="#" class="link">View All</a> --}}
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 remove-padding">
+						<div class="trending-item-slider">
+							@foreach($feature_products as $prod)
+								@include('includes.product.slider-product')
+							@endforeach
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- Tranding Item Area End -->
+	@endif
 						<!--- Featured Vendors--->
 						<div class="container">
 					<div class="professional-heading">
