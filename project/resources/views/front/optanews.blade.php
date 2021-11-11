@@ -173,11 +173,11 @@ foreach ($rss->item as $item )
 	                <div class="col-lg-7">
 	                    <div class="li-blog-content">
 	                        <div class="li-blog-details">
-	                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title; ?>">{{$item->title}}</a></h3>
+	                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
 	                            <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
 	                            </p>
 	                           
-	                            <a class="read-more-blogs" href="<?php echo 'news_feed_detail?title='.$item->title; ?>" target="_blank">Read more</a>
+	                            <a class="read-more-blogs" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link;; ?>" target="_blank">Read more</a>
 	                        </div>
 	                    </div>
 	                </div>
