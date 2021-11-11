@@ -44,7 +44,7 @@
     padding-right: 77px;
     }
 
-    
+
 </style>
 <!--Breadcrumb-->
 <div class="breadcrumb justify-content-center pt-60 pb-60">
@@ -104,8 +104,8 @@ $doc->loadHTML($htmlString);
 
 
 $xpath = new \DOMXpath($doc);
-  $articles = $xpath->query('//div[@class="blogArticle"]');
-
+  $articles = $xpath->query('//div');
+dd($articles);
   // all links in h2's in .blogArticle
   $links = [];
   dd($xpath->query('img'));

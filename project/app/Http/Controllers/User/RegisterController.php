@@ -51,7 +51,7 @@ class RegisterController extends Controller
 	        $input['affilate_code'] = md5($request->name.$request->email);
 	        $input['mobile_varification_code'] = rand(100000,999999);
 	        $input['mobile_varification_status'] = 0;
-	        $input['admin_approval'] = 0;
+	        $input['admin_approval'] = 1;
 	          if(!empty($request->vendor))
 	          {
 					//--- Validation Section
