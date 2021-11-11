@@ -416,7 +416,70 @@
 		</section>
 		<!-- Blog Area start-->
 	@endif
-
+			<!--- Featured Vendors--->
+			<div class="container">
+					<div class="professional-heading">
+						<h3>FEATURED VENDOR<h3>
+					</div>
+				<div class="main-slider-check">
+					<div class="featured">
+						<div class="featured-vendor">
+							<a href="#">
+								<div class="cat-img">
+								  <img src="{{asset('assets/images/swing.png')}}" alt="">
+                               </div>
+							   <hr>
+								<h4 class="vendor-name">Hiclo Vison</h4>
+							</a>
+						</div>
+                   </div>
+				   <div class="featured">
+						<div class="featured-vendor">
+							<a href="#">
+								<div class="cat-img">
+								  <img src="{{asset('assets/images/amcob.jpg')}}" alt="">
+                               </div>
+							   <hr>
+								<h4 class="vendor-name">Amcon</h4>
+							</a>
+						</div>
+                   </div>
+				   <div class="featured">
+						<div class="featured-vendor">
+							<a href="#">
+								<div class="cat-img">
+								  <img src="{{asset('assets/images/go.png')}}" alt="">
+                               </div>
+							   <hr>
+								<h4 class="vendor-name">Go Eyewared Group</h4>
+							</a>
+						</div>
+                   </div>
+				   <div class="featured">
+						<div class="featured-vendor">
+							<a href="#">
+								<div class="cat-img">
+								  <img src="{{asset('assets/images/dynamic.png')}}" alt="">
+                               </div>
+							   <hr>
+								<h4 class="vendor-name">Dynamic Lab</h4>
+							</a>
+						</div>
+                   </div>
+				   <div class="featured">
+						<div class="featured-vendor">
+							<a href="#">
+								<div class="cat-img">
+								  <img src="{{asset('assets/images/rons.png')}}" alt="">
+                               </div>
+							   <hr>
+								<h4 class="vendor-name">Ron's Optical</h4>
+							</a>
+						</div>
+                   </div>
+			   </div>
+            </div>
+			<!-- End Featured Vendors -->
 	@if($ps->partners == 1)
 		<!-- Partners Area Start -->
 		<section class="partners">
