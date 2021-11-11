@@ -21,35 +21,6 @@
 		</section>
 		<!-- Banner Area One Start -->
 	@endif
-		@if($ps->featured == 1)
-		<!-- Trending Item Area Start -->
-		<section  class="trending">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 remove-padding">
-						<div class="section-top">
-							<h2 class="section-title">
-								{{ $langg->lang26 }}
-							</h2>
-							{{-- <a href="#" class="link">View All</a> --}}
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12 remove-padding">
-						<div class="trending-item-slider">
-							@foreach($feature_products as $prod)
-								@include('includes.product.slider-product')
-							@endforeach
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</section>
-		<!-- Tranding Item Area End -->
-	@endif
-
 	
 	@if($ps->best == 1)
 		<!-- Phone and Accessories Area Start -->
@@ -416,8 +387,99 @@
 		</section>
 		<!-- Blog Area start-->
 	@endif
-			<!--- Featured Vendors--->
+
+
+			<!-- Icon Section -->
+
+			<div class="container save-section" data-aos="fade-up">
+    <div class="savetime">
+        <img src="{{asset('assets/images/savetime.svg')}}" />
+        <div>
+            <p>SAVE TIME</p>
+            <p>Time is precious, OptaZoom makes it easy for you to order all your optical supplies in one place.
+            </p>
+        </div>
+    </div>
+
+
+    <div class="savetime">
+        <img src="{{asset('assets/images/savemoney.svg')}}" />
+        <div>
+            <p>SAVE MONEY</p>
+            <p>Take advantage of OptaZoom's special distributor pricing and pay less for the same products you already use.
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="savetime" >
+        <img src="{{asset('assets/images/less.svg')}}" />
+        <div>
+            <p>LESS HASSLE</p>
+            <p>We make it easy for you to order the items you need all in one place.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container ">
+    <div class="about-optazoom row animate__animated animate__fadeInUp" >
+        <div class="about-img col-md-6" >
+            <div class="col-md-12">
+                <img src="{{asset('assets/images/about.png')}}"  />
+            </div>
+        </div>
+        <div class="col-md-6" >
+            <div class="col-md-12">
+                <h3>About<span>Optazoom</span></h3>
+                <p>
+                            With OptaZoom, shopping for all your practice needs becomes easy. Spend less time and money ordering the same items from multiple vendors and spend more time with patients.
+            <br><br>
+            At OptaZoom.com we envisioned a one stop shopping experience where an ECP can have access to the entire eye care industry with the click of a button.
+            <br><br>
+            Well, we haven’t gotten the entire eye care industry on board yet. However, with over 50 companies ranging from frames, cases, supplies and just over 80,000 different items to choose from, we at OptaZoom.com are simplifying the buying experience for ECPS across the globe and we hope to do the same for you.
+                    
+                </p>
+               <div class="creation-account text-right">
+                    <a href="@"><button type="button" class="btn ">Read more</button></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+			<!-- End Icon Section -->
+
+			@if($ps->featured == 1)
+		<!-- Trending Item Area Start -->
+		<section  class="trending">
 			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 remove-padding">
+						<div class="section-top">
+							<h2 class="section-title">
+								{{ $langg->lang26 }}
+							</h2>
+							{{-- <a href="#" class="link">View All</a> --}}
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12 remove-padding">
+						<div class="trending-item-slider">
+							@foreach($feature_products as $prod)
+								@include('includes.product.slider-product')
+							@endforeach
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- Tranding Item Area End -->
+	@endif
+						<!--- Featured Vendors--->
+						<div class="container">
 					<div class="professional-heading">
 						<h3>FEATURED VENDOR<h3>
 					</div>
@@ -480,6 +542,87 @@
 			   </div>
             </div>
 			<!-- End Featured Vendors -->
+
+			<!-- Testimonials -->
+			<div class="container">
+					<div class="professional-heading">
+						<h3>OPTICAL PROFESSIONALS LOVE OPTAZOOM<h3>
+					</div>
+				<div class="main-slider-testimonials">
+					<div class="professionals">
+							<div class="profesional-profile">
+									<div class="professional-img">
+									   <img style="height:130px;" src="{{asset('assets/images/brand_718.jpg')}}">
+									</div>
+									<p class="testimonails-p">
+									   I'm a new practice owner and just like all practice owners I needed to find vendors for all the different kinds of equipment and supplies my practice needed. It was such a difficult process, until I found OptoZoom. Their website was easy to use and allowed me to find all the vendors I needed in a very short amount of time.                
+									</p>
+									<hr>
+									<h5> David Antonyan, O.D.</h5>
+									<p> Optometrist </p>
+							</div>
+                     </div>
+
+					 <div class="professionals">
+							<div class="profesional-profile">
+									<div class="professional-img">
+									   <img style="height:130px;" src="{{asset('assets/images/brand_718.jpg')}}">
+									</div>
+									<p class="testimonails-p">
+									   I'm a new practice owner and just like all practice owners I needed to find vendors for all the different kinds of equipment and supplies my practice needed. It was such a difficult process, until I found OptoZoom. Their website was easy to use and allowed me to find all the vendors I needed in a very short amount of time.                
+									</p>
+									<hr>
+									<h5> David Antonyan, O.D.</h5>
+									<p> Optometrist </p>
+							</div>
+                     </div>
+
+					 <div class="professionals">
+							<div class="profesional-profile">
+									<div class="professional-img">
+									   <img style="height:130px;" src="{{asset('assets/images/brand_718.jpg')}}">
+									</div>
+									<p class="testimonails-p">
+									   I'm a new practice owner and just like all practice owners I needed to find vendors for all the different kinds of equipment and supplies my practice needed. It was such a difficult process, until I found OptoZoom. Their website was easy to use and allowed me to find all the vendors I needed in a very short amount of time.                
+									</p>
+									<hr>
+									<h5> David Antonyan, O.D.</h5>
+									<p> Optometrist </p>
+							</div>
+                     </div>
+
+					 <div class="professionals">
+							<div class="profesional-profile">
+									<div class="professional-img">
+									   <img style="height:130px;" src="{{asset('assets/images/brand_718.jpg')}}">
+									</div>
+									<p class="testimonails-p">
+									   I'm a new practice owner and just like all practice owners I needed to find vendors for all the different kinds of equipment and supplies my practice needed. It was such a difficult process, until I found OptoZoom. Their website was easy to use and allowed me to find all the vendors I needed in a very short amount of time.                
+									</p>
+									<hr>
+									<h5> David Antonyan, O.D.</h5>
+									<p> Optometrist </p>
+							</div>
+                     </div>
+
+					 <div class="professionals">
+							<div class="profesional-profile">
+									<div class="professional-img">
+									   <img style="height:130px;" src="{{asset('assets/images/brand_718.jpg')}}">
+									</div>
+									<p class="testimonails-p">
+									   I'm a new practice owner and just like all practice owners I needed to find vendors for all the different kinds of equipment and supplies my practice needed. It was such a difficult process, until I found OptoZoom. Their website was easy to use and allowed me to find all the vendors I needed in a very short amount of time.                
+									</p>
+									<hr>
+									<h5> David Antonyan, O.D.</h5>
+									<p> Optometrist </p>
+							</div>
+                     </div>
+               </div>
+			   <div class="creation-account aos-init aos-animate" data-aos="fade-up">
+           				 <a href="#"><button class="btn become-vendor ">Join Free Today</button></a>
+			  </div>
+			<!-- Testimonials End -->
 	@if($ps->partners == 1)
 		<!-- Partners Area Start -->
 		<section class="partners">
