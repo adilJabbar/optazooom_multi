@@ -69,136 +69,126 @@
                 <div class="col-lg-8 order-lg-1 order-1">
                     <div class="row li-main-content searched_val">
 
+			<?php 
+
+				$url = 'https://visionmonday.com/rss/eyecare/';
+				$rss = Feed::loadRss($url);
+
+				$url = 'https://www.optometrytimes.com/rss';
+				$rss1 = Feed::loadRss($url);
+
+				$url = 'https://www.opticianonline.net/site/GetRssFeed/All';
+				$rss2 = Feed::loadRss($url);
+
+				$url = 'https://www.journalofoptometry.org/en-rss-ultimo';
+				$rss3 = Feed::loadRss($url);
+
+				
+foreach ($rss->item as $item ) 
+				{
+
+				?>
+
+	    <div class="col-lg-12">
+	        <div class="li-blog-single-item mb-30">
+	            <div class="row">
+	                <div class="col-lg-5">
+	                    <div class="li-blog-banner">
+	                                         
+	                    <?php 
+	              			if(isset($item->link))
+	              			{
+
+	              				 $content = file_get_contents($item->link);
+
+								preg_match_all('/<img[^>]+>/i',$content, $result);
+							
+
+              				 	// $content = file_get_contents($item->link);
+								// dd($item->link,$content);
+								preg_match_all('/<img[^>]+>/i',$content, $result); 
+							
+								$value = $item->title;
+								$first = strtok($value, " ");
 
 
- <?php 
- 
+	              			}
+		                   
+
+								if(isset($result[0]))
+								{
+
+								foreach($result[0] as $re_k => $re_v)
+								{
+								
+									$pos = strpos($re_v, $first);
+									// $pos = strpos($re_v, 'eonie');
+							
+									if($pos)
+									{
+										$image = $re_v;
+										break;
+									}else{
+										$image = '';
+									}
+								}
+								
+								// dd('aaa');
+								if(isset($image) && !empty($image))
+								{
+
+					    		$html = $image;
+								$doc = new DOMDocument();
+								$doc->loadHTML($html);
+								$xpath = new DOMXPath($doc);
+								$src = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
+	                    	?>
+	                                     
+	                       <img class="img-full" src="https://visionmonday.com{{$src}}" alt="">
+	                       <?php 
+                       		}else{
+                       			?>
+                       			 <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
+								 <img class="img-full" src="" alt=""></a>
+                       		 <?php }
+	                        
+	                        }else{ 
 
 
-  
- $url = 'https://visionmonday.com/rss/eyecare/';
- $rss = Feed::loadRss($url);
+	                        	?>
+								  <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
+								 <img class="img-full" src="" alt=""></a>
 
- $url = 'https://www.optometrytimes.com/rss';
- $rss1 = Feed::loadRss($url);
-
- $url = 'https://www.opticianonline.net/site/GetRssFeed/All';
- $rss2 = Feed::loadRss($url);
-
- $url = 'https://www.journalofoptometry.org/en-rss-ultimo';
- $rss3 = Feed::loadRss($url);
-
-
-
-$httpClient = new \GuzzleHttp\Client();
-$response = $httpClient->get('https://www.visionmonday.com/eyecare/article/alcon-reports-15-percent-increase-in-third-quarter-2021-sales/');
-$htmlString = (string) $response->getBody();
-//add this line to suppress any warnings
-libxml_use_internal_errors(true);
-$doc = new DOMDocument();
-$doc->loadHTML($htmlString);
-
-
-
-
-
-
-$xpath = new \DOMXpath($doc);
-  $articles = $xpath->query('//div');
-dd($articles);
-  // all links in h2's in .blogArticle
-  $links = [];
-  dd($xpath->query('img'));
-  foreach($articles as $container) {
-  	dd($container,'aaa');
-    $arr = $container->getElementsByTagName("a");
-    foreach($arr as $item) {
-      if($item->parentNode->tagName == "h2") {
-        $href =  $item->getAttribute("img");
-        $text = trim(preg_replace("/[\r\n]+/", " ", $item->nodeValue));
-        $links[] = [
-          'img' => $href,
-          'text' => $text
-        ];
-      }
-    }
-  }
-
-
-
-// $xpath = new DOMXPath($doc);
-//   $arr = $doc->getElementsByTagName("img");
-
-// dd($links);
-
-// $ch = curl_init();
-// 	curl_setopt($ch, CURLOPT_URL, 'https://www.visionmonday.com/eyecare/article/alcon-reports-15-percent-increase-in-third-quarter-2021-sales/');
-// 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-// 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// 	$response = curl_exec($ch);
-// 	curl_close($ch);
-// 	$html = new simple_html_dom();
-// 	$html->load($response);
-//  dd($html);	
-
-
-dd($rss1 ,$rss2 ,$rss3 ,$rss );
-    foreach ($rss->item as $item ) {
-
- ?>
-
-                        <div class="col-lg-12">
-                            <div class="li-blog-single-item mb-30">
-                                <div class="row">
-                                    <div class="col-lg-5">
-                                        <div class="li-blog-banner">
-                                         
-                                                <?php 
-
-                                                 if (isset($has_image) && $has_image == 1) {
-
-                                                    ?>
-                                       <a href="<?php echo $link.'" title="'.$title  ?>"><?= $title ?>">
-                                        <img class="img-full" src="<?=  $image['src']; ?>" alt=""></a>
-
-          
-
-                             <?php 
-                                 }else{ ?>
+							<?php       
+								}
+							
 
 
 
-  <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
+							?>
 
- <img class="img-full" src="" alt=""></a>
-
-     <?php       }
-         ?>
-
-                                                        
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-7">
-                                                <div class="li-blog-content">
-                                                    <div class="li-blog-details">
-                                                        <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'Home/news_feed_detail?title='.$item->title; ?>">{{$item->title}}aaa</a></h3>
-                                                        <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
-                                                        </p>
-                                                       
-                                                        <a class="read-more-blogs" href="<?php echo 'Home/news_feed_detail?title='.$item->title; ?>" target="_blank">Read more</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+	                                                        
+	                    </div>
+	                </div>
+	                <div class="col-lg-7">
+	                    <div class="li-blog-content">
+	                        <div class="li-blog-details">
+	                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title; ?>">{{$item->title}}</a></h3>
+	                            <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
+	                            </p>
+	                           
+	                            <a class="read-more-blogs" href="<?php echo 'news_feed_detail?title='.$item->title; ?>" target="_blank">Read more</a>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
 
 
 <?php
     }
-
- ?>
+?>
 
                         <!-- Begin Li's Pagination Area -->
 
