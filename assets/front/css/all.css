@@ -6037,7 +6037,7 @@
     .modal-dialog-scrollable .modal-footer,
     .modal-dialog-scrollable .modal-header {
         -ms-flex-negative: 0;
-        flex-shrink: 0
+        flex-shrink: 0 padding: 1em;
     }
     
     .modal-dialog-scrollable .modal-body {
@@ -50418,8 +50418,8 @@ Faq Page Start
     .modal-description {
         line-height: 24px;
         color: #5a5a5a;
-        margin-top: 15 px;
-        margin-bottom: 15 px;
+        margin-top: 15px;
+        margin-bottom: 15px;
         font-size: 18px;
         font-weight: 300;
     }
@@ -50431,17 +50431,17 @@ Faq Page Start
     }
     
     #otp {
-        padding-bottom: 30 px;
+        padding-bottom: 30px;
     }
     
     .inputs input {
-        width: 40 px;
-        height: 50 px;
+        width: 40px;
+        height: 50px;
     }
     
     .inputs input {
-        width: 40 px;
-        height: 50 px;
+        width: 40px;
+        height: 50px;
     }
     
     .tabs {
@@ -50462,4 +50462,19 @@ Faq Page Start
     .time {
         font-size: 18px;
         color: #000;
+    }
+    
+    .modal-input-heading {
+        margin-top: 25px;
+        margin-bottom: 5px;
+        color: #6d6d6d;
+        font-weight: 400;
+    }
+    
+    .circle-icon-arrow {
+        background-color: #fda72c;
+        font-size: 32px;
+        color: #fff;
+        border-radius: 50%;
+        padding: 20 px;
     }
