@@ -663,7 +663,7 @@
                      </div>
                </div>
 			   <div class="creation-account aos-init aos-animate" data-aos="fade-up">
-           				 <a href="#"><button class="btn become-vendor ">Join Free Today</button></a>
+           				 <a href="{{ route('user.login') }}"><button class="btn become-vendor ">Join Free Today</button></a>
 			  </div>
 			<!-- Testimonials End -->
 	@if($ps->partners == 1)

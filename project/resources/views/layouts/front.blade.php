@@ -222,16 +222,16 @@
 									@endif
 
 									
-									<li class="login">
+									<!-- <li class="login">
 										<a href="{{ route('user.login') }}" class="sign-logs">
 											<div class="">
 												<span class="sign-in">LOG IN</span>
 												<span></span>
 											</div>
 										</a>
-									</li>
+									</li> -->
 									
-                        			<!-- @if($gs->reg_vendor == 1)
+                        			@if($gs->reg_vendor == 1)
 										<li>
                         				@if(Auth::check())
 	                        				@if(Auth::guard('web')->user()->is_vendor == 2)
@@ -245,7 +245,7 @@
 											<a href="javascript:;" data-toggle="modal" data-target="#vendor-login" class="sell-btn">{{ $langg->lang220 }}</a>
 										</li>
 										@endif
-									@endif -->
+									@endif
  
 							<li class="my-dropdown"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang3 }}">
 								<a href="javascript:;" class="cart carticon">
