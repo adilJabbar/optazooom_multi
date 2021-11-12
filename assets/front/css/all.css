@@ -50623,6 +50623,14 @@ Faq Page Start
                 margin-bottom: 30px !important;
             }
             
+            .pt-60 {
+                padding-top: 60px !important;
+            }
+            
+            .pb-60 {
+                padding-top: 60px !important;
+            }
+            
             #loadMore {
                 padding: 10px;
                 text-align: center;
