@@ -77,7 +77,7 @@
         <ol class="breadcrumb">
             <h3 class="bread-login">News Feed</h3>
         </ol>
-        <ol class="breadcrumb" style="position: relative; left: 3px;">
+        <ol class="breadcrumb" style="position: relative; left: 25px;">
 
             <li class="breadcrumb-item bread-title"><a href="#">Home</a></li>
             <li class="breadcrumb-item bread-title active bread-title" aria-current="page">News Feed</li>
