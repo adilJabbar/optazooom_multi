@@ -30,7 +30,6 @@
 	<!-- favicon -->
 	<link rel="icon"  type="image/x-icon" href="{{asset('assets/images/'.$gs->favicon)}}"/>
 
-
 @if($langg->rtl == "1")
 
 	<!-- stylesheet -->
@@ -48,8 +47,9 @@
 
 @endif
 
-
 	@yield('styles')
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/> -->
 
 </head>
 
@@ -176,7 +176,6 @@
 								</div>
 								<button type="submit"><img src="{{asset('assets/images/search.png')}}" class="search"></button>
 							</form>
-							
 						</div>
 					</div>
 				</div>
@@ -187,7 +186,7 @@
 									<li class="login">
 										<a href="{{ route('user.login') }}" class="sign-log">
 											<div class="">
-												<span class="sign-in">{{ $langg->lang12 }}</span> <span>/</span>
+												<span class="sign-in">{{ $langg->lang12 }}</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>/</span>
 												<span></span>
 											</div>
 										</a>
@@ -222,8 +221,17 @@
 										</li>
 									@endif
 
-
-                        			@if($gs->reg_vendor == 1)
+									
+									<li class="login">
+										<a href="{{ route('user.login') }}" class="sign-logs">
+											<div class="">
+												<span class="sign-in">LOG IN</span>
+												<span></span>
+											</div>
+										</a>
+									</li>
+									
+                        			<!-- @if($gs->reg_vendor == 1)
 										<li>
                         				@if(Auth::check())
 	                        				@if(Auth::guard('web')->user()->is_vendor == 2)
@@ -237,7 +245,7 @@
 											<a href="javascript:;" data-toggle="modal" data-target="#vendor-login" class="sell-btn">{{ $langg->lang220 }}</a>
 										</li>
 										@endif
-									@endif
+									@endif -->
  
 							<li class="my-dropdown"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang3 }}">
 								<a href="javascript:;" class="cart carticon">
@@ -412,7 +420,7 @@
                                                 </div>
                                             </ul>
                                         </li>
-                                        <li><a href="#">Featured Products</a></li>
+                                        <li class="arrow-icon"><a href="#">Featured Products</a></li>
                                         <li class="dropdown-holder"><a href="javascript:void(0)">Deals</a>
                                             <ul class="hb-dropdown feature-hb-deals">
                                                 <div class="main-section-deals">
@@ -509,8 +517,8 @@
                                             </ul>
                                         </li>
                                        
-                                         <li><a href="{{route('user.optanews')}}">OptaZoom News</a></li>
-                                          <li><a href="#">Vendors</a></li>
+                                         <li class="arrow-icon"><a href="#">OptaZoom News</a></li>
+                                          <li class="arrow-icon"><a href="#">Vendors</a></li>
                                 </nav>
                             </div>
                             <!-- Header Bottom Menu Area End Here -->

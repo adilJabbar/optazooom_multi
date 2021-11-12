@@ -29439,29 +29439,29 @@
             }
             
             .slick-prev:before {
-                font-family: 'slick';
+                font-family: 'fontawesome';
                 font-size: 20px;
                 line-height: 1;
-                opacity: .75;
+                opacity: 1;
                 color: white;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
                 position: relative;
                 bottom: 10px;
-                right: 7px;
+                right: 5px;
             }
             
             .slick-next:before {
-                font-family: 'slick';
+                font-family: 'fontawesome';
                 font-size: 20px;
                 line-height: 1;
-                opacity: .75;
+                opacity: 1;
                 color: white;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
                 position: relative;
                 bottom: 10px;
-                right: 7px;
+                right: 2px;
             }
             
             .slick-prev {
@@ -29474,11 +29474,11 @@
             }
             
             .slick-prev:before {
-                content: "\f104";
+                content: '\f104';
             }
             
             [dir='rtl'] .slick-prev:before {
-                content: 'â†’';
+                content: '\f104';
             }
             
             .slick-next {
@@ -29491,11 +29491,11 @@
             }
             
             .slick-next:before {
-                content: "\f105";
+                content: '\f105';
             }
             
             [dir='rtl'] .slick-next:before {
-                content: 'â†';
+                content: '\f105';
             }
             /* Dots */
             
@@ -38791,6 +38791,10 @@ Logo Header Area Start
                 border-radius: 0px 24px 24px 0px;
             }
             
+            .logo-header .search-box .search-form button:hover {
+                background: #ffbe5c;
+            }
+            
             .logo-header .helpful-links {
                 text-align: right;
                 position: relative;
@@ -38799,7 +38803,7 @@ Logo Header Area Start
             .logo-header .helpful-links ul li {
                 display: inline-block;
                 text-align: center;
-                margin-right: 20px;
+                margin-right: 10px;
             }
             
             .logo-header .helpful-links ul li a {
@@ -44247,7 +44251,7 @@ DROPDOWN STYLE
                 background: #ff5500;
                 border: 0px;
                 color: #fff;
-                font-weight: 700;
+                font-weight: 500;
                 margin-top: 20px;
                 -webkit-transition: all 0.3s ease-in;
                 -o-transition: all 0.3s ease-in;
@@ -49944,17 +49948,19 @@ Faq Page Start
             .hb-menu .core-nav ul>li:hover>a,
             .hb-menu .core-nav ul>li:hover>a::after {
                 color: #ffbe5c;
+                transition: 0.3s;
             }
-            /* .hb-menu .core-nav ul>li>a::after {
-        content: "\f107";
-        position: absolute;
-        top: 8px;
-        right: 35px;
-        font-family: fontawesome;
-        font-size: 18px;
-        transition: all 0.3s ease-in-out;
-        color: #585858;
-    } */
+            
+            .hb-menu .core-nav ul>li>a::after {
+                content: "\f107";
+                position: absolute;
+                top: 8px;
+                right: 35px;
+                font-family: fontawesome;
+                font-size: 18px;
+                transition: all 0.3s ease-in-out;
+                color: #585858;
+            }
             
             .hb-menu .core-nav ul>li:nth-child(n+5)>a::after {
                 content: none;
@@ -50497,4 +50503,8 @@ Faq Page Start
                 color: #fff;
                 border-radius: 50%;
                 padding: 20px;
+            }
+            
+            .hb-menu .core-nav ul>.arrow-icon>a::after {
+                display: none;
             }

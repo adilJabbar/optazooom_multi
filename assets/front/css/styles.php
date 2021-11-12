@@ -324,7 +324,7 @@ nav .menu li.dropdown.open > a,
       background:<?php echo $color; ?>; }
 
   .comment-log-reg-tabmenu .nav-tabs .nav-link {
-    background: #143250; }
+    background: #6199d6; }
 .comment-log-reg-tabmenu .nav-tabs .nav-link.active {
     background: <?php echo $color; ?>;
 }
