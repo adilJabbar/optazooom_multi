@@ -50668,3 +50668,8 @@ Faq Page Start
                 color: #505050 !important;
                 opacity: 1 !important;
             }
+            
+            @media screen and (min-width: 768px) .container-setting-page-detail {
+                padding-left: 130px !important;
+                padding-right: 130px !important;
+            }
