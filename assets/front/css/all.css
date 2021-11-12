@@ -5079,8 +5079,8 @@
                 display: block;
                 padding: .5rem .75rem;
                 margin-left: -1px;
-                line-height: 1.25;
-                color: #007bff;
+                line-height: 1.35;
+                color: #6199d6;
                 background-color: #fff;
                 border: 1px solid #dee2e6
             }
@@ -5113,8 +5113,8 @@
             .page-item.active .page-link {
                 z-index: 1;
                 color: #fff;
-                background-color: #007bff;
-                border-color: #007bff
+                background-color: #fdac38;
+                border-color: #fdac38;
             }
             
             .page-item.disabled .page-link {
@@ -48375,7 +48375,8 @@ Faq Page Start
             }
             
             .sub-categori .left-area .filter-result-area .body-area .filter-list li a {
-                font-size: 14px;
+                font-size: 16px;
+                line-height: 2;
             }
             
             .sub-categori .left-area .tags-area .body-area .sub-title {

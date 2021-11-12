@@ -222,16 +222,16 @@
 									@endif
 
 									
-									<!-- <li class="login">
+									<li class="login">
 										<a href="{{ route('user.login') }}" class="sign-logs">
 											<div class="">
 												<span class="sign-in">LOG IN</span>
 												<span></span>
 											</div>
 										</a>
-									</li> -->
+									</li>
 									
-                        			@if($gs->reg_vendor == 1)
+                        			<!-- @if($gs->reg_vendor == 1)
 										<li>
                         				@if(Auth::check())
 	                        				@if(Auth::guard('web')->user()->is_vendor == 2)
@@ -245,7 +245,7 @@
 											<a href="javascript:;" data-toggle="modal" data-target="#vendor-login" class="sell-btn">{{ $langg->lang220 }}</a>
 										</li>
 										@endif
-									@endif
+									@endif -->
  
 							<li class="my-dropdown"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang3 }}">
 								<a href="javascript:;" class="cart carticon">
@@ -420,7 +420,7 @@
                                                 </div>
                                             </ul>
                                         </li>
-                                        <li class="arrow-icon"><a href="#">Featured Products</a></li>
+                                        <li class="arrow-icon"><a href="/optazoom-multi/category">Featured Products</a></li>
                                         <li class="dropdown-holder"><a href="javascript:void(0)">Deals</a>
                                             <ul class="hb-dropdown feature-hb-deals">
                                                 <div class="main-section-deals">
@@ -637,23 +637,20 @@
 						</h4>
 						<ul class="link-list">
 							<li>
-							<a href="#">Practioner Login	</a>
+							<a href="{{ route('user.login')}}">Practioner Login	</a>
 							</li>
 
 							<li>
-							<a href="#">Vendor Login</a>
+							<a href="javascript:;" data-toggle="modal" data-target="#vendor-login">Vendor Login</a>
 							</li>
 							<li>
-							<a href="#">Optazoom News</a>
+							<a href="{{ route('user.optanews')}}">Optazoom News</a>
 							</li>
 							<li>
-							<a href="#">Become a  Vendor</a>
+							<a  href="javascript:;" data-toggle="modal" data-target="#vendor-login">Become a  Vendor</a>
 							</li>
 							<li>
-							<a href="#">Reset Passwrod</a>
-							</li>
-							<li>
-							<a href="#">Industry news</a>
+							<a href="{{ route('user-forgot')}}">Reset Passwrod</a>
 							</li>
 						</ul>
 					</div>
