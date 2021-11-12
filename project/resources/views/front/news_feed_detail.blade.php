@@ -27,7 +27,42 @@
      <?php 
 	              			if(isset($_GET['link']))
 	              			{
+                                if(!isset($_GET['site']))
+                                {
+                                    $url = 'https://visionmonday.com/rss/eyecare/';
+                                    $rss = Feed::loadRss($url);
+                                }
+                                if(isset($_GET['site']) && $_GET['site']==1 )
+                                {
+                                     $url = 'https://www.optometrytimes.com/rss';
+                                     $rss = Feed::loadRss($url);
+                                }
+                                if(isset($_GET['site']) && $_GET['site']==2 )
+                                {
+                                    $url = 'https://www.opticianonline.net/site/GetRssFeed/All';
+                                    $rss = Feed::loadRss($url);
+                                }
+                                if(isset($_GET['site']) && $_GET['site']==3 )
+                                {
+                                    $url = 'https://www.journalofoptometry.org/en-rss-ultimo';
+                                    $rss = Feed::loadRss($url);
+                                }
 
+
+
+
+
+
+
+
+    foreach ($rss->item as $item ) 
+    {
+        if($item->title== $_GET['title'])
+    }
+
+
+
+                              
 	              				 $content = file_get_contents($_GET['link']);
 
 								preg_match_all('/<img[^>]+>/i',$content, $result);

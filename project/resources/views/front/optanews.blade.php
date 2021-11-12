@@ -231,7 +231,7 @@
 </style>
             <div class="col-lg-12">
 
-            	<a href="#" id="loadMore">Load More</a>
+            	<button type="button" id="loadMore">Load More</button>
                 <?php if(isset($pagination_links) && !empty($pagination_links)) : ?>
                     <div class="container Page navigation">
                         <nav aria-label="Page navigation example">
@@ -280,7 +280,7 @@ $(function () {
     		$('#loadMore').hide();
 
     	}
-    	alert($('.optanews_counter').length);
+    	
 
     		   $.ajax({  
                 type: "get",

@@ -786,7 +786,8 @@ public function get_second_site_data()
         $rss = Feed::loadRss($url);
     }
 
-$html = view('front.rss_site', compact('rss'))->render();
+    $site = $_GET['site'];
+$html = view('front.rss_site', compact('rss','site'))->render();
 echo json_encode($html);
 
 }
