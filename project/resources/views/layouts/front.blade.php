@@ -221,7 +221,7 @@
 										</li>
 									@endif
 
-									
+									@if(!Auth::user())
 									<li class="login">
 										<a href="{{ route('user.login') }}" class="sign-logs">
 											<div class="">
@@ -230,6 +230,7 @@
 											</div>
 										</a>
 									</li>
+									@endif
 									
                         			<!-- @if($gs->reg_vendor == 1)
 										<li>
