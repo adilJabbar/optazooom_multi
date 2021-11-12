@@ -50640,3 +50640,31 @@ Faq Page Start
             .pb-60 {
                 padding-bottom: 60px !important;
             }
+            
+            .li-blog-single-item .li-blog-content .li-blog-details h2 {
+                font-weight: 400 !important;
+                letter-spacing: 1.44px !important;
+                font-size: 24px !important;
+            }
+            
+            .li-blog-single-item .li-blog-content .li-blog-details .li-blog-meta {
+                padding: 5px 0 22px !important;
+            }
+            
+            .img-full-detail {
+                height: 600px !important;
+                width: 100% !important;
+                object-fit: cover !important;
+            }
+            
+            .li-blog-single-item .li-blog-content .li-blog-details p {
+                text-align: left !important;
+                letter-spacing: 0px!important;
+                color: #505050!important;
+                padding-top: 30px !important;
+                text-align: left !important;
+                font: normal normal 300 19px /40px Roboto !important;
+                letter-spacing: 0px !important;
+                color: #505050 !important;
+                opacity: 1 !important;
+            }
