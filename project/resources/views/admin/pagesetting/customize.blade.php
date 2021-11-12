@@ -126,9 +126,9 @@
 
                 <div class="col-lg-2"></div>
                 <div class="col-lg-4 d-flex justify-content-between">
-                  <label class="control-label" for="big">{{ __('Big Save') }} *</label>
+                  <label class="control-label" for="partners">{{ __('Partners') }} *</label>
                   <label class="switch">
-                    <input type="checkbox" name="big" value="1" {{$data->big==1?"checked":""}}>
+                    <input type="checkbox" name="partners" value="1" {{$data->partners==1?"checked":""}}>
                     <span class="slider round"></span>
                   </label>
                 </div>
@@ -159,22 +159,8 @@
 
               <div class="row justify-content-center">
 
-                <div class="col-lg-4 d-flex justify-content-between">
-                  <label class="control-label" for="partners">{{ __('Partners') }} *</label>
-                  <label class="switch">
-                    <input type="checkbox" name="partners" value="1" {{$data->partners==1?"checked":""}}>
-                    <span class="slider round"></span>
-                  </label>
-                </div>
-                <div class="col-lg-2"></div>
-                <div class="col-lg-4 d-flex justify-content-between">
-                    <label class="control-label" for="service">{{ __('Service') }} *</label>
-                    <label class="switch">
-                      <input type="checkbox" name="service" value="1" {{$data->service==1?"checked":""}}>
-                      <span class="slider round"></span>
-                    </label>
-
-                </div>
+               
+             
 
               </div>
 

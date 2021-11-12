@@ -151,7 +151,7 @@
 
 
 
-<hr>
+<!-- <hr>
 
                         <div class="row justify-content-center">
                             <div class="col-lg-3">
@@ -226,9 +226,9 @@
                           </div>
 
 
-<hr>
+<hr> -->
 
-
+<!-- 
                         <div class="row justify-content-center">
                             <div class="col-lg-3">
                               <div class="left-area">
@@ -285,9 +285,9 @@
 
                           </div>
                         </div>
+ -->
 
-
-                        <hr>
+                    <!--     <hr>
 
 
                         <div class="row justify-content-center">
@@ -384,9 +384,9 @@
                             </label>
                           </div>
                           </div>
-                        <hr>
+                        <hr> -->
 
-                        <div class="row justify-content-center">
+                   <!--      <div class="row justify-content-center">
                             <div class="col-lg-3">
                               <div class="left-area">
                                 <h4 class="heading">
@@ -402,10 +402,10 @@
                                     </select>
                                   </div>
                             </div>
-                          </div>
+                          </div> -->
 
 
-                        <div class="row justify-content-center">
+                  <!--       <div class="row justify-content-center">
                           <div class="col-lg-3">
                             <div class="left-area">
                                 <h4 class="heading">{{ __('Molly Key') }} *</h4>
@@ -429,12 +429,12 @@
                             <textarea class="input-field" name="molly_text" placeholder="{{ __('Molly Text') }}" required>{{ $gs->molly_text }}</textarea>
 
                           </div>
-                        </div>
+                        </div> -->
 
 <hr>
 
 
-                        <div class="row justify-content-center">
+                       <!--  <div class="row justify-content-center">
                             <div class="col-lg-3">
                               <div class="left-area">
                                 <h4 class="heading">
@@ -450,12 +450,12 @@
                                     </select>
                                   </div>
                             </div>
-                          </div>
+                          </div> -->
 
 
 
 
-                        <div class="row justify-content-center">
+                  <!--       <div class="row justify-content-center">
                           <div class="col-lg-3">
                             <div class="left-area">
                                 <h4 class="heading">{{ __('Razorpay Key') }} *</h4>
@@ -495,7 +495,7 @@
                             <textarea class="input-field" name="razorpay_text" placeholder="{{ __('Razorpay Text') }}" required>{{ $gs->razorpay_text }}</textarea>
 
                           </div>
-                        </div>
+                        </div> -->
 
 
 <hr>
@@ -537,7 +537,7 @@
                             </div>
                           </div>
 
-                        <div class="row justify-content-center">
+                  <!--       <div class="row justify-content-center">
                           <div class="col-lg-3">
                             <div class="left-area">
                                 <h4 class="heading">{{ __('Cash On Delivery Text') }} *</h4>
@@ -548,7 +548,7 @@
                             <textarea class="input-field" name="cod_text" placeholder="{{ __('Cash On Delivery Text') }}">{{ $gs->cod_text }}</textarea>
 
                           </div>
-                        </div>
+                        </div> -->
 <hr>
 
                         <div class="row justify-content-center">
