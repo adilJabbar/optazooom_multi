@@ -50,7 +50,7 @@
                 }
                 
         #loadMore {
-            padding: 10px;
+            padding: 10px 30px;
             background-color: #fdac38;
             color: #fff;
             border-width: 0 1px 1px 0;
