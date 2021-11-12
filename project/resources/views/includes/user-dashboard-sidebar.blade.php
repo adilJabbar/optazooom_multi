@@ -44,13 +44,13 @@
 
               @if($gs->is_affilate == 1)
 
-                <li class="{{ $link == route('user-affilate-code') ? 'active':'' }}">
+               <!--  <li class="{{ $link == route('user-affilate-code') ? 'active':'' }}">
                     <a href="{{ route('user-affilate-code') }}">{{ $langg->lang202 }}</a>
                 </li>
 
                 <li class="{{ $link == route('user-wwt-index') ? 'active':'' }}">
                     <a href="{{route('user-wwt-index')}}">{{ $langg->lang203 }}</a>
-                </li>
+                </li> -->
 
               @endif
 

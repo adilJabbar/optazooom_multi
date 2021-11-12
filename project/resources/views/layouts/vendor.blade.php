@@ -147,7 +147,7 @@
 								</a>
 								<ul class="collapse list-unstyled" id="menu2" data-parent="#accordion">
 									<li>
-										<a href="{{ route('vendor-prod-types') }}"><span>{{ $langg->lang445 }}</span></a>
+										<a href="{{ route('vendor-prod-physical-create') }}"><span>{{ $langg->lang445 }}</span></a>
 									</li>
 									<li>
 										<a href="{{ route('vendor-prod-index') }}"><span>{{ $langg->lang446 }}</span></a>
@@ -158,7 +158,7 @@
 								</ul>
 							</li>
 
-							<li>
+							<!-- <li>
 								<a href="#affiliateprod" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
 									<i class="icofont-cart"></i>{{ $langg->lang447 }}
 								</a>
@@ -170,7 +170,7 @@
 										<a href="{{ route('vendor-import-index') }}"><span>{{ $langg->lang449 }}</span></a>
 									</li>
 								</ul>
-							</li>
+							</li> -->
 
 
 							<li>
@@ -197,9 +197,9 @@
 	                                    </li>
 	                                @endif
 	                                @if($gs->multiple_packaging == 1)
-	                                    <li>
+	                                   <!--  <li>
 	                                    	<a href="{{ route('vendor-package-index') }}"><span>{{ $langg->lang721 }}</span></a>
-	                                    </li>
+	                                    </li> -->
 	                                @endif
                                     <li>
                                     	<a href="{{ route('vendor-social-index') }}"><span>{{ $langg->lang456 }}</span></a>

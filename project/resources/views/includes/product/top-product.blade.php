@@ -1,6 +1,9 @@
 
 	<div class="col-lg-3 col-md-4 col-6 remove-padding">
-		<a class="item" href="{{ route('front.product', $prod->slug) }}">
+		<a class="item" href="<?php if(Auth::user()){ ?> {{ route('front.product', $prod->slug) }} <?php } ?>
+
+
+		">
 			<div class="item-img">
 			@if(!empty($prod->features))
 					<div class="sell-area">
@@ -45,7 +48,10 @@
 							<div class="full-stars" style="width:{{App\Models\Rating::ratings($prod->id)}}%"></div>
 					</div>
 				</div>
+
+							@if(Auth::user())
 				<h4 class="price">{{ $prod->showPrice() }} <del><small>{{ $prod->showPreviousPrice() }}</small></del></h4>
+							@endif 	
 				<h5 class="name">{{ $prod->showName() }}</h5>
 				<div class="item-cart-area">
 					@if($prod->product_type == "affiliate")
@@ -59,6 +65,9 @@
 							<i class="icofont-close-circled"></i> {{ $langg->lang78 }}
 						</span>													
 						@else
+
+						@if(Auth::guard('web')->check())
+
 						<span class="add-to-cart add-to-cart-btn" data-href="{{ route('product.cart.add',$prod->id) }}">
 							<i class="icofont-cart"></i> {{ $langg->lang56 }}
 						</span>
@@ -66,6 +75,29 @@
 							data-href="{{ route('product.cart.quickadd',$prod->id) }}">
 							<i class="icofont-cart"></i> {{ $langg->lang251 }}
 						</span>
+						@else
+
+
+
+						<span href="javascript:;" rel-toggle="tooltip" title="{{ $langg->lang56 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+									<i class="icofont-heart-alt"></i>{{ $langg->lang56 }}
+								</span>
+
+								<span href="javascript:;" rel-toggle="tooltip" title="{{ $langg->lang251 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+									<i class="icofont-heart-alt"></i>{{ $langg->lang251 }}
+								</span>
+
+
+
+						<!-- <span href="javascript:;" rel-toggle="tooltip" title="{{ $langg->lang56 }}" data-toggle="modal" data-target="#comment-log-reg" data-placement="right">
+									<i class="icofont-cart"></i> {{ $langg->lang56 }}
+								</span>
+								<span href="javascript:;" rel-toggle="tooltip" title="{{ $langg->lang251 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+									<i class="icofont-cart"></i> {{ $langg->lang251 }}
+								</span> -->
+
+
+						@endif
 						@endif
 					@endif
 				</div>
