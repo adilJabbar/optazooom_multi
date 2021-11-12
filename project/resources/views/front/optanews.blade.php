@@ -208,30 +208,10 @@
                 <!-- Li's Blog Sidebar Area End Here -->
             </div>
 
-
-<style type="text/css">
-	#loadMore {
-    padding: 10px;
-    text-align: center;
-    background-color: #33739E;
-    color: #fff;
-    border-width: 0 1px 1px 0;
-    border-style: solid;
-    border-color: #fff;
-    box-shadow: 0 1px 1px #ccc;
-    transition: all 600ms ease-in-out;
-    -webkit-transition: all 600ms ease-in-out;
-    -moz-transition: all 600ms ease-in-out;
-    -o-transition: all 600ms ease-in-out;
-}
-#loadMore:hover {
-    background-color: #fff;
-    color: #33739E;
-}
-</style>
             <div class="col-lg-12">
-
-            	<button type="button" id="loadMore">Load More</button>
+                <div class="load-more">
+            	    <button type="button" id="loadMore">Load More</button>
+                </div>
                 <?php if(isset($pagination_links) && !empty($pagination_links)) : ?>
                     <div class="container Page navigation">
                         <nav aria-label="Page navigation example">
