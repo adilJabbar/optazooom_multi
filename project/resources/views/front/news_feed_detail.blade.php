@@ -25,29 +25,40 @@
     </div>
 
      <?php 
-	              			if(isset($_GET['link']))
-	              			{
-                                if(!isset($_GET['site']))
-                                {
-                                    $url = 'https://visionmonday.com/rss/eyecare/';
-                                    $rss = Feed::loadRss($url);
-                                }
-                                if(isset($_GET['site']) && $_GET['site']==1 )
-                                {
-                                     $url = 'https://www.optometrytimes.com/rss';
-                                     $rss = Feed::loadRss($url);
-                                }
-                                if(isset($_GET['site']) && $_GET['site']==2 )
-                                {
-                                    $url = 'https://www.opticianonline.net/site/GetRssFeed/All';
-                                    $rss = Feed::loadRss($url);
-                                }
-                                if(isset($_GET['site']) && $_GET['site']==3 )
-                                {
-                                    $url = 'https://www.journalofoptometry.org/en-rss-ultimo';
-                                    $rss = Feed::loadRss($url);
-                                }
-
+            $content = '';
+  			if(isset($_GET['link']))
+  			{
+                if(!isset($_GET['site']))
+                {
+                    $url = 'https://visionmonday.com/rss/eyecare/';
+                    $rss = Feed::loadRss($url);
+                    $content = file_get_contents($_GET['link']);
+                }
+                if(isset($_GET['site']) && $_GET['site']==1 )
+                {
+                     $url = 'https://www.optometrytimes.com/rss';
+                     $rss = Feed::loadRss($url);
+                }
+                if(isset($_GET['site']) && $_GET['site']==2 )
+                {
+                    $url = 'https://www.opticianonline.net/site/GetRssFeed/All';
+                    $rss = Feed::loadRss($url);
+                }
+                if(isset($_GET['site']) && $_GET['site']==3 )
+                {
+                    $url = 'https://www.journalofoptometry.org/en-rss-ultimo';
+                    $rss = Feed::loadRss($url);
+                }
+                if(!empty($content))
+                {
+                        $ch = curl_init();
+                        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                        curl_setopt($ch,CURLOPT_URL,$_GET['link']);
+                        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+                        curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US) AppleWebKit/525.13 (KHTML, like Gecko) Chrome/0.A.B.C Safari/525.13");
+                        $content = curl_exec($ch);
+                        curl_close($ch);
+                }
 
 
 
@@ -58,12 +69,18 @@
     foreach ($rss->item as $item ) 
     {
         if($item->title== $_GET['title'])
+        {
+            $title = $item->title;
+            $description = $item->description;
+            $pubDate = $item->pubDate;
+        }
     }
 
 
 
+
                               
-	              				 $content = file_get_contents($_GET['link']);
+	              				
 
 								preg_match_all('/<img[^>]+>/i',$content, $result);
 								
@@ -149,20 +166,27 @@
 
                                 <div class="li-blog-content">
                                     <div class="li-blog-details">
-                                        <h2 class="li-blog-heading"><a href="#"><?php //echo $title ?></a></h2>
+                                        <h2 class="li-blog-heading"><a href="#"><?php echo $title ?></a></h2>
                                         <div class="li-blog-meta">
                                          
-                                            <a href="#"><span>Dated: </a>
+                                            <a href="#"><span>Dated: <?php echo $pubDate ?> </a>
                                             </span>
                                          
                                         </div>
                                         <div class="li-blog-banner">
-                                            <a href="blog-details.html"><img class="img-full-detail" src="https://visionmonday.com{{$src}}" alt=""></a>
+                                            <a href="blog-details.html">
+                                                <?php if(isset($src)){ ?>
+                                                    <img class="img-full-detail" src="https://visionmonday.com{{$src}}" alt="">
+                                                <?php }else{ ?>
+                                                    <img class="img-full-detail" src="{{asset('assets/images/newsfeed.jpeg')}}" alt="">
+
+                                                <?php } ?>
+                                            </a>
                                         </div>
                                         <p>
                                             
 
-                                            <?php //echo  $str = $description;    ?>
+                                            <?php echo  $str = $description;    ?>
                                         </p>
                                         <a class="read-more-blogs" href="{{$_GET['link']}}" target="_blank">Read Original Article</a>
                                      <!--    <div class="li-blog-sharing d-inline pt-30">
@@ -173,7 +197,7 @@
                                             <a href="#"><i class="fa fa-google-plus"></i></a>
                                         </div> -->
                                         <div class="pt-100">
-                                           <a href=""> <p class="go-back text-center">Go BACK</p></a>
+                                           <a href="{{url('optanews')}}"> <p class="go-back text-center">Go BACK</p></a>
                                         </div>
                                      
 
