@@ -85,7 +85,7 @@
         <div class="col-md-12 col-lg-6 col-xl-4">
             <div class="mycard bg5">
                 <div class="left">
-                    <h5 class="title">{{ __('Total Customers!') }}</h5>
+                    <h5 class="title">{{ __('Total Practitionar!') }}</h5>
                     <span class="number">{{count($users)}}</span>
                     <a href="{{route('admin-user-index')}}" class="link">{{ __('View All') }}</a>
                 </div>
@@ -120,7 +120,7 @@
                     <p>{{ App\Models\User::where( 'created_at', '>', Carbon\Carbon::now()->subDays(30))->get()->count()  }}</p>
                 </div>
                 <div class="c-info-box-content">
-                    <h6 class="title">{{ __('New Customers') }}</h6>
+                    <h6 class="title">{{ __('New Practitionar') }}</h6>
                     <p class="text">{{ __('Last 30 Days') }}</p>
                 </div>
             </div>
@@ -131,7 +131,7 @@
                     <p>{{ App\Models\User::count() }}</p>
                 </div>
                 <div class="c-info-box-content">
-                    <h6 class="title">{{ __('Total Customers') }}</h6>
+                    <h6 class="title">{{ __('Total Practitionar') }}</h6>
                     <p class="text">{{ __('All Time') }}</p>
                 </div>
             </div>
@@ -197,14 +197,14 @@
 
         <div class="col-md-6 col-lg-6 col-xl-6">
                 <div class="card">
-                        <h5 class="card-header">{{ __('Recent Customer(s)') }}</h5>
+                        <h5 class="card-header">{{ __('Recent Practitionar(s)') }}</h5>
                         <div class="card-body">
         
                             <div class="my-table-responsiv">
                                 <table class="table table-hover dt-responsive" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>{{ __('Customer Email') }}</th>
+                                            <th>{{ __('Practitionar Email') }}</th>
                                             <th>{{ __('Joined') }}</th>
                                         </tr>
                                         @foreach($rusers as $data)
