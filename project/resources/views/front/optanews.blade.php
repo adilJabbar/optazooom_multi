@@ -66,133 +66,122 @@
         <div class="container containeer">
             <div class="row">
                 <!-- Begin Li's Main Content Area -->
-                <div class="col-lg-8 order-lg-1 order-1">
-                    <div class="row li-main-content searched_val">
+                <div class="col-lg-8 order-lg-1 order-1 load_more ">
+                    <div class="row li-main-content searched_val optanews_counter ">
 
-			<?php 
+<?php 
 
-				$url = 'https://visionmonday.com/rss/eyecare/';
-				$rss = Feed::loadRss($url);
+	$url = 'https://visionmonday.com/rss/eyecare/';
+	$rss = Feed::loadRss($url);
 
-				$url = 'https://www.optometrytimes.com/rss';
-				$rss1 = Feed::loadRss($url);
+			
+	foreach ($rss->item as $item ) 
+	{
 
-				$url = 'https://www.opticianonline.net/site/GetRssFeed/All';
-				$rss2 = Feed::loadRss($url);
+	?>
 
-				$url = 'https://www.journalofoptometry.org/en-rss-ultimo';
-				$rss3 = Feed::loadRss($url);
+    <div class="col-lg-12 ">
+        <div class="li-blog-single-item mb-30">
+            <div class="row ">
+                <div class="col-lg-5">
+                    <div class="li-blog-banner">
+                                         
+                    <?php 
+              			if(isset($item->link))
+              			{
 
-				
-foreach ($rss->item as $item ) 
-				{
+              				 $content = file_get_contents($item->link);
 
-				?>
+							preg_match_all('/<img[^>]+>/i',$content, $result);
+						
 
-	    <div class="col-lg-12">
-	        <div class="li-blog-single-item mb-30">
-	            <div class="row">
-	                <div class="col-lg-5">
-	                    <div class="li-blog-banner">
-	                                         
-	                    <?php 
-	              			if(isset($item->link))
-	              			{
+          				 	// $content = file_get_contents($item->link);
+							// dd($item->link,$content);
+							preg_match_all('/<img[^>]+>/i',$content, $result); 
+						
+							$value = $item->title;
+							$first = strtok($value, " ");
 
-	              				 $content = file_get_contents($item->link);
 
-								preg_match_all('/<img[^>]+>/i',$content, $result);
+              			}
+	                   
+
+							if(isset($result[0]))
+							{
+
+							foreach($result[0] as $re_k => $re_v)
+							{
 							
-
-              				 	// $content = file_get_contents($item->link);
-								// dd($item->link,$content);
-								preg_match_all('/<img[^>]+>/i',$content, $result); 
-							
-								$value = $item->title;
-								$first = strtok($value, " ");
-
-
-	              			}
-		                   
-
-								if(isset($result[0]))
+								$pos = strpos($re_v, $first);
+								// $pos = strpos($re_v, 'eonie');
+						
+								if($pos)
 								{
-
-								foreach($result[0] as $re_k => $re_v)
-								{
-								
-									$pos = strpos($re_v, $first);
-									// $pos = strpos($re_v, 'eonie');
-							
-									if($pos)
-									{
-										$image = $re_v;
-										break;
-									}else{
-										$image = '';
-									}
+									$image = $re_v;
+									break;
+								}else{
+									$image = '';
 								}
-								
-								// dd('aaa');
-								if(isset($image) && !empty($image))
-								{
-
-					    		$html = $image;
-								$doc = new DOMDocument();
-								$doc->loadHTML($html);
-								$xpath = new DOMXPath($doc);
-								$src = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
-	                    	?>
-	                                     
-	                       <img class="img-full" src="https://visionmonday.com{{$src}}" alt="">
-	                       <?php 
-                       		}else{
-                       			?>
-                       			 <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
-								 <img class="img-full" src="" alt=""></a>
-                       		 <?php }
-	                        
-	                        }else{ 
-
-
-	                        	?>
-								  <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
-								 <img class="img-full" src="" alt=""></a>
-
-							<?php       
-								}
+							}
 							
+							// dd('aaa');
+							if(isset($image) && !empty($image))
+							{
+
+				    		$html = $image;
+							$doc = new DOMDocument();
+							$doc->loadHTML($html);
+							$xpath = new DOMXPath($doc);
+							$src = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
+                    	?>
+                                     
+                       <img class="img-full" src="https://visionmonday.com{{$src}}" alt="">
+                       <?php 
+                   		}else{
+                   			?>
+                   			 <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
+							 <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
+                   		 <?php }
+                        
+                        }else{ 
+
+
+                        	?>
+							  <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
+							 <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
+
+						<?php       
+							}
+						
 
 
 
-							?>
+						?>
 
-	                                                        
-	                    </div>
-	                </div>
-	                <div class="col-lg-7">
-	                    <div class="li-blog-content">
-	                        <div class="li-blog-details">
-	                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
-	                            <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
-	                            </p>
-	                           
-	                            <a class="read-more-blogs" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link;; ?>" target="_blank">Read more</a>
-	                        </div>
-	                    </div>
-	                </div>
-	            </div>
-	        </div>
-	    </div>
+                                                        
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="li-blog-content">
+                        <div class="li-blog-details">
+                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
+                            <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
+                            </p>
+                           
+                            <a class="read-more-blogs" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link;; ?>" target="_blank">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 <?php
     }
 ?>
 
-                        <!-- Begin Li's Pagination Area -->
 
-                        <!-- Li's Pagination End Here Area -->
                     </div>
                 </div>
 
@@ -219,7 +208,30 @@ foreach ($rss->item as $item )
                 <!-- Li's Blog Sidebar Area End Here -->
             </div>
 
+
+<style type="text/css">
+	#loadMore {
+    padding: 10px;
+    text-align: center;
+    background-color: #33739E;
+    color: #fff;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    box-shadow: 0 1px 1px #ccc;
+    transition: all 600ms ease-in-out;
+    -webkit-transition: all 600ms ease-in-out;
+    -moz-transition: all 600ms ease-in-out;
+    -o-transition: all 600ms ease-in-out;
+}
+#loadMore:hover {
+    background-color: #fff;
+    color: #33739E;
+}
+</style>
             <div class="col-lg-12">
+
+            	<a href="#" id="loadMore">Load More</a>
                 <?php if(isset($pagination_links) && !empty($pagination_links)) : ?>
                     <div class="container Page navigation">
                         <nav aria-label="Page navigation example">
@@ -233,23 +245,10 @@ foreach ($rss->item as $item )
 
 
     <script type="text/javascript">
-    
-        $('#get_rss_search').on('click',function(){
-             $.ajax({
-                
-                type: "get",
-                success:function(data)
-                {
-                    var data = jQuery.parseJSON(data);
-                    console.log(data);
-                    if(data.success == "true")
-                    {
-                        $('.searched_val').html(data.view);
-                      
-                    } 
-                }
-            });
- })
+
+
+
+
  
     </script>
 	
@@ -265,14 +264,40 @@ foreach ($rss->item as $item )
 
 @section('scripts')
 	<script>
-        $(window).on('load',function() {
 
-            setTimeout(function(){
+$(function () {
+    $("div").slice(0, 4).show();
+    $("#loadMore").on('click', function (e) {
 
-                // $('#extraData').load('{{route('front.extraIndex')}}');
 
-            }, 500);
-        });
+    	if($('.optanews_counter').length == 1)
+    	{
+    		site = 1;
+    	}else if($('.optanews_counter').length == 2){
+    		site = 2;
+    	}else{
+    		site = 3;
+    		$('#loadMore').hide();
+
+    	}
+    	alert($('.optanews_counter').length);
+
+    		   $.ajax({  
+                type: "get",
+                url: 'get_second_site_data?site='+site,
+                success:function(data)
+                {
+                 var data = jQuery.parseJSON( data );
+                  console.log(data);
+                    $('.load_more').append(data);
+                }
+            });
+
+    });
+});
+
+
+
 
 	</script>
 @endsection

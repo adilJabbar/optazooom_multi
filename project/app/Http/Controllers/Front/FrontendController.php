@@ -20,6 +20,7 @@ use InvalidArgumentException;
 use Markury\MarkuryPost;
 use Artisan;
 use Illuminate\Support\Facades\Schema;
+use Feed;
 
 class FrontendController extends Controller
 {
@@ -768,6 +769,29 @@ public function news_feed_detail()
         $ps = DB::table('pagesettings')->find(1);
      return view('front.news_feed_detail',compact('ps','sliders'));
 }
+
+
+public function get_second_site_data()
+{
+    if($_GET['site'] == 1)
+    {
+        $url = 'https://www.optometrytimes.com/rss';
+        $rss = Feed::loadRss($url);
+    }else if($_GET['site'] == 2)
+    {
+        $url = 'https://www.opticianonline.net/site/GetRssFeed/All';
+        $rss = Feed::loadRss($url);
+    }else{
+        $url = 'https://www.journalofoptometry.org/en-rss-ultimo';
+        $rss = Feed::loadRss($url);
+    }
+
+$html = view('front.rss_site', compact('rss'))->render();
+echo json_encode($html);
+
+}
+
+
 
 // -------------------------------- PRINT SECTION ENDS ----------------------------------------
 

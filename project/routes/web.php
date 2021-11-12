@@ -1464,6 +1464,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
 
   Route::get('/optanews', 'Front\FrontendController@optanews')->name('user.optanews');
   Route::get('/news_feed_detail', 'Front\FrontendController@news_feed_detail')->name('news_feed_detail');
+  Route::get('/get_second_site_data', 'Front\FrontendController@get_second_site_data')->name('get_second_site_data');
   
   Route::get('/currency/{id}', 'Front\FrontendController@currency')->name('front.currency');
   Route::get('/language/{id}', 'Front\FrontendController@language')->name('front.language');
