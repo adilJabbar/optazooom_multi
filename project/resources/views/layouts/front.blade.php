@@ -517,7 +517,7 @@
                                             </ul>
                                         </li>
                                        
-                                         <li class="arrow-icon"><a href="#">OptaZoom News</a></li>
+                                         <li class="arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
                                           <li class="arrow-icon"><a href="#">Vendors</a></li>
                                 </nav>
                             </div>
