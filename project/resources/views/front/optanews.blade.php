@@ -42,8 +42,33 @@
     max-width: 100%;
     padding-left: 20px;
     padding-right: 77px;
-    }
+}
+        .load-more{
+                    margin:50px 0px;
+                    text-align:center;
 
+                }
+                
+        #loadMore {
+            padding: 10px;
+            background-color: #fdac38;
+            color: #fff;
+            border-width: 0 1px 1px 0;
+            border-style: solid;
+            border-radius:30px;
+            border-color: #fff;
+            box-shadow: 0 1px 1px #ccc;
+            transition: all 600ms ease-in-out;
+            -webkit-transition: all 600ms ease-in-out;
+            -moz-transition: all 600ms ease-in-out;
+            -o-transition: all 600ms ease-in-out;
+        }
+        
+        #loadMore:hover {
+            background-color: transparent;
+            color: #fdac38;
+            border:1px solid #fdac38;
+        }
 
 </style>
 <!--Breadcrumb-->
@@ -211,7 +236,7 @@
             <div class="col-lg-12">
                 <div class="load-more">
             	    <button type="button" id="loadMore">Load More</button>
-                </div>
+                                    </div>
                 <?php if(isset($pagination_links) && !empty($pagination_links)) : ?>
                     <div class="container Page navigation">
                         <nav aria-label="Page navigation example">
