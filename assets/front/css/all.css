@@ -50613,3 +50613,12 @@ Faq Page Start
                 border-radius: 0px 5px 5px 0px !important;
                 opacity: 1;
             }
+            
+            .img-full {
+                width: 314px;
+                height: 205px;
+            }
+            
+            .mb-30 {
+                margin-bottom: 30px !important;
+            }
