@@ -655,6 +655,9 @@ class ProductController extends Controller
                             $input['subcategory_id'] = $scat->first()->id;
                         }
                     }
+
+                  $inserted = array( 'xa' );
+                    array_splice( $line, 3, 0, $inserted ); 
                     if($line[3] != ""){
                         $chcat = Childcategory::where(DB::raw('lower(name)'), strtolower($line[3]));
 
