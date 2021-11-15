@@ -69,6 +69,7 @@ class VendorController extends Controller
     //Vendor List
 
     public function vendorlist(Request $request){
+        
         return view('front.vendorlist');
     }
 
