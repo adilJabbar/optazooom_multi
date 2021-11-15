@@ -38305,12 +38305,13 @@
                 font-size: 18px;
                 line-height: 38px;
                 font-weight: 400;
-                color: #143250;
+                color: #6199d6;
                 display: inline-block;
                 position: relative;
                 margin-bottom: 0px;
                 word-spacing: 3px;
                 text-transform: uppercase;
+                letter-spacing: 0.9px;
             }
             
             .section-top .section-title::after {
