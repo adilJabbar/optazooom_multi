@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('content')
 <!-- Breadcrumb Area Start -->
-<div class="breadcrumb-area">
+<!-- <div class="breadcrumb-area">
    <div class="container">
       <div class="row">
          <div class="col-lg-12">
@@ -34,7 +34,31 @@
          </div>
       </div>
    </div>
-</div>
+</div> -->
+    <!--Breadcrumb-->
+    <div class="breadcrumb justify-content-center pt-60 pb-60">
+        <div>
+            <ol class="breadcrumb">
+                <h3 class="bread-login">Products</h3>
+            </ol>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item bread-title"><a href="{{route('front.index')}}">{{ $langg->lang17 }}</a></li>
+              @if (!empty($cat))
+               <li class="breadcrumb-item bread-title active bread-title">
+                  <a href="{{route('front.category', $cat->slug)}}">{{ $cat->name }}</a>
+               </li>
+               @endif
+               @if (empty($childcat) && empty($subcat) && empty($cat))
+               <li class="breadcrumb-item bread-title active bread-title">
+                  <a href="{{route('front.category')}}">{{ $langg->lang36 }}</a>
+               </li>
+               @endif
+              <!-- <li class="breadcrumb-item bread-title active bread-title" aria-current="page">Login</li> -->
+            </ol>
+        </div>
+    </div>
+
+    <!--Breadcrumb end-->
 <!-- Breadcrumb Area End -->
 <!-- SubCategori Area Start -->
 <section class="sub-categori">

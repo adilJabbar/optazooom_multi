@@ -81,11 +81,11 @@
 																</span>
 																@else
 
-																<span rel-toggle="tooltip" title="{{ $langg->lang56 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+																<span rel-toggle="tooltip" class="add-to-cart-btn" title="{{ $langg->lang56 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
 																		<i class="icofont-cart"></i> {{ $langg->lang56 }}
 																</span>
 
-																	<span rel-toggle="tooltip" title="{{ $langg->lang251 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+																	<span rel-toggle="tooltip" class="add-to-cart-btn" title="{{ $langg->lang251 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
 																		<i class="icofont-cart"></i> {{ $langg->lang251 }}
 																</span>
 
