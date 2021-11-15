@@ -40890,7 +40890,7 @@ DROPDOWN STYLE
             .product-details-page .right-area .product-info .product-name {
                 font-size: 22px;
                 line-height: 31px;
-                font-weight: 400;
+                font-weight: 300;
                 margin-bottom: 3px;
             }
             
@@ -41300,7 +41300,7 @@ DROPDOWN STYLE
             }
             
             .product-details-page .right-area .product-info .info-meta-3 .meta-list li.addtocart a {
-                font-size: 14px;
+                font-size: 16px;
                 color: #fff;
                 display: inline-block;
                 border: 1px solid #ff5500;
@@ -41316,13 +41316,14 @@ DROPDOWN STYLE
             }
             
             .product-details-page .right-area .product-info .info-meta-3 .meta-list li.addtocart a i {
-                font-size: 13px;
+                font-size: 17px;
                 margin-right: 4px;
             }
             
             .product-details-page .right-area .product-info .info-meta-3 .meta-list li.addtocart a:hover {
                 background: #fff;
                 color: #ff5500;
+                cursor: pointer;
             }
             
             .product-details-page .right-area .product-info .info-meta-3 .meta-list li.favorite,
@@ -44807,14 +44808,14 @@ Faq Page Start
             .vendor-banner .title {
                 font-size: 46px;
                 line-height: 60px;
-                font-weight: 700;
+                font-weight: 400;
                 color: #fff;
             }
             
             .vendor-banner .sub-title {
                 font-size: 24px;
                 line-height: 34px;
-                font-weight: 400;
+                font-weight: 300;
                 color: #fff;
                 margin-bottom: 0px;
             }
@@ -48451,10 +48452,10 @@ Faq Page Start
             .mybadge {
                 font-size: 13px;
                 color: #fff;
-                background: green;
+                background: #fdac38;
                 border-radius: 5px;
                 padding: 1px 10px;
-                font-weight: 400;
+                font-weight: 300;
             }
             
             .mybadge1 {
@@ -50675,4 +50676,24 @@ Faq Page Start
                     padding-left: 130px !important;
                     padding-right: 130px !important;
                 }
+            }
+            
+            .dailydealsHeader h3 {
+                font-weight: 300;
+                color: #505050;
+            }
+            
+            .lower-text {
+                font-size: 17px;
+                margin-top: 20px;
+                font-weight: 400;
+            }
+            
+            .dailydealsHeader {
+                background-color: #f2f2f2;
+                padding: 60px 0px;
+                position: relative;
+                background-image: url(images/product-banner.png);
+                background-position: center right;
+                background-repeat: no-repeat;
             }
