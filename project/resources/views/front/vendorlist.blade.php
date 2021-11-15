@@ -32,7 +32,7 @@
 						<div class="featured-vendor">
 							<a href="#">
 								<div class="cat-img">
-                                  <img src="{{ asset('assets/images/user/' . $user->photo) }}" />
+                                  <img src="{{ URL::asset('images/users'. $user->photo) }} " />
                                </div>
 							   <hr>
 								<h4 class="vendor-name">{{ $user->name }}</h4>
