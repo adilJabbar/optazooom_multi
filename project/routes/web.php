@@ -1692,7 +1692,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
 
   // VENDOR SECTION
   Route::get('/store/{category}','Front\VendorController@index')->name('front.vendor');
-  Route::get('/allvendors','Front\VendorController@index')->name('list.vendor');
+  Route::get('/allvendors','Front\VendorController@vendorlist')->name('list.vendor');
   Route::post('/vendor/contact','Front\VendorController@vendorcontact');
   // TAG SECTION ENDS
 
