@@ -1,7 +1,21 @@
 @extends('layouts.front')
 
 @section('content')
+    <!--Breadcrumb-->
+    <div class="breadcrumb justify-content-center pt-60 pb-60">
+        <div>
+            <ol class="breadcrumb">
+                <h3 class="bread-login">Login</h3>
+            </ol>
+            <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item bread-title"><a href="#">Home</a></li>
+    <li class="breadcrumb-item bread-title active bread-title" aria-current="page">Login</li>
+            </ol>
+        </div>
+    </div>
 
+    <!--Breadcrumb end-->
 <section class="login-signup">
   <div class="container">
     <div class="row justify-content-center">
