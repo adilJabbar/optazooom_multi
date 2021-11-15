@@ -5036,7 +5036,7 @@
                 display: flex;
                 -ms-flex-wrap: wrap;
                 flex-wrap: wrap;
-                padding: .75rem 1rem;
+                /* padding: .75rem 1rem; */
                 margin-bottom: 1rem;
                 list-style: none;
                 background-color: #e9ecef;
@@ -38305,12 +38305,13 @@
                 font-size: 18px;
                 line-height: 38px;
                 font-weight: 400;
-                color: #143250;
+                color: #6199d6;
                 display: inline-block;
                 position: relative;
                 margin-bottom: 0px;
                 word-spacing: 3px;
                 text-transform: uppercase;
+                letter-spacing: 0.3px;
             }
             
             .section-top .section-title::after {
@@ -39694,16 +39695,16 @@ DROPDOWN STYLE
             
             .trending .owl-carousel .owl-controls .owl-nav .owl-prev,
             .trending .owl-carousel .owl-controls .owl-nav .owl-next {
-                font-size: 14px;
+                font-size: 16px;
                 position: absolute;
                 top: -30px;
                 -webkit-transform: translateY(-50%);
                 -ms-transform: translateY(-50%);
                 transform: translateY(-50%);
                 text-align: center;
-                width: 25px;
-                height: 25px;
-                line-height: 24px;
+                width: 30px;
+                height: 30px;
+                line-height: 27px;
                 opacity: 1;
                 background: #ff5500;
                 border: 1px solid #ff5500;

@@ -26,26 +26,25 @@
                      </div> -->
        <div class="container pt-60">
            <div class="row">
+           @foreach ($users as $user)
                 <div class="col-lg-3">
-                @foreach ($users as $user)
                     <div class="featured">
 						<div class="featured-vendor">
-							<a href="#">
+							<a href="{{ route('front.vendor',str_replace(' ', '-', $user->shop_name)) }}">
 								<div class="cat-img">
-                                  <img src="{{ URL::asset('images/users'. $user->photo) }} " />
+                                  <img src="{{asset('assets/images/users/'. $user->photo)}}" />
                                </div>
 							   <hr>
 								<h4 class="vendor-name">{{ $user->name }}</h4>
 							</a>
 						</div>
                      </div>
-                     @endforeach
                  </div>
+                 @endforeach
             </div>
         </div>
 
      
-
 @endsection
 
 
