@@ -681,6 +681,9 @@ class ProductController extends Controller
                 $input['meta_description'] = $line[18];
                 $input['tags'] = $line[14];
                 $input['product_type'] = $line[19];
+
+
+                
                 // $input['affiliate_link'] = $line[20];
 
                 $input['slug'] = Str::slug($input['name'],'-').'-'.strtolower($input['sku']);
