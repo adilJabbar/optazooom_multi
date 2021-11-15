@@ -30,9 +30,9 @@
                 <div class="col-lg-3">
                     <div class="featured">
 						<div class="featured-vendor">
-							<a href="#">
+							<a href="{{ route('front.vendor',str_replace(' ', '-', $user->shop_name)) }}">
 								<div class="cat-img">
-                                  <img src="{{asset('assets/images/services/'.$user->photo)}}" />
+                                  <img src="{{asset('assets/images/users/'.$user->photo)}}" />
                                </div>
 							   <hr>
 								<h4 class="vendor-name">{{ $user->name }}</h4>
