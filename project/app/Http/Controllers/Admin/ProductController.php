@@ -665,6 +665,8 @@ class ProductController extends Controller
                             $input['childcategory_id'] = $chcat->first()->id;
                         }
                     }
+
+                    
                 $input['photo'] = $line[5];
                 $input['name'] = $line[4];
                 $input['details'] = $line[6];
