@@ -30,9 +30,11 @@
   			{
                 if(!isset($_GET['site']))
                 {
+
                     $url = 'https://visionmonday.com/rss/eyecare/';
                     $rss = Feed::loadRss($url);
                     $content = file_get_contents($_GET['link']);
+
                 }
                 if(isset($_GET['site']) && $_GET['site']==1 )
                 {
@@ -49,8 +51,9 @@
                     $url = 'https://www.journalofoptometry.org/en-rss-ultimo';
                     $rss = Feed::loadRss($url);
                 }
-                if(!empty($content))
-                {
+
+                if(empty($content))
+                {   
                         $ch = curl_init();
                         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
                         curl_setopt($ch,CURLOPT_URL,$_GET['link']);
@@ -60,7 +63,7 @@
                         curl_close($ch);
                 }
 
-
+          
 
 
 

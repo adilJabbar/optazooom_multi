@@ -104,7 +104,7 @@
                   </div>
 
 
-
+            @if(Auth::user())
             <div class="product-price">
               <p class="title">{{ $langg->lang87 }} :</p>
                     <p class="price"><span id="sizeprice">{{ $productt->showPrice() }}</span>
@@ -115,6 +115,8 @@
                       </a>
                     @endif
                   </div>
+
+              @endif
 
                   <div class="info-meta-2">
                     <ul>
@@ -288,6 +290,7 @@
                           {{ $langg->lang78 }}</a>
                       </li>
                       @else
+                      @if(Auth::user())
                       <li class="addtocart">
                         <a href="javascript:;" id="addcrt"><i class="icofont-cart"></i>{{ $langg->lang90 }}</a>
                       </li>
@@ -297,6 +300,20 @@
                           <i class="icofont-cart"></i>{{ $langg->lang251 }}
                         </a>
                       </li>
+                      @else
+                         <li class="addtocart">
+                        <a rel-toggle="tooltip" title="{{ $langg->lang90 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+                          <i class="icofont-cart"></i>{{ $langg->lang90 }}
+                        </a>
+                      </li>
+
+                        <li class="addtocart">
+                        <a rel-toggle="tooltip" title="{{ $langg->lang251 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+                          <i class="icofont-cart"></i>{{ $langg->lang251 }}
+                        </a>
+                      </li>
+                      
+                      @endif
                       @endif
 
                       @endif

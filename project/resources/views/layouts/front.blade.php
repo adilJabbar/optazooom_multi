@@ -421,7 +421,7 @@
                                                 </div>
                                             </ul>
                                         </li>
-                                        <li class="arrow-icon"><a href="/optazoom-multi/category">Featured Products</a></li>
+                                        <li class="arrow-icon"><a href="{{url('category')}}">Featured Products</a></li>
                                         <li class="dropdown-holder"><a href="javascript:void(0)">Deals</a>
                                             <ul class="hb-dropdown feature-hb-deals">
                                                 <div class="main-section-deals">
