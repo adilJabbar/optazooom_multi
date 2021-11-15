@@ -50697,3 +50697,28 @@ Faq Page Start
                 background-position: center right;
                 background-repeat: no-repeat;
             }
+            
+            .vendorheader h3 {
+                font-weight: 300;
+                color: #505050;
+            }
+            
+            .vendorheader {
+                background-color: #f2f2f2;
+                padding: 60px 0px;
+                position: relative;
+                background-image: url(images/brands_1.png);
+                background-position: center right;
+                background-repeat: no-repeat;
+            }
+            
+            .toadjuctserach {
+                width: 300px;
+                position: relative;
+                left: 71px;
+            }
+            
+            .justify-content-between {
+                display: flex;
+                justify-content: space-between;
+            }

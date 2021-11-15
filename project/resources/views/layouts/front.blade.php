@@ -519,7 +519,7 @@
                                         </li>
                                        
                                          <li class="arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
-                                          <li class="arrow-icon"><a href="#">Vendors</a></li>
+                                          <li class="arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
                                 </nav>
                             </div>
                             <!-- Header Bottom Menu Area End Here -->
