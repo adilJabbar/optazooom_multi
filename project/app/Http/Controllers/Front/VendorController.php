@@ -70,6 +70,7 @@ class VendorController extends Controller
 
     public function vendorlist(Request $request){
         return view('list.vendor');
+        
     }
 
     //Send email to user
