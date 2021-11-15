@@ -26,8 +26,8 @@
                      </div> -->
        <div class="container pt-60">
            <div class="row">
+           @foreach ($users as $user)
                 <div class="col-lg-3">
-                @foreach ($users as $user)
                     <div class="featured">
 						<div class="featured-vendor">
 							<a href="#">
@@ -39,8 +39,8 @@
 							</a>
 						</div>
                      </div>
-                     @endforeach
                  </div>
+                 @endforeach
             </div>
         </div>
 
