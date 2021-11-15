@@ -381,7 +381,7 @@
 														@endif
 														@if($gs->cod_check == 1)
 														 @if($digital == 0)
-															<a class="nav-link payment" data-val="" data-show="no" data-form="{{route('cash.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'cod','slug2' => 0]) }}" id="v-pills-tab3-tab" data-toggle="pill" href="#v-pills-tab3" role="tab" aria-controls="v-pills-tab3" aria-selected="false">
+															<!-- <a class="nav-link payment" data-val="" data-show="no" data-form="{{route('cash.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'cod','slug2' => 0]) }}" id="v-pills-tab3-tab" data-toggle="pill" href="#v-pills-tab3" role="tab" aria-controls="v-pills-tab3" aria-selected="false">
 																	<div class="icon">
 																			<span class="radio"></span>
 																	</div>
@@ -397,11 +397,11 @@
 																		@endif
 
 																	</p>
-															</a>
+															</a> -->
 														 @endif
 														@endif
 														@if($gs->is_instamojo == 1)
-															<a class="nav-link payment" data-val="" data-show="no" data-form="{{route('instamojo.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'instamojo','slug2' => 0]) }}"  id="v-pills-tab4-tab" data-toggle="pill" href="#v-pills-tab4" role="tab" aria-controls="v-pills-tab4" aria-selected="false">
+															<!-- <a class="nav-link payment" data-val="" data-show="no" data-form="{{route('instamojo.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'instamojo','slug2' => 0]) }}"  id="v-pills-tab4-tab" data-toggle="pill" href="#v-pills-tab4" role="tab" aria-controls="v-pills-tab4" aria-selected="false">
 																	<div class="icon">
 																			<span class="radio"></span>
 																	</div>
@@ -417,10 +417,10 @@
 																		@endif
 
 																	</p>
-															</a>
+															</a> -->
 															@endif
 															@if($gs->is_paytm == 1)
-																<a class="nav-link payment" data-val="" data-show="no" data-form="{{route('paytm.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'paytm','slug2' => 0]) }}"  id="v-pills-tab5-tab" data-toggle="pill" href="#v-pills-tab5" role="tab" aria-controls="v-pills-tab5" aria-selected="false">
+															<!-- 	<a class="nav-link payment" data-val="" data-show="no" data-form="{{route('paytm.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'paytm','slug2' => 0]) }}"  id="v-pills-tab5-tab" data-toggle="pill" href="#v-pills-tab5" role="tab" aria-controls="v-pills-tab5" aria-selected="false">
 																		<div class="icon">
 																				<span class="radio"></span>
 																		</div>
@@ -436,10 +436,10 @@
 																			@endif
 	
 																		</p>
-																</a>
+																</a> -->
 																@endif
 																@if($gs->is_razorpay == 1)
-																	<a class="nav-link payment" data-val="" data-show="no" data-form="{{route('razorpay.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'razorpay','slug2' => 0]) }}"  id="v-pills-tab6-tab" data-toggle="pill" href="#v-pills-tab6" role="tab" aria-controls="v-pills-tab6" aria-selected="false">
+																<!-- 	<a class="nav-link payment" data-val="" data-show="no" data-form="{{route('razorpay.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'razorpay','slug2' => 0]) }}"  id="v-pills-tab6-tab" data-toggle="pill" href="#v-pills-tab6" role="tab" aria-controls="v-pills-tab6" aria-selected="false">
 																			<div class="icon">
 																					<span class="radio"></span>
 																			</div>
@@ -456,11 +456,11 @@
 																				@endif
 		
 																			</p>
-																	</a>
+																	</a> -->
 																	@endif
 															@if($gs->is_paystack == 1)
 
-															<a class="nav-link payment" data-val="paystack" data-show="no" data-form="{{route('paystack.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'paystack','slug2' => 0]) }}" id="v-pills-tab7-tab" data-toggle="pill" href="#v-pills-tab7" role="tab" aria-controls="v-pills-tab7" aria-selected="false">
+															<!-- <a class="nav-link payment" data-val="paystack" data-show="no" data-form="{{route('paystack.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'paystack','slug2' => 0]) }}" id="v-pills-tab7-tab" data-toggle="pill" href="#v-pills-tab7" role="tab" aria-controls="v-pills-tab7" aria-selected="false">
 																	<div class="icon">
 																			<span class="radio"></span>
 																	</div>
@@ -475,13 +475,13 @@
 
 																		@endif
 																	</p>
-															</a>
+															</a> -->
 
 															@endif
 
 
 															@if($gs->is_molly == 1)
-															<a class="nav-link payment" data-val="" data-show="no" data-form="{{route('molly.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'molly','slug2' => 0]) }}" id="v-pills-tab8-tab" data-toggle="pill" href="#v-pills-tab8" role="tab" aria-controls="v-pills-tab8" aria-selected="false">
+														<!-- 	<a class="nav-link payment" data-val="" data-show="no" data-form="{{route('molly.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'molly','slug2' => 0]) }}" id="v-pills-tab8-tab" data-toggle="pill" href="#v-pills-tab8" role="tab" aria-controls="v-pills-tab8" aria-selected="false">
 																	<div class="icon">
 																			<span class="radio"></span>
 																	</div>
@@ -496,7 +496,7 @@
 
 																		@endif
 																	</p>
-															</a>
+															</a> -->
 
 															@endif
 
@@ -505,7 +505,7 @@
 
 @foreach($gateways as $gt)
 
-															<a class="nav-link payment" data-val="" data-show="yes" data-form="{{route('gateway.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'other','slug2' => $gt->id]) }}" id="v-pills-tab{{ $gt->id }}-tab" data-toggle="pill" href="#v-pills-tab{{ $gt->id }}" role="tab" aria-controls="v-pills-tab{{ $gt->id }}" aria-selected="false">
+															<!-- <a class="nav-link payment" data-val="" data-show="yes" data-form="{{route('gateway.submit')}}" data-href="{{ route('front.load.payment',['slug1' => 'other','slug2' => $gt->id]) }}" id="v-pills-tab{{ $gt->id }}-tab" data-toggle="pill" href="#v-pills-tab{{ $gt->id }}" role="tab" aria-controls="v-pills-tab{{ $gt->id }}" aria-selected="false">
 																	<div class="icon">
 																			<span class="radio"></span>
 																	</div>
@@ -521,7 +521,7 @@
 																		@endif
 
 																	</p>
-															</a>
+															</a> -->
 
 
 
