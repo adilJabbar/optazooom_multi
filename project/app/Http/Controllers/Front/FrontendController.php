@@ -21,7 +21,7 @@ use Markury\MarkuryPost;
 use Artisan;
 use Illuminate\Support\Facades\Schema;
 use Feed;
-
+use FedEx;
 class FrontendController extends Controller
 {
     public function __construct()
@@ -119,6 +119,30 @@ class FrontendController extends Controller
 
 	public function index(Request $request)
 	{
+      // phpinfo();
+
+
+        
+
+        $acctNum = '510087240';
+$accessKey = 'XYC1MVIkU0SuUozl';
+$password = 'liqepq7o2PNtEffqqbiHoqcru';
+$meterNum = '119245809';
+
+    $tracking = new FedEx\TrackService\Track($accessKey, $password , $acctNum, $meterNum);
+
+    try {
+    $shipment = $tracking->getByTrackingId('123456789012');
+        
+    dd('a',$shipment);
+    
+} catch (Exception $e) {
+    dd('b',$e);
+}
+
+dd('aaa');
+
+
 
         $this->code_image();
          if(!empty($request->reff))
