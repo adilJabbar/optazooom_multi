@@ -666,6 +666,8 @@ class ProductController extends Controller
                         }
                     }
 
+
+
                 $input['photo'] = $line[5];
                 $input['name'] = $line[4];
                 $input['details'] = $line[6];
@@ -683,7 +685,7 @@ class ProductController extends Controller
                 $input['tags'] = $line[14];
                 $input['product_type'] = $line[19];
                 // $input['affiliate_link'] = $line[20];
-                
+
                 $input['slug'] = Str::slug($input['name'],'-').'-'.strtolower($input['sku']);
 
                 $image_url = $line[5];
