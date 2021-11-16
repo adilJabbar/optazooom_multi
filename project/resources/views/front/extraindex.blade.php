@@ -524,6 +524,7 @@
 								  <img src="{{asset('assets/images/hilco.png')}}" alt="">
                                </div>
 							   <hr>
+							   
 								<h4 class="vendor-name">Hilco</h4>
 							</a>
 						</div>
