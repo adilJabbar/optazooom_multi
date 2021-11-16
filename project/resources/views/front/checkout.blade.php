@@ -13,28 +13,26 @@
 
 @section('content')
 
-<!-- Breadcrumb Area Start -->
-<div class="breadcrumb-area">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12">
-				<ul class="pages">
-					<li>
-						<a href="{{ route('front.index') }}">
+
+    <!--Breadcrumb-->
+    <div class="breadcrumb justify-content-center pt-60 pb-60">
+        <div>
+            <ol class="breadcrumb">
+                <h3 class="bread-login">{{ $langg->lang136 }}</h3>
+            </ol>
+            <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item bread-title"><a href="{{ route('front.index') }}">
 							{{ $langg->lang17 }}
-						</a>
-					</li>
-					<li>
-						<a href="{{ route('front.checkout') }}">
+						</a></li>
+    <li class="breadcrumb-item bread-title active bread-title" aria-current="page">		<a href="{{ route('front.checkout') }}">
 							{{ $langg->lang136 }}
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Breadcrumb Area End -->
+						</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <!--Breadcrumb end-->
 
 	<!-- Check Out Area Start -->
 	<section class="checkout">

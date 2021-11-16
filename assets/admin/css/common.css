@@ -100,7 +100,7 @@ a:not([href]) {
 .slider-title {}
 
 .product-description .panel-heading.text-center h3 {
-    background-color: #1f224f;
+    background-color: #6199d6;
     color: #ffffff;
     padding: 10px 0px 10px;
 }
@@ -235,7 +235,7 @@ a.clear {
 }
 
 .sub-categori .modal .modal-dialog .modal-header {
-    background: #16193a;
+    background: #6199d6;
 }
 
 .sub-categori .modal .modal-dialog .modal-header .modal-title {
@@ -284,7 +284,7 @@ a.clear {
 .sub-categori .modal .contact-form .submit-btn {
     width: 100%;
     height: 50px;
-    background: #16193a;
+    background: #6199d6;
     color: #fff;
     font-size: 14px;
     line-height: 50px;
@@ -311,7 +311,7 @@ a.clear {
 }
 
 .completed {
-    background-color: #01c004 !important;
+    background-color: #00970c !important;
 }
 
 .processing {
@@ -366,7 +366,7 @@ a.clear {
 }
 
 .btn.sendEmail {
-    background: #1f224f;
+    background: #fdac38;
     color: #fff;
 }
 
@@ -429,7 +429,7 @@ a.clear {
 }
 
 .add-newProduct-btn.print {
-    background: #1f224f;
+    background: #6199d6;
     color: #fff;
 }
 
@@ -676,7 +676,7 @@ table.dataTable thead td {
 
 .profile-btn {
     border-radius: 50px;
-    background-color: #1f224f;
+    background-color: #6199d6;
     -webkit-box-shadow: 0px 5px 10px 0px rgba(14, 35, 107, 0.3);
     box-shadow: 0px 5px 10px 0px rgba(14, 35, 107, 0.3);
     text-align: center;

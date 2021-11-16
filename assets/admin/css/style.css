@@ -1335,9 +1335,10 @@ div.modal .img-upload {
 }
 
 div.modal button.btn.btn-secondary {
-    background: #2d3274;
+    background: #fdac38;
     font-size: 14px;
     border-radius: 0px;
+    border: 1px solid #fdac38;
 }
 
 #modal1 .modal-dialog {
@@ -1623,7 +1624,7 @@ div.modal button.btn.btn-secondary {
 }
 
 .add-product-content .product-description .body-area .set-gallery {
-    background: #2d3274;
+    background: #6199d6;
     color: #fff;
     font-size: 14px;
     padding: 7px 15px;
@@ -1667,7 +1668,7 @@ div.modal button.btn.btn-secondary {
 }
 
 .add-product-content .product-description .body-area .addProductSubmit-btn {
-    background: #1f224f;
+    background: #6199d6;
     width: 160px;
     height: 40px;
     color: #fff;

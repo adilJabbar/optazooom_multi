@@ -192,7 +192,7 @@
 										</a>
 									</li>
 									@else
-										<li class="profilearea my-dropdown">
+										<!-- <li class="profilearea my-dropdown">
 											<a href="javascript: ;" id="profile-icon" class="profile carticon">
 												<span class="text">
 													<i class="far fa-user"></i>	{{ $langg->lang11 }} <i class="fas fa-chevron-down"></i>
@@ -218,7 +218,23 @@
 													</li>
 												</ul>
 											</div>
-										</li>
+										</li> -->
+										<div class="dropdown">
+										<a href="javascript: ;" id="profile-icon" class="profile carticon">
+												<span class="text">
+													<i class="far fa-user"></i>	{{ $langg->lang11 }} <i class="fas fa-chevron-down"></i>
+												</span>
+											</a>
+											<div class="dropdown-content">
+											<a href="{{ route('user-dashboard') }}">{{ $langg->lang221 }}</a>
+											@if(Auth::user()->IsVendor())
+														<a href="{{ route('vendor-dashboard') }}">{{ $langg->lang222 }}</a>
+													@endif
+											<a href="{{ route('user-profile') }}"> {{ $langg->lang205 }}</a>
+											<a href="{{ route('user-logout') }}"> {{ $langg->lang223 }}</a>
+
+										</div>
+									     </div>
 									@endif
 
 									@if(!Auth::user())

@@ -44962,10 +44962,9 @@ Faq Page Start
                 margin: 2px 0px 2px;
                 display: inline-block;
             }
-            
-            .user-dashbord {
+            /* .user-dashbord {
                 padding: 70px 0px 70px;
-            }
+            } */
             
             .user-dashbord .user-profile-info-area {
                 border: 1px solid rgba(0, 0, 0, 0.2);
@@ -46036,7 +46035,7 @@ Faq Page Start
             
             .checkout-area .checkout-process li a.active span,
             .checkout-area .checkout-process li a:hover span {
-                background: #333;
+                background: #73b2f7;
             }
             
             .checkout-area .tab-content {
@@ -46424,14 +46423,14 @@ Faq Page Start
             }
             
             .tempcart {
-                background: #e9ecef;
+                background: #fff;
                 padding: 70px 0px 70px;
             }
             
             .tempcart .content-box {
                 background: #fff;
                 padding: 50px 50px 50px;
-                box-shadow: 3px 3px 14px 3px rgba(0, 0, 0, 0.10);
+                box-shadow: 3px 3px 14px 3px rgba(0, 0, 0, 0.31);
             }
             
             #tempview {
@@ -47968,7 +47967,7 @@ Faq Page Start
             
             .top-area .content .heading {
                 font-size: 30px;
-                font-weight: 700;
+                font-weight: 400;
             }
             
             .top-area .content .text {
@@ -50723,3 +50722,56 @@ Faq Page Start
                 display: flex;
                 justify-content: space-between;
             }
+            
+            <style>
+            /* Style The Dropdown Button */
+            
+            .dropbtn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            }
+            /* The container <div> - needed to position the dropdown content */
+            
+            .dropdown {
+                position: relative;
+                display: inline-block;
+            }
+            /* Dropdown Content (Hidden by Default) */
+            
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 1;
+            }
+            /* Links inside the dropdown */
+            
+            .dropdown-content a {
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            /* Change color of dropdown links on hover */
+            
+            .dropdown-content a:hover {
+                background-color: #f1f1f1
+            }
+            /* Show the dropdown menu on hover */
+            
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+            /* Change the background color of the dropdown button when the dropdown content is shown */
+            
+            .dropdown:hover .dropbtn {
+                background-color: #3e8e41;
+            }
+            
+            </style>

@@ -3,6 +3,20 @@
 
 
 <section class="user-dashbord">
+  <!--Breadcrumb-->
+<div class="breadcrumb justify-content-center pt-60 pb-60">
+    <div>
+        <ol class="breadcrumb">
+            <h3 class="bread-login">My Profile</h3>
+        </ol>
+        <ol class="breadcrumb" style="position: relative; left: 25px;">
+
+            <li class="breadcrumb-item bread-title"><a href="#">Home</a></li>
+            <li class="breadcrumb-item bread-title active bread-title" aria-current="page">Profile</li>
+        </ol>
+    </div>
+</div>
+<!--Breadcrumb end-->
     <div class="container">
       <div class="row">
         @include('includes.user-dashboard-sidebar')

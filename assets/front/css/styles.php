@@ -557,11 +557,11 @@ input[type=checkbox]:checked + label:before {
   border-left: 20px solid <?php echo $color; ?>;
 }
 .checkout-area .checkout-process li a.active{
-  background: <?php echo $color; ?>;
+  background: #6199d6;
 
 }
 .checkout-area .checkout-process li a.active::before{
-  border-left: 20px solid <?php echo $color; ?>;
+  border-left: 20px solid #6199d6;
 }
 .checkout-area  .content-box .content .billing-info-area .info-list li p i{
   color: <?php echo $color; ?>;
