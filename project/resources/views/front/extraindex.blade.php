@@ -486,18 +486,18 @@
 				<div class="main-slider-check">
 					<div class="featured">
 						<div class="featured-vendor">
-							<a href="#">
+							<a href="{{asset('/store/Swing-Eyewear')}}">
 								<div class="cat-img">
 								  <img src="{{asset('assets/images/swing.png')}}" alt="">
                                </div>
 							   <hr>
-								<h4 class="vendor-name">Hiclo Vison</h4>
+								<h4 class="vendor-name">Swing</h4>
 							</a>
 						</div>
                    </div>
 				   <div class="featured">
 						<div class="featured-vendor">
-							<a href="#">
+							<a href="{{asset('/store/Amcon')}}">
 								<div class="cat-img">
 								  <img src="{{asset('assets/images/amcob.jpg')}}" alt="">
                                </div>
@@ -508,7 +508,7 @@
                    </div>
 				   <div class="featured">
 						<div class="featured-vendor">
-							<a href="#">
+							<a href="{{asset('/store/Go-Eyewear-Group')}}">
 								<div class="cat-img">
 								  <img src="{{asset('assets/images/go.png')}}" alt="">
                                </div>
@@ -519,18 +519,18 @@
                    </div>
 				   <div class="featured">
 						<div class="featured-vendor">
-							<a href="#">
+							<a href="{{asset('/store/Hilco-Vision')}}">
 								<div class="cat-img">
-								  <img src="{{asset('assets/images/dynamic.png')}}" alt="">
+								  <img src="{{asset('assets/images/hilco.png')}}" alt="">
                                </div>
 							   <hr>
-								<h4 class="vendor-name">Dynamic Lab</h4>
+								<h4 class="vendor-name">Hilco</h4>
 							</a>
 						</div>
                    </div>
 				   <div class="featured">
 						<div class="featured-vendor">
-							<a href="#">
+							<a href="{{asset('/store/Ron%27s-Optical')}}">
 								<div class="cat-img">
 								  <img src="{{asset('assets/images/rons.png')}}" alt="">
                                </div>
