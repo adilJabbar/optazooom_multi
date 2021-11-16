@@ -13,7 +13,7 @@ use App\Models\Product;
 use App\Models\Subscriber;
 use App\Models\User;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
@@ -21,7 +21,10 @@ use Markury\MarkuryPost;
 use Artisan;
 use Illuminate\Support\Facades\Schema;
 use Feed;
-// use FedEx;
+use FedEx;
+use FedEx\TrackService\Request;
+use FedEx\TrackService\ComplexType;
+use FedEx\TrackService\SimpleType;
 class FrontendController extends Controller
 {
     public function __construct()
@@ -117,30 +120,122 @@ class FrontendController extends Controller
 
 // -------------------------------- HOME PAGE SECTION ----------------------------------------
 
-	public function index(Request $request)
+	public function index()
 	{
       // phpinfo();
 
 
+$acctNum = '510087240';
+$accessKey = 'XYC1MVIkU0SuUozl';
+$password = 'liqepq7o2PNtEffqqbiHoqcru';
+$meterNum = '119245809';
+$trackingId1 = 2323;
+$trackingId2 = '843119172384577';
+
+        // Build Authentication
+$request['WebAuthenticationDetail'] = array(
+    'UserCredential' => array(
+        'Key'      => $accessKey, //Replace it with FedEx Key, 
+        'Password' => $password //Replace it with FedEx API Password
+    )
+);
+ 
+ 
+//Build Client Detail
+$request['ClientDetail'] = array(
+    'AccountNumber' => $acctNum, //Replace it with Account Number, 
+    'MeterNumber'   => $meterNum //Replace it with Meter Number
+);
+ 
+ 
+
+ 
+         
+// Build API Version info
+$request['Version'] = array(
+    'ServiceId'    => 'trck',
+    'Major'        => 10, // You can change it based on you using api version
+    'Intermediate' => 0, // You can change it based on you using api version
+    'Minor'        => 0 // You can change it based on you using api version
+);
+ 
+ 
+// Build Tracking Number info
+$request['SelectionDetails'] = array(
+    'PackageIdentifier' => array(
+        'Type'  => 'TRACKING_NUMBER_OR_DOORTAG',
+        'Value' => $trackingId2 //Replace it with FedEx tracking number
+    )
+);
+
+
+
+$wsdlPath = 'TrackService_v18.wsdl'; 
+$wsdlPath = 'C:\xampp\htdocs\optazoom-multi\project\vendor\maxirus\fedex\src/_wsdl/TrackService_v10.wsdl'; 
+
+$endPoint = 'https://wsbeta.fedex.com:443/web-services'; //You will get it when requesting to FedEx key. It might change based on the API Environments
+ 
+$client = new \SoapClient($wsdlPath, array('trace' => true));
+$client->__setLocation($endPoint);
+ 
+$apiResponse = $client->track($request);
+
+
+dd($apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description);
+
+
+
+$trackRequest = new ComplexType\TrackRequest();
+
+// User Credential
+$trackRequest->WebAuthenticationDetail->UserCredential->Key = $accessKey;
+$trackRequest->WebAuthenticationDetail->UserCredential->Password = $password;
+
+// Client Detail
+$trackRequest->ClientDetail->AccountNumber = $acctNum;
+$trackRequest->ClientDetail->MeterNumber = $meterNum;
+
+// Version
+$trackRequest->Version->ServiceId = 'trck';
+$trackRequest->Version->Major = 19;
+$trackRequest->Version->Intermediate = 0;
+$trackRequest->Version->Minor = 0;
+
+// Track 2 shipments
+$trackRequest->SelectionDetails = [new ComplexType\TrackSelectionDetail(), new ComplexType\TrackSelectionDetail()];
+
+// For get all events
+$trackRequest->ProcessingOptions = [SimpleType\TrackRequestProcessingOptionType::_INCLUDE_DETAILED_SCANS];
+
+// Track shipment 1
+$trackRequest->SelectionDetails[0]->PackageIdentifier->Value = $trackingId1;
+$trackRequest->SelectionDetails[0]->PackageIdentifier->Type = SimpleType\TrackIdentifierType::_TRACKING_NUMBER_OR_DOORTAG;
+
+// Track shipment 2
+// $trackRequest->SelectionDetails[1]->PackageIdentifier->Value = $trackingId2;
+// $trackRequest->SelectionDetails[1]->PackageIdentifier->Type = SimpleType\TrackIdentifierType::_TRACKING_NUMBER_OR_DOORTAG;
+
+$request = new Request();
+$trackReply = $request->getTrackReply($trackRequest);
+
+// var_dump($rateReply);
+dd($trackReply);
+
         
 
-//         $acctNum = '510087240';
-// $accessKey = 'XYC1MVIkU0SuUozl';
-// $password = 'liqepq7o2PNtEffqqbiHoqcru';
-// $meterNum = '119245809';
 
-//     $tracking = new FedEx\TrackService\Track($accessKey, $password , $acctNum, $meterNum);
+    $tracking = new FedEx\TrackService\Track($accessKey, $password , $acctNum, $meterNum);
 
-//     try {
-//     $shipment = $tracking->getByTrackingId('123456789012');
+    try {
+    $shipment = $tracking->getByTrackingId('123456789012');
         
-//     dd('a',$shipment);
+    dd('a',$shipment);
     
-// } catch (Exception $e) {
-//     dd('b',$e);
-// }
+} catch (Exception $e) {
+    dd('b',$e);
+}
 
-// dd('aaa');
+dd('aaa');
 
         $this->code_image();
          if(!empty($request->reff))

@@ -13,7 +13,7 @@ use App\Models\VendorOrder;
 use Datatables;
 use PDF;
 use Illuminate\Http\Request;
-
+use DB;
 class OrderController extends Controller
 {
     public function __construct()
@@ -75,14 +75,17 @@ class OrderController extends Controller
         $data = Order::findOrFail($id);
 
         $input = $request->all();
+     
         if ($data->status == "completed"){
 
         // Then Save Without Changing it.
-            $input['status'] = "completed";
-            $data->update($input);
-            //--- Logic Section Ends
-    
+          $input['status'] = "completed";
 
+            
+           $a = $data->update($input);
+        
+            //--- Logic Section Ends
+  
         //--- Redirect Section          
         $msg = 'Status Updated Successfully.';
         return response()->json($msg);    
@@ -90,7 +93,7 @@ class OrderController extends Controller
     
             }else{
             if ($input['status'] == "completed"){
-    
+       
                 foreach($data->vendororders as $vorder)
                 {
                     $uprice = User::findOrFail($vorder->user_id);

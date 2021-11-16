@@ -1236,6 +1236,26 @@ Route::prefix('vendor')->group(function() {
   Route::get('/dashboard', 'Vendor\VendorController@index')->name('vendor-dashboard');
 
 
+
+  Route::get('/messages/datatables/{type}', 'Vendor\MessageController@datatables')->name('vendor-message-datatables');
+  Route::get('/tickets', 'Vendor\MessageController@index')->name('vendor-message-index');
+  Route::get('/disputes', 'Vendor\MessageController@disputes')->name('vendor-message-dispute');
+
+
+
+
+  Route::get('/message/{id}', 'Vendor\MessageController@message')->name('vendor-message-show');
+  Route::get('/message/load/{id}', 'Vendor\MessageController@messageshow')->name('vendor-message-load');
+  Route::post('/message/post', 'Vendor\MessageController@postmessage')->name('vendor-message-store');
+  Route::get('/message/{id}/delete', 'Vendor\MessageController@messagedelete')->name('vendor-message-delete');
+  Route::post('/user/send/message', 'Vendor\MessageController@usercontact')->name('vendor-send-message');
+
+ Route::post('admin/user/send/message', 'Vendor\MessageController@adminusercontact')->name('user-send-message');
+  Route::get('admin/message/load/{id}', 'Vendor\MessageController@messageload')->name('user-message-load');
+
+
+
+
     //IMPORT SECTION
     Route::get('/products/import/create', 'Vendor\ImportController@createImport')->name('vendor-import-create');
     Route::get('/products/import/edit/{id}', 'Vendor\ImportController@edit')->name('vendor-import-edit');

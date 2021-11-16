@@ -129,6 +129,21 @@
 								<a target="_blank" href="{{ route('front.vendor',str_replace(' ', '-', Auth::user()->shop_name)) }}" class="wave-effect"><i class="fas fa-eye mr-2"></i> {{ $langg->lang440 }}</a>
 							</li>
 
+								 <li>
+        <a href="#msg" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
+            <i class="fas fa-fw fa-newspaper"></i>{{ __('Messages') }}
+        </a>
+        <ul class="collapse list-unstyled" id="msg" data-parent="#accordion">
+            <li>
+                <a href="{{ route('vendor-message-index') }}"><span>{{ __('Tickets') }}</span></a>
+            </li>
+            <li>
+                <a href="{{ route('vendor-message-dispute') }}"><span>{{ __('Disputes') }}</span></a>
+            </li>
+        </ul>
+    </li>
+
+
 							<li>
 								<a href="{{ route('vendor-dashboard') }}" class="wave-effect "><i class="fa fa-home mr-2"></i>{{ $langg->lang441 }}</a>
 							</li>
@@ -140,6 +155,7 @@
                                 	</li>
 								</ul>
 							</li>
+
 
 							<li>
 								<a href="#menu2" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
