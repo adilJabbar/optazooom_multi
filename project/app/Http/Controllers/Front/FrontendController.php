@@ -142,8 +142,6 @@ class FrontendController extends Controller
 
 // dd('aaa');
 
-
-
         $this->code_image();
          if(!empty($request->reff))
          {
