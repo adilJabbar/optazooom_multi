@@ -25,7 +25,7 @@
         </a>
         <ul class="collapse list-unstyled" id="menu2" data-parent="#accordion">
             <li>
-                <a href="{{ route('admin-prod-types') }}"><span>{{ __('Add New Product') }}</span></a>
+            <a href="{{ route('admin-prod-physical-create') }}"><span>{{ __('Add New Product') }}</span></a>
             </li>
             <li>
                 <a href="{{ route('admin-prod-index') }}"><span>{{ __('All Products') }}</span></a>

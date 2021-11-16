@@ -12,8 +12,7 @@
 	<div class="mr-breadcrumb">
 		<div class="row">
 			<div class="col-lg-12">
-				<h4 class="heading">{{ __('Physical Product') }} <a class="add-btn"
-						href="{{ route('admin-prod-types') }}"><i class="fas fa-arrow-left"></i> {{ __('Back') }}</a>
+				<h4 class="heading">{{ __('Physical Product') }} 
 				</h4>
 				<ul class="links">
 					<li>

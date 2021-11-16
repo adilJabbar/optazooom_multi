@@ -24,7 +24,7 @@
                 </div>
               </div>
             </div>
-            <div class="add-product-content">
+            <!-- <div class="add-product-content">
               <div class="row">
                 <div class="col-lg-12">
                   <div class="product-description">
@@ -70,7 +70,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
 
 @endsection

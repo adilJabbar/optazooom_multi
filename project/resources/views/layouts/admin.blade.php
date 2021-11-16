@@ -167,7 +167,7 @@
 
 						</ul>
 					@if(Auth::guard('admin')->user()->IsSuper())
-					<p class="version-name">c OptaZoom | Developed by Baron Tech (Pvt) Ltd</p>
+					<p class="version-name">Copyright Reserved By OptaZoom | Developed by Baron Tech (Pvt) Ltd</p>
 					@endif
 					</nav>
 					<!-- Main Content Area Start -->
