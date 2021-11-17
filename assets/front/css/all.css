@@ -50579,6 +50579,11 @@ Faq Page Start
                 padding: 10px 20px 10px 20px !important;
             }
             
+            .read-more-blogs :hover {
+                background: #fdac38 !important;
+                color: #fff !important;
+            }
+            
             .li-blog-sidebar .li-blog-sidebar-title {
                 color: #242424 !important;
                 line-height: 20px !important;
