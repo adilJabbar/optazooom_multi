@@ -7,7 +7,7 @@
 <div class="breadcrumb justify-content-center pt-60 pb-60">
     <div>
         <ol class="breadcrumb">
-            <h3 class="bread-login">My Profile</h3>
+            <h3 class="bread-login">My Account</h3>
         </ol>
         <ol class="breadcrumb" style="position: relative; left: 25px;">
 

@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('content')
 
-<!-- Vendor Area Start -->
+ <!-- Vendor Area Start -->
   <div class="vendor-banner" style="background: url({{  $vendor->shop_image != null ? asset('assets/images/vendorbanner/'.$vendor->shop_image) : '' }}); background-repeat: no-repeat; background-size: cover;background-position: center;{!! $vendor->shop_image != null ? '' : 'background-color:'.$gs->vendor_color !!} ">
     <div class="container">
       <div class="row">
@@ -17,7 +17,8 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> 
+
 
 
 {{-- Info Area Start --}}
