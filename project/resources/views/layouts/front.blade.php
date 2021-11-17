@@ -284,10 +284,11 @@
 										<span id="wishlist-count">{{ Auth::user()->wishlistCount() }}</span>
 									</a>
 								@else
-									<a href="javascript:;" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" class="wish">
-										<i class="far fa-heart"></i>
+									<!-- <a href="javascript:;" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" class="wish">
+									<img src="{{asset('assets/images/heart_b.svg')}}" height="30"/>
+
 										<span id="wishlist-count">0</span>
-									</a>
+									</a> -->
 								@endif
 							</li> 
 							 <!-- <li class="compare"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang10 }}">

@@ -44178,7 +44178,7 @@ DROPDOWN STYLE
             .login-area {
                 padding: 30px 30px 39px;
                 background: #fff;
-                -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+                -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
                 box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
             }
             
@@ -44574,8 +44574,8 @@ DROPDOWN STYLE
             .login-area {
                 padding: 30px 30px 39px;
                 background: #fff;
-                -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-                box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+                -webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
             }
             
             .login-area .header-area {
