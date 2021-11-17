@@ -307,7 +307,7 @@ class ProductController extends Controller
                             $input['childcategory_id'] = $chcat->first()->id;
                         }
                     }
-
+               
                 $input['photo'] = $line[5];
                 $input['name'] = $line[4];
                 $input['details'] = $line[6];
@@ -330,7 +330,7 @@ class ProductController extends Controller
                 // $input['affiliate_link'] = $line[20];
 
 
-                
+
 
                 $input['slug'] = Str::slug($input['name'],'-').'-'.strtolower($input['sku']);
 
