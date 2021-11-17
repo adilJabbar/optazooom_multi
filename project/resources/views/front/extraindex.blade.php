@@ -441,7 +441,7 @@
                     
                 </p>
                <div class="creation-account text-right">
-                    <a href="@"><button type="button" class="btn ">Read more</button></a>
+                    <a href="{{ asset('/about_optazoom') }}"><button type="button" class="btn ">Read more</button></a>
                 </div>
             </div>
         </div>
