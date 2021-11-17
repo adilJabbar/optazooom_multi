@@ -404,15 +404,15 @@ class ProductController extends Controller
     {
 
         $user = Auth::user();
-        $package = $user->subscribes()->orderBy('id','desc')->first();
+        // $package = $user->subscribes()->orderBy('id','desc')->first();
         $prods = $user->products()->orderBy('id','desc')->get()->count();
 
-        if(!$package){
-            return response()->json(array('errors' => [ 0 => 'You don\'t have any subscription plan.']));
-        }
+        // if(!$package){
+        //     return response()->json(array('errors' => [ 0 => 'You don\'t have any subscription plan.']));
+        // }
         
-        if($prods < $package->allowed_products || $package->allowed_products == 0)
-        {
+        // if($prods < $package->allowed_products || $package->allowed_products == 0)
+        // {
 
         //--- Validation Section
         $rules = [
@@ -746,14 +746,14 @@ class ProductController extends Controller
         $msg = 'New Product Added Successfully.<a href="'.route('vendor-prod-index').'">View Product Lists.</a>';
         return response()->json($msg);
         //--- Redirect Section Ends
-        }
-        else
-        {
-        //--- Redirect Section
-        return response()->json(array('errors' => [ 0 => 'You Can\'t Add More Product.']));
+        // }
+        // else
+        // {
+        // //--- Redirect Section
+        // return response()->json(array('errors' => [ 0 => 'You Can\'t Add More Product.']));
 
-        //--- Redirect Section Ends
-        }
+        // //--- Redirect Section Ends
+        // }
 
     }
 
