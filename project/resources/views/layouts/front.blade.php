@@ -235,6 +235,7 @@
 
 										</div>
 									     </div>
+										 
 									@endif
 
 									@if(!Auth::user())
@@ -276,10 +277,10 @@
 									@include('load.cart')
 								</div>
 							</li>
-							<!-- <li class="wishlist"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang9 }}">
+							 <li class="wishlist"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang9 }}">
 								@if(Auth::guard('web')->check())
 									<a href="{{ route('user-wishlists') }}" class="wish">
-										<i class="far fa-heart"></i>
+									<img src="{{asset('assets/images/heart_b.svg')}}" height="30"/>
 										<span id="wishlist-count">{{ Auth::user()->wishlistCount() }}</span>
 									</a>
 								@else
@@ -288,8 +289,8 @@
 										<span id="wishlist-count">0</span>
 									</a>
 								@endif
-							</li> -->
-							<!-- <li class="compare"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang10 }}">
+							</li> 
+							 <!-- <li class="compare"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang10 }}">
 								<a href="{{ route('product.compare') }}" class="wish compare-product">
 									<div class="icon">
 										<i class="fas fa-exchange-alt"></i>

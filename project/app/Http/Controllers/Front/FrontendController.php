@@ -124,6 +124,11 @@ class FrontendController extends Controller
 	{
   
 
+        
+  
+
+
+
         $this->code_image();
          if(!empty($request->reff))
          {
