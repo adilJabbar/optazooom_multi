@@ -163,6 +163,7 @@ $(function($) {
         $('.main-slider-check').slick({
             dots: true,
             infinite: true,
+            autoplay: true,
             speed: 300,
             slidesToShow: 4,
             slidesToScroll: 4,
@@ -200,7 +201,7 @@ $(function($) {
             dots: true,
             infinite: true,
             autoplay: true,
-            speed: 300,
+            speed: 200,
             slidesToShow: 3,
             slidesToScroll: 2,
             responsive: [{

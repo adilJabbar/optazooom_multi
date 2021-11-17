@@ -431,7 +431,7 @@
         </div>
         <div class="col-md-6" >
             <div class="col-md-12">
-                <h3>About<span>Optazoom</span></h3>
+                <h3>About<span style="font-weight:300;"> Optazoom</span></h3>
                 <p>
                             With OptaZoom, shopping for all your practice needs becomes easy. Spend less time and money ordering the same items from multiple vendors and spend more time with patients.
             <br><br>
@@ -481,17 +481,17 @@
 						<!--- Featured Vendors--->
 						<div class="container">
 					<div class="professional-heading">
-						<h3>FEATURED VENDOR<h3>
+						<h3>FEATURED VENDORS<h3>
 					</div>
 				<div class="main-slider-check">
-					<div class="featured">
+				   <div class="featured">
 						<div class="featured-vendor">
-							<a href="{{asset('/store/Swing-Eyewear')}}">
+							<a href="{{asset('/store/Amcon')}}">
 								<div class="cat-img">
-								  <img src="{{asset('assets/images/swing.png')}}" alt="">
+								  <img src="{{asset('assets/images/amcob.jpg')}}" alt="">
                                </div>
 							   <hr>
-								<h4 class="vendor-name">Swing</h4>
+								<h4 class="vendor-name">Amcon</h4>
 							</a>
 						</div>
                    </div>
@@ -525,7 +525,7 @@
                                </div>
 							   <hr>
 								<h4 class="vendor-name">Hilco</h4>
-								
+
 							</a>
 						</div>
                    </div>
@@ -664,7 +664,7 @@
                      </div>
                </div>
 			   <div class="creation-account aos-init aos-animate" data-aos="fade-up">
-           				 <a href="{{ route('user.login') }}"><button class="btn become-vendor ">Join Free Today</button></a>
+           				 <a href="javascript:;" data-toggle="modal" data-target="#vendor-login"><button class="btn become-vendor ">Join Free Today</button></a>
 			  </div>
 			<!-- Testimonials End -->
 	@if($ps->partners == 1)

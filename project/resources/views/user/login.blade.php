@@ -139,7 +139,8 @@
     padding: 0px 30px 0px 45px;
     border: 1px
     solid rgba(0, 0, 0, 0.1);
-    font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
+    font-size: 14px;
+    font-weight:300;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
                         <option  value="">How Did You Hear About Us?</option>
                         <option value="facebook">Facebook</option>
                         <option value="instagram">Instagram</option>
@@ -159,6 +160,11 @@
                     <i class="icofont-ui-password"></i>
                   </div>
 
+                 <div class="from-input">
+                   <input type="checkbox" id="opta-login" name="opta-login" value="opta-login">
+                   <label for="opta-login"> By submitting this form, I agree to the <span style="color:#fdac38;"><a href="{{asset('/vendor_code_conduct')}}">Privacy Policy</a></span> of OptaZoom</label><br>
+                 </div>
+
                   @if($gs->is_capcha == 1)
 
                <!--    <ul class="captcha-area">
@@ -174,7 +180,8 @@
                   </div> -->
 
                   @endif
-
+                                        
+                                 
                   <input class="mprocessdata" type="hidden" value="{{ $langg->lang188 }}">
                   <button type="submit" class="submit-btn">{{ $langg->lang189 }}</button>
 
