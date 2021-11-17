@@ -44809,16 +44809,18 @@ Faq Page Start
             .vendor-banner .title {
                 font-size: 46px;
                 line-height: 60px;
-                font-weight: 400;
-                color: #fff;
+                font-weight: 300;
+                color: #505050;
+                text-align: center;
             }
             
             .vendor-banner .sub-title {
                 font-size: 24px;
                 line-height: 34px;
                 font-weight: 300;
-                color: #fff;
+                color: #505050;
                 margin-bottom: 0px;
+                text-align: center;
             }
             
             .vendor-top-header {
@@ -48907,6 +48909,7 @@ Faq Page Start
                 .vendor-banner .title {
                     font-size: 30px;
                     line-height: 40px;
+                    text-align: center;
                 }
                 .sub-categori .modal .contact-form ul li .input-field.textarea {
                     margin-bottom: 20px;
@@ -50787,4 +50790,4 @@ Faq Page Start
                 background-color: #3e8e41;
             }
             
-            9
+            9r;
