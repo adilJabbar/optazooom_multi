@@ -200,7 +200,7 @@
                                             <a href="#"><i class="fa fa-google-plus"></i></a>
                                         </div> -->
                                         <div class="pt-100">
-                                           <a href="{{url('optanews')}}"> <p class="go-back text-center">Go BACK</p></a>
+                                           <a href="{{url('optanews')}}"> <p class="go-back text-center" style="text-align:center;">Go BACK</p></a>
                                         </div>
                                      
 
