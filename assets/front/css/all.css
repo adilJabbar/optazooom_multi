@@ -50360,7 +50360,14 @@ Faq Page Start
             .about-optazoom p {
                 font-size: 16px;
                 font-weight: 300;
-                margin-bottom: 35 px;
+                margin-bottom: 35px;
+            }
+            
+            .about-content p {
+                font-size: 18px;
+                font-weight: 300;
+                margin-top: 50px;
+                line-height: 40px;
             }
             
             .creation-account button {
@@ -50774,3 +50781,5 @@ Faq Page Start
             .dropdown:hover .dropbtn {
                 background-color: #3e8e41;
             }
+            
+            9

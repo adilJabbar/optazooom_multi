@@ -1508,6 +1508,10 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   Route::get('/contact/refresh_code','Front\FrontendController@refresh_code');
   // CONTACT SECTION  ENDS
 
+  //ABOUT SECTION
+  Route::get('/about_optazoom','Front\FrontendController@about')->name('front.contact');
+
+
   // PRODCT AUTO SEARCH SECTION
   Route::get('/autosearch/product/{slug}','Front\FrontendController@autosearch');
   // PRODCT AUTO SEARCH SECTION ENDS

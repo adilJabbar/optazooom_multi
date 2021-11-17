@@ -569,25 +569,27 @@
 								{{ $langg->lang21 }}
 						</h4>
 						<ul class="link-list">
-							<li>
-								<a href="{{ route('front.index') }}">
-									<i class="fas fa-angle-double-right"></i>{{ $langg->lang22 }}
+						<li>
+								<a href="{{ asset('/about_optazoom') }}">
+									</i>About Optazoom
 								</a>
 							</li>
+
 
 							@foreach(DB::table('pages')->where('footer','=',1)->get() as $data)
 							<li>
 								<a href="{{ route('front.page',$data->slug) }}">
-									<i class="fas fa-angle-double-right"></i>{{ $data->title }}
+									{{ $data->title }}
 								</a>
 							</li>
 							@endforeach
 
 							<li>
 								<a href="{{ route('front.contact') }}">
-									<i class="fas fa-angle-double-right"></i>{{ $langg->lang23 }}
+									{{ $langg->lang23 }}
 								</a>
 							</li>
+							
 						</ul>
 					</div>
 					<div class="footer-info-area">
@@ -936,6 +938,7 @@
 												placeholder="{{ $langg->lang51 }}" required="">
 											<i class="icofont-refresh"></i>
 										</div>
+										
 
 
 										@endif
@@ -1235,6 +1238,10 @@
                                 <i class="icofont-ui-password"></i>
                             	</div>
                            	</div>
+							   <div class="from-input">
+                   <input type="checkbox" id="opta-vendor" name="opta-login" value="opta-vendor">
+                   <label for="opta-vendor"> By submitting this form, I agree to the <span style="color:#fdac38;"><a href="{{asset('/privacy')}}">Privacy Policy</a></span> of OptaZoom</label><br>
+                 </div>
 
                             @if($gs->is_capcha == 1)
 

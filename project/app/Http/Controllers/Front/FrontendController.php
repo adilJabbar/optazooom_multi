@@ -439,6 +439,9 @@ class FrontendController extends Controller
 		return view('front.contact',compact('ps'));
 	}
 
+     public function about(){
+         return view('front.about');
+     }
 
     //Send email to admin
     public function contactemail(Request $request)
