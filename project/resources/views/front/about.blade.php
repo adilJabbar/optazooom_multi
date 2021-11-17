@@ -26,7 +26,7 @@
             <div class="about-content row" style="padding-bottom: 30px;">
                 <div class="about-img">
                     <div class="col-md-12">
-                        <img style="width: 1200px; height:450px;" src="{{asset('assets/images/about.png')}}"">
+                        <img style="width: 1200px; height:450px;" src="{{asset('assets/images/aboutnew.jpg')}}"">
                     </div>
                 </div>
                 <div class="col-md-12">

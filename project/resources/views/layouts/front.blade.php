@@ -222,7 +222,7 @@
 										<div class="dropdown">
 										<a href="javascript: ;" id="profile-icon" class="profile carticon">
 												<span class="text">
-													<i class="far fa-user"></i>	{{ $langg->lang11 }} <i class="fas fa-chevron-down"></i>
+													{{ $langg->lang11 }} <i class="fas fa-chevron-down"></i>
 												</span>
 											</a>
 											<div class="dropdown-content">

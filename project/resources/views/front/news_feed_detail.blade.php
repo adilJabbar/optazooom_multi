@@ -19,7 +19,7 @@
             <ol class="breadcrumb" style="position: relative; ">
 
                 <li class="breadcrumb-item bread-title"><a href="#">Home</a></li>
-                <li class="breadcrumb-item bread-title active bread-title" aria-current="page">News Feed Detail</li>
+                <li class="breadcrumb-item bread-title active bread-title" aria-current="page">News Feed Details</li>
             </ol>
         </div>
     </div>
@@ -191,7 +191,7 @@
 
                                             <?php echo  $str = $description;    ?>
                                         </p>
-                                        <a class="read-more-blogs" href="{{$_GET['link']}}" target="_blank">Read Original Article</a>
+                                        <a class="read-more-blogs" href="{{$_GET['link']}}">Read Original Article</a>
                                      <!--    <div class="li-blog-sharing d-inline pt-30">
                                             <h4 class="d-inline">share this news feed:</h4>
                                             <a href="https://www.facebook.com/optazoom/"><i class="fa fa-facebook"></i></a>
@@ -200,7 +200,7 @@
                                             <a href="#"><i class="fa fa-google-plus"></i></a>
                                         </div> -->
                                         <div class="pt-100">
-                                           <a href="{{url('optanews')}}"> <p class="go-back text-center">Go BACK</p></a>
+                                           <a href="{{url('optanews')}}"> <p class="go-back text-center" style="text-align:center;">Go BACK</p></a>
                                         </div>
                                      
 
