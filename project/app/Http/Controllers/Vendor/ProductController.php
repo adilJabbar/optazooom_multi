@@ -227,14 +227,14 @@ class ProductController extends Controller
     {
 
         $user = Auth::user();
-        $package = $user->subscribes()->orderBy('id','desc')->first();
+        // $package = $user->subscribes()->orderBy('id','desc')->first();
         $prods = $user->products()->orderBy('id','desc')->get()->count();
 
-        if(!$package){
-            return response()->json(array('errors' => [ 0 => 'You don\'t have any subscription plan.']));
-        }
+        // if(!$package){
+        //     return response()->json(array('errors' => [ 0 => 'You don\'t have any subscription plan.']));
+        // }
 
-        if($prods < $package->allowed_products || $package->allowed_products == 0) {
+        // if($prods < $package->allowed_products || $package->allowed_products == 0) {
         $log = "";
         //--- Validation Section
         $rules = [
@@ -388,14 +388,14 @@ class ProductController extends Controller
         $msg = 'Bulk Product File Imported Successfully.<a href="'.route('admin-prod-index').'">View Product Lists.</a>'.$log;
         return response()->json($msg);
 
-        }
-        else
-        {
-            //--- Redirect Section
-            return response()->json(array('errors' => [ 0 => 'You Can\'t Add More Products.']));
+        // }
+        // else
+        // {
+        //     //--- Redirect Section
+        //     return response()->json(array('errors' => [ 0 => 'You Can\'t Add More Products.']));
 
-            //--- Redirect Section Ends
-        }
+        //     //--- Redirect Section Ends
+        // }
     }
 
 
