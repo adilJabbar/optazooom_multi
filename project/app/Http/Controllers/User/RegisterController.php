@@ -56,7 +56,7 @@ class RegisterController extends Controller
 	          {
 					//--- Validation Section
 					
-					$input['is_vendor'] = 1;
+					$input['is_vendor'] = 2;
 
 			  }
 			 
