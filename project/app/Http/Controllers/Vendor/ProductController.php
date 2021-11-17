@@ -297,6 +297,9 @@ class ProductController extends Controller
                             $input['subcategory_id'] = $scat->first()->id;
                         }
                     }
+
+                    $inserted = array( 'xa' );
+                    array_splice( $line, 3, 0, $inserted ); 
                     if($line[3] != ""){
                         $chcat = Childcategory::where(DB::raw('lower(name)'), strtolower($line[3]));
 
@@ -324,7 +327,10 @@ class ProductController extends Controller
                 $input['meta_description'] = $line[18];
                 $input['tags'] = $line[14];
                 $input['product_type'] = $line[19];
-                $input['affiliate_link'] = $line[20];
+                // $input['affiliate_link'] = $line[20];
+
+
+                
 
                 $input['slug'] = Str::slug($input['name'],'-').'-'.strtolower($input['sku']);
 
