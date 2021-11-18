@@ -40068,6 +40068,7 @@ DROPDOWN STYLE
             
             .flash-deals .flas-deal-slider .item .deal-counter span:last-child {
                 margin-right: 0px;
+                font-weight: 300;
             }
             
             .flash-deals .flas-deal-slider .item .deal-counter span small {
@@ -42461,7 +42462,7 @@ DROPDOWN STYLE
             .sub-categori .left-area .filter-result-area .body-area .filter-btn {
                 width: 160px;
                 height: 40px;
-                line-height: 40px;
+                line-height: 35px;
                 text-align: center;
                 font-size: 14px;
                 text-transform: uppercase;
