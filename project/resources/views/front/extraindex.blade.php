@@ -477,7 +477,7 @@
 
 			@if($ps->flash_deal == 1)
 		<!-- Electronics Area Start -->
-		<section class="categori-item electronics-section">
+		<section class="categori-item electronics-section" id="flashdeals">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
