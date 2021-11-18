@@ -70,7 +70,7 @@ class VendorController extends Controller
 
     public function vendorlist(Request $request){
         
-        $users = User::where('is_vendor','=','2')->get()->paginate(9);
+        $users = User::where('is_vendor','=','2')->get()->paginate(12);
         return view('front.vendorlist',['users'=>$users]);
 
     }
