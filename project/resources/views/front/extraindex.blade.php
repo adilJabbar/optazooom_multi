@@ -481,63 +481,25 @@
 						<h3>FEATURED VENDORS<h3>
 					</div>
 				<div class="main-slider-check">
-				   <div class="featured">
+				@php
+				   $vendors = DB::select('select * from users where is_featured="2" ');
+					foreach ($vendors as $vendor)
+					{
+						@endphp
+						<div class="featured">
 						<div class="featured-vendor">
-							<a href="{{asset('/store/Amcon')}}">
+							<a href="{{ route('front.vendor',str_replace(' ', '-', $vendor->shop_name)) }}">
 								<div class="cat-img">
-								  <img src="{{asset('assets/images/swing.png')}}" alt="">
+								  <img src="{{asset('assets/images/users/')}}{{$vendor->photo}}" alt="">
                                </div>
 							   <hr>
-								<h4 class="vendor-name">Swing</h4>
+								<h4 class="vendor-name"><?php echo $vendor->name ?></h4>
 							</a>
 						</div>
-                   </div>
-				   <div class="featured">
-						<div class="featured-vendor">
-							<a href="{{asset('/store/Amcon')}}">
-								<div class="cat-img">
-								  <img src="{{asset('assets/images/amcob.jpg')}}" alt="">
-                               </div>
-							   <hr>
-								<h4 class="vendor-name">Amcon</h4>
-							</a>
-						</div>
-                   </div>
-				   <div class="featured">
-						<div class="featured-vendor">
-							<a href="{{asset('/store/Go-Eyewear-Group')}}">
-								<div class="cat-img">
-								  <img src="{{asset('assets/images/go.png')}}" alt="">
-                               </div>
-							   <hr>
-								<h4 class="vendor-name">Go Eyewared Group</h4>
-							</a>
-						</div>
-                   </div>
-				   <div class="featured">
-						<div class="featured-vendor">
-							<a href="{{asset('/store/Hilco-Vision')}}">
-								<div class="cat-img">
-								  <img src="{{asset('assets/images/hilco.png')}}" alt="">
-                               </div>
-							   <hr>
-								<h4 class="vendor-name">Hilco</h4>
-
-							</a>
-						</div>
-                   </div>
-				   <div class="featured">
-						<div class="featured-vendor">
-							<a href="{{asset('/store/Ron%27s-Optical')}}">
-								<div class="cat-img">
-								  <img src="{{asset('assets/images/rons.png')}}" alt="">
-                               </div>
-							   <hr>
-								<h4 class="vendor-name">Ron's Optical</h4>
-							</a>
-						</div>
-                   </div>
-			   </div>
+			          </div>
+				@php	}
+					@endphp
+						
             </div>
 			<!-- End Featured Vendors -->
 
