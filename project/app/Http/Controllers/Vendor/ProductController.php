@@ -333,6 +333,7 @@ class ProductController extends Controller
                 $input['previous_price'] = $line[8] != "" ? $line[8] : null;
                 $input['stock'] =$line[9] != "" ? $line[9] : 0;
                 $input['size'] = $line[10];
+                
                 $input['size_qty'] = $line[11];
                 $input['size_price'] = $line[12];
                 $input['youtube'] = $line[15];
