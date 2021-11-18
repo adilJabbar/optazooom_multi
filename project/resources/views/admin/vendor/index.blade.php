@@ -47,6 +47,7 @@
 		                                                  <th>{{ __("Store Name") }}</th>
 		                                                  <th>{{ __("Vendor Email") }}</th>
 		                                                  <th>{{ __("Shop Number") }}</th>
+		                                                  <th>{{ __("Featured") }}</th>
 		                                                  <th>{{ __("Status") }}</th>
 		                                                  <th>{{ __("Options") }}</th>
 														</tr>
@@ -241,6 +242,7 @@
                         { data: 'shop_name', name: 'shop_name' },
                         { data: 'email', name: 'email' },
                         { data: 'shop_number', name: 'shop_number' },
+                        { data: 'featured', name:'featured'},
                         { data: 'status', searchable: false, orderable: false},
             			{ data: 'action', searchable: false, orderable: false }
                      ],

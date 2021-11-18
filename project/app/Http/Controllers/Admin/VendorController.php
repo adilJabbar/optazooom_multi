@@ -35,11 +35,18 @@ class VendorController extends Controller
                                     return '<div class="action-list"><select class="process select vendor-droplinks '.$class.'">'.
                 '<option value="'. route('admin-vendor-st',['id1' => $data->id, 'id2' => 2]).'" '.$s.'>Activated</option>'.
                 '<option value="'. route('admin-vendor-st',['id1' => $data->id, 'id2' => 1]).'" '.$ns.'>Deactivated</option></select></div>';
-                                }) 
+                                })->addColumn('featured', function(User $data) {
+                                    $class = $data->is_featured == 2 ? 'drop-success' : 'drop-danger';
+                                    $s = $data->is_featured == 2 ? 'selected' : '';
+                                    $ns = $data->is_featured == 1 ? 'selected' : '';
+                                    return '<div class="action-list"><select class="process select vendor-droplinks '.$class.'">'.
+                '<option value="'. route('admin-vendor-featured',['id1' => $data->id, 'id2' => 2]).'" '.$s.'>Activated</option>'.
+                '<option value="'. route('admin-vendor-featured',['id1' => $data->id, 'id2' => 1]).'" '.$ns.'>Deactivated</option></select></div>';
+                                })  
 	                            ->addColumn('action', function(User $data) {
 	                                return '<div class="godropdown"><button class="go-dropdown-toggle"> Actions<i class="fas fa-chevron-down"></i></button><div class="action-list"><a href="' . route('admin-vendor-secret',$data->id) . '" > <i class="fas fa-user"></i> Secret Login</a><a href="javascript:;" data-href="' . route('admin-vendor-verify',$data->id) . '" class="verify" data-toggle="modal" data-target="#verify-modal"> <i class="fas fa-question"></i> Ask For Verification</a><a href="' . route('admin-vendor-show',$data->id) . '" > <i class="fas fa-eye"></i> Details</a><a href="' . route('admin-vendor-edit',$data->id) . '"> <i class="fas fa-edit"></i> Edit</a><a href="javascript:;" class="send" data-email="'. $data->email .'" data-toggle="modal" data-target="#vendorform"><i class="fas fa-envelope"></i> Send Email</a><a href="javascript:;" data-href="' . route('admin-vendor-delete',$data->id) . '" data-toggle="modal" data-target="#confirm-delete" class="delete"><i class="fas fa-trash-alt"></i> Delete</a></div></div>';
 	                            }) 
-	                            ->rawColumns(['status','action'])
+	                            ->rawColumns(['featured','status','action'])
 	                            ->toJson(); //--- Returning Json Data To Client Side
 	    }
 
@@ -104,6 +111,18 @@ class VendorController extends Controller
     {
         $user = User::findOrFail($id1);
         $user->is_vendor = $id2;
+        $user->update();
+        //--- Redirect Section        
+        $msg[0] = 'Status Updated Successfully.';
+        return response()->json($msg);      
+        //--- Redirect Section Ends    
+
+    }   
+    //*** GET Request
+    public function featured($id1,$id2)
+    {
+        $user = User::findOrFail($id1);
+        $user->is_featured = $id2;
         $user->update();
         //--- Redirect Section        
         $msg[0] = 'Status Updated Successfully.';

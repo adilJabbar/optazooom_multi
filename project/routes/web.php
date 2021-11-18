@@ -225,6 +225,7 @@ Route::prefix('admin')->group(function() {
   Route::get('/vendors', 'Admin\VendorController@index')->name('admin-vendor-index');
   Route::get('/vendor/color', 'Admin\VendorController@color')->name('admin-vendor-color');
   Route::get('/vendors/status/{id1}/{id2}', 'Admin\VendorController@status')->name('admin-vendor-st');
+  Route::get('/vendors/featured/{id1}/{id2}', 'Admin\VendorController@featured')->name('admin-vendor-featured');
   Route::get('/vendors/delete/{id}', 'Admin\VendorController@destroy')->name('admin-vendor-delete');
 
   Route::get('/vendors/withdraws/datatables', 'Admin\VendorController@withdrawdatatables')->name('admin-vendor-withdraw-datatables'); //JSON REQUEST
