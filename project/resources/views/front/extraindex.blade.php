@@ -490,7 +490,7 @@
 						<div class="featured-vendor">
 							<a href="{{ route('front.vendor',str_replace(' ', '-', $vendor->shop_name)) }}">
 								<div class="cat-img">
-								  <img src="{{asset('assets/images/users/')}}{{$vendor->photo}}" alt="">
+								  <img src="{{asset('assets/images/users/')}}/{{$vendor->photo}}" alt="">
                                </div>
 							   <hr>
 								<h4 class="vendor-name"><?php echo $vendor->name ?></h4>
