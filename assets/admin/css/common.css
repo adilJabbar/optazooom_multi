@@ -67,7 +67,7 @@ span.input-group-addon {
 }
 
 .add-btn {
-    background: #6199d6;
+    background: #fdac38;
     padding: 7px 15px;
     color: #fff;
     font-size: 14px;
@@ -299,7 +299,7 @@ a.clear {
 }
 
 .sub-categori .modal .contact-form .submit-btn:hover {
-    background: #333333;
+    background: #6baaec;
 }
 
 .sub-categori .modal-backdrop {
@@ -962,7 +962,7 @@ table.dataTable thead td {
 }
 
 .godropdown .go-dropdown-toggle {
-    background: #fdac38;
+    background: #6199d6;
     border: 0px;
     color: #fff;
     padding: 2px 20px;

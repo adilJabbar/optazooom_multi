@@ -1167,7 +1167,7 @@ General Settings Area Start
 }
 
 .add-logo-area .submit-btn {
-    background: #1f224f;
+    background: #6199d6;
     color: #fff;
     border: 0px;
     width: 140px;
@@ -1530,7 +1530,7 @@ div.modal button.btn.btn-secondary {
 }
 
 .body-area input:checked+.slider {
-    background-color: #2d3274;
+    background-color: #6199d6;
 }
 
 .body-area input:focus+.slider {
@@ -2125,7 +2125,7 @@ div.phpdebugbar * {
 }
 
 .header .right-eliment .list li .dropdown-menu .dropdownmenu-wrapper ul li a:hover {
-    color: red;
+    color: #fdac38;
 }
 
 #setgallery .upload-img-btn {

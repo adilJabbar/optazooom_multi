@@ -167,7 +167,7 @@
 }
 
 #sidebar ul.collapse li a:hover {
-    color: #333;
+    color: #fff;
 }
 
 #sidebar ul.collapse.show li.active>a:hover,
@@ -176,9 +176,9 @@
 }
 
 #sidebar ul li.active>a {
-    color: #555 !important;
+    color: #fff !important;
     font-weight: 400;
-    background: #e8e8e8 !important;
+    background: #fdac38 !important;
 }
 
 #sidebar a[data-toggle="collapse"] {
@@ -411,11 +411,11 @@ ul {
 
 #sidebar ul>li>ul>li a:hover {
     color: #fff;
-    background: #e8e8e8;
+    background: #fdac38;
 }
 
 #sidebar ul>li>ul>li a:hover span {
-    color: #555 !important;
+    color: #fff !important;
 }
 
 #sidebar ul>li>ul>li>ul>li>a:hover span {
