@@ -70,9 +70,9 @@ class VendorController extends Controller
 
     public function vendorlist(Request $request){
         
-        $users = User::where('is_vendor','=','1')->get();
+        $users = User::where('is_vendor','=','2')->get();
         return view('front.vendorlist',['users'=>$users]);
-        
+
     }
 
     //Send email to user
