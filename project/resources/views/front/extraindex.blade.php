@@ -182,9 +182,6 @@
 							@foreach($big_products as $prod)
 								@include('includes.product.home-product')
 							@endforeach
-
-
-
 						</div>
 					</div>
 					<div class="col-lg-3 remove-padding d-none d-lg-block">
@@ -460,7 +457,7 @@
 							<h2 class="section-title">
 								{{ $langg->lang26 }}
 							</h2>
-							{{-- <a href="#" class="link">View All</a> --}}
+						 <!-- <a href="#" class="link">View All</a>  -->
 						</div>
 					</div>
 				</div>
@@ -491,7 +488,7 @@
 								  <img src="{{asset('assets/images/swing.png')}}" alt="">
                                </div>
 							   <hr>
-								<h4 class="vendor-name">Amcon</h4>
+								<h4 class="vendor-name">Swing</h4>
 							</a>
 						</div>
                    </div>

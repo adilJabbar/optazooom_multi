@@ -1481,6 +1481,8 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
 
   Route::get('/', 'Front\FrontendController@index')->name('front.index');
   Route::get('/extras', 'Front\FrontendController@extraIndex')->name('front.extraIndex');
+  Route::get('/featured', 'Front\FrontendController@featured')->name('front.featured');
+
     // Optanews RSS feed 
 
   Route::get('/optanews', 'Front\FrontendController@optanews')->name('user.optanews');
@@ -1704,11 +1706,6 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   Route::post('/api/twocheckout-submit', 'Payment\TwoCheckoutController@store')->name('api.twocheckout.submit');
 
 //   Mobile Checkout section
-  
-  
-  
-  
-  
   
 
   // TAG SECTION

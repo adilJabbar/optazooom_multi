@@ -63,13 +63,6 @@
             -moz-transition: all 600ms ease-in-out;
             -o-transition: all 600ms ease-in-out;
         }
-        
-        #loadMore:hover {
-            background-color: transparent;
-            color: #fdac38;
-            border:1px solid #fdac38;
-        }
-
 </style>
 <!--Breadcrumb-->
 <div class="breadcrumb justify-content-center pt-60 pb-60">

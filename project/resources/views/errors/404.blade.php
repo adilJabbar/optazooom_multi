@@ -1,43 +1,35 @@
 @extends('layouts.front')
 @section('content')
 
-<!-- Breadcrumb Area Start -->
-<div class="breadcrumb-area">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <ul class="pages">
-          <li>
-            <a href="{{ route('front.index') }}">
-              {{ $langg->lang17 }}
-            </a>
-          </li>
-          <li>
-            <a href="javascript:;">
-              {{ $langg->lang427 }}
-            </a>
-          </li>
-        </ul>
-      </div>
+<!--Breadcrumb-->
+<div class="breadcrumb justify-content-center pt-60 pb-60">
+    <div>
+        <ol class="breadcrumb">
+            <h3 class="bread-login">{{ $langg->lang427 }}</h3>
+        </ol>
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item bread-title"><a href="{{ route('front.index') }}">
+								{{ $langg->lang17 }}
+							</a></li>
+            <li class="breadcrumb-item bread-title active bread-title" aria-current="page">{{ $langg->lang427 }}</li>
+        </ol>
     </div>
-  </div>
 </div>
-<!-- Breadcrumb Area End -->
+
+<!--Breadcrumb end-->
+
 
 <section class="fourzerofour">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
           <div class="content">
-            <img src="{{ $gs->error_banner ? asset('assets/images/'.$gs->error_banner):asset('assets/images/noimage.png') }}" alt="">
-            <h4 class="heading">
-              {{ $langg->lang428 }}
-            </h4>
-            <p class="text">
-              {{ $langg->lang429 }}
-            </p>
-            <a class="mybtn1" href="{{ route('front.index') }}">{{ $langg->lang430 }}</a>
+            <img src="{{asset('assets/images/404.jpg')}}" alt="">
           </div>
+          <div class="">
+          <a class="mybtn1" href="{{ route('front.index') }}">{{ $langg->lang430 }}</a>
+        </div>
         </div>
       </div>
     </div>

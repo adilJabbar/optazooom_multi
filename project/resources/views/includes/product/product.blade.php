@@ -1,7 +1,5 @@
 
 									<div class="col-lg-4 col-md-4 col-6 remove-padding">
-
-
 										<a href="{{ route('front.product', $prod->slug) }}" class="item">
 											<div class="item-img">
 												@if(!empty($prod->features))
@@ -71,5 +69,4 @@
 														</div>
 											</div>
 										</a>
-
 									</div>

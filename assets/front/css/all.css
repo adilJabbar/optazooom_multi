@@ -23390,7 +23390,7 @@
             }
             
             .fa-chevron-down:before {
-                content: "\f078"
+                content: "\f107"
             }
             
             .fa-chevron-left:before {
@@ -42940,6 +42940,7 @@ DROPDOWN STYLE
             
             .cartpage .left-area .table thead tr th {
                 border-bottom: 0px;
+                font-weight: 400;
             }
             
             .cartpage .left-area .table tbody tr {
@@ -45403,7 +45404,6 @@ Faq Page Start
  =====================*/
             
             .fourzerofour {
-                padding: 100px 0px 100px;
                 text-align: center;
             }
             

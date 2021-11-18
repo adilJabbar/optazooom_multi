@@ -37,6 +37,7 @@
                                </div>
 							   <hr>
 								<h4 class="vendor-name">{{ $user->name }}</h4>
+                                
 							</a>
 						</div>
                      </div>
