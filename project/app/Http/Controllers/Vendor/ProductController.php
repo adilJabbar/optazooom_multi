@@ -299,6 +299,8 @@ class ProductController extends Controller
                     // array_splice( $line, 1, 0, $inserted ); 
                 }
 
+                
+
                 if($mcat->exists()){
                     $input['category_id'] = $mcat->first()->id;
 
