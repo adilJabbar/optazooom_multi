@@ -104,6 +104,7 @@ else {
 .sub-categori .right-area .categori-item-area .item .item-img .extra-list ul li a 
  {
     background: <?php echo $color; ?>;
+    font-weight:300;
 }
 
 .section-top .link,
