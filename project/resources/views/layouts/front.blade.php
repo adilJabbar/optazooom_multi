@@ -442,7 +442,7 @@
 						</ul>
 					</div> -->
 				</div>
-				<div class="col-md-6 col-lg-2">
+				<div class="col-md-6 col-lg-3">
 					<div class="footer-widget info-link-widget">
 						<h4 class="title">
 								SERVICES
@@ -467,7 +467,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-3">
+				<div class="col-md-6 col-lg-2">
 					<div class="footer-widget recent-post-widget">
 						<h4 class="title">
 							{{ $langg->lang24 }}
