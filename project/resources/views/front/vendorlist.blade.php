@@ -27,7 +27,6 @@
        <div class="container pt-60">
            <div class="row">
            @foreach ($users as $user)
-         
                 <div class="col-lg-3">
                     <div class="featured">
 						<div class="featured-vendor">
@@ -37,7 +36,6 @@
                                </div>
 							   <hr>
 								<h4 class="vendor-name">{{ $user->name }}</h4>
-                                
 							</a>
 						</div>
                      </div>
