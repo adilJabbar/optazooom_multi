@@ -5073,6 +5073,7 @@
                 list-style: none;
                 border-radius: .25rem;
                 justify-content: center;
+                margin-top: 1rem;
             }
             
             .page-link {
