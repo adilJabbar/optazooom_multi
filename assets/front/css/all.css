@@ -661,7 +661,6 @@
             .col-lg-11,
             .col-lg-12,
             .col-lg-2,
-            .col-lg-3,
             .col-lg-4,
             .col-lg-5,
             .col-lg-6,
@@ -715,6 +714,14 @@
                 width: 100%;
                 padding-right: 15px;
                 padding-left: 15px
+            }
+            
+            .col-lg-3 {
+                position: relative;
+                width: 100%;
+                padding-right: 5px;
+                padding-left: 5px;
+                padding-bottom: 15px;
             }
             
             .col {
