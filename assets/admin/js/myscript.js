@@ -471,6 +471,7 @@ if(admin_loader == 1)
 // ADD / EDIT FORM SUBMIT FOR DATA TABLE
 
 
+
 $(document).on('submit','#geniusformdata',function(e){
   e.preventDefault();
 if(admin_loader == 1)
