@@ -122,13 +122,8 @@ class FrontendController extends Controller
 
 	public function index()
 	{
-  
 
-        
-  
-
-
-
+     
         $this->code_image();
          if(!empty($request->reff))
          {
