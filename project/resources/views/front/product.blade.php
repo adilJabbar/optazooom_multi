@@ -170,7 +170,7 @@
                           <input type="hidden" class="size_qty" value="@if(isset($productt->size_qty[$key])){{ $productt->size_qty[$key] }}@endif">
                           <input type="hidden" class="size_key" value="{{$key}}">
                           <input type="hidden" class="size_price"
-                            value="{{ round($productt->size_price[$key] * $curr->value,2) }}">
+                            value="@if(isset(round($productt->size_price[$key] * $curr->value,2))){{ round($productt->size_price[$key] * $curr->value,2) }}@endif">
                         </span>
                       </li>
                       @php
