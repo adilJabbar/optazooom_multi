@@ -168,7 +168,7 @@
                         <span class="box">{{ $data1 }}
                           <input type="hidden" class="size" value="{{ $data1 }}">
                           <input type="hidden" class="size_qty" value="{{ $productt->size_qty[$key] }}">
-                          <input type="hidden" class="size_key" value="{{$key}}">
+                          <input type="hidden" class="size_key" value="@if(isset($key)){{$key}} @endif">
                           <input type="hidden" class="size_price"
                             value="{{ round($productt->size_price[$key] * $curr->value,2) }}">
                         </span>
