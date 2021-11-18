@@ -64,36 +64,36 @@ class VendorAuthController extends Controller
         $user->shop_address = $request->shop_address;
         $user->reg_number = $request->reg_number;
         $user->shop_message = $request->shop_message;
-        $user->is_vendor = 1;
+        $user->is_vendor = 2;
 
         if($gs->is_verification_email == 0)
         {
           $user->email_verified = 'Yes';
         }
 
-        if($gs->is_verification_email == 1)
-        {
-          $to = $request->email;
-          $subject = 'Verify your email address.';
-          $msg = "Dear Customer,<br> We noticed that you need to verify your email address. <a href=".url('user/register/verify/'.$token).">Simply click here to verify. </a>";
-          //Sending Email To Customer
-          if($gs->is_smtp == 1)
-          {
-          $data = [
-              'to' => $to,
-              'subject' => $subject,
-              'body' => $msg,
-          ];
+        // if($gs->is_verification_email == 1)
+        // {
+        //   $to = $request->email;
+        //   $subject = 'Verify your email address.';
+        //   $msg = "Dear Customer,<br> We noticed that you need to verify your email address. <a href=".url('user/register/verify/'.$token).">Simply click here to verify. </a>";
+        //   //Sending Email To Customer
+        //   if($gs->is_smtp == 1)
+        //   {
+        //   $data = [
+        //       'to' => $to,
+        //       'subject' => $subject,
+        //       'body' => $msg,
+        //   ];
 
-          $mailer = new GeniusMailer();
-          $mailer->sendCustomMail($data);
-          }
-          else
-          {
-          $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
-          mail($to,$subject,$msg,$headers);
-          }
-        }
+        //   $mailer = new GeniusMailer();
+        //   $mailer->sendCustomMail($data);
+        //   }
+        //   else
+        //   {
+        //   $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
+        //   mail($to,$subject,$msg,$headers);
+        //   }
+        // }
 
         $user->save();
         auth()->login($user);
