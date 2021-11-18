@@ -43,8 +43,14 @@
                  </div>
                  @endforeach
             </div>
+           
         </div>
-
+        <div class="container">
+            <div class="pagination">
+        {!! $users->links() !!}
+          </div>
+        </div>
+        
      
 @endsection
 
