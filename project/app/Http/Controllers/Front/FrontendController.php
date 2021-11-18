@@ -258,6 +258,39 @@ class FrontendController extends Controller
         return view('front.extraindex',compact('ps','services','reviews','large_banners','bottom_small_banners','best_products','top_products','hot_products','latest_products','big_products','trending_products','sale_products','discount_products','partners','top_small_banners','feature_products'));
     }
 
+    public function featured(){
+        $ps = DB::table('pagesettings')->find(1);
+        $partners = DB::table('partners')->get();
+        $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
+      
+
+          $feature_products =  Product::with('user')->where('featured','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(8)->get()->reject(function($item){
+
+            if($item->user_id != 0){
+              if($item->user->is_vendor != 2){
+                return true;
+              }
+            }
+            return false;
+
+          });
+       
+     
+        $trending_products =  Product::with('user')->where('trending','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(9)->get()->reject(function($item){
+
+            if($item->user_id != 0){
+              if($item->user->is_vendor != 2){
+                return true;
+              }
+            }
+            return false;
+
+          });
+       
+        return view('front.featured',compact('ps','trending_products','feature_products'));
+
+        }
+    
 // -------------------------------- HOME PAGE SECTION ENDS ----------------------------------------
 
 
