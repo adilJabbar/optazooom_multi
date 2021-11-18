@@ -34,6 +34,7 @@
 								<div class="cat-img">
                                   <img src="{{asset('assets/images/users/')}}{{$user->photo}}" />
                                </div>
+                               
 							   <hr>
 								<h4 class="vendor-name">{{ $user->name }}</h4>
 							</a>
