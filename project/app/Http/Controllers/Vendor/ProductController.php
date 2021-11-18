@@ -286,6 +286,18 @@ class ProductController extends Controller
 
                 $mcat = Category::where(DB::raw('lower(name)'), strtolower($line[1]));
                 //$mcat = Category::where("name", $line[1]);
+                if(!$mcat->exists())
+                {
+                    $slug = \Str::slug($line[1]);
+                    $cat = new Category;
+                    $cat->name = $line[1];
+                    $cat->slug = $slug;
+                    $cat->status = 1;
+                    $cat->is_featured = 0;
+                    $cat->save();
+                    $mcat = Category::where(DB::raw('lower(name)'), strtolower($line[1]));
+                    // array_splice( $line, 1, 0, $inserted ); 
+                }
 
                 if($mcat->exists()){
                     $input['category_id'] = $mcat->first()->id;
