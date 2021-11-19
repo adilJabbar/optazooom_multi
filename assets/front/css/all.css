@@ -40016,6 +40016,7 @@ DROPDOWN STYLE
             
             .flash-deals .flas-deal-slider .item .item-img img {
                 width: auto;
+                height: 200px;
                 display: inline-block;
             }
             
