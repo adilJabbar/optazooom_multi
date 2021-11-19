@@ -41,7 +41,7 @@
 						</li>
 					</ul>
 				</div>
-			<img class="img-fluid" src="{{ $prod->thumbnail ? asset('assets/images/thumbnails/'.$prod->thumbnail):asset('assets/images/noimage.png') }}" alt="">
+			<img class="img-fluid" src="{{ $prod->thumbnail ? asset('assets/images/products/'.$prod->thumbnail):asset('assets/images/noimage.png') }}" alt="">
 		</div>
 		<div class="info">
 			<div class="stars">
