@@ -49182,7 +49182,7 @@ Faq Page Start
                     margin: 0px;
                 }
                 .logo-header .helpful-links ul li {
-                    margin-right: -3px;
+                    /* margin-right: -3px; */
                     margin-top: 10px;
                 }
                 .logo-header .helpful-links ul li:last-child {
@@ -49239,6 +49239,7 @@ Faq Page Start
                 }
                 .hero-area .hero-area-slider .intro-carousel .intro-content {
                     padding: 100px 50px;
+                    height: 192px;
                 }
                 .logo-header .helpful-links li.my-dropdown .cart .icon i,
                 .logo-header .helpful-links li.wishlist .wish i,
@@ -49403,7 +49404,7 @@ Faq Page Start
                     font-size: 10px !important;
                 }
                 .hero-area .hero-area-slider .intro-carousel .intro-content {
-                    padding: 25px 0px;
+                    /* padding: 25px 0px; */
                     height: auto;
                 }
                 .hero-area .hero-area-slider .intro-carousel .intro-content .slider-content .layer-2 .text {
@@ -50654,6 +50655,8 @@ Faq Page Start
             .img-full {
                 width: 314px;
                 height: 205px;
+                border: 1px solid #f6f6f6;
+                border-radius: 4px;
             }
             
             .mb-30 {
