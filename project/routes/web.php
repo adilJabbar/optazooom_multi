@@ -1401,6 +1401,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
 
   Route::get('/withdraw/datatables', 'Vendor\WithdrawController@datatables')->name('vendor-wt-datatables');
   Route::get('/withdraw', 'Vendor\WithdrawController@index')->name('vendor-wt-index');
+  Route::get('/connect', 'Vendor\WithdrawController@connect')->name('connect');
   Route::get('/withdraw/create', 'Vendor\WithdrawController@create')->name('vendor-wt-create');
   Route::post('/withdraw/create', 'Vendor\WithdrawController@store')->name('vendor-wt-store');
 
