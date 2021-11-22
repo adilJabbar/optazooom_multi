@@ -12,6 +12,8 @@ use FedEx;
 // use FedEx\TrackService\Request;
 use FedEx\TrackService\ComplexType;
 use FedEx\TrackService\SimpleType;
+use FedEx\TrackService\Track;
+
 class OrderController extends Controller
 {
 
@@ -42,6 +44,10 @@ class OrderController extends Controller
         $trackingId1 = 2323;
         $trackingId2 = '123456789012';
         $trackingId2 = $id;
+
+
+
+
 
         // Build Authentication
             $request['WebAuthenticationDetail'] = array(
@@ -105,7 +111,7 @@ class OrderController extends Controller
 
 
         $datas = array('Pending','Processing','On Delivery','Completed');
-        return view('load.track-load',compact('order','datas'));
+        return view('load.track-load',compact('order','datas','apiResponse'));
 
     }
 

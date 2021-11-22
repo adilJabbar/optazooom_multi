@@ -1,7 +1,12 @@
-                        @if(isset($order))
+                        @if(isset($apiResponse))
                     <div class="tracking-steps-area">
-
+                        
                             <ul class="tracking-steps">
+
+                                @if(isset($apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description))
+                                {{$apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description}}
+                                @endif
+                                @if(isset($order))
                                 @foreach($order->tracks as $track)
                                     <li class="{{ in_array($track->title, $datas) ? 'active' : '' }}">
                                         <div class="icon">{{ $loop->index + 1 }}</div>
@@ -12,8 +17,10 @@
                                         </div>
                                     </li>
                                 @endforeach
+                                @endif
 
                                 </ul>
+                        
                     </div>
 
 
