@@ -523,16 +523,14 @@
 						<p class="footer-text" style="color:#888;">
                                         Get Updates by subscribing to our news letter
                                     </p>
-									<form action="{{ route('admin-gs-update') }}" id="geniusform" method="POST" enctype="multipart/form-data">
+									<!-- <form action="{{ route('admin-gs-update') }}" id="geniusform" method="POST" enctype="multipart/form-data"> -->
                                         <div id="mc_embed_signup_scroll">
                                             <div id="mc-form" class="mc-form subscribe-form">
-                                                <input id="mc-email" class="newsleter-filter_input" type="email" autocomplete="off" placeholder="Enter your email" />
-												<!-- <textarea class="input-field"  name="popup_text" placeholder="{{ __('Popup Text') }}">{{$gs->popup_text}}</textarea> -->
-                                                <button class="btn btn-sm subscribe-btn" id="mc-submit">Subscribe</button>
-												<!-- <button class="addProductSubmit-btn" type="submit">{{ __('Save') }}</button> -->
+												<input type="email" class="newsleter-filter_input" name="email"  placeholder="{{ $langg->lang741 }}" required="">
+                                                 <button id="sub-btn" class="btn btn-sm subscribe-btn" type="submit">{{ $langg->lang742 }}</button>
                                             </div>
                                         </div>
-                                    </form>
+                                    <!-- </form> -->
 					</div>
 				</div>
 			</div>

@@ -44,8 +44,6 @@
 @php
   $withSelectedAtrributePrice = $attrPrice;
   $withSelectedAtrributePrice = round(($withSelectedAtrributePrice) * $curr->value,2);
-
-
 @endphp
 	<div class="docname">
 		<a href="{{ route('front.product', $prod->slug) }}">

@@ -5,14 +5,14 @@
 <div class="breadcrumb justify-content-center pt-60 pb-60">
     <div>
         <ol class="breadcrumb">
-            <h3 class="bread-login">{{ $langg->lang168 }}</h3>
+            <h3 class="bread-login">Featured Products</h3>
         </ol>
         <ol class="breadcrumb" style="position: relative; left: 25px;">
 
             <li class="breadcrumb-item bread-title"><a href="{{ route('front.index') }}">
 								{{ $langg->lang17 }}
 							</a></li>
-            <li class="breadcrumb-item bread-title active bread-title" aria-current="page">{{ $langg->lang168 }}</li>
+            <li class="breadcrumb-item bread-title active bread-title" aria-current="page">Featured Products</li>
         </ol>
     </div>
 </div>

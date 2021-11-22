@@ -3,9 +3,25 @@
           <div class="left-area">
             <div class="filter-result-area">
             <div class="header-area">
-              <h4 class="title">
+            <form id="searchForm" class="search-form" action="{{ route('front.category', [Request::route('category'),Request::route('subcategory'),Request::route('childcategory')]) }}" method="GET">
+								@if (!empty(request()->input('sort')))
+									<input type="hidden" name="sort" value="{{ request()->input('sort') }}">
+								@endif
+								@if (!empty(request()->input('minprice')))
+									<input type="hidden" name="minprice" value="{{ request()->input('minprice') }}">
+								@endif
+								@if (!empty(request()->input('maxprice')))
+									<input type="hidden" name="maxprice" value="{{ request()->input('maxprice') }}">
+								@endif
+								<input type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on" style="padding:10px 25px; font-weight:300; border:1px solid rgba(0, 0, 0, 0.4);">
+								<div class="autocomplete">
+								  <div id="myInputautocomplete-listfil" class="autocomplete-items">
+								  </div>
+								</div>
+							</form>              
+              <!-- <h4 class="title">
                 {{$langg->lang61}}
-              </h4>
+              </h4> -->
             </div>
             <div class="body-area">
               <form id="catalogForm" action="{{ route('front.category', [Request::route('category'), Request::route('subcategory'), Request::route('childcategory')]) }}" method="GET">
@@ -203,3 +219,4 @@
 
           </div>
         </div>
+     
