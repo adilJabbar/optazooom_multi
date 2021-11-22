@@ -42,7 +42,7 @@ class StripeController extends Controller
 
 
     public function store(Request $request){
-
+  
         if($request->pass_check) {
             $users = User::where('email','=',$request->personal_email)->get();
             if(count($users) == 0) {
@@ -109,7 +109,7 @@ class StripeController extends Controller
                 if (!isset($token['id'])) {
                     return back()->with('error','Token Problem With Your Token.');
                 }
-
+                
                 $charge = $stripe->charges()->create([
                     'card' => $token['id'],
                     'currency' => $curr->name,

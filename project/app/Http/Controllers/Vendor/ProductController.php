@@ -330,6 +330,7 @@ class ProductController extends Controller
 //                $input['childcategory_id'] = $request->childcategory_id;
                 $input['color'] = $line[13];
                 $input['price'] = $line[7];
+
                 $input['previous_price'] = $line[8] != "" ? $line[8] : null;
                 $input['stock'] =$line[9] != "" ? $line[9] : 0;
                 $input['size'] = $line[10];
@@ -383,16 +384,24 @@ class ProductController extends Controller
                 $input['thumbnail']  = $thumbnail;
 
                 // Conert Price According to Currency
+                 if(!empty($input['price']) && !empty($sign->value))
+                 {
+                   $input['price'] =  (int)$input['price'];
+                   $sign->value =  (int)$sign->value;
+                 }
+            
                 if(is_int($input['price']) && is_int($sign->value))
                 {
 
                 $input['price'] = ($input['price'] / $sign->value);
+               
             }else{
                 $input['price'] = 0;
             }
                 $input['previous_price'] = ($input['previous_price'] / $sign->value);
                 $input['user_id'] = $user->id;
                 // Save Data
+            
                 $data->fill($input)->save();
 
                 }else{

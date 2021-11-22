@@ -24,6 +24,7 @@ use DB;
 use Illuminate\Http\Request;
 use Session;
 use Validator;
+use Stripe;
 
 class CheckoutController extends Controller
 {
@@ -64,9 +65,9 @@ class CheckoutController extends Controller
             }
 
 // If a user is Authenticated then there is no problm user can go for checkout
-
         if(Auth::guard('web')->check())
         {
+
                 $gateways =  PaymentGateway::where('status','=',1)->get();
                 $pickups = Pickup::all();
                 $oldCart = Session::get('cart');
@@ -84,6 +85,25 @@ class CheckoutController extends Controller
                     $users = array_unique($user);
                     if(count($users) == 1)
                     {
+
+                        $check_stripe_account = User::find($users[0])->account_num;
+                        if(empty($check_stripe_account))
+                        {
+                         return redirect()->back()->with('unsuccess',"Vendor are not connected with stripe."); 
+                        }
+                        
+                Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+                         $response = \Stripe\PaymentIntent::create([
+                          'amount' => 100,
+                          'currency' => 'usd',
+                          'application_fee_amount' => 10,
+                          'payment_method_types' => ['card'],
+                          'on_behalf_of' => $check_stripe_account,
+                          'transfer_data' => [
+                            'destination' => $check_stripe_account,
+                          ]
+                        ]);
+                         // dd($response);
 
                         $shipping_data  = DB::table('shippings')->where('user_id','=',$users[0])->get();
                         if(count($shipping_data) == 0){
@@ -158,7 +178,25 @@ class CheckoutController extends Controller
                 $total = Session::get('coupon_total');  
                 $total = $total + round(0 * $curr->value, 2); 
                 }
-           
+            
+
+
+
+               // $response = \Stripe\PaymentIntent::create([
+               //    'amount' => (int)$total*100,
+               //    'currency' => 'usd',
+               //    'application_fee_amount' => 10,
+               //    'payment_method_types' => ['card'],
+               //    'on_behalf_of' => $check_stripe_account,
+               //    'transfer_data' => [
+               //      'destination' => $check_stripe_account,
+               //    ]
+               //  ]);
+               
+                // if(isset($response['client_secret']) && !empty($response['client_secret'])){
+
+
+                // }
         return view('front.checkout', ['products' => $cart->items, 'totalPrice' => $total, 'pickups' => $pickups, 'totalQty' => $cart->totalQty, 'gateways' => $gateways, 'shipping_cost' => 0, 'digital' => $dp, 'curr' => $curr,'shipping_data' => $shipping_data,'package_data' => $package_data, 'vendor_shipping_id' => $vendor_shipping_id, 'vendor_packing_id' => $vendor_packing_id]);             
         }
 

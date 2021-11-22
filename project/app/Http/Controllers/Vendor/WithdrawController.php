@@ -9,7 +9,8 @@ use Auth;
 use App\Models\Currency;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Config;
+use Stripe;
 class WithdrawController extends Controller
 {
     public function __construct()
@@ -20,7 +21,14 @@ class WithdrawController extends Controller
   	public function index()
     {
         $withdraws = Withdraw::where('user_id','=',Auth::guard('web')->user()->id)->where('type','=','vendor')->orderBy('id','desc')->get();
-        $sign = Currency::where('is_default','=',1)->first();        
+
+        $user = User::where('id',Auth::guard('web')->user()->id)->where('is_vendor','2')->first();
+
+        $sign = Currency::where('is_default','=',1)->first();     
+        if(empty($user->account_num))
+        {
+            return view('vendor.withdraw.connect_to_stripe',compact('withdraws','sign'));
+        }
         return view('vendor.withdraw.index',compact('withdraws','sign'));
     }
 
@@ -73,6 +81,47 @@ class WithdrawController extends Controller
             }
         }
             return response()->json(array('errors' => [ 0 => 'Please enter a valid amount.' ])); 
+
+    }
+
+    public function connect()
+    {
+       
+       if(empty(Auth::user()->account_num))
+       {
+
+            Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+         
+            $account = \Stripe\Account::create([
+              'country' => 'US',
+              'type' => 'express',
+               'email' => 'jenny.rosen@example.com',
+              'capabilities' => [
+                'card_payments' => ['requested' => true],
+                'transfers' => ['requested' => true],
+              ],
+
+            ]);
+           if(isset($account->id))
+           {
+                $account_links = \Stripe\AccountLink::create([
+                  'account' => $account->id,
+                  'refresh_url' => 'https://barontech.co/optazoom-multi/',
+                  'return_url' => 'https://barontech.co/optazoom-multi/',
+                  'type' => 'account_onboarding',
+
+                ]);
+                if(isset($account_links->url))
+                {
+                    $user = User::find(Auth::user()->id);
+                    $user->account_num = $account->id;
+                    $user->update();
+                    return redirect($account_links->url);
+                }
+        
+            }
+
+        }
 
     }
 }
