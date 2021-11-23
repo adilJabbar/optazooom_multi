@@ -392,7 +392,9 @@ class ProductController extends Controller
             
                 // if(is_int($input['price']) && is_int($sign->value))
                 // {
-
+                print_r((float)$input['price']);echo "-----";
+                print_r((float)$sign->value);
+                dd((float)$input['price'],$sign->value);
                 $input['price'] = ($input['price'] / $sign->value);
                
             // }else{
