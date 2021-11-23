@@ -292,6 +292,7 @@
             </li>
         </ul>
     </li>
+    
     <li>
         <a href="#emails" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
             <i class="fas fa-at"></i>{{ __('Email Settings') }}
