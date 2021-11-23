@@ -4,7 +4,7 @@
 		<li>
 			<div class="single-box">
 				<div class="left-area">
-					@if($prod->thumbnail()
+					@if($prod->thumbnail)
 					<img src="{{ $prod->thumbnail ? asset('assets/images/thumbnails/'.$prod->thumbnail):asset('assets/images/noimage.png') }}" alt="">
 					@else
 					<img class="img-fluid" src="{{ $prod->photo ? asset('assets/images/products/'.$prod->photo):asset('assets/images/noimage.png') }}" alt="">
