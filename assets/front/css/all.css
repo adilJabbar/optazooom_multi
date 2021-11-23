@@ -50803,3 +50803,7 @@ Faq Page Start
             .dropdown:hover .dropbtn {
                 background-color: #3e8e41;
             }
+            
+             ::-webkit-scrollbar {
+                width: 10px;
+            }
