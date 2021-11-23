@@ -36,27 +36,24 @@
    </div>
 </div> -->
     <!--Breadcrumb-->
-    <div class="breadcrumb justify-content-center pt-60 pb-60">
-        <div>
-            <ol class="breadcrumb">
-                <h3 class="bread-login">Products</h3>
-            </ol>
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item bread-title"><a href="{{route('front.index')}}">{{ $langg->lang17 }}</a></li>
-              @if (!empty($cat))
-               <li class="breadcrumb-item bread-title active bread-title">
+    <div class="productbanner text-center">
+            <div class="container ">
+                <h3>Products</h3>
+                <div class="lower-text">
+                 <span><a href="{{route('front.index')}}">{{ $langg->lang17 }}</a></span> <span>/</span>
+                 @if (!empty($cat))
+               <span>
                   <a href="{{route('front.category', $cat->slug)}}">{{ $cat->name }}</a>
-               </li>
+               </span>
                @endif
                @if (empty($childcat) && empty($subcat) && empty($cat))
-               <li class="breadcrumb-item bread-title active bread-title">
+               <span>
                   <a href="{{route('front.category')}}">{{ $langg->lang36 }}</a>
-               </li>
+              </span>
                @endif
-              <!-- <li class="breadcrumb-item bread-title active bread-title" aria-current="page">Login</li> -->
-            </ol>
+               </div>
+            </div>
         </div>
-    </div>
 
     <!--Breadcrumb end-->
 <!-- Breadcrumb Area End -->
