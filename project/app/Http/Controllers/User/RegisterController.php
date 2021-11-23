@@ -152,7 +152,7 @@ class RegisterController extends Controller
     		$user = User::find($id);
 			$otp_number = $request->get('first').$request->get('second').$request->get('third').$request->get('fourth').$request->get('fifth').$request->get('sixth');
 				
-				    $token = $user->verification_link
+				    $token = $user->verification_link;
 				$mobile_verification_code = $user->mobile_varification_code;
 			if($otp_number == $mobile_verification_code )
 			{
@@ -182,7 +182,7 @@ class RegisterController extends Controller
 	        ];
 
 
-	        
+
 
 	        $mailer = new GeniusMailer();
 	        $mailer->sendCustomMail($data);
