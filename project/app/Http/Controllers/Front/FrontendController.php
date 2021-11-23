@@ -21,8 +21,6 @@ use Markury\MarkuryPost;
 use Artisan;
 use Illuminate\Support\Facades\Schema;
 use Feed;
-
-
 class FrontendController extends Controller
 {
     public function __construct()
