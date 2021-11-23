@@ -398,7 +398,6 @@ class ProductController extends Controller
             // }else{
             //     $input['price'] = 0;
             // }
-
                 $input['previous_price'] = ($input['previous_price'] / $sign->value);
                 $input['user_id'] = $user->id;
                 // Save Data
