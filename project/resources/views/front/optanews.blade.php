@@ -88,7 +88,7 @@
                     <div class="row li-main-content searched_val optanews_counter ">
 
 <?php 
-
+echo isset($key)? $key: '';
 	$url = 'https://visionmonday.com/rss/eyecare/';
 	$rss = Feed::loadRss($url);
 

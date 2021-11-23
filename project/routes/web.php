@@ -1491,7 +1491,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
     // Optanews RSS feed 
 
   Route::get('/optanews', 'Front\FrontendController@optanews')->name('user.optanews');
-  Route::get('/news_feed_search', 'Front\FrontendController@news_feed_search')->name('news_feed_search');
+  Route::post('/news_feed_search', 'Front\FrontendController@news_feed_search')->name('news_feed_search');
   Route::get('/news_feed_detail', 'Front\FrontendController@news_feed_detail')->name('news_feed_detail');
   Route::get('/get_second_site_data', 'Front\FrontendController@get_second_site_data')->name('get_second_site_data');
   
