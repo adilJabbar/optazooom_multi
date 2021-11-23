@@ -50806,6 +50806,6 @@ Faq Page Start
             }
             
             .filter-list-category {
-                height: 835px;
-                overflow: auto;
+                height: 835px !important;
+                overflow: auto !important;
             }
