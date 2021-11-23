@@ -859,7 +859,10 @@ public function get_vendors_ajax()
 }
 
 
-
+public function news_feed_search(Request $request)
+{
+    dd($request);
+}
 // -------------------------------- PRINT SECTION ENDS ----------------------------------------
 
 }
