@@ -77,32 +77,7 @@ class RegisterController extends Controller
 
 		  }
 
-	        if($gs->is_verification_email == 1)
-	        {
-	        $to = $request->email;
-	        $subject = 'Verify your email address.';
-	        $msg = "Dear Customer,<br> We noticed that you need to verify your email address. <a href=".url('user/register/verify/'.$token).">Simply click here to verify. </a>";
-	        //Sending Email To Customer
-
-	        if($gs->is_smtp == 1)
-	        {
-	        $data = [
-	            'to' => $to,
-	            'subject' => $subject,
-	            'body' => $msg,
-	        ];
-
-	        $mailer = new GeniusMailer();
-	        $mailer->sendCustomMail($data);
-	        }
-	        else
-	        {
-	        $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
-	        mail($to,$subject,$msg,$headers);
-	        }
-          	return response()->json('We need to verify your email address. We have sent an email to '.$to.' to verify your email address. Please click link in that email to continue.');
-	        }
-	        else {
+	       
 
             $user->email_verified = 'Yes';
             $user->update();
@@ -113,7 +88,7 @@ class RegisterController extends Controller
             // Auth::guard('web')->login($user); 
             $this->send_message( $user->phone,$input['mobile_varification_code']);
           	return response()->json(['status'=>1,'id'=>$user->id]);
-	        }
+	        
 
     }
 
@@ -189,12 +164,43 @@ class RegisterController extends Controller
 		          
 		  //           $email = $this->et->do_email('Optazoom','Optazoom',$email,'Updation Password',$msg);
 				// }
-				$user = User::find($id);
+
+			 if($gs->is_verification_email == 1)
+	        {
+	        $to = $request->email;
+	        $subject = 'Verify your email address.';
+	        $msg = "Dear Customer,<br> We noticed that you need to verify your email address. <a href=".url('user/register/verify/'.$token).">Simply click here to verify. </a>";
+	        //Sending Email To Customer
+
+	        if($gs->is_smtp == 1)
+	        {
+	        $data = [
+	            'to' => $to,
+	            'subject' => $subject,
+	            'body' => $msg,
+	        ];
+
+	        $mailer = new GeniusMailer();
+	        $mailer->sendCustomMail($data);
+	        }
+	        else
+	        {
+	        $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
+	        mail($to,$subject,$msg,$headers);
+	        }
+          	$user = User::find($id);
 				$user->mobile_varification_status = 1;
 				$user->mobile_varification_code = '';
 				$user->update();
 				return response()->json(['message'=>'success']);
+          		return response()->json('We need to verify your email address. We have sent an email to '.$to.' to verify your email address. Please click link in that email to continue.');
 				exit;
+
+	        }
+	        else {
+
+	        }
+				
 				// echo json_encode(['message'=>'success']);
 				
 			}else{
