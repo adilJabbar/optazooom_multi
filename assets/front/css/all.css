@@ -47055,6 +47055,7 @@ Faq Page Start
                 /* border-radius: 50%; */
                 width: 100%;
                 height: 100%;
+                object-fit: contain;
             }
             
             .login-btn {
@@ -50211,7 +50212,7 @@ Faq Page Start
                 }
             }
             
-            @media only screen and (min-width: 1400px) {
+            @media only screen and (min-width: 1080px) {
                 .save-section {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
