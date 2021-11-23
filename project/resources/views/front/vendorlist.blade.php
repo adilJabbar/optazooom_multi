@@ -12,7 +12,7 @@
                </div>
             </div>
         </div>
-        <!-- <div class="justify-content-between">      
+        <div class="justify-content-between">      
                        <div class="toadjuctserach"  >
                              <form action="#" method="GET">
                                     <div style="border-bottom: 1px solid #0000006e; width: 205px;">
@@ -23,9 +23,9 @@
                                     </div>
                                 </form>
                         </div>
-                     </div> -->
+                     </div>
        <div class="container pt-60">
-           <div class="row">
+           <div class="row userss">
            @foreach ($users as $user)
                 <div class="col-lg-3">
                     <div class="featured">
@@ -57,3 +57,34 @@
 
 
 @section('scripts')
+<script type="text/javascript">
+    var searchRequest = null;
+
+$(function () {
+    var minlength = 3;
+
+    $("input[name=fsearch]").keyup(function () {
+        var that = this,
+        value = $(this).val();
+       
+
+            $.ajax({
+                type: "GET",
+                url: "<?php echo url('get_vendors_ajax'); ?>"+"?key="+value,
+                success: function(data){
+                    data = jQuery.parseJSON(data);
+                    $('.userss').html(data);
+                  
+                }
+            });
+        
+    });
+});
+
+</script>
+
+
+@endsection
+
+
+

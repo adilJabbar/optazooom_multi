@@ -833,6 +833,32 @@ echo json_encode($html);
 }
 
 
+public function get_vendors_ajax()
+{
+    $users = User::where('name', 'like', '%' . $_GET['key'] . '%')->orWhere('l_name', 'like', $_GET['key'] . '%')->take(10)->get();
+    $data='';
+     foreach ($users as $user)
+     {
+       $photo =  $user->photo ? asset('assets/images/users/'.$user->photo):asset('assets/images/noimage.png');
+        $data.= '<div class="col-lg-3">
+            <div class="featured">
+                <div class="featured-vendor">
+                    <a href="'.route('front.vendor',str_replace(' ', '-', $user->shop_name)) .'">
+                        <div class="cat-img">
+                          <img src="'.$photo.'" />
+                       </div>
+
+                       <hr>
+                        <h4 class="vendor-name">'. $user->name .'</h4>
+                    </a>
+                </div>
+             </div>
+         </div>';
+        }
+       return json_encode($data);
+}
+
+
 
 // -------------------------------- PRINT SECTION ENDS ----------------------------------------
 
