@@ -502,44 +502,7 @@
               			}
 	                   
 
-							if(isset($result[0]))
-							{
-
-							foreach($result[0] as $re_k => $re_v)
-							{
-							
-								$pos = strpos($re_v, $first);
-								// $pos = strpos($re_v, 'eonie');
-						
-								if($pos)
-								{
-									$image = $re_v;
-									break;
-								}else{
-									$image = '';
-								}
-							}
-							
-							// dd('aaa');
-							if(isset($image) && !empty($image))
-							{
-
-				    		$html = $image;
-							$doc = new DOMDocument();
-							$doc->loadHTML($html);
-							$xpath = new DOMXPath($doc);
-							$src = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
-                    	?>
-                                     
-                       <img class="img-full" src="https://visionmonday.com{{$src}}" alt="">
-                       <?php 
-                   		}else{
-                   			?>
-                   			 <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
-							 <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
-                   		 <?php }
-                        
-                        }else{ 
+					  else{ 
 
 
                         	?>
