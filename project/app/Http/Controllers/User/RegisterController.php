@@ -147,13 +147,13 @@ class RegisterController extends Controller
 
     public function verify_otp(Request $request)
     {
+    	$id = $request->get('id');
     	$gs = Generalsetting::findOrFail(1);
-    	
+    		$user = User::find($id);
 			$otp_number = $request->get('first').$request->get('second').$request->get('third').$request->get('fourth').$request->get('fifth').$request->get('sixth');
-				$id = $request->get('id');
-				$mobile_verification_code = User::find($id);
-
-				$mobile_verification_code = $mobile_verification_code->mobile_varification_code;
+				
+				    $token = $user->verification_link
+				$mobile_verification_code = $user->mobile_varification_code;
 			if($otp_number == $mobile_verification_code )
 			{
 
@@ -168,7 +168,7 @@ class RegisterController extends Controller
 
 			 if($gs->is_verification_email == 1)
 	        {
-	        $to = $request->email;
+	        $to = $user->email;
 	        $subject = 'Verify your email address.';
 	        $msg = "Dear Customer,<br> We noticed that you need to verify your email address. <a href=".url('user/register/verify/'.$token).">Simply click here to verify. </a>";
 	        //Sending Email To Customer
@@ -189,7 +189,7 @@ class RegisterController extends Controller
 	        $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
 	        mail($to,$subject,$msg,$headers);
 	        }
-          	$user = User::find($id);
+          	
 				$user->mobile_varification_status = 1;
 				$user->mobile_varification_code = '';
 				$user->update();
