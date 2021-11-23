@@ -344,7 +344,7 @@ class ProductController extends Controller
                 $input['tags'] = $line[14];
                 $input['product_type'] = $line[19];
                 // $input['affiliate_link'] = $line[20];
-
+                dd($input);
 
 
 
