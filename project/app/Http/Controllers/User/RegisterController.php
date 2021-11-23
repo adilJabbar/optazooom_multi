@@ -140,7 +140,7 @@ class RegisterController extends Controller
 
   
   
-            dd($clientt, 'SMS Sent Successfully.');
+            // dd($clientt, 'SMS Sent Successfully.');
   
         } catch (Exception $e) {
             dd("Error: ". $e->getMessage());
