@@ -21,15 +21,14 @@ use Markury\MarkuryPost;
 use Artisan;
 use Illuminate\Support\Facades\Schema;
 use Feed;
-use FedEx;
-use FedEx\TrackService\Request;
-use FedEx\TrackService\ComplexType;
-use FedEx\TrackService\SimpleType;
+use Illuminate\Http\Request;
+
 class FrontendController extends Controller
 {
+   
     public function __construct()
     {
-         $this->auth_guests();
+         $this->auth_guests(); 
         if(isset($_SERVER['HTTP_REFERER'])){
             $referral = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST);
             if ($referral != $_SERVER['SERVER_NAME']){
@@ -859,7 +858,16 @@ public function get_vendors_ajax()
 }
 
 
-
+public function news_feed_search(Request $request)
+{
+    $this->code_image();
+       
+        $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
+        $sliders = DB::table('sliders')->get();
+        $key = $require->fsearch;
+        $ps = DB::table('pagesettings')->find(1);
+     return view('front.optanews',compact('ps','sliders','key'));
+}
 // -------------------------------- PRINT SECTION ENDS ----------------------------------------
 
 }

@@ -88,7 +88,7 @@
                     <div class="row li-main-content searched_val optanews_counter ">
 
 <?php 
-
+echo isset($key)? $key: '';
 	$url = 'https://visionmonday.com/rss/eyecare/';
 	$rss = Feed::loadRss($url);
 
@@ -210,7 +210,8 @@
                         <div class="li-blog-sidebar">
                             <h4 class="li-blog-sidebar-title">Search</h4>
                             <div class="li-sidebar-search-form pt-xs-30 pt-sm-30">
-                             <form id="get_rss_search">
+                             <form action="{{url('news_feed_search')}}" method="POST">
+                                @csrf
                                     <input id="fsearch" type="text"  name="fsearch" value="<?= (isset($fsearch) && !empty($fsearch)) ? $fsearch : ''; ?>" class="li-search-field" placeholder="Search any news here">
                                     <input id="uri_seg" type="hidden" name="uri_seg" value="<?php echo Request::segment(3)?Request::segment(3):0; ?>">
                                     <?php if (isset($_GET['category'])) { ?>
