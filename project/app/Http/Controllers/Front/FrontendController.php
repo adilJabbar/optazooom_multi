@@ -864,7 +864,7 @@ public function news_feed_search(Request $request)
        
         $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
         $sliders = DB::table('sliders')->get();
-        $key = $request->fsearch;
+        $key = $request->fsearch; 
         $ps = DB::table('pagesettings')->find(1);
      return view('front.optanews',compact('ps','sliders','key'));
 }
