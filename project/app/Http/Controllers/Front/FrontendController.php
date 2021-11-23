@@ -21,10 +21,7 @@ use Markury\MarkuryPost;
 use Artisan;
 use Illuminate\Support\Facades\Schema;
 use Feed;
-use FedEx;
-use FedEx\TrackService\Request;
-use FedEx\TrackService\ComplexType;
-use FedEx\TrackService\SimpleType;
+
 class FrontendController extends Controller
 {
     public function __construct()
