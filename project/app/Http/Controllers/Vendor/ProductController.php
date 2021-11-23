@@ -347,9 +347,6 @@ class ProductController extends Controller
                 dd($input);
 
 
-                
-
-
 
                 $input['slug'] = Str::slug($input['name'],'-').'-'.strtolower($input['sku']);
 
