@@ -472,6 +472,8 @@
 						<h4 class="title">
 							{{ $langg->lang24 }}
 						</h4>
+						<ul style="overflow:auto;width:auto;height:200px;">
+
 						<?php 
 
 	$url = 'https://visionmonday.com/rss/eyecare/';
@@ -510,7 +512,6 @@
 							}
 
 						?>
-						<ul style="overflow:auto;width:auto;height:200px;">
                       <p class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></p>
 					
 					  <?php
