@@ -22,6 +22,7 @@ use Artisan;
 use Illuminate\Support\Facades\Schema;
 use Feed;
 use Illuminate\Http\Request;
+
 class FrontendController extends Controller
 {
    
