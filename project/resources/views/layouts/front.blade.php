@@ -506,17 +506,16 @@
 
 
                         	?>
-							  <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
-							 <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
-
 						<?php       
 							}
 
 						?>
-                      <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
+						<ul>
+                      <p class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></p>
 					  <?php
-    }
-?>	
+						}
+					?>	
+					</ul>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-2">
