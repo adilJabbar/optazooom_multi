@@ -48068,7 +48068,7 @@ Faq Page Start
             .item {
                 border: 1px solid rgba(0, 0, 0, 0)!important;
                 box-shadow: 0px 0px 4px lightgrey;
-                margin: 12px;
+                margin: 12px !important;
                 position: relative;
             }
             
