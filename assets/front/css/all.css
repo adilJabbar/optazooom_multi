@@ -40069,7 +40069,7 @@ DROPDOWN STYLE
             
             .flash-deals .flas-deal-slider .item .deal-counter span:last-child {
                 margin-right: 0px;
-                font-weight: 300;
+                font-weight: 700;
             }
             
             .flash-deals .flas-deal-slider .item .deal-counter span small {
@@ -50804,9 +50804,4 @@ Faq Page Start
             
             .dropdown:hover .dropbtn {
                 background-color: #3e8e41;
-            }
-            
-            .filter-list-category {
-                height: 835px !important;
-                overflow: auto !important;
             }

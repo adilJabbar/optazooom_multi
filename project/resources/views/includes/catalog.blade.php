@@ -31,7 +31,7 @@
                 @if (!empty(request()->input('sort')))
                   <input type="hidden" name="sort" value="{{ request()->input('sort') }}">
                 @endif
-                <ul class="filter-list filter-list-category">
+                <ul class="filter-list filter-list-category" style="height:835px; overflow:auto;">
                   @foreach ($categories as $element)
                   <li>
                     <div class="content">
