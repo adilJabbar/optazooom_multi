@@ -355,7 +355,7 @@
 		<div class="container-fluid">
 			<div class="row footer-wrap">
 			
-				<div class="col-md-6 col-lg-3">
+				<div class="col-md-6 col-lg-2">
 				<div class="footer-widget info-link-widget">
 						<h4 class="title">
 								{{ $langg->lang21 }}
@@ -467,7 +467,7 @@
 						</ul>
 					</div>
 				</div>
-				<div class="col-md-6 col-lg-2">
+				<div class="col-md-6 col-lg-3">
 					<div class="footer-widget recent-post-widget">
 						<h4 class="title">
 							{{ $langg->lang24 }}
@@ -510,7 +510,7 @@
 							}
 
 						?>
-						<ul>
+						<ul style="overflow-auto;width:auto;height:200px;">
                       <p class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></p>
 					  <?php
 						}
