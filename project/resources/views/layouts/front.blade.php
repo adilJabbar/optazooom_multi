@@ -317,7 +317,7 @@
                             <!-- Begin Header Bottom Menu Area -->
                             <div class="hb-menu">
                                 <nav style="display:block;">
-								
+
                                     <ul>
                                        
                                         <li class="arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
@@ -471,13 +471,58 @@
 						<h4 class="title">
 							{{ $langg->lang24 }}
 						</h4>
-				
+						<ul style="overflow:auto;width:auto;height:200px;">
+
+						<?php 
+
+	$url = 'https://visionmonday.com/rss/eyecare/';
+	$rss = Feed::loadRss($url);
+
+			
+	foreach ($rss->item as $item ) 
+	{
+
+	?>
+						<?php 
+              			if(isset($item->link))
+              			{
+
+              				 $content = file_get_contents($item->link);
+
+							preg_match_all('/<img[^>]+>/i',$content, $result);
+						
+
+          				 	// $content = file_get_contents($item->link);
+							// dd($item->link,$content);
+							preg_match_all('/<img[^>]+>/i',$content, $result); 
+						
+							$value = $item->title;
+							$first = strtok($value, " ");
+
+
+              			}
+	                   
+
+					  else{ 
+
+
+                        	?>
+						<?php       
+							}
+
+						?>
+                      <p class="li-blog-heading pt-xs-25 pt-sm-25"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></p>
+					
+					  <?php
+						}
+					?>	
+				  </ul>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-2">
 					<div class="footer-widget recent-post-widget">
 						<h4 class="title">
-							COMPANY
+							CONTACT
 						</h4>
 						<div class="footer-static-middle">
 						<ul class="des">
