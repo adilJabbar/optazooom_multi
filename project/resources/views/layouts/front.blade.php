@@ -317,7 +317,6 @@
                             <!-- Begin Header Bottom Menu Area -->
                             <div class="hb-menu">
                                 <nav style="display:block;">
-								
                                     <ul>
                                        
                                         <li class="arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
