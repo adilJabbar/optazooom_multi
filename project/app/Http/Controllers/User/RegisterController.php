@@ -137,6 +137,8 @@ class RegisterController extends Controller
                 'from' => $twilio_number, 
                 'body' => $message]);
   
+
+  
             dd($clientt, 'SMS Sent Successfully.');
   
         } catch (Exception $e) {
