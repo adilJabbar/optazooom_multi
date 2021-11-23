@@ -1484,6 +1484,10 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   Route::get('/extras', 'Front\FrontendController@extraIndex')->name('front.extraIndex');
   Route::get('/featured', 'Front\FrontendController@featured')->name('front.featured');
 
+
+
+  Route::get('get_vendors_ajax', 'Front\FrontendController@get_vendors_ajax')->name('get_vendors_ajax');
+
     // Optanews RSS feed 
 
   Route::get('/optanews', 'Front\FrontendController@optanews')->name('user.optanews');
