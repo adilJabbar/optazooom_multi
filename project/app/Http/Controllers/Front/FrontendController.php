@@ -26,7 +26,7 @@ class FrontendController extends Controller
    
     public function __construct()
     {
-         $this->auth_guests();
+         $this->auth_guests(); 
         if(isset($_SERVER['HTTP_REFERER'])){
             $referral = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST);
             if ($referral != $_SERVER['SERVER_NAME']){
