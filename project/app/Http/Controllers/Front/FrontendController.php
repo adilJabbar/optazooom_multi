@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Schema;
 use Feed;
 class FrontendController extends Controller
 {
+   
     public function __construct()
     {
          $this->auth_guests();
