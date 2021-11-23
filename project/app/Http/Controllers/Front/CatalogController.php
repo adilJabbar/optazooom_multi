@@ -177,7 +177,7 @@ class CatalogController extends Controller
 
 
                                   $prods = $prods->where('status', 1)->get();
-      $prods = (new Collection(Product::filterProducts($prods)))->paginate(12);
+      $prods = (new Collection(Product::filterProducts($prods)))->paginate(9);
 
       $data['prods'] = $prods;
 

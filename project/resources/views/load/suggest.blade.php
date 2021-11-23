@@ -47,7 +47,11 @@
 @endphp
 	<div class="docname">
 		<a href="{{ route('front.product', $prod->slug) }}">
+			@if($prod->thumbnail)
 			<img src="{{ asset('assets/images/thumbnails/'.$prod->thumbnail) }}" alt="">
+			@else
+			<img class="img-fluid" src="{{ $prod->photo ? asset('assets/images/products/'.$prod->photo):asset('assets/images/noimage.png') }}" alt="">
+            @endif
 			<div class="search-content">
 				<p>{!! mb_strlen($prod->name,'utf-8') > 66 ? str_replace($slug,'<b>'.$slug.'</b>',mb_substr($prod->name,0,66,'utf-8')).'...' : str_replace($slug,'<b>'.$slug.'</b>',$prod->name)  !!} </p>
 				<!-- <span style="font-size: 14px; font-weight:600; display:block;">{{ $attrPrice != 0 ?  $gs->currency_format == 0 ? $curr->sign.$withSelectedAtrributePrice : $withSelectedAtrributePrice.$curr->sign :$prod->showPrice() }}</span> -->
