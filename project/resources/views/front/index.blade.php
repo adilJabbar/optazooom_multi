@@ -57,13 +57,18 @@
 	@if($ps->featured_category == 1)
 
 	{{-- Slider buttom Category Start --}}
-	<section class="slider-buttom-category d-none d-md-block">
-		<div class="container-fluid">
+	<!-- <section class="slider-buttom-category d-none d-md-block">
+		<div class="container">
 			<div class="row">
 				@foreach($categories->where('is_featured','=',1) as $cat)
+				
 					<div class="col-xl-2 col-lg-3 col-md-4 sc-common-padding">
-						<a href="{{ route('front.category',$cat->slug) }}" class="single-category">
-							<div class="left">
+					<a href="{{ route('front.category',$cat->slug) }}">
+						<div class="main-cat-box">
+						<div class="top-cat">
+								<img src="{{asset('assets/images/categories/'.$cat->image) }}" alt="">
+							</div>
+							<div class="bottom-cat">
 								<h5 class="title">
 									{{ $cat->name }}
 								</h5>
@@ -71,20 +76,45 @@
 									{{ count($cat->products) }} {{ $langg->lang4 }}
 								</p>
 							</div>
-							<div class="right">
-								<img src="{{asset('assets/images/categories/'.$cat->image) }}" alt="">
-							</div>
-						</a>
+                    </div>
+					</a>
 					</div>
 				@endforeach
 			</div>
 		</div>
-	</section>
+	</section> -->
 	{{-- Slider buttom banner End --}}
-
+	<section class="slider-buttom-category d-none d-md-block">
+   <div class="container">
+   <div class="professional-heading" id="fcat">
+							<h3>FEATURED CATEGORIES<h3>
+		</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="main-category-slider" >
+			@foreach($categories->where('is_featured','=',1) as $cat)
+				<a href="{{ route('front.category',$cat->slug) }}">
+					<div class="main-cat-box">
+					<div class="top-cat">
+							<img src="{{asset('assets/images/categories/'.$cat->image) }}" alt="">
+						</div>
+						<div class="bottom-cat">
+							<h5 class="title">
+								{{ $cat->name }}
+							</h5>
+							<p class="count">
+								{{ count($cat->products) }} {{ $langg->lang4 }}
+							</p>
+						</div>
+				</div>
+				</a>
+			@endforeach
+			</div>
+		</div>
+     </div>
+</div>
 	@endif
-
-
+</section>
 
 	<section id="extraData">
 		<div class="text-center">

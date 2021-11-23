@@ -318,11 +318,9 @@
                             <div class="hb-menu">
                                 <nav style="display:block;">
                                     <ul>
-                                        <li class="arrow-icon">
-                                        <a href="{{url('category')}}">All Categories</a>
-                                          
-                                        </li>
+                                       
                                         <li class="arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
+										<li class="arrow-icon"> <a href="#fcat">Featured Categories</a></li>
                                         <li class="arrow-icon">
 											<a href="#flashdeals">Flash Deals</a>
                                         </li>
