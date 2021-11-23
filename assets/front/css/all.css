@@ -41370,6 +41370,7 @@ DROPDOWN STYLE
             
             .product-details-page .right-area .product-info .info-meta-3 .meta-list li:last-child {
                 margin-right: 0px;
+                display: none;
             }
             
             .product-details-page .right-area .product-info .social-links {
@@ -50802,4 +50803,9 @@ Faq Page Start
             
             .dropdown:hover .dropbtn {
                 background-color: #3e8e41;
+            }
+            
+            .filter-list {
+                height: 300px;
+                overflow: auto;
             }

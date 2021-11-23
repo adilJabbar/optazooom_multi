@@ -58,8 +58,19 @@
                   @endforeach
 
                 </ul>
-                </form>
-           
+
+
+                <div class="price-range-block">
+                    <div id="slider-range" class="price-filter-range" name="rangeInput"></div>
+                    <div class="livecount">
+                      <input type="number" min=0  name="min"  id="min_price" class="price-range-field" />
+                      <span>{{$langg->lang62}}</span>
+                      <input type="number" min=0  name="max" id="max_price" class="price-range-field" />
+                    </div>
+                  </div>
+
+                  <button class="filter-btn" type="submit">{{$langg->lang58}}</button>
+              </form>
             </div>
             </div>
 
