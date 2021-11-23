@@ -392,18 +392,17 @@ class ProductController extends Controller
             
                 // if(is_int($input['price']) && is_int($sign->value))
                 // {
-                print_r((float)$input['price']);echo "-----";
-                print_r((float)$sign->value);
-                dd((float)$input['price'],$sign->value);
-                $input['price'] = ($input['price'] / $sign->value);
+      
+                $input['price'] = ((float)$input['price'] / (float)$sign->value);
                
             // }else{
             //     $input['price'] = 0;
             // }
+
                 $input['previous_price'] = ($input['previous_price'] / $sign->value);
                 $input['user_id'] = $user->id;
                 // Save Data
-            
+                dd($input);
                 $data->fill($input)->save();
 
                 }else{
