@@ -147,6 +147,7 @@ class RegisterController extends Controller
 
     public function verify_otp(Request $request)
     {
+    	$gs = Generalsetting::findOrFail(1);
     	
 			$otp_number = $request->get('first').$request->get('second').$request->get('third').$request->get('fourth').$request->get('fifth').$request->get('sixth');
 				$id = $request->get('id');
