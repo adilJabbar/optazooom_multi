@@ -472,27 +472,88 @@
 						<h4 class="title">
 							{{ $langg->lang24 }}
 						</h4>
-						<ul class="post-list">
-							@foreach (App\Models\Blog::orderBy('created_at', 'desc')->limit(3)->get() as $blog)
-							<li>
-								<div class="post">
-								  <div class="post-img">
-									<img style="width: 73px; height: 59px;" src="{{ asset('assets/images/blogs/'.$blog->photo) }}" alt="">
-								  </div>
-								  <div class="post-details">
-									<a href="{{ route('front.blogshow',$blog->id) }}">
-										<h4 class="post-title">
-											{{mb_strlen($blog->title,'utf-8') > 45 ? mb_substr($blog->title,0,45,'utf-8')." .." : $blog->title}}
-										</h4>
-									</a>
-									<p class="date">
-										{{ date('M d - Y',(strtotime($blog->created_at))) }}
-									</p>
-								  </div>
-								</div>
-							  </li>
-							@endforeach
-						</ul>
+						<?php 
+
+	$url = 'https://visionmonday.com/rss/eyecare/';
+	$rss = Feed::loadRss($url);
+
+			
+	foreach ($rss->item as $item ) 
+	{
+
+	?>
+						<?php 
+              			if(isset($item->link))
+              			{
+
+              				 $content = file_get_contents($item->link);
+
+							preg_match_all('/<img[^>]+>/i',$content, $result);
+						
+
+          				 	// $content = file_get_contents($item->link);
+							// dd($item->link,$content);
+							preg_match_all('/<img[^>]+>/i',$content, $result); 
+						
+							$value = $item->title;
+							$first = strtok($value, " ");
+
+
+              			}
+	                   
+
+							if(isset($result[0]))
+							{
+
+							foreach($result[0] as $re_k => $re_v)
+							{
+							
+								$pos = strpos($re_v, $first);
+								// $pos = strpos($re_v, 'eonie');
+						
+								if($pos)
+								{
+									$image = $re_v;
+									break;
+								}else{
+									$image = '';
+								}
+							}
+							
+							// dd('aaa');
+							if(isset($image) && !empty($image))
+							{
+
+				    		$html = $image;
+							$doc = new DOMDocument();
+							$doc->loadHTML($html);
+							$xpath = new DOMXPath($doc);
+							$src = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
+                    	?>
+                                     
+                       <img class="img-full" src="https://visionmonday.com{{$src}}" alt="">
+                       <?php 
+                   		}else{
+                   			?>
+                   			 <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
+							 <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
+                   		 <?php }
+                        
+                        }else{ 
+
+
+                        	?>
+							  <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
+							 <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
+
+						<?php       
+							}
+
+						?>
+                      <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
+					  <?php
+    }
+?>	
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-2">
