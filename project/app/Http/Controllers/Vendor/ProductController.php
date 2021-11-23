@@ -384,20 +384,20 @@ class ProductController extends Controller
                 $input['thumbnail']  = $thumbnail;
 
                 // Conert Price According to Currency
-                 if(!empty($input['price']) && !empty($sign->value))
-                 {
-                   $input['price'] =  (int)$input['price'];
-                   $sign->value =  (int)$sign->value;
-                 }
+                 // if(!empty($input['price']) && !empty($sign->value))
+                 // {
+                 //   $input['price'] =  (int)$input['price'];
+                 //   $sign->value =  (int)$sign->value;
+                 // }
             
-                if(is_int($input['price']) && is_int($sign->value))
-                {
+                // if(is_int($input['price']) && is_int($sign->value))
+                // {
 
                 $input['price'] = ($input['price'] / $sign->value);
                
-            }else{
-                $input['price'] = 0;
-            }
+            // }else{
+            //     $input['price'] = 0;
+            // }
                 $input['previous_price'] = ($input['previous_price'] / $sign->value);
                 $input['user_id'] = $user->id;
                 // Save Data
