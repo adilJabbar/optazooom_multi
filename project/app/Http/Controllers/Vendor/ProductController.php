@@ -342,9 +342,9 @@ class ProductController extends Controller
                 $input['meta_tag'] = $line[17];
                 $input['meta_description'] = $line[18];
                 $input['tags'] = $line[14];
-                $input['product_type'] = $line[19];
+                $input['product_type'] = 'normal';
                 // $input['affiliate_link'] = $line[20];
-                dd($input);
+        
 
 
 
@@ -402,7 +402,7 @@ class ProductController extends Controller
                 $input['previous_price'] = ($input['previous_price'] / $sign->value);
                 $input['user_id'] = $user->id;
                 // Save Data
-                dd($input);
+            
                 $data->fill($input)->save();
 
                 }else{
