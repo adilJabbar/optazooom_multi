@@ -100,7 +100,7 @@
 					<div class="col-lg-12">
 						<div class="row">
 
-							@foreach($top_products as $prod)
+							@foreach($discount_products as $prod)
 								@include('includes.product.top-product')
 							@endforeach
 
