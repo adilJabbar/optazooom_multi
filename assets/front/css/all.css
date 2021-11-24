@@ -50735,6 +50735,11 @@ Faq Page Start
                 color: #505050;
             }
             
+            .newsfeedheader h3 {
+                font-weight: 300;
+                color: #505050;
+            }
+            
             .vendorheader {
                 background-color: #f2f2f2;
                 padding: 60px 0px;
@@ -50750,6 +50755,15 @@ Faq Page Start
                 position: relative;
                 /* background-image: url(images/product.jpg); */
                 background-position: center;
+                background-repeat: no-repeat;
+            }
+            
+            .newsfeedheader {
+                background-color: #f2f2f2;
+                padding: 60px 0px;
+                position: relative;
+                background-image: url(images/newsfeed.jpg);
+                */ background-position: center;
                 background-repeat: no-repeat;
             }
             
