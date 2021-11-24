@@ -39706,14 +39706,14 @@ DROPDOWN STYLE
             .trending .owl-carousel .owl-controls .owl-nav .owl-next {
                 font-size: 16px;
                 position: absolute;
-                top: -30px;
+                top: -40px;
                 -webkit-transform: translateY(-50%);
                 -ms-transform: translateY(-50%);
                 transform: translateY(-50%);
                 text-align: center;
-                width: 30px;
-                height: 30px;
-                line-height: 27px;
+                width: 25px;
+                height: 25px;
+                line-height: 24px;
                 opacity: 1;
                 background: #ff5500;
                 border: 1px solid #ff5500;
