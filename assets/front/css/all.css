@@ -50857,38 +50857,6 @@ Faq Page Start
                 font-size: 14px;
             }
             
-            .owl-theme .owl-dots .owl-dot.active span,
-            .owl-theme .owl-dots .owl-dot:hover span {
-                background: #fdac38;
-            }
-            
-            .owl-theme .owl-dots .owl-dot.active span,
-            .owl-theme .owl-dots .owl-dot:hover span {
-                text-align: center;
-            }
-            
-            .owl-theme .owl-dots .owl-dot span {
-                width: 10px;
-                height: 10px;
-                margin: 5px 7px;
-                background: #fdac38;
-                display: block;
-                -webkit-backface-visibility: visible;
-                transition: opacity .2s ease;
-                border-radius: 30px;
-            }
-            
-            .owl-theme .owl-dots,
-            .owl-theme .owl-nav {
-                text-align: center !important;
-            }
-            
-            .li-search-field {
-                padding: 10px 25px;
-                font-weight: 400;
-                border: 1px solid rgba(0, 0, 0, 0.5);
-            }
-            
             .main-form-search {
                 display: flex;
                 justify-content: flex-end;
