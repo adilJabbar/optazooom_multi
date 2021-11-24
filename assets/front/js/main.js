@@ -321,7 +321,6 @@ $(function($) {
                 $this.html(event.strftime('<span>%D : <small>Days</small></span> <span>%H : <small>Hrs</small></span>  <span>%M : <small>Min</small></span> <span>%S <small>Sec</small></span>'));
             });
         });
-
         // trending item  slider
         var $trending_slider = $('.trending-item-slider');
         $trending_slider.owlCarousel({
