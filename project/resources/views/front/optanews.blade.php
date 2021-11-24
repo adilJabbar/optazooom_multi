@@ -85,12 +85,13 @@
 <?php 
 
 
-	$url = 'https://visionmonday.com/rss/eyecare/';
-	$rss = Feed::loadRss($url);
+
      if(isset($key) && !empty($key))
      {
-        foreach ($rss->item as $item ) 
+        
+        foreach ($news_feed as $item ) 
         {  
+
          $pos = strpos($item->title, $key);
          if($pos)
          { ?>
@@ -101,74 +102,27 @@
                     <div class="li-blog-banner">
                                          
                     <?php 
-                        if(isset($item->link))
-                        {
-
-                             $content = file_get_contents($item->link);
-
-                            preg_match_all('/<img[^>]+>/i',$content, $result);
-                        
-
-                            // $content = file_get_contents($item->link);
-                            // dd($item->link,$content);
-                            preg_match_all('/<img[^>]+>/i',$content, $result); 
-                        
-                            $value = $item->title;
-                            $first = strtok($value, " ");
-
-
-                        }
+                       
                        
 
-                            if(isset($result[0]))
-                            {
+                         
 
-                            foreach($result[0] as $re_k => $re_v)
-                            {
-                            
-                                $pos = strpos($re_v, $first);
-                                // $pos = strpos($re_v, 'eonie');
-                        
-                                if($pos)
-                                {
-                                    $image = $re_v;
-                                    break;
-                                }else{
-                                    $image = '';
-                                }
-                            }
-                            
                             // dd('aaa');
-                            if(isset($image) && !empty($image))
+                            if(isset($item->image) && !empty($item->image))
                             {
 
-                            $html = $image;
-                            $doc = new DOMDocument();
-                            $doc->loadHTML($html);
-                            $xpath = new DOMXPath($doc);
-                            $src = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
+                           
                         ?>
                                      
-                       <img class="img-full" src="https://visionmonday.com{{$src}}" alt="">
+                       <img class="img-full" src="https://visionmonday.com{{$item->file}}" alt="">
                        <?php 
                         }else{
                             ?>
-                             <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
+                             <a href="<?php echo $item->link.'" title="'.$item->title  ?> " target="_blank">
                              <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
                          <?php }
                         
-                        }else{ 
-
-
-                            ?>
-                              <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
-                             <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
-
-                        <?php       
-                            }
-                        
-
-
+                      
 
                         ?>
 
@@ -196,7 +150,7 @@
 
 
 			
-	foreach ($rss->item as $item ) 
+	foreach ($news_feed as $item ) 
 	{  
        
        
@@ -209,72 +163,24 @@
                     <div class="li-blog-banner">
                                          
                     <?php 
-              			if(isset($item->link))
-              			{
-
-              				 $content = file_get_contents($item->link);
-
-							preg_match_all('/<img[^>]+>/i',$content, $result);
-						
-
-          				 	// $content = file_get_contents($item->link);
-							// dd($item->link,$content);
-							preg_match_all('/<img[^>]+>/i',$content, $result); 
-						
-							$value = $item->title;
-							$first = strtok($value, " ");
-
-
-              			}
+              		
 	                   
 
-							if(isset($result[0]))
-							{
+							 if(isset($item->file) && !empty($item->file))
+                            {
 
-							foreach($result[0] as $re_k => $re_v)
-							{
-							
-								$pos = strpos($re_v, $first);
-								// $pos = strpos($re_v, 'eonie');
-						
-								if($pos)
-								{
-									$image = $re_v;
-									break;
-								}else{
-									$image = '';
-								}
-							}
-							
-							// dd('aaa');
-							if(isset($image) && !empty($image))
-							{
-
-				    		$html = $image;
-							$doc = new DOMDocument();
-							$doc->loadHTML($html);
-							$xpath = new DOMXPath($doc);
-							$src = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
-                    	?>
+                           
+                        ?>
                                      
-                       <img class="img-full" src="https://visionmonday.com{{$src}}" alt="">
+                       <img class="img-full" src="https://visionmonday.com{{$item->file}}" alt="">
                        <?php 
-                   		}else{
-                   			?>
-                   			 <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
-							 <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
-                   		 <?php }
-                        
-                        }else{ 
+                        }else{
 
 
-                        	?>
-							  <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
-							 <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
-
-						<?php       
-							}
-						
+                            ?>
+                             <a href="<?php echo $item->link.'" title="'.$item->title  ?> " target="_blank">
+                             <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
+                         <?php }
 
 
 

@@ -42,7 +42,7 @@ class StripeController extends Controller
 
 
     public function store(Request $request){
-  
+        
         if($request->pass_check) {
             $users = User::where('email','=',$request->personal_email)->get();
             if(count($users) == 0) {
@@ -71,6 +71,12 @@ class StripeController extends Controller
         }
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
+        // foreach($cart->items as $c_key =>$c_val)
+        // {
+        //     dd($c_val['item']->user_id);
+
+        // }
+        // dd($cart->items);
             if (Session::has('currency')) 
             {
               $curr = Currency::find(Session::get('currency'));
