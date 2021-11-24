@@ -518,9 +518,11 @@
 
 			<!-- Testimonials -->
 			<div class="container">
-					<div class="professional-heading">
-						<h3>OPTICAL PROFESSIONALS LOVE OPTAZOOM<h3>
-					</div>
+					<div class="section-top">
+							<h2 class="section-title">
+							OPTICAL PROFESSIONALS LOVE OPTAZOOM
+							</h2>
+						</div>
 				<div class="main-slider-testimonials">
 					<div class="professionals">
 							<div class="profesional-profile">
