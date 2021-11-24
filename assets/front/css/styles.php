@@ -35,7 +35,6 @@ else {
 }
 
 .mybtn1,
-.bottomtotop i,
 .logo-header .search-box .categori-container .categoris option:hover,
 .logo-header .helpful-links ul li.my-dropdown .cart .icon span,
 .trending .item .item-img .time,
@@ -106,7 +105,9 @@ else {
     background: <?php echo $color; ?>;
     font-weight:300;
 }
-
+.bottomtotop i{
+  background: <?php echo $color; ?>;
+}
 .section-top .link,
 .input-field.error:-ms-input-placeholder,
 .input-field.error::-moz-placeholder,
