@@ -36,7 +36,7 @@
 			</div>
 			@if($prod->thumbnail)
 			<img class="img-fluid" src="{{ $prod->thumbnail ? asset('assets/images/thumbnails/'.$prod->thumbnail):asset('assets/images/noimage.png') }}" alt="">
-			@else if($prod->photo)
+			@elseif($prod->photo)
 			<img class="img-fluid" src="{{asset('assets/images/thumbnails/'.$prod->photo)}}" alt="">
 			@else
 			<img class="img-fluid" src="{{ $prod->photo ? asset('assets/images/products/'.$prod->photo):asset('assets/images/noimage.png') }}" alt="">
