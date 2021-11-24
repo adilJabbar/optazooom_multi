@@ -50720,7 +50720,7 @@ Faq Page Start
                 background-color: #f2f2f2;
                 padding: 60px 0px;
                 position: relative;
-                background-image: url(images/product-banner.png);
+                background-image: url(images/product_detail.jpg);
                 background-position: center right;
                 background-repeat: no-repeat;
             }
@@ -50753,7 +50753,7 @@ Faq Page Start
                 background-color: #f2f2f2;
                 padding: 60px 0px;
                 position: relative;
-                background-image: url(images/Products_Banner.jpg);
+                background-image: url(images/product.jpg);
                 */ background-position: center;
                 background-repeat: no-repeat;
             }
