@@ -88,14 +88,123 @@
                     <div class="row li-main-content searched_val optanews_counter ">
 
 <?php 
-echo isset($key)? $key: '';
+
+
 	$url = 'https://visionmonday.com/rss/eyecare/';
 	$rss = Feed::loadRss($url);
+     if(isset($key) && !empty($key))
+     {
+        foreach ($rss->item as $item ) 
+        {  
+         $pos = strpos($item->title, $key);
+         if($pos)
+         { ?>
+             <div class="col-lg-12 ">
+        <div class="li-blog-single-item mb-30">
+            <div class="row ">
+                <div class="col-lg-5">
+                    <div class="li-blog-banner">
+                                         
+                    <?php 
+                        if(isset($item->link))
+                        {
+
+                             $content = file_get_contents($item->link);
+
+                            preg_match_all('/<img[^>]+>/i',$content, $result);
+                        
+
+                            // $content = file_get_contents($item->link);
+                            // dd($item->link,$content);
+                            preg_match_all('/<img[^>]+>/i',$content, $result); 
+                        
+                            $value = $item->title;
+                            $first = strtok($value, " ");
+
+
+                        }
+                       
+
+                            if(isset($result[0]))
+                            {
+
+                            foreach($result[0] as $re_k => $re_v)
+                            {
+                            
+                                $pos = strpos($re_v, $first);
+                                // $pos = strpos($re_v, 'eonie');
+                        
+                                if($pos)
+                                {
+                                    $image = $re_v;
+                                    break;
+                                }else{
+                                    $image = '';
+                                }
+                            }
+                            
+                            // dd('aaa');
+                            if(isset($image) && !empty($image))
+                            {
+
+                            $html = $image;
+                            $doc = new DOMDocument();
+                            $doc->loadHTML($html);
+                            $xpath = new DOMXPath($doc);
+                            $src = $xpath->evaluate("string(//img/@src)"); # "/images/image.jpg"
+                        ?>
+                                     
+                       <img class="img-full" src="https://visionmonday.com{{$src}}" alt="">
+                       <?php 
+                        }else{
+                            ?>
+                             <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
+                             <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
+                         <?php }
+                        
+                        }else{ 
+
+
+                            ?>
+                              <a href="<?php echo $item->url.'" title="'.$item->title  ?> " target="_blank">
+                             <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
+
+                        <?php       
+                            }
+                        
+
+
+
+                        ?>
+
+                                                        
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="li-blog-content">
+                        <div class="li-blog-details">
+                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
+                            <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
+                            </p>
+                           
+                            <a class="read-more-blogs" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link;; ?>" target="_blank">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+         <?php }
+        }  
+     }else{
+
 
 			
 	foreach ($rss->item as $item ) 
-	{
-
+	{  
+       
+       
 	?>
 
     <div class="col-lg-12 ">
@@ -196,7 +305,10 @@ echo isset($key)? $key: '';
 
 
 <?php
-    }
+    
+
+}
+  }
 ?>
 
 
@@ -212,7 +324,7 @@ echo isset($key)? $key: '';
                             <div class="li-sidebar-search-form pt-xs-30 pt-sm-30">
                              <form action="{{url('news_feed_search')}}" method="POST">
                                 @csrf
-                                    <input id="fsearch" type="text"  name="fsearch" value="<?= (isset($fsearch) && !empty($fsearch)) ? $fsearch : ''; ?>" class="li-search-field" placeholder="Search any news here">
+                                    <input id="fsearch" type="text"  name="fsearch" value="<?= (isset($key) && !empty($key)) ? $key : ''; ?>" class="li-search-field" placeholder="Search any news here">
                                     <input id="uri_seg" type="hidden" name="uri_seg" value="<?php echo Request::segment(3)?Request::segment(3):0; ?>">
                                     <?php if (isset($_GET['category'])) { ?>
                                         <input type="hidden" name="category" value="<?= $_GET['category']; ?>" class="li-search-field" placeholder="Search any news here">
@@ -279,11 +391,12 @@ $(function () {
     		$('#loadMore').hide();
 
     	}
-    	
+        var search = '<?= isset($key)?$key:"" ?>';
+   
 
     		   $.ajax({  
                 type: "get",
-                url: 'get_second_site_data?site='+site,
+                url: 'get_second_site_data?site='+site+'&search='+search,
                 success:function(data)
                 {
                  var data = jQuery.parseJSON( data );

@@ -826,6 +826,7 @@ public function get_second_site_data()
     }
 
     $site = $_GET['site'];
+    // $search_key = isset($_GET['search'])?$_GET['search']:'';
 $html = view('front.rss_site', compact('rss','site'))->render();
 echo json_encode($html);
 
