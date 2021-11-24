@@ -414,11 +414,13 @@ color: <?php echo $color; ?>;
  
   .trending .owl-carousel .owl-controls .owl-nav .owl-prev,
   .trending .owl-carousel .owl-controls .owl-nav .owl-next {
-    <?php echo $color; ?>;
+    background: <?php echo $color; ?>;
+      border: 1px solid <?php echo $color; ?>;
     }
     .trending .owl-carousel .owl-controls .owl-nav .owl-prev:hover,
     .trending .owl-carousel .owl-controls .owl-nav .owl-next:hover {
-      <?php echo $color; ?>;
+      background: <?php echo $color; ?>;
+      border: 1px solid <?php echo $color; ?>;
     }
     .section-top .section-title::after{
       background: <?php echo $color; ?>;
