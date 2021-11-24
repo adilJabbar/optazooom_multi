@@ -329,7 +329,7 @@ $(function($) {
             autoplay: false,
             margin: 0,
             loop: true,
-            dots: true,
+            dots: false,
             nav: true,
             center: false,
             autoplayHoverPause: true,
