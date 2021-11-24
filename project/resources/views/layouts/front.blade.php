@@ -475,52 +475,23 @@
 
 						<?php 
 
-	$url = 'https://visionmonday.com/rss/eyecare/';
-	$rss = Feed::loadRss($url);
+	// $url = 'https://visionmonday.com/rss/eyecare/';
+	// $rss = Feed::loadRss($url);
+	$rss = DB::table('news_feed')->get();
 
-			
-	foreach ($rss->item as $item ) 
+	if(isset($rss))		
+	{
+	
+	foreach ($rss as $item ) 
 	{
 
 	?>
-						<?php 
-              			if(isset($item->link))
-              			{
-              				try {
-
-  							$content = file_get_contents($item->link);
-
-							preg_match_all('/<img[^>]+>/i',$content, $result);
 						
-
-          				 	// $content = file_get_contents($item->link);
-							// dd($item->link,$content);
-							preg_match_all('/<img[^>]+>/i',$content, $result);
-
-							} catch (\Exception $e) {
-
-							    
-							}
-              				 
-						
-							$value = $item->title;
-							$first = strtok($value, " ");
-
-
-              			}
-	                   
-
-					  else{ 
-
-                        	?>
-						<?php       
-							}
-
-						?>
                       <p class="li-blog-heading pt-xs-25 pt-sm-25"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></p>
 					
 					  <?php
 						}
+					}
 					?>	
 				  </ul>
 					</div>

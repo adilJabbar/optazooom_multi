@@ -781,7 +781,9 @@ public function optanews()
         $sliders = DB::table('sliders')->get();
        
         $ps = DB::table('pagesettings')->find(1);
-     return view('front.optanews',compact('ps','sliders'));
+        $news_feed = DB::table('news_feed')->get();
+       
+     return view('front.optanews',compact('ps','sliders','news_feed'));
 }
 
 public function news_feed_detail()
@@ -867,7 +869,32 @@ public function news_feed_search(Request $request)
         $sliders = DB::table('sliders')->get();
         $key = $request->fsearch; 
         $ps = DB::table('pagesettings')->find(1);
-     return view('front.optanews',compact('ps','sliders','key'));
+        $news_feed = DB::table('news_feed')->get();
+       
+     return view('front.optanews',compact('ps','sliders','key','news_feed'));
+}
+
+public function get_first_site_data()
+{
+    return view('front.first_site');
+    
+}
+
+public function get_second_site()
+{
+    return view('front.second_site');
+    
+}
+public function get_third_site_data()
+{
+    return view('front.third_site');
+    
+}
+
+public function get_forth_site_data()
+{
+    return view('front.forth_site');
+    
 }
 // -------------------------------- PRINT SECTION ENDS ----------------------------------------
 
