@@ -486,15 +486,22 @@
 						<?php 
               			if(isset($item->link))
               			{
+              				try {
 
-              				 $content = file_get_contents($item->link);
+  							$content = file_get_contents($item->link);
 
 							preg_match_all('/<img[^>]+>/i',$content, $result);
 						
 
           				 	// $content = file_get_contents($item->link);
 							// dd($item->link,$content);
-							preg_match_all('/<img[^>]+>/i',$content, $result); 
+							preg_match_all('/<img[^>]+>/i',$content, $result);
+
+							} catch (\Exception $e) {
+
+							   
+							}
+              				 
 						
 							$value = $item->title;
 							$first = strtok($value, " ");
