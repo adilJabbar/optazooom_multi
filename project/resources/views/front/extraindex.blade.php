@@ -369,8 +369,6 @@
             </p>
         </div>
     </div>
-
-
     <div class="savetime">
         <img src="{{asset('assets/images/savemoney.svg')}}" />
         <div>
@@ -379,9 +377,6 @@
             </p>
         </div>
     </div>
-
-
-
     <div class="savetime" >
         <img src="{{asset('assets/images/less.svg')}}" />
         <div>
@@ -448,12 +443,22 @@
 		<!-- Tranding Item Area End -->
 	@endif
 						<!--- Featured Vendors--->
-						<div class="container">
-					<div class="professional-heading">
-						<h3>FEATURED VENDORS<h3>
+						<section class="categori-item electronics-section" id="flashdeals">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 remove-padding">
+						<div class="section-top">
+							<h2 class="section-title">
+								{{ $langg->lang531 }}
+							</h2>
+						</div>
 					</div>
-				<div class="main-slider-check">
-				@php
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="flash-deals">
+							<div class="flas-deal-slider">
+							@php
 				   $vendors = DB::select('select * from users where is_featured="2" ');
 					foreach ($vendors as $vendor)
 					{
@@ -471,8 +476,12 @@
 			          </div>
 				@php	}
 					@endphp
-						
-            </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 			<!-- End Featured Vendors -->
 
 			@if($ps->flash_deal == 1)
@@ -504,6 +513,8 @@
 		</section>
 		<!-- Electronics Area start-->
 	@endif
+
+
 
 			<!-- Testimonials -->
 			<div class="container">

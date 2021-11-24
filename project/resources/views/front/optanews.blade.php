@@ -65,19 +65,14 @@
         }
 </style>
 <!--Breadcrumb-->
-<div class="breadcrumb justify-content-center pt-60 pb-60">
-    <div>
-        <ol class="breadcrumb">
-            <h3 class="bread-login">News Feed</h3>
-        </ol>
-        <ol class="breadcrumb" style="position: relative; left: 25px;">
-
-            <li class="breadcrumb-item bread-title"><a href="#">Home</a></li>
-            <li class="breadcrumb-item bread-title active bread-title" aria-current="page">News Feed</li>
-        </ol>
-    </div>
-</div>
-
+<div class="newsfeedheader text-center">
+            <div class="container ">
+                <h3>NEWSFEED</h3>
+                <div class="lower-text">
+                 <span><a href="{{route('front.index')}}">{{ $langg->lang17 }}</a></span> <span>/</span> <span>NEWSFEED</p>
+               </div>
+            </div>
+        </div>
 <!--Breadcrumb end-->
 
     <div class="container containeer li-main-blog-page pt-60 pb-55">

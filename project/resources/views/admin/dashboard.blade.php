@@ -357,7 +357,7 @@
 
 
 
-    <div class="row row-cards-one">
+    <!-- <div class="row row-cards-one">
 
         <div class="col-md-6 col-lg-6 col-xl-6">
             <div class="card">
@@ -387,7 +387,7 @@
 
 
 
-</div>
+</div> -->
 
 @endsection
 
