@@ -32,11 +32,11 @@
 															<span class="quick-view" rel-toggle="tooltip" title="{{ $langg->lang55 }}" href="javascript:;" data-href="{{ route('product.quick',$prod->id) }}" data-toggle="modal" data-target="#quickview" data-placement="right"> <i class="icofont-eye"></i>
 															</span>
 															</li>
-															<li>
+															<!-- <li>
 																<span class="add-to-compare" data-href="{{ route('product.compare.add',$prod->id) }}"  data-toggle="tooltip" data-placement="right" title="{{ $langg->lang57 }}" data-placement="right">
 																	<i class="icofont-exchange"></i>
 																</span>
-															</li>
+															</li> -->
 														</ul>
 													</div>
 													@if($prod->thumbnail)
