@@ -50740,11 +50740,25 @@ Faq Page Start
                 color: #505050;
             }
             
+            .cartheader h3 {
+                font-weight: 300;
+                color: #505050;
+            }
+            
             .vendorheader {
                 background-color: #f2f2f2;
                 padding: 60px 0px;
                 position: relative;
                 background-image: url(images/brands_1.png);
+                background-position: center right;
+                background-repeat: no-repeat;
+            }
+            
+            .cartheader {
+                background-color: #f2f2f2;
+                padding: 60px 0px;
+                position: relative;
+                background-image: url(images/cart.jpg);
                 background-position: center right;
                 background-repeat: no-repeat;
             }
