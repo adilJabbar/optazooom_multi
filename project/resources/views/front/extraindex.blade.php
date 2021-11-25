@@ -449,7 +449,7 @@
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
 							<h2 class="section-title">
-								{{ $langg->lang531 }}
+								{{ $langg->lang801 }}
 							</h2>
 						</div>
 					</div>
