@@ -234,7 +234,7 @@ $(function($) {
 
         // Testimonials Slider
         $('.main-slider-testimonials').slick({
-            dots: true,
+            dots: false,
             infinite: true,
             autoplay: true,
             speed: 800,
