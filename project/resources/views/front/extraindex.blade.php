@@ -359,7 +359,7 @@
 
 
 			<!-- Icon Section -->
-
+<!-- 
 			<div class="container save-section" data-aos="fade-up">
     <div class="savetime">
         <img src="{{asset('assets/images/savetime.svg')}}" />
@@ -411,7 +411,7 @@
         </div>
 
     </div>
-</div>
+</div> -->
 			<!-- End Icon Section -->
 
 			@if($ps->featured == 1)
