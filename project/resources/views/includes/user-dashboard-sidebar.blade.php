@@ -72,9 +72,9 @@
                   <a href="{{route('user-message-index')}}">{{ $langg->lang204 }}</a>
               </li>
 
-              <li class="{{ $link == route('user-dmessage-index') ? 'active':'' }}">
+              <!-- <li class="{{ $link == route('user-dmessage-index') ? 'active':'' }}">
                   <a href="{{route('user-dmessage-index')}}">{{ $langg->lang250 }}</a>
-              </li>
+              </li> -->
 
               <li class="{{ $link == route('user-profile') ? 'active':'' }}">
                 <a href="{{ route('user-profile') }}">
