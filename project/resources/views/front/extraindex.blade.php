@@ -3,7 +3,7 @@
 
 		<!-- Banner Area One Start -->
 		<section class="banner-section">
-			<div class="container">
+			<div class="container-fluid">
 				@foreach($top_small_banners->chunk(2) as $chunk)
 					<div class="row">
 						@foreach($chunk as $img)
@@ -25,7 +25,7 @@
 	@if($ps->best == 1)
 		<!-- Phone and Accessories Area Start -->
 		<section class="phone-and-accessories categori-item">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -64,7 +64,7 @@
 	@if($ps->large_banner == 1)
 		<!-- Banner Area One Start -->
 		<section class="banner-section">
-			<div class="container">
+			<div class="container-fluid">
 				@foreach($large_banners->chunk(1) as $chunk)
 					<div class="row">
 						@foreach($chunk as $img)
@@ -86,7 +86,7 @@
 	@if($ps->top_rated == 1)
 		<!-- Electronics Area Start -->
 		<section class="categori-item electronics-section">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -115,7 +115,7 @@
 	@if($ps->bottom_small == 1)
 		<!-- Banner Area One Start -->
 		<section class="banner-section">
-			<div class="container">
+			<div class="container-fluid">
 				@foreach($bottom_small_banners->chunk(3) as $chunk)
 					<div class="row">
 						@foreach($chunk as $img)
@@ -137,7 +137,7 @@
 	@if($ps->big == 1)
 		<!-- Clothing and Apparel Area Start -->
 		<section class="categori-item clothing-and-Apparel-Area">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -176,7 +176,7 @@
 	@if($ps->hot_sale == 1)
 		<!-- hot-and-new-item Area Start -->
 		<section class="hot-and-new-item">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="accessories-slider">
@@ -287,7 +287,7 @@
 	@if($ps->review_blog == 1)
 		<!-- Blog Area Start -->
 		<section class="blog-area">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="aside">
@@ -360,7 +360,7 @@
 
 			<!-- Icon Section -->
 <!-- 
-			<div class="container save-section" data-aos="fade-up">
+			<div class="container-fluid save-section" data-aos="fade-up">
     <div class="savetime">
         <img src="{{asset('assets/images/savetime.svg')}}" />
         <div>
@@ -386,7 +386,7 @@
     </div>
 </div>
 
-<div class="container ">
+<div class="container-fluid ">
     <div class="about-optazoom row animate__animated animate__fadeInUp" >
         <div class="about-img col-md-6" >
             <div class="col-md-12">
@@ -417,7 +417,7 @@
 			@if($ps->featured == 1)
 		<!-- Trending Item Area Start -->
 		<section  class="trending">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -444,7 +444,7 @@
 	@endif
 						<!--- Featured Vendors--->
 						<section class="categori-item electronics-section" id="flashdeals">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -487,7 +487,7 @@
 			@if($ps->flash_deal == 1)
 		<!-- Electronics Area Start -->
 		<section class="categori-item electronics-section" id="flashdeals">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -518,7 +518,7 @@
 
 			<!-- Testimonials -->
 			<section class="categori-item electronics-section">
-					<div class="container">
+					<div class="container-fluid">
 							<div class="section-top">
 									<h2 class="section-title">
 									OPTICAL PROFESSIONALS LOVE OPTAZOOM
@@ -646,7 +646,7 @@
 	@if($ps->partners == 1)
 		<!-- Partners Area Start -->
 		<section class="partners">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-top">
@@ -678,7 +678,7 @@
 
 	{{-- Info Area Start --}}
 	<section class="info-area">
-			<div class="container">
+			<div class="container-fluid">
 
 					@foreach($services->chunk(4) as $chunk)
 	
