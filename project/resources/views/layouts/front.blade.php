@@ -325,7 +325,6 @@
                                         <li class="arrow-icon">
 											<a href="#flashdeals">Flash Deals</a>
                                         </li>
-                                       
                                          <li class="arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
                                           <li class="arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
                                 </nav>

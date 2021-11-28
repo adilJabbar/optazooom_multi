@@ -35,7 +35,6 @@ else {
 }
 
 .mybtn1,
-.bottomtotop i,
 .logo-header .search-box .categori-container .categoris option:hover,
 .logo-header .helpful-links ul li.my-dropdown .cart .icon span,
 .trending .item .item-img .time,
@@ -106,7 +105,9 @@ else {
     background: <?php echo $color; ?>;
     font-weight:300;
 }
-
+.bottomtotop i{
+  background: <?php echo $color; ?>;
+}
 .section-top .link,
 .input-field.error:-ms-input-placeholder,
 .input-field.error::-moz-placeholder,
@@ -414,11 +415,13 @@ color: <?php echo $color; ?>;
  
   .trending .owl-carousel .owl-controls .owl-nav .owl-prev,
   .trending .owl-carousel .owl-controls .owl-nav .owl-next {
-    <?php echo $color; ?>;
+    background: #fdac38;
+      border: 1px solid #fdac38;
     }
     .trending .owl-carousel .owl-controls .owl-nav .owl-prev:hover,
     .trending .owl-carousel .owl-controls .owl-nav .owl-next:hover {
-      <?php echo $color; ?>;
+      background: #fdac38;
+      border: 1px solid #fdac38;
     }
     .section-top .section-title::after{
       background: <?php echo $color; ?>;

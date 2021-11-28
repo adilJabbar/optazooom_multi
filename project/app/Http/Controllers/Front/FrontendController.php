@@ -169,7 +169,7 @@ class FrontendController extends Controller
 
           });
 
-          $feature_products =  Product::with('user')->where('featured','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(8)->get()->reject(function($item){
+          $feature_products =  Product::with('user')->where('featured','=',1)->where('status','=',1)->orderBy('id','desc')->take(8)->get()->reject(function($item){
 
             if($item->user_id != 0){
               if($item->user->is_vendor != 2){

@@ -3,7 +3,7 @@
 
 		<!-- Banner Area One Start -->
 		<section class="banner-section">
-			<div class="container">
+			<div class="container-fluid">
 				@foreach($top_small_banners->chunk(2) as $chunk)
 					<div class="row">
 						@foreach($chunk as $img)
@@ -25,7 +25,7 @@
 	@if($ps->best == 1)
 		<!-- Phone and Accessories Area Start -->
 		<section class="phone-and-accessories categori-item">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -64,7 +64,7 @@
 	@if($ps->large_banner == 1)
 		<!-- Banner Area One Start -->
 		<section class="banner-section">
-			<div class="container">
+			<div class="container-fluid">
 				@foreach($large_banners->chunk(1) as $chunk)
 					<div class="row">
 						@foreach($chunk as $img)
@@ -86,7 +86,7 @@
 	@if($ps->top_rated == 1)
 		<!-- Electronics Area Start -->
 		<section class="categori-item electronics-section">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -100,7 +100,7 @@
 					<div class="col-lg-12">
 						<div class="row">
 
-							@foreach($top_products as $prod)
+							@foreach($discount_products as $prod)
 								@include('includes.product.top-product')
 							@endforeach
 
@@ -115,7 +115,7 @@
 	@if($ps->bottom_small == 1)
 		<!-- Banner Area One Start -->
 		<section class="banner-section">
-			<div class="container">
+			<div class="container-fluid">
 				@foreach($bottom_small_banners->chunk(3) as $chunk)
 					<div class="row">
 						@foreach($chunk as $img)
@@ -137,7 +137,7 @@
 	@if($ps->big == 1)
 		<!-- Clothing and Apparel Area Start -->
 		<section class="categori-item clothing-and-Apparel-Area">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -176,7 +176,7 @@
 	@if($ps->hot_sale == 1)
 		<!-- hot-and-new-item Area Start -->
 		<section class="hot-and-new-item">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="accessories-slider">
@@ -287,7 +287,7 @@
 	@if($ps->review_blog == 1)
 		<!-- Blog Area Start -->
 		<section class="blog-area">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="aside">
@@ -359,8 +359,8 @@
 
 
 			<!-- Icon Section -->
-
-			<div class="container save-section" data-aos="fade-up">
+<!-- 
+			<div class="container-fluid save-section" data-aos="fade-up">
     <div class="savetime">
         <img src="{{asset('assets/images/savetime.svg')}}" />
         <div>
@@ -386,7 +386,7 @@
     </div>
 </div>
 
-<div class="container ">
+<div class="container-fluid ">
     <div class="about-optazoom row animate__animated animate__fadeInUp" >
         <div class="about-img col-md-6" >
             <div class="col-md-12">
@@ -411,13 +411,13 @@
         </div>
 
     </div>
-</div>
+</div> -->
 			<!-- End Icon Section -->
 
 			@if($ps->featured == 1)
 		<!-- Trending Item Area Start -->
 		<section  class="trending">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -444,12 +444,12 @@
 	@endif
 						<!--- Featured Vendors--->
 						<section class="categori-item electronics-section" id="flashdeals">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
 							<h2 class="section-title">
-								{{ $langg->lang531 }}
+								{{ $langg->lang801 }}
 							</h2>
 						</div>
 					</div>
@@ -487,7 +487,7 @@
 			@if($ps->flash_deal == 1)
 		<!-- Electronics Area Start -->
 		<section class="categori-item electronics-section" id="flashdeals">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
 						<div class="section-top">
@@ -517,132 +517,136 @@
 
 
 			<!-- Testimonials -->
-			<div class="container">
-					<div class="professional-heading">
-						<h3>OPTICAL PROFESSIONALS LOVE OPTAZOOM<h3>
+			<section class="categori-item electronics-section">
+					<div class="container-fluid">
+							<div class="section-top">
+									<h2 class="section-title">
+									OPTICAL PROFESSIONALS LOVE OPTAZOOM
+									</h2>
+								</div>
+						<div class="main-slider-testimonials">
+							<div class="professionals">
+									<div class="profesional-profile">
+											<div class="professional-img">
+											<img style="height:130px;" src="{{asset('assets/images/test/brand_726.png')}}">
+											</div>
+											<p class="testimonails-p">
+											Great company, great customer service and fast shipping! Highly recommend!									</p>
+											<hr>
+											<h5>Cecilia Rojas</h5>
+											<p> OPTICAL MANAGER
+
+											</p>
+									</div>
+							</div>
+
+							<div class="professionals">
+									<div class="profesional-profile">
+											<div class="professional-img">
+											<img style="height:130px;" src="{{asset('assets/images/test/brand_725.jpg')}}">
+											</div>
+											<p class="testimonails-p">
+											We love OptaZoom and have ordered from them several times! Super fast shipping and very responsive to messages.									</p>
+											<hr>
+											<h5>LaTandra Blue, O.D.</h5>
+											<p>OPTOMETRIST</p>
+									</div>
+							</div>
+
+							<div class="professionals">
+									<div class="profesional-profile">
+											<div class="professional-img">
+											<img style="height:130px;" src="{{asset('assets/images/test/brand_724.jpg')}}">
+											</div>
+											<p class="testimonails-p">
+											The OptaZoom Team is an unparalleled platform that offers Eye Care Professionals (ECPs) a plethora of resources all under one roof. Not only are their leadership and support teams top notch, but their tech platform itself is innovative, user friendly, and highly resourceful. Highly recommend OptaZoom!									</p>
+											<hr>
+											<h5>Solomon Gould, O.D., M.B.A.</h5>
+											<p> Optometrist </p>
+									</div>
+							</div>
+
+							<div class="professionals">
+									<div class="profesional-profile">
+											<div class="professional-img">
+											<img style="height:130px;" src="{{asset('assets/images/test/brand_723.jpg')}}">
+											</div>
+											<p class="testimonails-p">
+											I'm a new practice owner and just like all practice owners I needed to find vendors for all the different kinds of equipment and supplies my practice needed. It was such a difficult process, until I found OptoZoom. Their website was easy to use and allowed me to find all the vendors I needed in a very short amount of time.									</p>
+											<hr>
+											<h5> David Antonyan, O.D.</h5>
+											<p> Optometrist </p>
+									</div>
+							</div>
+
+							<div class="professionals">
+									<div class="profesional-profile">
+											<div class="professional-img">
+											<img style="height:130px;" src="{{asset('assets/images/test/brand_722.jpg')}}">
+											</div>
+											<p class="testimonails-p">
+											I use OptaZoom for most of my supplies and I have to say that they are second to none when it comes to customer service. I highly recommend them to anybody who owns an Optometric practice.									</p>
+											<hr>
+											<h5>Jeffrey Taranto, O.D.</h5>
+											<p> Optometrist </p>
+									</div>
+							</div>
+							<div class="professionals">
+									<div class="profesional-profile">
+											<div class="professional-img">
+											<img style="height:130px;" src="{{asset('assets/images/test/brand_721.jpg')}}">
+											</div>
+											<p class="testimonails-p">
+											Great customer service and prices! Website very easy to navigate!									<hr>
+											<h5>Dr. Giannie Castellanos</h5>
+											<p> Optometrist </p>
+									</div>
+							</div>
+							<div class="professionals">
+									<div class="profesional-profile">
+											<div class="professional-img">
+											<img style="height:130px;" src="{{asset('assets/images/test/brand_720.jpg')}}">
+											</div>
+											<p class="testimonails-p">
+											The Jeff Bezos of eyecare supplies. I just clicked a few buttons and bam I was able to order all my usual medical supplies for the exam lane. So long having to compare prices at 4 different sites. I just found one site for all my goods at competitive prices, finally!									<hr>
+											<h5>Perry Brill</h5>
+											<p>CEO AT EYETREPRENEUR & FORMER OPTICAL MANAGER</p>
+									</div>
+							</div>
+							<div class="professionals">
+									<div class="profesional-profile">
+											<div class="professional-img">
+											<img style="height:130px;" src="{{asset('assets/images/test/brand_719.jpg')}}">
+											</div>
+											<p class="testimonails-p">
+											The OptaZoom team has always been responsive and professional in all my interactions with them. I consider them to be a top quality vendor.	
+											<hr>
+											<h5>Fayiz Mahgoub, OD</h5>
+											<p>OPTOMETRIST</p>
+									</div>
+							</div>
+							<div class="professionals">
+									<div class="profesional-profile">
+											<div class="professional-img">
+											<img style="height:130px;" src="{{asset('assets/images/test/brand_718.jpg')}}">
+											</div>
+											<p class="testimonails-p">
+											Very easy to order- no hassles and you can find anything!								
+											<hr>
+											<h5>Jennifer Tabiza, O.D.</h5>
+											<p>OPTOMETRIST & CO-FOUNDER OF DR. CONTACT LENS</p>
+									</div>
+							</div>
 					</div>
-				<div class="main-slider-testimonials">
-					<div class="professionals">
-							<div class="profesional-profile">
-									<div class="professional-img">
-									   <img style="height:130px;" src="{{asset('assets/images/test/brand_726.png')}}">
-									</div>
-									<p class="testimonails-p">
-									Great company, great customer service and fast shipping! Highly recommend!									</p>
-									<hr>
-									<h5>Cecilia Rojas</h5>
-									<p> OPTICAL MANAGER
-
-</p>
-							</div>
-                     </div>
-
-					 <div class="professionals">
-							<div class="profesional-profile">
-									<div class="professional-img">
-									   <img style="height:130px;" src="{{asset('assets/images/test/brand_725.jpg')}}">
-									</div>
-									<p class="testimonails-p">
-									We love OptaZoom and have ordered from them several times! Super fast shipping and very responsive to messages.									</p>
-									<hr>
-									<h5>LaTandra Blue, O.D.</h5>
-									<p>OPTOMETRIST</p>
-							</div>
-                     </div>
-
-					 <div class="professionals">
-							<div class="profesional-profile">
-									<div class="professional-img">
-									   <img style="height:130px;" src="{{asset('assets/images/test/brand_724.jpg')}}">
-									</div>
-									<p class="testimonails-p">
-									The OptaZoom Team is an unparalleled platform that offers Eye Care Professionals (ECPs) a plethora of resources all under one roof. Not only are their leadership and support teams top notch, but their tech platform itself is innovative, user friendly, and highly resourceful. Highly recommend OptaZoom!									</p>
-									<hr>
-									<h5>Solomon Gould, O.D., M.B.A.</h5>
-									<p> Optometrist </p>
-							</div>
-                     </div>
-
-					 <div class="professionals">
-							<div class="profesional-profile">
-									<div class="professional-img">
-									   <img style="height:130px;" src="{{asset('assets/images/test/brand_723.jpg')}}">
-									</div>
-									<p class="testimonails-p">
-									I'm a new practice owner and just like all practice owners I needed to find vendors for all the different kinds of equipment and supplies my practice needed. It was such a difficult process, until I found OptoZoom. Their website was easy to use and allowed me to find all the vendors I needed in a very short amount of time.									</p>
-									<hr>
-									<h5> David Antonyan, O.D.</h5>
-									<p> Optometrist </p>
-							</div>
-                     </div>
-
-					 <div class="professionals">
-							<div class="profesional-profile">
-									<div class="professional-img">
-									   <img style="height:130px;" src="{{asset('assets/images/test/brand_722.jpg')}}">
-									</div>
-									<p class="testimonails-p">
-									I use OptaZoom for most of my supplies and I have to say that they are second to none when it comes to customer service. I highly recommend them to anybody who owns an Optometric practice.									</p>
-									<hr>
-									<h5>Jeffrey Taranto, O.D.</h5>
-									<p> Optometrist </p>
-							</div>
-                     </div>
-					 <div class="professionals">
-							<div class="profesional-profile">
-									<div class="professional-img">
-									   <img style="height:130px;" src="{{asset('assets/images/test/brand_721.jpg')}}">
-									</div>
-									<p class="testimonails-p">
-									Great customer service and prices! Website very easy to navigate!									<hr>
-									<h5>Dr. Giannie Castellanos</h5>
-									<p> Optometrist </p>
-							</div>
-                     </div>
-					 <div class="professionals">
-							<div class="profesional-profile">
-									<div class="professional-img">
-									   <img style="height:130px;" src="{{asset('assets/images/test/brand_720.jpg')}}">
-									</div>
-									<p class="testimonails-p">
-									The Jeff Bezos of eyecare supplies. I just clicked a few buttons and bam I was able to order all my usual medical supplies for the exam lane. So long having to compare prices at 4 different sites. I just found one site for all my goods at competitive prices, finally!									<hr>
-									<h5>Perry Brill</h5>
-									<p>CEO AT EYETREPRENEUR & FORMER OPTICAL MANAGER</p>
-							</div>
-                     </div>
-					 <div class="professionals">
-							<div class="profesional-profile">
-									<div class="professional-img">
-									   <img style="height:130px;" src="{{asset('assets/images/test/brand_719.jpg')}}">
-									</div>
-									<p class="testimonails-p">
-									The OptaZoom team has always been responsive and professional in all my interactions with them. I consider them to be a top quality vendor.	
-									<hr>
-									<h5>Fayiz Mahgoub, OD</h5>
-									<p>OPTOMETRIST</p>
-							</div>
-                     </div>
-					 <div class="professionals">
-							<div class="profesional-profile">
-									<div class="professional-img">
-									   <img style="height:130px;" src="{{asset('assets/images/test/brand_718.jpg')}}">
-									</div>
-									<p class="testimonails-p">
-									Very easy to order- no hassles and you can find anything!								
-									<hr>
-									<h5>Jennifer Tabiza, O.D.</h5>
-									<p>OPTOMETRIST & CO-FOUNDER OF DR. CONTACT LENS</p>
-							</div>
-                     </div>
-               </div>
-			   <div class="creation-account aos-init aos-animate" data-aos="fade-up">
-           				 <a href="javascript:;" data-toggle="modal" data-target="#vendor-login"><button class="btn become-vendor ">Join Free Today</button></a>
-			  </div>
+					<div class="creation-account aos-init aos-animate" data-aos="fade-up">
+								<a href="javascript:;" data-toggle="modal" data-target="#vendor-login"><button class="btn become-vendor ">Join Free Today</button></a>
+					</div>
+			</section>
 			<!-- Testimonials End -->
 	@if($ps->partners == 1)
 		<!-- Partners Area Start -->
 		<section class="partners">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="section-top">
@@ -674,7 +678,7 @@
 
 	{{-- Info Area Start --}}
 	<section class="info-area">
-			<div class="container">
+			<div class="container-fluid">
 
 					@foreach($services->chunk(4) as $chunk)
 	

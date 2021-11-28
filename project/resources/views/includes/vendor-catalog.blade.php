@@ -8,7 +8,7 @@
             </div>
             <div class="body-area">
 
-                <ul class="filter-list">
+                <ul class="filter-list filter-list-category" style="height:900px; overflow:auto;">
                   @foreach ($categories as $element)
                   <li>
                     <div class="content">

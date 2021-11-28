@@ -2,21 +2,15 @@
 @section('content')
 
 
-      <!--Breadcrumb-->
-      <div class="breadcrumb justify-content-center pt-60 pb-60">
-    <div>
-        <ol class="breadcrumb">
-            <h3 class="bread-login">{{ $langg->lang121 }}</h3>
-        </ol>
-        <ol class="breadcrumb">
-
-            <li class="breadcrumb-item bread-title"> <a href="{{ route('front.index') }}">
-              {{ $langg->lang17 }}
-            </a></li>
-            <li class="breadcrumb-item bread-title active bread-title" aria-current="page">{{ $langg->lang121 }}</li>
-        </ol>
-    </div>
-</div>
+  <!--Breadcrumb-->
+  <div class="cartheader text-center">
+            <div class="container ">
+                <h3>CART</h3>
+                <div class="lower-text">
+                 <span><a href="{{route('front.index')}}">{{ $langg->lang17 }}</a></span> <span>/</span> <span>CART</p>
+               </div>
+            </div>
+        </div>
 <!--Breadcrumb end-->
 
 <!-- Cart Area Start -->

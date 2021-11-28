@@ -615,8 +615,8 @@
             
             .container-fluid {
                 width: 100%;
-                padding-right: 50px;
-                padding-left: 50px;
+                padding-right: 75px;
+                padding-left: 75px;
                 margin-right: auto;
                 margin-left: auto
             }
@@ -39589,7 +39589,7 @@ DROPDOWN STYLE
             .hero-area .hero-area-slider .owl-controls .owl-dots .owl-dot {
                 width: 25px;
                 height: 6px;
-                background: #fff;
+                background: #6199d6;
                 display: inline-block;
                 border-radius: 0px;
                 transform: skewX(-30deg);
@@ -39706,14 +39706,14 @@ DROPDOWN STYLE
             .trending .owl-carousel .owl-controls .owl-nav .owl-next {
                 font-size: 16px;
                 position: absolute;
-                top: -30px;
+                top: -40px;
                 -webkit-transform: translateY(-50%);
                 -ms-transform: translateY(-50%);
                 transform: translateY(-50%);
                 text-align: center;
-                width: 30px;
-                height: 30px;
-                line-height: 27px;
+                width: 25px;
+                height: 25px;
+                line-height: 24px;
                 opacity: 1;
                 background: #ff5500;
                 border: 1px solid #ff5500;
@@ -46853,8 +46853,8 @@ Faq Page Start
             .slide-progress {
                 width: 0%;
                 max-width: 100%;
-                height: 6px;
-                background: rgba(0, 0, 0, 0.15);
+                height: 2px;
+                background: #6199d6;
                 position: absolute;
                 z-index: 2;
                 bottom: 0;
@@ -50740,11 +50740,25 @@ Faq Page Start
                 color: #505050;
             }
             
+            .cartheader h3 {
+                font-weight: 300;
+                color: #505050;
+            }
+            
             .vendorheader {
                 background-color: #f2f2f2;
                 padding: 60px 0px;
                 position: relative;
                 background-image: url(images/brands_1.png);
+                background-position: center right;
+                background-repeat: no-repeat;
+            }
+            
+            .cartheader {
+                background-color: #f2f2f2;
+                padding: 60px 0px;
+                position: relative;
+                background-image: url(images/cart.jpg);
                 background-position: center right;
                 background-repeat: no-repeat;
             }
