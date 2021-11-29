@@ -42,7 +42,7 @@ class StripeController extends Controller
 
 
     public function store(Request $request){
-        
+      
         if($request->pass_check) {
             $users = User::where('email','=',$request->personal_email)->get();
             if(count($users) == 0) {
@@ -69,14 +69,50 @@ class StripeController extends Controller
         if (!Session::has('cart')) {
             return redirect()->route('front.cart')->with('success',"You don't have any product to checkout.");
         }
+         // Session::forget('cart');
+        $oldCart = Session::get('cart');
+          
+        $cart = new Cart($oldCart);
+
+        $a = $cart->removeItem(93);
+        dd($a);
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
-        // foreach($cart->items as $c_key =>$c_val)
-        // {
-        //     dd($c_val['item']->user_id);
 
-        // }
-        // dd($cart->items);
+        dd($cart);
+
+        foreach($cart->items as $c_key =>$c_val)
+        {
+          
+            $userss[] = $c_val['item']->user_id;
+            $userss = array_unique($userss);
+
+
+        }
+        $i = 0;
+         
+           $oldCart = Session::get('cart');
+           dd($userss);
+        $product_detail = array();
+        foreach($userss as $us_key => $us_v)
+        {
+           foreach($cart->items as $ca_k => $ca_v)
+           {
+                if($us_v == $ca_v['item']->user_id)
+                {
+                    $product_detail[$i][] =$cart->items;  
+                    $product_detail[$i][] =$ca_v['item']->user_id;  
+                    $product_detail[$i][] =$ca_v['item']->id;  
+                    $product_detail[$i][] =$ca_v['item']->slug;  
+                    $product_detail[$i][] =$ca_v['item']->price;    
+                }
+                
+           }
+          
+            $i++;
+        }
+dd($product_detail);
+
             if (Session::has('currency')) 
             {
               $curr = Currency::find(Session::get('currency'));

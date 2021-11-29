@@ -462,7 +462,7 @@
 																					{{ $langg->lang652 }}
 																				</span>
 																			</label>
-																		<input type="number" name="size_qty[]" class="input-field" placeholder="{{ $langg->lang651 }}" min="1" value="{{ $data->size_qty[$key] }}">
+																		<input type="number" name="size_qty[]" class="input-field" placeholder="{{ $langg->lang651 }}" min="1" value="@if(isset($data->size_qty[$key])) {{ $data->size_qty[$key] }} @endif">
 																	</div>
 																	<div class="col-md-4 col-sm-6">
 																			<label>
@@ -471,7 +471,7 @@
 																					{{ $langg->lang654 }}
 																				</span>
 																			</label>
-																		<input type="number" name="size_price[]" class="input-field" placeholder="{{ $langg->lang653 }}" min="0" value="{{round($data->size_price[$key] * $sign->value , 2)}}">
+																		<input type="number" name="size_price[]" class="input-field" placeholder="{{ $langg->lang653 }}" min="0" value="@if(isset($data->size_price[$key])) {{round($data->size_price[$key] * $sign->value , 2)}}@endif">
 																	</div>
 																</div>
 															</div>
