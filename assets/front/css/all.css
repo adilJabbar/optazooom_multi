@@ -50875,3 +50875,12 @@ Faq Page Start
                 display: flex;
                 justify-content: flex-end;
             }
+            
+            #selection {
+                font-weight: 300;
+                position: absolute;
+                left: 26px;
+                width: 42px;
+                height: 41px;
+                border: 1px solid rgba(0, 0, 0, 0.4);
+            }

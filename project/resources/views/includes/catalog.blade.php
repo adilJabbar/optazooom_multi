@@ -3,26 +3,35 @@
           <div class="left-area">
             <div class="filter-result-area">
             <div class="header-area">
+                <div class="search-box">
+                <select id="selection" onchange="changeplh()">
+                  <option value="all">All</option>
+                  <option value="searchpro">Search By Category</option>
+                  <option value="searchcat">Search By Products</option>
+                </select>
             <form id="searchForm" class="search-form" action="{{ route('front.category', [Request::route('category'),Request::route('subcategory'),Request::route('childcategory')]) }}" method="GET">
-								@if (!empty(request()->input('sort')))
-									<input type="hidden" name="sort" value="{{ request()->input('sort') }}">
-								@endif
-								@if (!empty(request()->input('minprice')))
-									<input type="hidden" name="minprice" value="{{ request()->input('minprice') }}">
-								@endif
-								@if (!empty(request()->input('maxprice')))
-									<input type="hidden" name="maxprice" value="{{ request()->input('maxprice') }}">
-								@endif
-								<input type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on" style="padding:10px 25px; font-weight:300; border:1px solid rgba(0, 0, 0, 0.4);">
-								<div class="autocomplete">
-								  <div id="myInputautocomplete-listfil" class="autocomplete-items">
-								  </div>
-								</div>
-							</form>              
+                  @if (!empty(request()->input('sort')))
+                    <input type="hidden" name="sort" value="{{ request()->input('sort') }}">
+                  @endif
+                  @if (!empty(request()->input('minprice')))
+                    <input type="hidden" name="minprice" value="{{ request()->input('minprice') }}">
+                  @endif
+                  @if (!empty(request()->input('maxprice')))
+                    <input type="hidden" name="maxprice" value="{{ request()->input('maxprice') }}">
+                  @endif
+                  <input type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on" style="padding:10px 0px; font-weight:300; border:1px solid rgba(0, 0, 0, 0.4); position:relative;
+                  left:16px; padding-left:5px;">
+                  <div class="autocomplete">
+                    <div id="myInputautocomplete-listfil" class="autocomplete-items">
+                    </div>
+                  </div>
+						</form>           
+      </div>   
               <!-- <h4 class="title">
                 {{$langg->lang61}}
               </h4> -->
             </div>
+
             <div class="body-area">
               <form id="catalogForm" action="{{ route('front.category', [Request::route('category'), Request::route('subcategory'), Request::route('childcategory')]) }}" method="GET">
                 @if (!empty(request()->input('search')))
@@ -219,4 +228,21 @@
 
           </div>
         </div>
-     
+     <script>
+       function changeplh() {
+    var sel = document.getElementById("selection");
+    var textbx = document.getElementById("prod_namee");
+    var indexe = sel.selectedIndex;
+
+    if (indexe == 0) {
+        $("#prod_namee").attr("placeholder", "Search");
+
+    }
+    if (indexe == 1) {
+        $("#prod_namee").attr("placeholder", "Search By Category");
+    }
+    if (indexe == 2) {
+        $("#prod_namee").attr("placeholder", "Search By Product");
+    }
+}
+     </script>
