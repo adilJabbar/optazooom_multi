@@ -19,10 +19,6 @@ class LoginController extends Controller
     public function showLoginForm()
     {
      $url = 'https://visionmonday.com/rss/eyecare/';
-    // $rss = Feed::loadRss($url);
-    // dd($rss);
-       
-
       $this->code_image();
       return view('user.login');
     }
@@ -30,6 +26,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         //--- Validation Section
+        
         $rules = [
                   'email'   => 'required|email',
                   'password' => 'required'
@@ -88,6 +85,11 @@ class LoginController extends Controller
                 return response()->json(route('user-package'));
                 }
             }
+          if(Auth::guard('web')->user()->is_vendor == 2 || Auth::guard('web')->user()->is_vendor == 1)
+          {
+            Auth::guard('web')->logout();
+            return response()->json(array('errors' => [ 0 => 'Your are not practitionar.' ]));   
+          }
           // Login as User
           return response()->json(1);          
           }
