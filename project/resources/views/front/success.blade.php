@@ -172,7 +172,25 @@
                                                                      @if ($order->whole_discount != 0)
                                                                     <p>Whole sell Discount : {{$order->currency_sign}} {{round($order->whole_discount * $order->currency_value , 2)}} </p>
                                                                     @endif
-                                                                    <p>{{ $langg->lang293 }} {{$order->currency_sign}}{{ round($order->pay_amount * $order->currency_value , 2) }}</p>
+
+
+
+
+
+
+
+
+                                                              
+
+
+
+
+
+
+
+
+
+
                                                                     <p>{{ $langg->lang294 }} {{$order->method}}</p>
 
                                                                     @if($order->method != "Cash On Delivery")
@@ -192,7 +210,7 @@
                                                         @endif
                                                         <br>
                                                         <div class="table-responsive">
-                            <table  class="table">
+                          <!--   <table  class="table">
                                 <h4 class="text-center">{{ $langg->lang308 }}</h4>
                                 <thead>
                                 <tr>
@@ -239,7 +257,7 @@
 
 
                                 </tbody>
-                            </table>
+                            </table> -->
 
                                                         </div>
                                                     </div>

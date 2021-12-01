@@ -85,7 +85,7 @@ class CheckoutController extends Controller
                     $users = array_unique($user);
                     if(count($users) == 1)
                     {
-
+                       
                         $check_stripe_account = User::find($users[0])->account_num;
                         if(empty($check_stripe_account))
                         {

@@ -74,44 +74,168 @@ class StripeController extends Controller
           
         $cart = new Cart($oldCart);
 
-        $a = $cart->removeItem(93);
-        dd($a);
-        $oldCart = Session::get('cart');
-        $cart = new Cart($oldCart);
+    
+      
 
-        dd($cart);
+        
+        $oldCart = Session::get('cart');
+        $cartt = new Cart($oldCart);
+
 
         foreach($cart->items as $c_key =>$c_val)
         {
-          
+           
             $userss[] = $c_val['item']->user_id;
             $userss = array_unique($userss);
+
+            $id = $c_key;
+
+             $gs = Generalsetting::findOrFail(1);
+        if (Session::has('currency')) 
+        {
+            $curr = Currency::find(Session::get('currency'));
+        }
+        else
+        {
+            $curr = Currency::where('is_default','=',1)->first();
+        }
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        $a = $cart->removeItem($id);
+
+   
+        if (count($cart->items) > 0) {
+            Session::put('cart', $cart);
+                $data[0] = $cart->totalPrice;
+                $data[3] = $data[0];
+                    $tx = $gs->tax;
+                    if($tx != 0)
+                    {
+                        $tax = ($data[0] / 100) * $tx;
+                        $data[3] = $data[0] + $tax;
+                    } 
+
+                if($gs->currency_format == 0){
+                    $data[0] = $curr->sign.round($data[0] * $curr->value,2);
+                    $data[3] = $curr->sign.round($data[3] * $curr->value,2);
+            
+                }
+                else{
+                    $data[0] = round($data[0] * $curr->value,2).$curr->sign;
+                    $data[3] = round($data[3] * $curr->value,2).$curr->sign;
+                }
+            
+            $data[1] = count($cart->items); 
+            // return response()->json($data);  
+        } else {
+            Session::forget('cart');
+            Session::forget('already');
+            Session::forget('coupon');
+            Session::forget('coupon_total');
+            Session::forget('coupon_total1');
+            Session::forget('coupon_percentage');
+
+            $data = 0;
+            // return response()->json($data); 
+        } 
+
+
 
 
         }
         $i = 0;
          
-           $oldCart = Session::get('cart');
-           dd($userss);
+        // $oldCart = Session::get('cart');
+        // $cart = new Cart($oldCart);
+      
+
+
         $product_detail = array();
         foreach($userss as $us_key => $us_v)
         {
-           foreach($cart->items as $ca_k => $ca_v)
+           foreach($cartt->items as $ca_k => $ca_v)
            {
                 if($us_v == $ca_v['item']->user_id)
                 {
-                    $product_detail[$i][] =$cart->items;  
-                    $product_detail[$i][] =$ca_v['item']->user_id;  
+                    // $product_detail[$i][] =$ca_v['item']->user_id;  
                     $product_detail[$i][] =$ca_v['item']->id;  
-                    $product_detail[$i][] =$ca_v['item']->slug;  
-                    $product_detail[$i][] =$ca_v['item']->price;    
+                    // $product_detail[$i][] =$ca_v['item']->slug;  
+                    // $product_detail[$i][] =$ca_v['item']->price;    
                 }
                 
            }
           
             $i++;
         }
-dd($product_detail);
+
+
+// print_r($product_detail);
+    foreach($product_detail as $prod_k => $prod_v)
+    {
+        // if($prod_k == 1)
+        // {
+        //     dd($product_detail);    
+        // }
+        $a = true;
+        $b = true;
+        $c = true;
+        $d = true;
+        $e = true;
+        $f = true;
+        $g = true;
+        foreach($prod_v as $p_k => $p_v)
+        {
+
+            if(isset($prod_v[0]) && $a)
+            {
+               $this->add_to_cart_for_multiorder($prod_v[0]);
+               $a = false;
+
+            }
+            elseif(isset($prod_v[1]) && $b )
+            {
+                $this->add_to_cart_for_multiorder($prod_v[1]);
+                 $b = false;
+
+            }
+            elseif(isset($prod_v[2]) && $c )
+            {
+                $this->add_to_cart_for_multiorder($prod_v[2]);
+                 $c = false;
+            }
+            elseif(isset($prod_v[3]) && $d )
+            {
+                $this->add_to_cart_for_multiorder($prod_v[3]);
+                 $d = false;
+            }
+            elseif(isset($prod_v[17]) && $e )
+            {
+                $this->add_to_cart_for_multiorder($prod_v[17]);
+                 $e = false;
+            } 
+            elseif(isset($prod_v[21]) && $f )
+            {
+                $this->add_to_cart_for_multiorder($prod_v[21]);
+                 $f = false;
+            }
+            elseif(isset($prod_v[25]) && $g )
+            {
+                $this->add_to_cart_for_multiorder($prod_v[25]);
+                 $g = false;
+            }else
+            {
+                 $this->add_to_cart_for_multiorder($prod_v);
+            }
+        }
+
+
+    $oldCart = Session::has('cart') ? Session::get('cart') : null;
+    $cart = new Cart($oldCart);
+
+    $item_amount = $cart->totalPrice;
+      
+    // }
+   
 
             if (Session::has('currency')) 
             {
@@ -128,7 +252,8 @@ dd($product_detail);
         $item_name = $settings->title." Order";
         $item_number = Str::random(10);
         $item_amount = $request->total;
-
+        $item_amount = $cart->totalPrice;
+        // dd($request->all());
         $validator = Validator::make($request->all(),[
                         'cardNumber' => 'required',
                         'cardCVC' => 'required',
@@ -190,6 +315,15 @@ dd($product_detail);
                                     }
                             }
                         }
+                  
+                      try{
+                        echo "---";
+                        echo $cart->totalQty;
+                      }catch (Exception $e) {
+                        dd($e->getMessage());
+         
+        }
+                    $new_cart = array();
                     $order['user_id'] = $request->user_id;
                     $new_cart['totalQty'] = $cart->totalQty;
                     $new_cart['totalPrice'] = $cart->totalPrice;
@@ -404,7 +538,7 @@ dd($product_detail);
             Session::forget('coupon_total1');
             Session::forget('coupon_percentage');
                     
-                    return redirect($success_url);
+                    // return redirect($success_url);
                 }
                 
             }catch (Exception $e){
@@ -415,9 +549,137 @@ dd($product_detail);
                 return back()->with('unsuccess', $e->getMessage());
             }
         }
+    }
+        return redirect($success_url);
         return back()->with('unsuccess', 'Please Enter Valid Credit Card Informations.');
     }
 
+    private function add_to_cart_for_multiorder($id)
+    {
+          
+                 $prod = Product::where('id','=',$id)->first(['id','user_id','slug','name','photo','size','size_qty','size_price','color','price','stock','type','file','link','license','license_qty','measure','whole_sell_qty','whole_sell_discount','attributes']);
+
+        // Set Attrubutes
+                 // dd($prod);
+        $keys = '';
+        $values = '';
+        if(!empty($prod->license_qty))
+        {
+        $lcheck = 1;
+            foreach($prod->license_qty as $ttl => $dtl)
+            {
+                if($dtl < 1)
+                {
+                    $lcheck = 0;
+                }
+                else
+                {
+                    $lcheck = 1;
+                    break;
+                }                    
+            }
+                if($lcheck == 0)
+                {
+                    return 0;            
+                }
+        }
+
+        // Set Size
+
+        $size = '';
+        if(!empty($prod->size))
+        { 
+        $size = trim($prod->size[0]);
+        }  
+        $size = str_replace(' ','-',$size);
+
+        // Set Color
+
+        $color = '';
+        if(!empty($prod->color))
+        { 
+        $color = $prod->color[0];
+        $color = str_replace('#','',$color);
+        }  
+
+        // Vendor Comission
+
+        if($prod->user_id != 0){
+        $gs = Generalsetting::findOrFail(1);
+        $prc = $prod->price + $gs->fixed_commission + ($prod->price/100) * $gs->percentage_commission;
+        $prod->price = round($prc,2);
+        }
+
+
+        // Set Attribute
+
+
+            if (!empty($prod->attributes))
+            {
+                $attrArr = json_decode($prod->attributes, true);
+
+                $count = count($attrArr);
+                $i = 0;
+                $j = 0; 
+                      if (!empty($attrArr))
+                      {
+                          foreach ($attrArr as $attrKey => $attrVal)
+                          {
+
+                            if (is_array($attrVal) && array_key_exists("details_status",$attrVal) && $attrVal['details_status'] == 1) {
+                                if($j == $count - 1){
+                                    $keys .= $attrKey;
+                                }else{
+                                    $keys .= $attrKey.',';
+                                }
+                                $j++;
+
+                                foreach($attrVal['values'] as $optionKey => $optionVal)
+                                {
+                                    
+                                    $values .= $optionVal . ',';
+                                    $prod->price += $attrVal['prices'][$optionKey];
+                                    break;
+                                }
+
+                            }
+                          }
+
+                      }
+
+                }
+                $keys = rtrim($keys, ',');
+                $values = rtrim($values, ',');
+
+
+
+
+
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+
+        $cart->add($prod, $prod->id,$size,$color,$keys,$values);
+        if($cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['dp'] == 1)
+        {
+            return 'digital';
+        }
+        if($cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['stock'] < 0)
+        {
+            return 0;
+        }
+        if($cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['size_qty'])
+        {
+            if($cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['qty'] > $cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['size_qty'])
+            {
+                return 0;
+            }           
+        }
+        $cart->totalPrice = 0;
+        foreach($cart->items as $data)
+        $cart->totalPrice += $data['price'];
+        Session::put('cart',$cart);
+        $data[0] = count($cart->items);   
+    }
 
     // Capcha Code Image
     private function  code_image()

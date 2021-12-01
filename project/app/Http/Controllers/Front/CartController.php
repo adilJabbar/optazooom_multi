@@ -325,7 +325,7 @@ class CartController extends Controller
         foreach($cart->items as $data)
         $cart->totalPrice += $data['price'];
         Session::put('cart',$cart);
-        $data[0] = count($cart->items);        
+        $data[0] = count($cart->items);     
         return response()->json($data);           
     }  
 
