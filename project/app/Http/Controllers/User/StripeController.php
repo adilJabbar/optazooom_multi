@@ -35,6 +35,7 @@ class StripeController extends Controller
 
 
     public function store(Request $request){
+       
         $this->validate($request, [
             'shop_name'   => 'unique:users',
            ],[ 

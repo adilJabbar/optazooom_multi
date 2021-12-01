@@ -60,6 +60,7 @@ class CartController extends Controller
 
    public function addtocart($id)
     {
+
         $prod = Product::where('id','=',$id)->first(['id','user_id','slug','name','photo','size','size_qty','size_price','color','price','stock','type','file','link','license','license_qty','measure','whole_sell_qty','whole_sell_discount','attributes']);
         // Set Attrubutes
 
@@ -202,6 +203,7 @@ class CartController extends Controller
 
    public function addcart($id)
     {
+
         $prod = Product::where('id','=',$id)->first(['id','user_id','slug','name','photo','size','size_qty','size_price','color','price','stock','type','file','link','license','license_qty','measure','whole_sell_qty','whole_sell_discount','attributes']);
 
         // Set Attrubutes
@@ -826,7 +828,9 @@ class CartController extends Controller
         }
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->removeItem($id);
+        $a = $cart->removeItem($id);
+
+   
         if (count($cart->items) > 0) {
             Session::put('cart', $cart);
                 $data[0] = $cart->totalPrice;
