@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('content')
 <!-- Breadcrumb Area Start -->
-<!-- <div class="breadcrumb-area">
+<div class="breadcrumb-area">
    <div class="container">
       <div class="row">
          <div class="col-lg-12">
@@ -34,9 +34,9 @@
          </div>
       </div>
    </div>
-</div> -->
+</div>
     <!--Breadcrumb-->
-    <div class="productbanner text-center">
+    <!-- <div class="productbanner text-center">
             <div class="container ">
                 <h3>Products</h3>
                 <div class="lower-text">
@@ -53,7 +53,7 @@
                @endif
                </div>
             </div>
-        </div>
+        </div> -->
 
     <!--Breadcrumb end-->
 <!-- Breadcrumb Area End -->

@@ -9,20 +9,26 @@
 		@endif
 	@endif
 
-     <!--Breadcrumb-->
-     <div class="">
-     <div class="breadcrumb justify-content-center pt-60 pb-60">
-        <div>
-            <ol class="breadcrumb">
-                <h3 class="bread-login">News Feed</h3>
-            </ol>
-            <ol class="breadcrumb" style="position: relative; ">
-
-                <li class="breadcrumb-item bread-title"><a href="#">Home</a></li>
-                <li class="breadcrumb-item bread-title active bread-title" aria-current="page">News Feed Details</li>
-            </ol>
+ <!-- Breadcrumb Area Start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pages">
+                    <li>
+                        <a href="{{ route('front.index') }}">
+                            {{ $langg->lang17 }}
+                        </a>
+                    </li>
+                    <li>
+                    <a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
+</div>
+<!-- Breadcrumb Area End -->
 
      <?php 
             $content = '';

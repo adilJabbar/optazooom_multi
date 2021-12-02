@@ -64,16 +64,28 @@
             -o-transition: all 600ms ease-in-out;
         }
 </style>
-<!--Breadcrumb-->
-<div class="newsfeedheader text-center">
-            <div class="container ">
-                <h3>NEWSFEED</h3>
-                <div class="lower-text">
-                 <span><a href="{{route('front.index')}}">{{ $langg->lang17 }}</a></span> <span>/</span> <span>NEWSFEED</p>
-               </div>
+<!-- Breadcrumb Area Start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pages">
+                    <li>
+                        <a href="{{ route('front.index') }}">
+                            {{ $langg->lang17 }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                           News Feed 
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-<!--Breadcrumb end-->
+    </div>
+</div>
+<!-- Breadcrumb Area End -->
 
     <div class="container containeer li-main-blog-page pt-60 pb-55">
         <div class="container containeer">
@@ -178,7 +190,7 @@
 
 
                             ?>
-                             <a href="<?php echo $item->link.'" title="'.$item->title  ?> " target="_blank">
+                             <a href="<?php echo $item->link.'" title="'.$item->title  ?> ">
                              <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
                          <?php }
 

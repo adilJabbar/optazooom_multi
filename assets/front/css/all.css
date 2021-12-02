@@ -44977,9 +44977,10 @@ Faq Page Start
                 margin: 2px 0px 2px;
                 display: inline-block;
             }
-            /* .user-dashbord {
+            
+            .user-dashbord {
                 padding: 70px 0px 70px;
-            } */
+            }
             
             .user-dashbord .user-profile-info-area {
                 border: 1px solid rgba(0, 0, 0, 0.2);
