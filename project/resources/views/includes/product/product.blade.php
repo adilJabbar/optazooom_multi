@@ -47,7 +47,9 @@
 														<div class="full-stars" style="width:{{App\Models\Rating::ratings($prod->id)}}%"></div>
 													</div>
 												</div>
+												@if(Auth::user())
 												<h4 class="price">{{ $prod->setCurrency() }} <del><small>{{ $prod->showPreviousPrice() }}</small></del></h4>
+												@endif
 														<h5 class="name">{{ $prod->showName() }}</h5>
 														<div class="item-cart-area">
 															@if($prod->product_type == "affiliate")
