@@ -118,8 +118,11 @@ class FrontendController extends Controller
 
 
 // -------------------------------- HOME PAGE SECTION ----------------------------------------
-
-	public function index()
+    public function index()
+    {
+         return view('front.lock_user');
+    }
+	public function indexx()
 	{
 
      

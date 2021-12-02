@@ -190,7 +190,16 @@
                       $is_first = true;
                       @endphp
                       @foreach($productt->color as $key => $data1)
+
+                      
+                      
+
+      
+                      <?php 
+                          
+                       ?>
                       <li class="{{ $is_first ? 'active' : '' }}">
+                        <span >{{Helper::get_color_name($productt->color[$key])['name']}}</span>
                         <span class="box" data-color="{{ $productt->color[$key] }}" style="background-color: {{ $productt->color[$key] }}"></span>
                       </li>
                       @php

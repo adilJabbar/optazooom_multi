@@ -231,6 +231,9 @@ class CatalogController extends Controller
 
     public function product($slug)
     {
+        // $instance = new ColorInterpreter();
+        // $result = $instance->name("#008559");
+        // dd($result);
         $this->code_image();
         $productt = Product::where('slug','=',$slug)->firstOrFail();
         if($productt->status == 0){

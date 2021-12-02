@@ -152,7 +152,7 @@
 						<div class="search-box">
 							<div class="categori-container" id="catSelectForm">
 								<select name="category" id="category_select" class="categoris">
-									<option value="">{{ $langg->lang1 }}</option>
+									<option value="Category">{{ $langg->lang1 }}</option>
 									@foreach($categories as $data)
 									<option value="{{ $data->slug }}" {{ Request::route('category') == $data->slug ? 'selected' : '' }}>{{ $data->name }}</option>
 									@endforeach
@@ -317,12 +317,11 @@
                             <!-- Begin Header Bottom Menu Area -->
                             <div class="hb-menu">
                                 <nav style="display:block;">
+
                                     <ul>
-                                        <li class="arrow-icon">
-                                        <a href="{{url('category')}}">All Categories</a>
-                                          
-                                        </li>
-                                        <li class="arrow-icon"><a href="{{url('category')}}">Featured Products</a></li>
+                                       
+                                        <li class="arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
+										<li class="arrow-icon"> <a href="#fcat">Featured Categories</a></li>
                                         <li class="arrow-icon">
 											<a href="#flashdeals">Flash Deals</a>
                                         </li>
@@ -478,44 +477,17 @@
 
 	// $url = 'https://visionmonday.com/rss/eyecare/';
 	// $rss = Feed::loadRss($url);
+	$rss = DB::table('news_feed')->get();
 
-	if(isset($rss->item))	
+	if(isset($rss))		
 	{
-
-
-	foreach ($rss->item as $item ) 
+	
+	foreach ($rss as $item ) 
 	{
 
 	?>
-						<?php 
-              			if(isset($item->link))
-              			{
-
-              				 $content = file_get_contents($item->link);
-
-							preg_match_all('/<img[^>]+>/i',$content, $result);
 						
-
-          				 	// $content = file_get_contents($item->link);
-							// dd($item->link,$content);
-							preg_match_all('/<img[^>]+>/i',$content, $result); 
-						
-							$value = $item->title;
-							$first = strtok($value, " ");
-
-
-              			}
-	                   
-
-					  else{ 
-
-
-                        	?>
-						<?php       
-							}
-
-						?>
-                      <p class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></p>
+                      <p class="li-blog-heading pt-xs-25 pt-sm-25"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></p>
 					
 					  <?php
 						}
@@ -527,7 +499,7 @@
 				<div class="col-md-6 col-lg-2">
 					<div class="footer-widget recent-post-widget">
 						<h4 class="title">
-							COMPANY
+							CONTACT
 						</h4>
 						<div class="footer-static-middle">
 						<ul class="des">

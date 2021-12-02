@@ -946,6 +946,7 @@ Route::prefix('user')->group(function() {
   // User Login
   Route::get('/login', 'User\LoginController@showLoginForm')->name('user.login');
   Route::post('/login', 'User\LoginController@login')->name('user.login.submit');
+  Route::post('/loginn', 'User\LoginController@loginn')->name('user.login.submitt');
   // User Login End
 
   // User Register
@@ -1481,6 +1482,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
 // ************************************ FRONT SECTION **********************************************
 
   Route::get('/', 'Front\FrontendController@index')->name('front.index');
+  Route::get('front-index', 'Front\FrontendController@indexx')->name('front.indexx');
   Route::get('/extras', 'Front\FrontendController@extraIndex')->name('front.extraIndex');
   Route::get('/featured', 'Front\FrontendController@featured')->name('front.featured');
 
