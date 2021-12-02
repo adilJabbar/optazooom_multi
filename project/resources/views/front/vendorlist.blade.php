@@ -1,13 +1,27 @@
 @extends('layouts.front')
 @section('content')
-        <div class="vendorheader text-center">
-            <div class="container ">
-                <h3>VENDORS</h3>
-                <div class="lower-text">
-                 <span><a href="{{route('front.index')}}">{{ $langg->lang17 }}</a></span> <span>/</span> <span>Vendors</p>
-               </div>
+        <!-- Breadcrumb Area Start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pages">
+                    <li>
+                        <a href="{{ route('front.index') }}">
+                            {{ $langg->lang17 }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('front.vendorlist') }}">
+                            Vendors
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
+</div>
+<!-- Breadcrumb Area End -->
         <div class="container pt-60">
                <div class="main-form-search">
                     <form action="#" method="GET">

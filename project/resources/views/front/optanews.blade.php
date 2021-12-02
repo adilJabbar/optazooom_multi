@@ -193,12 +193,7 @@
                              <a href="<?php echo $item->link.'" title="'.$item->title  ?> ">
                              <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
                          <?php }
-
-
-
-						?>
-
-                                                        
+						?>                               
                     </div>
                 </div>
                 <div class="col-lg-7">
@@ -207,7 +202,7 @@
                             <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
                             <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
                             </p>
-                           
+                           <br>
                             <a class="read-more-blogs" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link;; ?>" target="_blank">Read more</a>
                         </div>
                     </div>

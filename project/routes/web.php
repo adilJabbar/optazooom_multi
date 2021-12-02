@@ -1521,7 +1521,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   // CONTACT SECTION  ENDS
 
   //ABOUT SECTION
-  Route::get('/about_optazoom','Front\FrontendController@about')->name('front.contact');
+  Route::get('/about_optazoom','Front\FrontendController@about')->name('front.about');
 
 
   // PRODCT AUTO SEARCH SECTION

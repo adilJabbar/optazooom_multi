@@ -1,29 +1,32 @@
 @extends('layouts.front')
 @section('content')
 
-    <!--Breadcrumb-->
-    <div class="breadcrumb justify-content-center pt-60 pb-60">
-        <div>
-            <ol class="breadcrumb">
-                <h3 class="bread-login">About</h3>
-            </ol>
-            <ol class="breadcrumb">
-            
-                <li class="breadcrumb-item bread-title"><a href="{{ route('front.index') }}">
+<!-- Breadcrumb Area Start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pages">
+                    <li>
+                        <a href="{{ route('front.index') }}">
                             {{ $langg->lang17 }}
-                        </a></li>
-    <li class="breadcrumb-item bread-title active bread-title" aria-current="page">
-   About
-    </li>
-            </ol>
+                        </a>
+                    </li>
+                    <li>
+                    <a href="{{ route('front.about') }}">
+                     Abput Optazoom
+                    </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <!--Breadcrumb end-->
+</div>
+<!-- Breadcrumb Area End -->
 
     <!-- Page Area Start -->
     <div class="container">
-            <div class="about-content row" style="padding-bottom: 30px;">
+            <div class="about-content row" style="padding-bottom: 30px; padding-top:30px;">
                 <div class="about-img">
                     <div class="col-md-12">
                         <img style="width: 1200px; height:450px;" src="{{asset('assets/images/aboutnew.jpg')}}"">

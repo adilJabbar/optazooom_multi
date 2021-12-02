@@ -373,13 +373,6 @@
 								</a>
 							</li>
 							@endforeach
-
-							<li>
-								<a href="{{ route('front.contact') }}">
-									{{ $langg->lang23 }}
-								</a>
-							</li>
-							
 						</ul>
 					</div>
 					<div class="footer-info-area">
