@@ -2,16 +2,28 @@
 @section('content')
 
 
-  <!--Breadcrumb-->
-  <div class="cartheader text-center">
-            <div class="container ">
-                <h3>CART</h3>
-                <div class="lower-text">
-                 <span><a href="{{route('front.index')}}">{{ $langg->lang17 }}</a></span> <span>/</span> <span>CART</p>
-               </div>
+<!-- Breadcrumb Area Start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pages">
+                    <li>
+                        <a href="{{ route('front.index') }}">
+                            {{ $langg->lang17 }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('front.cart') }}">
+                            Cart
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-<!--Breadcrumb end-->
+    </div>
+</div>
+<!-- Breadcrumb Area End -->
 
 <!-- Cart Area Start -->
 <section class="cartpage">

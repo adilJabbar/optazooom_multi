@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!-- <div class="breadcrumb-area">
+<div class="breadcrumb-area">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -26,9 +26,9 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
-<div class="dailydealsHeader text-center">
+<!-- <div class="dailydealsHeader text-center">
             <div class="container ">
                 <h3>PRODUCT DETAILS</h3>
                 <div class="lower-text">
@@ -36,7 +36,7 @@
 </div>
 
             </div>
-        </div>
+        </div> -->
 <!-- Product Details Area Start -->
 <section class="product-details-page">
   <div class="container">
