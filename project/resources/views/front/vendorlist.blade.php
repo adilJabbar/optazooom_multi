@@ -26,7 +26,7 @@
                <div class="main-form-search">
                     <form action="#" method="GET">
                         <!-- <label>Search:</label> -->
-                        <input id="fsearch" type="text"  name="fsearch" value="" class="li-search-field" placeholder="Search a specific Vendor" style="float:right;">             
+                        <input id="fsearch" type="text"  name="fsearch" value="" class="li-search-field" placeholder="Search a specific Vendor" style="float:right; padding:10px 25px; font-weight:300; border:1px solid rgba(0,0,0,0.4)">             
                     </form>
                 </div>
             </div>

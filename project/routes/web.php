@@ -446,7 +446,8 @@ Route::prefix('admin')->group(function() {
   Route::group(['middleware'=>'permissions:messages'],function(){
 
   Route::get('/messages/datatables/{type}', 'Admin\MessageController@datatables')->name('admin-message-datatables');
-  Route::get('/tickets', 'Admin\MessageController@index')->name('admin-message-index');
+  Route::get('/
+  ', 'Admin\MessageController@index')->name('admin-message-index');
   Route::get('/disputes', 'Admin\MessageController@disputes')->name('admin-message-dispute');
   Route::get('/message/{id}', 'Admin\MessageController@message')->name('admin-message-show');
   Route::get('/message/load/{id}', 'Admin\MessageController@messageshow')->name('admin-message-load');
