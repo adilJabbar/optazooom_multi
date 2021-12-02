@@ -103,19 +103,13 @@
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <nav class="comment-log-reg-tabmenu">
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a style="width: 100%;" class="nav-item nav-link login active" id="nav-log-tab" data-toggle="tab" href="#nav-log" role="tab"
-              aria-controls="nav-log" aria-selected="true">
-              {{ $langg->lang197 }}
-            </a>
           
-          </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="nav-log" role="tabpanel" aria-labelledby="nav-log-tab">
             <div class="login-area">
               <div class="header-area">
-                <h4 class="title">{{ $langg->lang172 }}</h4>
+                <h4 class="title">Enter Private Credentials</h4>
               </div>
               <div class="login-form signin-form">
                 
@@ -143,7 +137,7 @@
                   </div>
                   <input type="hidden" name="modal" value="1">
                   <input class="mauthdata" type="hidden" value="{{ $langg->lang177 }}">
-                  <button type="submit" class="submit-btn">{{ $langg->lang178 }}</button>
+                  <button type="submit" style="background-color: #6199d6" class="submit-btn">{{ $langg->lang178 }}</button>
                 
                 </form>
               </div>

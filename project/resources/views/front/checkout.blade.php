@@ -769,6 +769,7 @@
 										<label for="free-shepping{{ $data->id }}"> 
 												{{ $data->title }}
 												@if($data->price != 0)
+											
 												+ {{ $curr->sign }}{{ round($data->price * $curr->value,2) }}
 												@endif
 												<small>{{ $data->subtitle }}</small>

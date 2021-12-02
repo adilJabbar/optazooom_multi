@@ -77,11 +77,16 @@
 
     foreach ($rss->item as $item ) 
     {
+
         if($item->title== $_GET['title'])
         {
             $title = $item->title;
             $description = $item->description;
             $pubDate = $item->pubDate;
+        }else{
+            $title = '';
+            $description = '';
+            $pubDate = '';
         }
     }
 

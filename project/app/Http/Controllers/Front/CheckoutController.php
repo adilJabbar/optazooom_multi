@@ -77,14 +77,17 @@ class CheckoutController extends Controller
                 // Shipping Method
 
                 if($gs->multiple_shipping == 1)
-                {                        
+                {                          
                     $user = null;
                     foreach ($cart->items as $prod) {
                             $user[] = $prod['item']['user_id'];
                     }
+
                     $users = array_unique($user);
+
                     if(count($users) == 1)
                     {
+
                        
                         $check_stripe_account = User::find($users[0])->account_num;
                         if(empty($check_stripe_account))
@@ -114,11 +117,13 @@ class CheckoutController extends Controller
                         }
                     }
                     else {
+                      
                         $shipping_data  = DB::table('shippings')->where('user_id','=',0)->get();
                     }
 
                 }
                 else{
+
                 $shipping_data  = DB::table('shippings')->where('user_id','=',0)->get();
                 }
 
@@ -197,7 +202,20 @@ class CheckoutController extends Controller
 
 
                 // }
-        return view('front.checkout', ['products' => $cart->items, 'totalPrice' => $total, 'pickups' => $pickups, 'totalQty' => $cart->totalQty, 'gateways' => $gateways, 'shipping_cost' => 0, 'digital' => $dp, 'curr' => $curr,'shipping_data' => $shipping_data,'package_data' => $package_data, 'vendor_shipping_id' => $vendor_shipping_id, 'vendor_packing_id' => $vendor_packing_id]);             
+
+
+         foreach($cart->items as $c_key =>$c_val)
+        {
+           
+            $userss[] = $c_val['item']->user_id;
+            $userss = array_unique($userss);
+
+        }
+
+
+        $total_vendor = count($userss);
+
+        return view('front.checkout', ['products' => $cart->items, 'totalPrice' => $total, 'pickups' => $pickups, 'totalQty' => $cart->totalQty, 'gateways' => $gateways, 'shipping_cost' => 0, 'digital' => $dp, 'curr' => $curr,'shipping_data' => $shipping_data,'package_data' => $package_data, 'vendor_shipping_id' => $vendor_shipping_id, 'vendor_packing_id' => $vendor_packing_id,'total_vendor' =>$total_vendor]);             
         }
 
         else
@@ -216,6 +234,7 @@ class CheckoutController extends Controller
 
                 if($gs->multiple_shipping == 1)
                 {
+
                     $user = null;
                     foreach ($cart->items as $prod) {
                             $user[] = $prod['item']['user_id'];
@@ -238,6 +257,7 @@ class CheckoutController extends Controller
 
                 }
                 else{
+
                 $shipping_data  = DB::table('shippings')->where('user_id','=',0)->get();
                 }
 
