@@ -19,7 +19,7 @@ class CategoryController extends Controller
     //*** JSON Request
     public function datatables()
     {
-         $datas = Category::orderBy('id','desc')->get();
+         $datas = Category::orderBy('name','ASC')->get();
          //--- Integrating This Collection Into Datatables
          return Datatables::of($datas)
                             ->addColumn('status', function(Category $data) {

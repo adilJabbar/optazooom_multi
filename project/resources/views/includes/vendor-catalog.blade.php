@@ -9,7 +9,10 @@
             <div class="body-area">
 
                 <ul class="filter-list filter-list-category" style="height:900px; overflow:auto;">
-                  @foreach ($categories as $element)
+                <?php
+									$categories_order = DB::table('categories')->orderby('name' , 'ASC')->get();
+									?>
+                  @foreach ($categories_order as $element)
                   <li>
                     <div class="content">
                         <a href="{{route('front.category', $element->slug)}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}" class="category-link"> <i class="fas fa-angle-double-right"></i> {{$element->name}}</a>
