@@ -987,6 +987,57 @@
 
 @endif
 
+
+
+
+
+
+<div class="modal fade" id="vendor_count" data-keyboard="false" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="comment-log-reg-Title" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close">
+          <a href="{{ url()->previous() }}"><span aria-hidden="true">&times;</span></a>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<div class="tab-content" id="nav-tabContent">
+			<div class="tab-pane fade show active" id="nav-log" role="tabpanel" aria-labelledby="nav-log-tab">
+		        <div class="login-area">
+		          <div class="header-area">
+		            <h4 class="title">Your products is from {{$total_vendor}} vendors. You will chanrge {{$total_vendor}} times shipping cost</h4>
+		          </div>
+		    
+		        
+		      </div>
+		  </div>
+		</div>
+      </div>
+         <div class="modal-footer">
+     	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+         </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
 
 @section('scripts')
@@ -1215,6 +1266,13 @@ ttotal = parseFloat(ttotal);
 
 
 <script type="text/javascript">
+
+var total_vendor = '<?php echo $total_vendor; ?>';	
+if(total_vendor>1)
+{
+	$('#vendor_count').modal('show');
+}
+
 
 var ck = 0;
 
