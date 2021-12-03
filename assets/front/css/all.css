@@ -50810,7 +50810,6 @@ Faq Page Start
                 position: relative;
                 display: inline-block;
             }
-            /* Dropdown Content (Hidden by Default) */
             
             .dropdown-content {
                 display: none;
@@ -50820,7 +50819,6 @@ Faq Page Start
                 box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
                 z-index: 1;
             }
-            /* Links inside the dropdown */
             
             .dropdown-content a {
                 color: black;
@@ -50828,21 +50826,26 @@ Faq Page Start
                 text-decoration: none;
                 display: block;
             }
-            /* Change color of dropdown links on hoverr*/
+            
+            .content-search a {
+                padding: 8px 8px;
+            }
             
             .dropdown-content a:hover {
                 background-color: #6199d6;
                 color: #fff;
             }
-            /* Show the dropdown menu on hover */
+            
+            .search-drop {
+                text-align: left;
+            }
             
             .dropdown:hover .dropdown-content {
                 display: block;
             }
-            /* Change the background color of the dropdown button when the dropdown content is shown */
             
-            .dropdown:hover .dropbtn {
-                background-color: #3e8e41;
+            .drpodown:hover .content-search {
+                text-align: left;
             }
             
             .main-cat-box {
@@ -50899,4 +50902,8 @@ Faq Page Start
             .search-text-input input {
                 border: none;
                 background: #f2f2f2;
+            }
+            
+            .search-text-input input:focus {
+                border: none;
             }
