@@ -142,7 +142,7 @@
 			<div class="row ">
 				<div class="col-lg-3 col-sm-6 col-12 remove-padding">
 					<div class="logo">
-						<a href="{{ route('front-index') }}">
+						<a href="{{ route('front.indexx') }}">
 							<img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
 						</a>
 					</div>
