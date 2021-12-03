@@ -1,7 +1,7 @@
 @extends('layouts.front')
 @section('content')
 
- Vendor Area Start
+
   <!-- <div class="vendor-banner" style="background: url({{  $vendor->shop_image != null ? asset('assets/images/vendorbanner/'.$vendor->shop_image) : '' }}); background-repeat: no-repeat; background-color:#e9ecef; background-size: cover;background-position: center;{!! $vendor->shop_image != null ? '' : ''.$gs->vendor_color !!} ">
     <div class="container">
       <div class="row">
@@ -18,29 +18,6 @@
       </div>
     </div>
   </div>  -->
-
-   <!-- Breadcrumb Area Start -->
-<div class="breadcrumb-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="pages">
-                    <li>
-                        <a href="{{ route('front.index') }}">
-                            {{ $langg->lang17 }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                        {{ $vendor->shop_name }}
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Breadcrumb Area End -->
 
   <!-- Breadcrumb Area Start -->
 <div class="breadcrumb-area">
