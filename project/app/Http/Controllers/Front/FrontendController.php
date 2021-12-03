@@ -146,8 +146,7 @@ class FrontendController extends Controller
         $sliders = DB::table('sliders')->get();
        
         $ps = DB::table('pagesettings')->find(1);
-       
-
+    
 	    return view('front.index',compact('ps','sliders'));
 	}
 

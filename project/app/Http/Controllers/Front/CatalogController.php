@@ -192,6 +192,7 @@ class CatalogController extends Controller
 
 
     public function getsubs(Request $request) {
+   
       $category = Category::where('slug', $request->category)->firstOrFail();
       $subcategories = Subcategory::where('category_id', $category->id)->get();
       return $subcategories;

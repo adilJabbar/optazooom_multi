@@ -1014,7 +1014,7 @@
 		</div>
       </div>
          <div class="modal-footer">
-     	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+     	        <button style="background-color: #6199d6" type="button" class="btn btn-secondary" data-dismiss="modal">Proceed</button>
          </div>
     </div>
   </div>

@@ -147,13 +147,20 @@
 						</a>
 					</div>
 				</div>
+					<?php
+
+								$categoriess = DB::table('categories')->orderby('name','ASC')->get();
+						
+
+								 ?>
 				<div class="col-lg-6 col-sm-12 remove-padding order-last order-sm-2 order-md-2">
 					<div class="search-box-wrapper">
 						<div class="search-box">
 							<div class="categori-container" id="catSelectForm">
+
 								<select name="category" id="category_select" class="categoris">
 									<option value="Category">{{ $langg->lang1 }}</option>
-									@foreach($categories as $data)
+									@foreach($categoriess as $data)
 									<option value="{{ $data->slug }}" {{ Request::route('category') == $data->slug ? 'selected' : '' }}>{{ $data->name }}</option>
 									@endforeach
 								</select>
