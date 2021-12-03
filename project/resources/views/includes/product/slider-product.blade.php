@@ -24,8 +24,10 @@
 						@endif
 					</li>
 					<li>
+						@if(Auth::user())
 					<span class="quick-view" rel-toggle="tooltip" title="{{ $langg->lang55 }}" href="javascript:;" data-href="{{ route('product.quick',$prod->id) }}" data-toggle="modal" data-target="#quickview" data-placement="right"> <i class="icofont-eye"></i>
 					</span>
+					@endif
 					</li>
 				</ul>
 			</div>

@@ -24,8 +24,10 @@
 																@endif
 															</li>
 															<li>
+																@if(Auth::user())
 															<span class="quick-view" rel-toggle="tooltip" title="{{ $langg->lang55 }}" href="javascript:;" data-href="{{ route('product.quick',$prod->id) }}" data-toggle="modal" data-target="#quickview" data-placement="right"> <i class="icofont-eye"></i>
 															</span>
+															@endif
 															</li>
 															<!-- <li>
 																<span class="add-to-compare" data-href="{{ route('product.compare.add',$prod->id) }}"  data-toggle="tooltip" data-placement="right" title="{{ $langg->lang57 }}" data-placement="right">
@@ -63,6 +65,7 @@
 																	<i class="icofont-close-circled"></i> {{ $langg->lang78 }}
 																</span>
 																@else
+																@if(Auth::user())
 																<span class="add-to-cart add-to-cart-btn" data-href="{{ route('product.cart.add',$prod->id) }}">
 																	<i class="icofont-cart"></i> {{ $langg->lang56 }}
 																</span>
@@ -70,6 +73,18 @@
 																	data-href="{{ route('product.cart.quickadd',$prod->id) }}">
 																	<i class="icofont-cart"></i> {{ $langg->lang251 }}
 																</span>
+																@else
+																<span rel-toggle="tooltip" class="add-to-cart-btn" title="{{ $langg->lang56 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+																		<i class="icofont-cart"></i> {{ $langg->lang56 }}
+																</span>
+
+																	<span rel-toggle="tooltip" class="add-to-cart-btn" title="{{ $langg->lang251 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+																		<i class="icofont-cart"></i> {{ $langg->lang251 }}
+																</span>
+
+
+																@endif
+
 																@endif
 															@endif
 														</div>

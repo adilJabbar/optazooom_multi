@@ -15,7 +15,7 @@
                     </li>
                     <li>
                         <a href="{{ route('user-wishlists') }}">
-                         Wishlist
+                         Favorite
                         </a>
                     </li>
                 </ul>
