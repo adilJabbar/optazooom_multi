@@ -14,28 +14,25 @@
 @section('content')
 
 
-  <!-- Breadcrumb Area Start -->
-<div class="breadcrumb-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <ul class="pages">
-                    <li>
-                        <a href="{{ route('front.index') }}">
-                            {{ $langg->lang17 }}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ route('front.checkout') }}">
-                            Checkout
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <!--Breadcrumb-->
+    <div class="breadcrumb justify-content-center pt-60 pb-60">
+        <div>
+            <ol class="breadcrumb">
+                <h3 class="bread-login">{{ $langg->lang136 }}</h3>
+            </ol>
+            <ol class="breadcrumb">
+            
+                <li class="breadcrumb-item bread-title"><a href="{{ route('front.index') }}">
+							{{ $langg->lang17 }}
+						</a></li>
+    <li class="breadcrumb-item bread-title active bread-title" aria-current="page">		<a href="{{ route('front.checkout') }}">
+							{{ $langg->lang136 }}
+						</a></li>
+            </ol>
         </div>
     </div>
-</div>
-<!-- Breadcrumb Area End -->
+
+    <!--Breadcrumb end-->
 
 	<!-- Check Out Area Start -->
 	<section class="checkout">
@@ -764,13 +761,13 @@
 							@foreach($shipping_data as $data)
 						
 								<div class="radio-design">
-										<input type="radio" class="shipping" id="free-shepping{{ $data->id }}" name="shipping" value="{{ round($data->price * $curr->value,2) }}" {{ ($loop->first) ? 'checked' : '' }}> 
+										<input type="radio" class="shipping" id="free-shepping{{ $data->id }}" name="shipping" value="{{ round($data->price * $curr->value,2)*$total_vendor }}" {{ ($loop->first) ? 'checked' : '' }}> 
 										<span class="checkmark"></span>
 										<label for="free-shepping{{ $data->id }}"> 
 												{{ $data->title }}
 												@if($data->price != 0)
-											
-												+ {{ $curr->sign }}{{ round($data->price * $curr->value,2) }}
+												
+												+ {{ $curr->sign }}{{ round($data->price * $curr->value,2)*$total_vendor }}
 												@endif
 												<small>{{ $data->subtitle }}</small>
 										</label>

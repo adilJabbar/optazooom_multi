@@ -42,7 +42,7 @@ class StripeController extends Controller
 
 
     public function store(Request $request){
-      
+    
         if($request->pass_check) {
             $users = User::where('email','=',$request->personal_email)->get();
             if(count($users) == 0) {
@@ -76,8 +76,17 @@ class StripeController extends Controller
 
     
       
+         foreach($cart->items as $c_key =>$c_val)
+        {
+           
+            $userss[] = $c_val['item']->user_id;
+            $userss = array_unique($userss);
 
-        
+        }
+        $total_users = count($userss);
+
+
+            
         $oldCart = Session::get('cart');
         $cartt = new Cart($oldCart);
 
@@ -87,8 +96,8 @@ class StripeController extends Controller
            
             $userss[] = $c_val['item']->user_id;
             $userss = array_unique($userss);
-
-            $id = $c_key;
+            
+            $id = $c_key;   
 
              $gs = Generalsetting::findOrFail(1);
         if (Session::has('currency')) 
@@ -253,6 +262,10 @@ class StripeController extends Controller
         $item_number = Str::random(10);
         $item_amount = $request->total;
         $item_amount = $cart->totalPrice;
+
+        $item_amount = $item_amount+($request->shipping_cost/$total_users);
+
+      
         // dd($request->all());
         $validator = Validator::make($request->all(),[
                         'cardNumber' => 'required',
@@ -316,17 +329,17 @@ class StripeController extends Controller
                             }
                         }
                   
-                      try{
-                        echo "---";
-                        echo $cart->totalQty;
-                      }catch (Exception $e) {
-                        dd($e->getMessage());
+        //               try{
+        //                 echo "---";
+        //                 echo $cart->totalQty;
+        //               }catch (Exception $e) {
+        //                 dd($e->getMessage());
          
-        }
+        // }
                     $new_cart = array();
                     $order['user_id'] = $request->user_id;
                     $new_cart['totalQty'] = $cart->totalQty;
-                    $new_cart['totalPrice'] = $cart->totalPrice;
+                    $new_cart['totalPrice'] = $cart->totalPrice+($request->shipping_cost/$total_users);;
                     $new_cart['items'] = $cart->items;
                     $new_cart = json_encode($new_cart,true);
                     $order['cart'] = $new_cart;
@@ -360,7 +373,7 @@ class StripeController extends Controller
                     $order['charge_id'] = $charge['id'];
                     $order['currency_sign'] = $curr->sign;
                     $order['currency_value'] = $curr->value;
-                    $order['shipping_cost'] = $request->shipping_cost;
+                    $order['shipping_cost'] = $request->shipping_cost/$total_users;
                     $order['packing_cost'] = $request->packing_cost;
                     $order['tax'] = $request->tax;
                     $order['dp'] = $request->dp;
