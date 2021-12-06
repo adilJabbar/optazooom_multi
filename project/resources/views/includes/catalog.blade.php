@@ -34,20 +34,23 @@
                 <div class="dropdown search-drop">
         <i class="fas fa-caret-down dropbtn"></i>
           <div class="dropdown-content content-search" >
-            <a href="#">All</a>
-            <a href="#">Search By Product</a>
-            <a href="#">Search By Category</a>
+            <a onclick="select_all('all')" href="javascript:void(0)">All</a>
+            <a onclick="select_all('prodcut')" href="javascript:void(0)">Search By Product</a>
+            <a onclick="select_all('cat')" href="javascript:void(0)">Search By Category</a>
           </div>
           </div>
                 </div>
                 <div class="search-text-input">
-                <input type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on"/>
+                  <input type="hidden" name="search_by" id="search_by" value="all"> 
+                  <input  type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on"/>
                 </div>
               </div>
                 </div>   
             <style>
              
             </style>
+
+       
               
             </div>
 

@@ -47,6 +47,7 @@ class CategoryController extends Controller
     //*** GET Request
     public function index()
     {
+     
         return view('admin.category.index');
     }
 

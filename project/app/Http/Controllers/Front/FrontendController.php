@@ -13,7 +13,9 @@ use App\Models\Product;
 use App\Models\Subscriber;
 use App\Models\User;
 use Carbon\Carbon;
-
+use App\Models\Category;
+use App\Models\Currency;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
@@ -900,4 +902,71 @@ public function get_forth_site_data()
 }
 // -------------------------------- PRINT SECTION ENDS ----------------------------------------
 
+
+public function search_by()
+  {
+
+      if (Session::has('currency')) 
+      {
+        $curr = Currency::find(Session::get('currency'));
+      }
+      else
+      {
+          $curr = Currency::where('is_default','=',1)->first();
+      }
+      $cat = null;
+      $subcat = null;
+      $childcat = null;
+      $sort = '';
+      $search = $_GET['key'];
+
+    if( $_GET['search_by'] == "prodcut")
+    {
+           $prods = Product::when($search, function ($query, $search) {
+                                      return $query->where('name', 'like', '%' . $search . '%');
+                                  })
+                                  ->when(empty($sort), function ($query, $sort) {
+                                      return $query->orderBy('id', 'DESC');
+                                  });
+
+    }elseif ($_GET['search_by'] == "cat") {
+        $search = $_GET['key'];
+
+         $cat = null;
+           if (!empty($search)) {
+
+        $cat = Category::where('slug', $search)->first();
+       
+        $data['cat'] = $cat;
+
+         $prods = Product::when($cat, function ($query, $cat) {
+                                      return $query->where('category_id', $cat->id);
+                                  })
+                                  ->when($search, function ($query, $search) {
+                                      return $query->where('name', 'like', '%' . $search . '%');
+                                  })
+                                  ->when(empty($sort), function ($query, $sort) {
+                                      return $query->orderBy('id', 'DESC');
+                                  });
+
+
+
+      }
+    }else{
+         $prods = Product::when(empty($sort), function ($query, $sort) {
+                                      return $query->orderBy('id', 'DESC');
+                                  });
+    }
+
+
+
+ 
+     
+        $prods = $prods->where('status', 1)->get();
+        $prods = (new Collection(Product::filterProducts($prods)))->paginate(9);
+        $data['prods'] = $prods;
+   $html = view('front.search_by',$data)->render();
+      echo json_encode(['html'=>$html]);
+     
+    }
 }

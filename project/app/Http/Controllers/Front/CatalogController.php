@@ -187,6 +187,7 @@ class CatalogController extends Controller
 
         return view('includes.product.filtered-products', $data);
       }
+
       return view('front.category', $data);
     }
 

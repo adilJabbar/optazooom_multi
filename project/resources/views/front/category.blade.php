@@ -1,5 +1,6 @@
 @extends('layouts.front')
 @section('content')
+
 <!-- Breadcrumb Area Start -->
 <div class="breadcrumb-area">
    <div class="container">
@@ -67,7 +68,7 @@
 
                @include('includes.filter')
                <div class="categori-item-area">
-                 <div class="row" id="ajaxContent">
+                 <div class="row fil_products" id="ajaxContent">
                    @include('includes.product.filtered-products')
                  </div>
                  <div id="ajaxLoader" class="ajax-loader" style="background: url({{asset('assets/images/'.$gs->loader)}}) no-repeat scroll center center rgba(0,0,0,.6);"></div>
@@ -85,6 +86,45 @@
 @section('scripts')
 
 <script>
+
+
+  
+                function select_all(a)
+                {
+                  $('#search_by').val(a);
+                  $('#prod_namee').attr('placeholder','Search by '+a);
+                }
+
+                $('#prod_namee').keyup(function(){
+
+                    
+                     $.ajax(
+                      '<?php echo url('search_by?search_by=') ?>'+$('#search_by').val()+'&key='+$(this).val(),
+                      {
+                          success: function(data) {
+                            var obj = jQuery.parseJSON(data);
+                            console.log(obj.html);
+                            $('.fil_products').html(obj.html)
+
+                           
+                          }
+                         
+                       }
+                );
+
+     });
+
+
+
+   
+
+
+
+
+
+
+
+
 
   $(document).ready(function() {
 

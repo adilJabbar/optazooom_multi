@@ -1,6 +1,5 @@
 @extends('layouts.front')
 @section('content')
-
 <div class="category-page">
     <div class="container">
         <div class="row">
