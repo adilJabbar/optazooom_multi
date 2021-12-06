@@ -13,7 +13,7 @@
                     </li>
                     <li>
                         <a href="{{ route('user-reset') }}">
-                            Reset
+                            Reset Password
                         </a>
                     </li>
                 </ul>

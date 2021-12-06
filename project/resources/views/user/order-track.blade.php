@@ -13,7 +13,7 @@
                     </li>
                     <li>
                         <a href="{{ route('user-order-track') }}">
-                            Order Track
+                            Order Tracking
                         </a>
                     </li>
                 </ul>
