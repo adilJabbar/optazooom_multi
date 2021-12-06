@@ -2,34 +2,53 @@
        <div class="col-lg-3 col-md-6">
           <div class="left-area">
             <div class="filter-result-area">
-            <div class="header-area">
-                <div class="search-box">
-                <select id="selection" onchange="changeplh()">
-                  <option value="all">All</option>
-                  <option value="searchpro">Search By Category</option>
-                  <option value="searchcat">Search By Products</option>
-                </select>
-            <form id="searchForm" class="search-form" action="{{ route('front.category', [Request::route('category'),Request::route('subcategory'),Request::route('childcategory')]) }}" method="GET">
-                  @if (!empty(request()->input('sort')))
-                    <input type="hidden" name="sort" value="{{ request()->input('sort') }}">
-                  @endif
-                  @if (!empty(request()->input('minprice')))
-                    <input type="hidden" name="minprice" value="{{ request()->input('minprice') }}">
-                  @endif
-                  @if (!empty(request()->input('maxprice')))
-                    <input type="hidden" name="maxprice" value="{{ request()->input('maxprice') }}">
-                  @endif
-                  <input type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on" style="padding:10px 0px; font-weight:300; border:1px solid rgba(0, 0, 0, 0.4); position:relative;
-                  left:16px; padding-left:5px;">
-                  <div class="autocomplete">
-                    <div id="myInputautocomplete-listfil" class="autocomplete-items">
-                    </div>
-                  </div>
-						</form>           
-      </div>   
-              <!-- <h4 class="title">
-                {{$langg->lang61}}
-              </h4> -->
+                <div class="header-area">
+                    <div class="search-box">
+                    <!-- <select id="selection" onchange="changeplh()">
+                      <option value="all">All</option>
+                      <option value="searchpro">Search By Category</option>
+                      <option value="searchcat">Search By Products</option>
+                    </select>
+                    <form id="searchForm" class="search-form" action="{{ route('front.category', [Request::route('category'),Request::route('subcategory'),Request::route('childcategory')]) }}" method="GET">
+                          @if (!empty(request()->input('sort')))
+                            <input type="hidden" name="sort" value="{{ request()->input('sort') }}">
+                          @endif
+                          @if (!empty(request()->input('minprice')))
+                            <input type="hidden" name="minprice" value="{{ request()->input('minprice') }}">
+                          @endif
+                          @if (!empty(request()->input('maxprice')))
+                            <input type="hidden" name="maxprice" value="{{ request()->input('maxprice') }}">
+                          @endif
+                          <input type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on" style="padding:10px 0px; font-weight:300; border:1px solid rgba(0, 0, 0, 0.4); position:relative;
+                          left:16px; padding-left:5px;">
+                          <div class="autocomplete">
+                            <div id="myInputautocomplete-listfil" class="autocomplete-items">
+                            </div>
+                          </div>
+                    </form>            -->
+                      <div class="main-search-bar">
+                <div class="search-icon">
+                   <i class="fa fa-search"></i>
+                </div>
+                <div class="">
+                <div class="dropdown search-drop">
+        <i class="fas fa-caret-down dropbtn"></i>
+          <div class="dropdown-content content-search" >
+            <a href="#">All</a>
+            <a href="#">Search By Product</a>
+            <a href="#">Search By Category</a>
+          </div>
+          </div>
+                </div>
+                <div class="search-text-input">
+                <input type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on"/>
+                </div>
+              </div>
+                </div>   
+            <style>
+             
+            </style>
+              
             </div>
 
             <div class="body-area">
@@ -41,7 +60,10 @@
                   <input type="hidden" name="sort" value="{{ request()->input('sort') }}">
                 @endif
                 <ul class="filter-list filter-list-category" style="height:900px; overflow:auto;">
-                  @foreach ($categories as $element)
+                <?php
+									$categories_order = DB::table('categories')->orderby('name' , 'ASC')->get();
+									?>
+                  @foreach ($categories_order as $element)
                   <li>
                     <div class="content">
                         <a href="{{route('front.category', $element->slug)}}{{!empty(request()->input('search')) ? '?search='.request()->input('search') : ''}}" class="category-link"> <i class="fas fa-angle-double-right"></i> {{$element->name}}</a>
@@ -228,21 +250,4 @@
 
           </div>
         </div>
-     <script>
-       function changeplh() {
-    var sel = document.getElementById("selection");
-    var textbx = document.getElementById("prod_namee");
-    var indexe = sel.selectedIndex;
-
-    if (indexe == 0) {
-        $("#prod_namee").attr("placeholder", "Search");
-
-    }
-    if (indexe == 1) {
-        $("#prod_namee").attr("placeholder", "Search By Category");
-    }
-    if (indexe == 2) {
-        $("#prod_namee").attr("placeholder", "Search By Product");
-    }
-}
-     </script>
+ 
