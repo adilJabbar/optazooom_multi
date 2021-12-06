@@ -34,9 +34,9 @@
                 <div class="dropdown search-drop">
         <i class="fas fa-caret-down dropbtn"></i>
           <div class="dropdown-content content-search" >
-            <a onclick="select_all('all')" href="javascript:void(0)">All</a>
-            <a onclick="select_all('prodcut')" href="javascript:void(0)">Search By Product</a>
-            <a onclick="select_all('cat')" href="javascript:void(0)">Search By Category</a>
+            <a onclick="select_all('All')" href="javascript:void(0)">Search By All</a>
+            <a onclick="select_all('Prodcut')" href="javascript:void(0)">Search By Product</a>
+            <a onclick="select_all('Category')" href="javascript:void(0)">Search By Category</a>
           </div>
           </div>
                 </div>

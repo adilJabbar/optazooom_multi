@@ -313,33 +313,33 @@
 	</section>
 	<!-- Logo Header Area End -->
 
-	<div class="header-bottom header-sticky d-none d-lg-block d-xl-block">
+	      <div class="header-bottom header-sticky d-none d-lg-block d-xl-block">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <!-- Begin Header Bottom Menu Area -->
                             <div class="hb-menu">
-							<nav class="navbar navbar-expand-sm">
-				<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarmenu">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarmenu">
-			     	<ul class="navbar-nav">
-						<li class="nav-item arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
-						<li class="nav-item arrow-icon"> <a href="#fcat">Featured Categories</a></li>
-						<li class="nav-item arrow-icon"><a href="#flashdeals">Flash Deals</a></li>
-						<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
-						<li class="nav-item arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
-                    </ul>
-                        
-				</div>
-	       </nav>
+								<nav class="navbar navbar-expand-sm">
+										<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarmenu">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+										<div class="collapse navbar-collapse" id="navbarmenu">
+											<ul class="navbar-nav">
+												<li class="nav-item arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
+												<li class="nav-item arrow-icon"> <a href="#fcat">Featured Categories</a></li>
+												<li class="nav-item arrow-icon"><a href="#flashdeals">Flash Deals</a></li>
+												<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
+												<li class="nav-item arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
+											</ul>
+												
+										</div>
+								</nav>
                             </div>
                             <!-- Header Bottom Menu Area End Here -->
                         </div>
                     </div>
                 </div>
-</div>
+           </div>
             <!-- Header Bottom Area End Here -->
             <!-- Begin Mobile Menu Area -->
             <div class="mobile-menu-area d-lg-none d-xl-none col-12">
