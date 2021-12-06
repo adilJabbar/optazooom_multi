@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.vendor')
 
 @section('content')
 
@@ -12,10 +12,10 @@
             <h4 class="heading">{{ __('Conversation with') }} {{$conv->user->name}} <a class="add-btn" href="{{ url()->previous() }}"><i class="fas fa-arrow-left"></i> {{ __('Back') }}</a></h4>
                 <ul class="links">
                     <li>
-                        <a href="{{ route('admin.dashboard') }}">{{ __('Dashboard') }} </a>
+                        <a href="{{ route('vendor-dashboard') }}">{{ __('Dashboard') }} </a>
                     </li>
                     <li>
-                        <a href="{{ route('admin-message-index') }}">{{ __('Messages') }}</a>
+                        <a href="{{ route('vendor-message-index') }}">{{ __('Messages') }}</a>
                     </li>
                     <li>
                         <a href="javascript:;">{{ __('Conversations Details') }}</a>
@@ -47,7 +47,7 @@
                                             <img class="img-circle" src="{{$message->conversation->user->photo != null ? asset('assets/images/users/'.$message->conversation->user->photo) : asset('assets/images/noimage.png')}}" alt="">
 
                                             @endif
-                                                    <a target="_blank" class="d-block profile-btn" href="{{ route('admin-user-show',$message->conversation->user->id) }}" class="d-block">{{ __('View Profile') }}</a>
+                                                   
                                                     <p class="ticket-date">{{ $message->created_at->diffForHumans() }}</p>
                                                 </div>
                                             </div>
@@ -82,7 +82,7 @@
                                 @endforeach
                             </div>
                             <div class="panel-footer">
-                                <form id="messageform" action="{{route('admin-message-store')}}" data-href="{{ route('admin-message-load',$conv->id) }}" method="POST">
+                                <form id="messageform" action="{{route('vendor-message-store')}}" data-href="{{ route('vendor-message-load',$conv->id) }}" method="POST">
                                     {{csrf_field()}}
                                     <div class="form-group">
                                         <input type="hidden" name="conversation_id" value="{{$conv->id}}">

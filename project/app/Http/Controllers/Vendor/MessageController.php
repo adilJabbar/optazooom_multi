@@ -42,7 +42,7 @@ class MessageController extends Controller
                                 return  $name;
                             })
                             ->addColumn('action', function(AdminUserConversation $data) {
-                                return '<div class="action-list"><a href="' . route('admin-message-show',$data->id) . '"> <i class="fas fa-eye"></i> Details</a><a href="javascript:;" data-href="' . route('admin-message-delete',$data->id) . '" data-toggle="modal" data-target="#confirm-delete" class="delete"><i class="fas fa-trash-alt"></i></a></div>';
+                                return '<div class="action-list"><a href="' . route('vendor-message-show',$data->id) . '"> <i class="fas fa-eye"></i> Details</a><a href="javascript:;" data-href="' . route('vendor-message-delete',$data->id) . '" data-toggle="modal" data-target="#confirm-delete" class="delete"><i class="fas fa-trash-alt"></i></a></div>';
                             }) 
                             ->rawColumns(['action'])
                             ->toJson(); //--- Returning Json Data To Client Side
@@ -64,11 +64,13 @@ class MessageController extends Controller
     //*** GET Request
     public function message($id)
     {
+
         if(!AdminUserConversation::where('id',$id)->exists())
         {
             return redirect()->route('vendor.dashboard')->with('unsuccess',__('Sorry the page does not exist.'));
         }
         $conv = AdminUserConversation::findOrfail($id);
+ 
         return view('vendor.message.create',compact('conv'));                 
     }   
 
@@ -237,4 +239,14 @@ class MessageController extends Controller
 
         }
 }
+
+     public function show($id)
+        {
+            if(!User::where('id',$id)->exists())
+            {
+                return redirect()->route('admin.dashboard')->with('unsuccess',__('Sorry the page does not exist.'));
+            }
+            $data = User::findOrFail($id);
+            return view('vendor.show',compact('data'));
+        }
 }
