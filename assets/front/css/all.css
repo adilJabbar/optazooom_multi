@@ -611,12 +611,19 @@
                 .search {
                     height: 30px;
                 }
+                .container-fluid {
+                    width: 100%;
+                    padding-right: 75px;
+                    padding-left: 75px;
+                    margin-right: auto;
+                    margin-left: auto
+                }
             }
             
             .container-fluid {
                 width: 100%;
-                padding-right: 75px;
-                padding-left: 75px;
+                padding-right: 25px;
+                padding-left: 25px;
                 margin-right: auto;
                 margin-left: auto
             }
@@ -4456,7 +4463,8 @@
                 line-height: 1;
                 background-color: transparent;
                 border: 1px solid transparent;
-                border-radius: .25rem
+                border-radius: .25rem;
+                float: right;
             }
             
             .navbar-toggler:focus,
@@ -4509,7 +4517,8 @@
                     display: -ms-flexbox!important;
                     display: flex!important;
                     -ms-flex-preferred-size: auto;
-                    flex-basis: auto
+                    flex-basis: auto;
+                    justify-content: center;
                 }
                 .navbar-expand-sm .navbar-toggler {
                     display: none
@@ -7028,10 +7037,9 @@
                 clear: both;
                 content: ""
             }
-            
-            .d-none {
+            /* .d-none {
                 display: none!important
-            }
+            } */
             
             .d-inline {
                 display: inline!important
@@ -49238,7 +49246,7 @@ Faq Page Start
                     line-height: 40px;
                 }
                 .hero-area .hero-area-slider .intro-carousel .intro-content {
-                    padding: 100px 50px;
+                    padding: 50px 50px;
                     height: 192px;
                 }
                 .logo-header .helpful-links li.my-dropdown .cart .icon i,
