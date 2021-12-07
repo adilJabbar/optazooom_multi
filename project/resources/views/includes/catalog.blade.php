@@ -27,11 +27,11 @@
                           </div>
                     </form>            -->
                       <div class="main-search-bar">
-                <div class="search-icon">
+                <div class="search-icon" style="margin-right:5px;">
                    <i class="fa fa-search"></i>
                 </div>
                 <div class="">
-                <div class="dropdown search-drop">
+                <div class="dropdown search-drop" style="margin-right:5px;">
         <i class="fas fa-caret-down dropbtn"></i>
           <div class="dropdown-content content-search" >
             <a onclick="select_all('All')" href="javascript:void(0)">Search By All</a>
