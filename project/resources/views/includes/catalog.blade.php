@@ -26,11 +26,13 @@
                             </div>
                           </div>
                     </form>            -->
+             
                       <div class="main-search-bar">
+                        
                 <div class="search-icon" style="margin-right:5px;">
                    <i class="fa fa-search"></i>
                 </div>
-                <div class="">
+                <!-- <div class="">
                 <div class="dropdown search-drop" style="margin-right:5px;">
         <i class="fas fa-caret-down dropbtn"></i>
           <div class="dropdown-content content-search" >
@@ -39,7 +41,17 @@
             <a onclick="select_all('Category')" href="javascript:void(0)">Search By Category</a>
           </div>
           </div>
-                </div>
+                </div> -->
+                <div class="dropdown show">
+                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:5px;">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="line-height:30px;">
+                      <a onclick="select_all('All')" class="dropdown-item" href="javascript:void(0)">Search By All</a>
+                      <a onclick="select_all('Prodcut')" class="dropdown-item" href="javascript:void(0)">Search By Product</a>
+                      <a onclick="select_all('Category')" class="dropdown-item" href="javascript:void(0)">Search By Category</a>
+                    </div>
+                 </div>
+
                 <div class="search-text-input">
                   <input type="hidden" name="search_by" id="search_by" value="all"> 
                   <input  type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on"/>

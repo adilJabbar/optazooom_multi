@@ -3471,7 +3471,7 @@
                                         .dropdown-item:active {
                                             color: #fff;
                                             text-decoration: none;
-                                            background-color: #007bff
+                                            background-color: #6199d6;
                                         }
                                         
                                         .dropdown-item.disabled,
@@ -42233,7 +42233,7 @@ DROPDOWN STYLE
                                         }
                                         
                                         .seller-info .content .stor-name {
-                                            font-size: 16px;
+                                            font-size: 19px;
                                             font-weight: 400;
                                             line-height: 28px;
                                             margin-bottom: 0px;
