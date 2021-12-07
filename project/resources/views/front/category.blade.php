@@ -101,12 +101,11 @@
                      $.ajax(
                       '<?php echo url('search_by?search_by=') ?>'+$('#search_by').val()+'&key='+$(this).val(),
                       {
-                          success: function(data) {
+                          success: function(data)
+                           {
                             var obj = jQuery.parseJSON(data);
                             console.log(obj.html);
                             $('.fil_products').html(obj.html)
-
-                           
                           }
                          
                        }

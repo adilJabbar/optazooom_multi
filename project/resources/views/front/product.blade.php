@@ -595,7 +595,7 @@
       <div class="seller-info mt-3">
         <div class="content">
           <h4 class="title">
-            {{ $langg->lang246 }}
+          Vendor
           </h4>
 
           <p class="stor-name">
@@ -620,7 +620,7 @@
           @endif
           </p>
 
-          <div class="total-product">
+          <!-- <div class="total-product">
 
            @if( $productt->user_id  != 0)
               <p>{{ App\Models\Product::where('user_id','=',$productt->user_id)->get()->count() }}</p>
@@ -628,7 +628,7 @@
               <p>{{ App\Models\Product::where('user_id','=',0)->get()->count() }}</p>
           @endif
             <span>{{ $langg->lang248 }}</span>
-          </div>
+          </div> -->
         </div>
     @if( $productt->user_id  != 0)
         <a href="{{ route('front.vendor',str_replace(' ', '-', $productt->user->shop_name)) }}" class="view-stor">{{ $langg->lang249 }}</a>
