@@ -41134,7 +41134,7 @@ DROPDOWN STYLE
                                         .product-details-page .right-area .product-info .product-color .color-list li {
                                             display: inline-block;
                                             margin-right: 2px;
-                                            padding:7px;
+                                            padding: 7px;
                                         }
                                         
                                         .product-details-page .right-area .product-info .product-color .color-list li .box {
@@ -41144,6 +41144,7 @@ DROPDOWN STYLE
                                             display: inline-block;
                                             position: relative;
                                             cursor: pointer;
+                                            top: 4px;
                                             /* font-size: 10px; */
                                         }
                                         
@@ -42713,6 +42714,7 @@ DROPDOWN STYLE
                                         .sub-categori .left-area .service-center {
                                             border: 1px solid rgba(0, 0, 0, 0.2);
                                             margin-top: 30px;
+                                            display: none;
                                         }
                                         
                                         .sub-categori .left-area .service-center .header-area {
@@ -47149,6 +47151,7 @@ Faq Page Start
                                         
                                         .wish-list .right-area .item-filter {
                                             justify-content: center;
+                                            display: none;
                                         }
                                         
                                         td.pro-remove i {
