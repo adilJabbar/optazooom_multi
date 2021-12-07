@@ -150,7 +150,7 @@
 					<?php
 						$categoriess = DB::table('categories')->orderby('name','ASC')->get();
 					?>
-				<div class="col-lg-6 col-sm-12 remove-padding order-last order-sm-2 order-md-2">
+				<div class="col-lg-6 col-sm-12 remove-padding order-sm-2 order-md-2">
 					<div class="search-box-wrapper">
 						<div class="search-box">
 							<div class="categori-container" id="catSelectForm">
@@ -330,8 +330,7 @@
 												<li class="nav-item arrow-icon"><a href="#flashdeals">Flash Deals</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
-											</ul>
-												
+											</ul>	
 										</div>
 								</nav>
                             </div>
