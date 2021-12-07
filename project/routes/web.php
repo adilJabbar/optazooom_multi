@@ -1226,6 +1226,10 @@ Route::get('update-finalize', 'Front\FrontendController@updateFinalize');
 Route::get('/under-maintenance', 'Front\FrontendController@maintenance')->name('front-maintenance');
 
 
+
+Route::get('search_by', 'Front\FrontendController@search_by');
+
+
   Route::group(['middleware'=>'maintenance'],function(){
 
 // ************************************ VENDOR SECTION **********************************************
@@ -1248,12 +1252,16 @@ Route::prefix('vendor')->group(function() {
 
 
   Route::get('/message/{id}', 'Vendor\MessageController@message')->name('vendor-message-show');
+
+    Route::get('/', 'Admin\DashboardController@index')->name('vendor.dashboard');
+  Route::get('/message/load/{id}', 'Vendor\MessageController@messageshow')->name('vendor-message-load');
+  Route::get('/user/{id}/show', 'Vendor\MessageController@show')->name('vendor.user.show');
   Route::get('/message/load/{id}', 'Vendor\MessageController@messageshow')->name('vendor-message-load');
   Route::post('/message/post', 'Vendor\MessageController@postmessage')->name('vendor-message-store');
   Route::get('/message/{id}/delete', 'Vendor\MessageController@messagedelete')->name('vendor-message-delete');
   Route::post('/user/send/message', 'Vendor\MessageController@usercontact')->name('vendor-send-message');
 
- Route::post('admin/user/send/message', 'Vendor\MessageController@adminusercontact')->name('user-send-message');
+  Route::post('admin/user/send/message', 'Vendor\MessageController@adminusercontact')->name('user-send-message');
   Route::get('admin/message/load/{id}', 'Vendor\MessageController@messageload')->name('user-message-load');
 
 

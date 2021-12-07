@@ -170,7 +170,7 @@
                           <input type="hidden" class="size_qty" value="@if(isset($productt->size_qty[$key])){{ $productt->size_qty[$key] }}@endif">
                           <input type="hidden" class="size_key" value="{{$key}}">
                           <input type="hidden" class="size_price"
-                            value="{{ round($productt->size_price[$key] * $curr->value,2) }}">
+                            value="@if(isset($productt->size_price[$key])){{ round($productt->size_price[$key] * $curr->value,2) }} @endif">
                         </span>
                       </li>
                       @php
@@ -199,7 +199,7 @@
                           
                        ?>
                       <li class="{{ $is_first ? 'active' : '' }}">
-                        <span >{{Helper::get_color_name($productt->color[$key])['name']}}</span>
+                        <span >@if(isset($productt->color[$key])){{ $productt->color[$key]}}  @else(isset($productt->color[$key]['name'])){{Helper::get_color_name($productt->color[$key])['name']}} @endif</span>
                         <span class="box" data-color="{{ $productt->color[$key] }}" style="background-color: {{ $productt->color[$key] }}"></span>
                       </li>
                       @php

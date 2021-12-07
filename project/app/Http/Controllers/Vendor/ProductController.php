@@ -321,7 +321,7 @@ class ProductController extends Controller
                             $input['childcategory_id'] = $chcat->first()->id;
                         }
                     }
-               
+              
                 $input['photo'] = $line[5];
                 $input['name'] = $line[4];
                 $input['details'] = $line[6];
@@ -352,37 +352,60 @@ class ProductController extends Controller
 
                 $image_url = $line[5];
                 
-                  $ch = curl_init();
-                  curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-                  curl_setopt ($ch, CURLOPT_URL, $image_url);
-                  curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 20);
-                  curl_setopt ($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
-                  curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, true);
-                  curl_setopt($ch, CURLOPT_HEADER, true); 
-                  curl_setopt($ch, CURLOPT_NOBODY, true);
-                
-                  $content = curl_exec ($ch);
-                  $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
-                $thumb_url = '';
-                    if (strpos($contentType, 'image/') !== false) {
-                        $fimg = Image::make($line[5])->resize(800, 800);
+            $imagesss = explode(',',$image_url);
+            // echo "---";
+            //    print_r($imagesss);
+            if(isset($imagesss[0]))
+            {
+                foreach($imagesss as $img_k => $img_v)
+                {
+                    if($img_v == 0)
+                    {
+                        $ch = curl_init();
+                          curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+                          curl_setopt ($ch, CURLOPT_URL, $img_v);
+                          curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 20);
+                          curl_setopt ($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+                          curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, true);
+                          curl_setopt($ch, CURLOPT_HEADER, true); 
+                          curl_setopt($ch, CURLOPT_NOBODY, true);
+                        
+                          $content = curl_exec ($ch);
+
+                          $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+                       
+                        $thumb_url = '';
+                 
+
+
+                        try {
+
+                        $fimg = Image::make($img_v)->resize(800, 800);
                         $fphoto = Str::random(12).'.jpg';
                         $fimg->save(public_path().'/assets/images/products/'.$fphoto);
                         $input['photo']  = $fphoto;
-                        $thumb_url = $line[5];
-                    }else{
+                        $thumb_url = $img_v;
+
+                        } catch (\Exception $e) {
+
                         $fimg = Image::make(public_path().'/assets/images/noimage.png')->resize(800, 800); 
                         $fphoto = Str::random(12).'.jpg';
                         $fimg->save(public_path().'/assets/images/products/'.$fphoto);
                         $input['photo']  = $fphoto;
                         $thumb_url = public_path().'/assets/images/noimage.png';
                     }
+                        $timg = Image::make($thumb_url)->resize(285, 285);
+                        $thumbnail = Str::random(12).'.jpg';
+                        $timg->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
+                        $input['thumbnail']  = $thumbnail;
 
-                $timg = Image::make($thumb_url)->resize(285, 285);
-                $thumbnail = Str::random(12).'.jpg';
-                $timg->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
-                $input['thumbnail']  = $thumbnail;
+                    }
 
+                }
+            }
+
+                   
+                                
                 // Conert Price According to Currency
                  // if(!empty($input['price']) && !empty($sign->value))
                  // {
@@ -403,6 +426,43 @@ class ProductController extends Controller
                 // Save Data
             // dd($input);
                 $data->fill($input)->save();
+
+                $lastid = $data->id;
+
+
+                
+            if(isset($imagesss[1]))
+            {
+
+                foreach($imagesss as $img_k => $img_v)
+                {
+                 
+                    if($img_k!=0)
+                    {
+
+                            $gallery = new Gallery;
+                            $name = Str::random(12).'.jpg';
+                            
+                            $img = Image::make($img_v);
+
+                            $thumbnail = Str::random(12).'.jpg';
+                            $img->save(public_path().'/assets/images/galleries/'.$name);
+                            $gallery['photo'] = $name;
+                            $gallery['product_id'] = $lastid;
+                            $gallery->save();
+                    }
+                }
+            }
+
+
+
+
+
+               
+
+
+
+
 
                 }else{
                     $log .= "<br>Row No: ".$i." - No Category Found!<br>";

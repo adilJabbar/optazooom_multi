@@ -64,7 +64,7 @@
                                         <div class="col-lg-12">
                                             <div class="reply-area">
                                                 <div class="left">
-                                                    <img class="img-circle" src="{{ Auth::guard('admin')->user()->photo ? asset('assets/images/admins/'.Auth::guard('admin')->user()->photo ):asset('assets/images/noimage.png') }}" alt="">
+                                                    <img class="img-circle" src="{{ Auth::user()->photo ? asset('assets/images/admins/'.Auth::user()->photo ):asset('assets/images/noimage.png') }}" alt="">
                                                     <p class="ticket-date">{{ $message->created_at->diffForHumans() }}</p>
                                                 </div>
                                                 <div class="right">
