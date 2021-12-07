@@ -9,61 +9,6 @@
 		@endif
 	@endif
 
-	
-    <style type="text/css">
-    .pagination li:last-child a {
-        font-size: 14px; 
-    }
-    .page-link {
-       padding: 0;
-    }
-    .page-item > .active{
-        padding: .5rem .75rem;
-    }
-
-    .page-link > a {     
-       display: inline-block;     
-       position: relative;    
-       z-index: 1;
-       padding: .5rem .75rem;
-       margin: 0px;
-    }
-    .a_title{
-            font-size: 17px;
-            line-height: 0px;
-           
-    }
-    .p_news{
-        line-height: 24px !important;
-        padding-top: 15px !important;
-       
-    }
-    .containeer{
-    max-width: 100%;
-    padding-left: 20px;
-    padding-right: 77px;
-}
-        .load-more{
-                    margin:50px 0px;
-                    text-align:center;
-
-                }
-                
-        #loadMore {
-            padding: 10px 30px;
-            background-color: #fdac38;
-            color: #fff;
-            border-width: 0 1px 1px 0;
-            border-style: solid;
-            border-radius:30px;
-            border-color: #fff;
-            box-shadow: 0 1px 1px #ccc;
-            transition: all 600ms ease-in-out;
-            -webkit-transition: all 600ms ease-in-out;
-            -moz-transition: all 600ms ease-in-out;
-            -o-transition: all 600ms ease-in-out;
-        }
-</style>
 <!-- Breadcrumb Area Start -->
 <div class="breadcrumb-area">
     <div class="container">
