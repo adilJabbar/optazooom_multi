@@ -1,4 +1,57 @@
+@if(!Auth::user())
+			<div class="container save-section" data-aos="fade-up">
+				<!-- <div class="savetime">
+					<img src="{{asset('assets/images/savetime.svg')}}" />
+					<div>
+						<p>SAVE TIME</p>
+						<p>Time is precious, OptaZoom makes it easy for you to order all your optical supplies in one place.
+						</p>
+					</div>
+				</div>
+				<div class="savetime">
+					<img src="{{asset('assets/images/savemoney.svg')}}" />
+					<div>
+						<p>SAVE MONEY</p>
+						<p>Take advantage of OptaZoom's special distributor pricing and pay less for the same products you already use.
+						</p>
+					</div>
+				</div>
+				<div class="savetime" >
+					<img src="{{asset('assets/images/less.svg')}}" />
+					<div>
+						<p>LESS HASSLE</p>
+						<p>We make it easy for you to order the items you need all in one place.</p>
+					</div>
+				</div>  -->
+           </div>
 
+<div class="container-fluid">
+    <div class="about-optazoom row animate__animated animate__fadeInUp" >
+        <div class="about-img col-md-6" style="padding-left:0px; !important">
+            <div class="col-md-12">
+                <img src="{{asset('assets/images/about.png')}}"  />
+            </div>
+        </div>
+        <div class="col-md-6" >
+            <div class="col-md-12">
+                <h3>About<span style="font-weight:300;"> Optazoom</span></h3>
+                <p>
+                            With OptaZoom, shopping for all your practice needs becomes easy. Spend less time and money ordering the same items from multiple vendors and spend more time with patients.
+            <br><br>
+            At OptaZoom.com we envisioned a one stop shopping experience where an ECP can have access to the entire eye care industry with the click of a button.
+            <br><br>
+            Well, we haven’t gotten the entire eye care industry on board yet. However, with over 50 companies ranging from frames, cases, supplies and just over 80,000 different items to choose from, we at OptaZoom.com are simplifying the buying experience for ECPS across the globe and we hope to do the same for you.
+                    
+                </p>
+               <div class="creation-account text-right">
+                    <a href="{{ asset('/about_optazoom') }}"><button type="button" class="btn ">Read more</button></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@endif
 		@if($ps->small_banner == 1)
 
 		<!-- Banner Area One Start -->
@@ -15,7 +68,7 @@
 								</div>
 							</div>
 						@endforeach
-					</div>
+				</div>
 				@endforeach
 			</div>
 		</section>
@@ -359,59 +412,7 @@
 
 
 			<!-- Icon Section -->
-<!-- 
-			<div class="container-fluid save-section" data-aos="fade-up">
-    <div class="savetime">
-        <img src="{{asset('assets/images/savetime.svg')}}" />
-        <div>
-            <p>SAVE TIME</p>
-            <p>Time is precious, OptaZoom makes it easy for you to order all your optical supplies in one place.
-            </p>
-        </div>
-    </div>
-    <div class="savetime">
-        <img src="{{asset('assets/images/savemoney.svg')}}" />
-        <div>
-            <p>SAVE MONEY</p>
-            <p>Take advantage of OptaZoom's special distributor pricing and pay less for the same products you already use.
-            </p>
-        </div>
-    </div>
-    <div class="savetime" >
-        <img src="{{asset('assets/images/less.svg')}}" />
-        <div>
-            <p>LESS HASSLE</p>
-            <p>We make it easy for you to order the items you need all in one place.</p>
-        </div>
-    </div>
-</div>
 
-<div class="container-fluid ">
-    <div class="about-optazoom row animate__animated animate__fadeInUp" >
-        <div class="about-img col-md-6" >
-            <div class="col-md-12">
-                <img src="{{asset('assets/images/about.png')}}"  />
-            </div>
-        </div>
-        <div class="col-md-6" >
-            <div class="col-md-12">
-                <h3>About<span style="font-weight:300;"> Optazoom</span></h3>
-                <p>
-                            With OptaZoom, shopping for all your practice needs becomes easy. Spend less time and money ordering the same items from multiple vendors and spend more time with patients.
-            <br><br>
-            At OptaZoom.com we envisioned a one stop shopping experience where an ECP can have access to the entire eye care industry with the click of a button.
-            <br><br>
-            Well, we haven’t gotten the entire eye care industry on board yet. However, with over 50 companies ranging from frames, cases, supplies and just over 80,000 different items to choose from, we at OptaZoom.com are simplifying the buying experience for ECPS across the globe and we hope to do the same for you.
-                    
-                </p>
-               <div class="creation-account text-right">
-                    <a href="{{ asset('/about_optazoom') }}"><button type="button" class="btn ">Read more</button></a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div> -->
 			<!-- End Icon Section -->
 
 			@if($ps->featured == 1)
@@ -514,9 +515,9 @@
 		<!-- Electronics Area start-->
 	@endif
 
-
-
+@if(!Auth::user())
 			<!-- Testimonials -->
+
 			<section class="categori-item electronics-section">
 					<div class="container-fluid">
 							<div class="section-top">
@@ -641,8 +642,9 @@
 					<div class="creation-account aos-init aos-animate" data-aos="fade-up">
 								<a href="javascript:;" data-toggle="modal" data-target="#vendor-login"><button class="btn become-vendor ">Join Free Today</button></a>
 					</div>
-			</section>
-			<!-- Testimonials End -->
+			</section> 
+			@endif
+			<!-- Testimonials End
 	@if($ps->partners == 1)
 		<!-- Partners Area Start -->
 		<section class="partners">
