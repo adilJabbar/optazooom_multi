@@ -224,6 +224,7 @@ class Product extends Model
             return $curr->sign.$price;
         }
         else{
+
             return $price.$curr->sign;
         }
     }
@@ -431,7 +432,7 @@ class Product extends Model
 
     public function emptyStock() {
         $stck = (string)$this->stock;
-        if($stck == "0"){
+        if($stck == "0" || $stck == "not available"){
             return true;            
         }
     }

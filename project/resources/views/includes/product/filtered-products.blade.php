@@ -43,11 +43,20 @@
 															</li> -->
 														</ul>
 													</div>
+													<?php if(strpos($prod->thumbnail,'png') || strpos($prod->thumbnail,'jpg') || strpos($prod->thumbnail,'jpeg')) { ?>
 													@if($prod->thumbnail)
 													<img class="img-fluid" src="{{ $prod->thumbnail ? asset('assets/images/thumbnails/'.$prod->thumbnail):asset('assets/images/noimage.png') }}" alt="">
 												     @else
 													<img class="img-fluid" src="{{ $prod->photo ? asset('assets/images/products/'.$prod->photo):asset('assets/images/noimage.png') }}" alt="">
 													@endif
+
+
+												<?php }else{ 
+														$img = explode(',',$prod->photo);
+													?>
+																<img class="img-fluid" src="@if(isset($img[0])) {{ $img[0] }} @endif" alt="">
+
+											 <?php 	} ?>
 											</div>
 											<div class="info">
 												<div class="stars">
@@ -57,6 +66,7 @@
 													</div>
 												</div>
 												@if(Auth::user())
+
 												<h4 class="price">{{ $prod->setCurrency() }} <del><small>{{ $prod->showPreviousPrice() }}</small></del></h4>
 												@endif
 														<h5 class="name">{{ $prod->showName() }}</h5>

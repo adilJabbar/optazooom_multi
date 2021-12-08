@@ -47,13 +47,15 @@
             <div class="col-lg-5 col-md-12">
 
           <div class="xzoom-container">
-              <img class="xzoom5" id="xzoom-magnific" src="{{filter_var($productt->photo, FILTER_VALIDATE_URL) ?$productt->photo:asset('assets/images/products/'.$productt->photo)}}" xoriginal="{{filter_var($productt->photo, FILTER_VALIDATE_URL) ?$productt->photo:asset('assets/images/products/'.$productt->photo)}}" />
+
+            <?php $img = explode(',', $productt->photo); ?>
+              <img class="xzoom5" id="xzoom-magnific" src="{{filter_var($img[0], FILTER_VALIDATE_URL) ?$img[0]:asset('assets/images/products/'.$productt->photo)}}" xoriginal="{{$img[0]}}" />
               <div class="xzoom-thumbs">
 
                 <div class="all-slider">
 
-                    <a href="{{filter_var($productt->photo, FILTER_VALIDATE_URL) ?$productt->photo:asset('assets/images/products/'.$productt->photo)}}">
-                  <img class="xzoom-gallery5" width="80" src="{{filter_var($productt->photo, FILTER_VALIDATE_URL) ?$productt->photo:asset('assets/images/products/'.$productt->photo)}}" title="The description goes here">
+                    <a href="{{$img[0]}}">
+                  <img class="xzoom-gallery5" width="80" src="{{$img[0]}}" title="The description goes here">
                     </a>
 
                 @foreach($productt->galleries as $gal)
@@ -85,6 +87,7 @@
                         </p>
                       </li>
                       @else
+                      
                       <li class="product-isstook">
                         <p>
                           <i class="icofont-check-circled"></i>

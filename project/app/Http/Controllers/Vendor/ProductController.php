@@ -298,7 +298,10 @@ class ProductController extends Controller
                     $mcat = Category::where(DB::raw('lower(name)'), strtolower($line[1]));
                     // array_splice( $line, 1, 0, $inserted ); 
                 }
-
+                if($i == 15)
+                {
+                    dd('aa');
+                }
 
 
                 if($mcat->exists()){
@@ -354,12 +357,12 @@ class ProductController extends Controller
                 
             $imagesss = explode(',',$image_url);
             // echo "---";
-            //    print_r($imagesss);
+             
             if(isset($imagesss[0]))
             {
                 foreach($imagesss as $img_k => $img_v)
                 {
-                    if($img_v == 0)
+                    if($img_k == 0)
                     {
                         $ch = curl_init();
                           curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -375,36 +378,41 @@ class ProductController extends Controller
                           $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
                        
                         $thumb_url = '';
-                 
+                        $img_v = str_replace(' ', '%20', $img_v);
+                     
+                     
+                        if(strpos($img_v,'png') || strpos($img_v,'jpg') || strpos($img_v,'jpeg'))
+                        {
+                            try {
 
+                                $fimg = Image::make($img_v)->resize(800, 800);                               
+                                $fphoto = Str::random(12).'.jpg';
+                                $fimg->save(public_path().'/assets/images/products/'.$fphoto);
+                                $input['photo']  = $fphoto;
+                                $thumb_url = $img_v;
 
-                        try {
+                                } catch (\Exception $e) {
 
-                        $fimg = Image::make($img_v)->resize(800, 800);
-                        $fphoto = Str::random(12).'.jpg';
-                        $fimg->save(public_path().'/assets/images/products/'.$fphoto);
-                        $input['photo']  = $fphoto;
-                        $thumb_url = $img_v;
-
-                        } catch (\Exception $e) {
-
-                        $fimg = Image::make(public_path().'/assets/images/noimage.png')->resize(800, 800); 
-                        $fphoto = Str::random(12).'.jpg';
-                        $fimg->save(public_path().'/assets/images/products/'.$fphoto);
-                        $input['photo']  = $fphoto;
-                        $thumb_url = public_path().'/assets/images/noimage.png';
-                    }
-                        $timg = Image::make($thumb_url)->resize(285, 285);
-                        $thumbnail = Str::random(12).'.jpg';
-                        $timg->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
-                        $input['thumbnail']  = $thumbnail;
+                                $fimg = Image::make(public_path().'/assets/images/noimage.png')->resize(800, 800); 
+                                $fphoto = Str::random(12).'.jpg';
+                                $fimg->save(public_path().'/assets/images/products/'.$fphoto);
+                                $input['photo']  = $fphoto;
+                                $thumb_url = public_path().'/assets/images/noimage.png';
+                            }
+                            $timg = Image::make($thumb_url)->resize(285, 285);
+                            $thumbnail = Str::random(12).'.jpg';
+                            $timg->greyscale()->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
+                            $input['thumbnail']  = $thumbnail;
+                        }else{
+                            
+                             $input['thumbnail']  = $img_v;
+                        }
 
                     }
 
                 }
             }
 
-                   
                                 
                 // Conert Price According to Currency
                  // if(!empty($input['price']) && !empty($sign->value))
@@ -424,7 +432,7 @@ class ProductController extends Controller
                 $input['previous_price'] = ($input['previous_price'] / $sign->value);
                 $input['user_id'] = $user->id;
                 // Save Data
-            // dd($input);
+            
                 $data->fill($input)->save();
 
                 $lastid = $data->id;
@@ -434,16 +442,17 @@ class ProductController extends Controller
             if(isset($imagesss[1]))
             {
 
-                foreach($imagesss as $img_k => $img_v)
+                foreach($imagesss as $img_kk => $img_vv)
                 {
                  
                     if($img_k!=0)
                     {
+                          $img_vv = str_replace(' ', '%20', $img_vv);
 
                             $gallery = new Gallery;
                             $name = Str::random(12).'.jpg';
                             
-                            $img = Image::make($img_v);
+                            $img = Image::make($img_vv);
 
                             $thumbnail = Str::random(12).'.jpg';
                             $img->save(public_path().'/assets/images/galleries/'.$name);
