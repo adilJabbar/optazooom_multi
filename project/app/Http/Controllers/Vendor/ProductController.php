@@ -347,7 +347,27 @@ class ProductController extends Controller
                 $input['tags'] = $line[14];
                 $input['product_type'] = 'normal';
                 $input['collection'] = $line[21];
-        
+
+
+
+                $input['model'] = $line[22];
+                $input['upc'] = $line[23];
+                $input['part_number'] = $line[24];
+                $input['legacy_number'] = $line[25];
+                $input['brand'] = $line[26];
+                $input['type'] = $line[27];
+                $input['use'] = $line[28];
+                $input['power'] = $line[29];
+                $input['shape'] = $line[30];
+                $input['style'] = $line[31];
+                $input['diameter'] = $line[32];
+                $input['package'] = $line[33];
+                $input['screw_diamter'] = $line[34];
+                $input['screw_length'] = $line[35];
+                $input['screw_headtype'] = $line[36];
+                $input['head_diamter'] = $line[37];
+                $input['mateiral'] = $line[38];
+           
                
 
 
@@ -432,7 +452,7 @@ class ProductController extends Controller
                 $input['previous_price'] = ($input['previous_price'] / $sign->value);
                 $input['user_id'] = $user->id;
                 // Save Data
-         
+        
 
                 $data->fill($input)->save();
 
