@@ -48,7 +48,7 @@ class ProductController extends Controller
     //*** JSON Request
     public function datatables()
     {
-    	 $user = Auth::user();
+         $user = Auth::user();
          $datas = $user->products()->where('product_type','normal')->orderBy('id','desc')->get();
 
          //--- Integrating This Collection Into Datatables
@@ -298,10 +298,7 @@ class ProductController extends Controller
                     $mcat = Category::where(DB::raw('lower(name)'), strtolower($line[1]));
                     // array_splice( $line, 1, 0, $inserted ); 
                 }
-                if($i == 15)
-                {
-                    dd('aa');
-                }
+             
 
 
                 if($mcat->exists()){
@@ -324,7 +321,7 @@ class ProductController extends Controller
                             $input['childcategory_id'] = $chcat->first()->id;
                         }
                     }
-              
+         
                 $input['photo'] = $line[5];
                 $input['name'] = $line[4];
                 $input['details'] = $line[6];
@@ -348,25 +345,51 @@ class ProductController extends Controller
                 $input['product_type'] = 'normal';
                 $input['collection'] = $line[21];
 
+                if(Auth::user()->email == "dynamiclabs@gmail.com")
+                {
+                    if(isset($line[22]))
+                    {
+                         $input['quantity'] = $line[22];
+                         $input['fastener_type'] = $line[23];
+                         $input['tip'] = $line[24];
+                         $input['blade'] = $line[25];
+                         $input['sku_diameter_length'] = $line[26];
+                         $input['cleaner_colour'] = $line[27];
+                         $input['cloth_colour'] = $line[28];
+                        $input['pouch_colour'] = $line[29];
+                    }
+                    
+                  
+
+                }elseif(Auth::user()->email == "ozronsoptical@gmail.com"){
+
+                    $input['strength'] = $line[22];
+                    $input['lens'] = $line[23];
 
 
-                $input['model'] = $line[22];
-                $input['upc'] = $line[23];
-                $input['part_number'] = $line[24];
-                $input['legacy_number'] = $line[25];
-                $input['brand'] = $line[26];
-                $input['type'] = $line[27];
-                $input['use'] = $line[28];
-                $input['power'] = $line[29];
-                $input['shape'] = $line[30];
-                $input['style'] = $line[31];
-                $input['diameter'] = $line[32];
-                $input['package'] = $line[33];
-                $input['screw_diamter'] = $line[34];
-                $input['screw_length'] = $line[35];
-                $input['screw_headtype'] = $line[36];
-                $input['head_diamter'] = $line[37];
-                $input['mateiral'] = $line[38];
+                }else{
+                if(isset($line[22]))
+                {
+                    $input['model'] = $line[22];
+                    $input['upc'] = $line[23];
+                    $input['part_number'] = $line[24];
+                    $input['legacy_number'] = $line[25];
+                    $input['brand'] = $line[26];
+                    $input['typee'] = $line[27];
+                    $input['usee'] = $line[28];
+                    $input['power'] = $line[29];
+                    $input['shape'] = $line[30];
+                    $input['style'] = $line[31];
+                    $input['diameter'] = $line[32];
+                    $input['package'] = $line[33];
+                    $input['screw_diamter'] = $line[34];
+                    $input['screw_length'] = $line[35];
+                    $input['screw_headtype'] = $line[36];
+                    $input['head_diamter'] = $line[37];
+                    $input['mateiral'] = $line[38];
+                }
+            }
+               
            
                
 
@@ -404,8 +427,12 @@ class ProductController extends Controller
                         if(strpos($img_v,'png') || strpos($img_v,'jpg') || strpos($img_v,'jpeg'))
                         {
                             try {
-
-                                $fimg = Image::make($img_v)->resize(800, 800);                               
+                                if (!preg_match("~^(?:f|ht)tps?://~i", $img_v)) {
+                                    $img_v = "https:" . $img_v;
+                                }
+                              
+                                $fimg = Image::make($img_v)->resize(800, 800);         
+                                                    
                                 $fphoto = Str::random(12).'.jpg';
                                 $fimg->save(public_path().'/assets/images/products/'.$fphoto);
                                 $input['photo']  = $fphoto;
@@ -414,14 +441,16 @@ class ProductController extends Controller
                                 } catch (\Exception $e) {
 
                                 $fimg = Image::make(public_path().'/assets/images/noimage.png')->resize(800, 800); 
+
                                 $fphoto = Str::random(12).'.jpg';
                                 $fimg->save(public_path().'/assets/images/products/'.$fphoto);
                                 $input['photo']  = $fphoto;
                                 $thumb_url = public_path().'/assets/images/noimage.png';
                             }
+
                             $timg = Image::make($thumb_url)->resize(285, 285);
                             $thumbnail = Str::random(12).'.jpg';
-                            $timg->greyscale()->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
+                            $timg->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
                             $input['thumbnail']  = $thumbnail;
                         }else{
                             
@@ -432,6 +461,7 @@ class ProductController extends Controller
 
                 }
             }
+
 
                                 
                 // Conert Price According to Currency
@@ -449,10 +479,9 @@ class ProductController extends Controller
             // }else{
             //     $input['price'] = 0;
             // }
-                $input['previous_price'] = ($input['previous_price'] / $sign->value);
+                $input['previous_price'] = ((int)$input['previous_price'] / $sign->value);
                 $input['user_id'] = $user->id;
                 // Save Data
-        
 
                 $data->fill($input)->save();
 
@@ -472,7 +501,10 @@ class ProductController extends Controller
 
                             $gallery = new Gallery;
                             $name = Str::random(12).'.jpg';
-                            
+                             if (!preg_match("~^(?:f|ht)tps?://~i", $img_vv)) {
+                                    $img_vv = "https:" . $img_vv;
+                                }
+                                 try {
                             $img = Image::make($img_vv);
 
                             $thumbnail = Str::random(12).'.jpg';
@@ -480,6 +512,8 @@ class ProductController extends Controller
                             $gallery['photo'] = $name;
                             $gallery['product_id'] = $lastid;
                             $gallery->save();
+                            } catch (\Exception $e) {
+                        }
                     }
                 }
             }
@@ -723,7 +757,7 @@ class ProductController extends Controller
             // Conert Price According to Currency
              $input['price'] = ($input['price'] / $sign->value);
              $input['previous_price'] = ($input['previous_price'] / $sign->value);
-         	 $input['user_id'] = Auth::user()->id;
+             $input['user_id'] = Auth::user()->id;
 
 
 
