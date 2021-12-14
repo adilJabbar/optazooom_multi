@@ -14,7 +14,7 @@
                     </li>
                     <li>
                         <a href="{{ route('user.login') }}">
-                         Login
+                         Log In
                         </a>
                     </li>
                 </ul>

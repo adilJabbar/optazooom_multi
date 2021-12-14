@@ -448,7 +448,7 @@
 						</h4>
 						<ul class="link-list">
 							<li>
-							<a href="{{ route('user.login')}}">Practioner Login	</a>
+							<a href="{{ route('user.login')}}">Practitioner Login	</a>
 							</li>
 
 							<li>

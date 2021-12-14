@@ -327,7 +327,7 @@
 											<ul class="navbar-nav">
 												<li class="nav-item arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
 												<li class="nav-item arrow-icon"> <a href="#fcat">Featured Categories</a></li>
-												<li class="nav-item arrow-icon"><a href="#flashdeals">Flash Deals</a></li>
+												<li class="nav-item arrow-icon"><a href="{{ route('front.indexx')}}#flashdeals">Flash Deals</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
 											</ul>	
@@ -339,6 +339,7 @@
                     </div>
                 </div>
            </div>
+
             <!-- Header Bottom Area End Here -->
             <!-- Begin Mobile Menu Area -->
             <div class="mobile-menu-area d-lg-none d-xl-none col-12">
@@ -445,7 +446,7 @@
 						</h4>
 						<ul class="link-list">
 							<li>
-							<a href="{{ route('user.login')}}">Practioner Login	</a>
+							<a href="{{ route('user.login')}}">Practitioner Login	</a>
 							</li>
 
 							<li>
@@ -458,7 +459,7 @@
 							<a  href="javascript:;" data-toggle="modal" data-target="#vendor-login">Become a  Vendor</a>
 							</li>
 							<li>
-							<a href="{{ route('user-forgot')}}">Reset Passwrod</a>
+							<a href="{{ route('user-forgot')}}">Reset Password</a>
 							</li>
 						</ul>
 					</div>
@@ -503,11 +504,11 @@
    
 							<li>
 								<span><i class="fa fa-envelope"></i></span>
-								&nbsp <a href="mailto://info@yourdomain.com">info@optazoom.com</a>
+								&nbsp <span><a href="mailto:info@optazoom.com">info@optazoom.com</a></span>
 							</li>
 							<li>
 								<span><b><i class="fa fa-phone"></i></b> </span>
-								&nbsp  <a href="#">844-700-9666</a>
+								&nbsp <span> <a href="tel:844-700-9666">844-700-9666</a></span>
 							</li>
 							</ul>
 </div>

@@ -31,7 +31,11 @@
     </div>
 </div>
 <!-- Breadcrumb Area End -->
-
+<style>
+    .containeer{
+        width:1440px;
+    }
+</style>
     <div class="container containeer li-main-blog-page pt-60 pb-55">
         <div class="container containeer">
             <div class="row">

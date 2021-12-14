@@ -23,9 +23,6 @@
     </div>
 </div>
 <!-- Breadcrumb Area End -->
-
-
-
 <section class="about">
     <div class="container">
       <div class="row">
@@ -43,5 +40,4 @@
       </div>
     </div>
   </section>
-
 @endsection

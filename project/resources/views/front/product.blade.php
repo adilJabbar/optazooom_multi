@@ -48,15 +48,17 @@
 
           <div class="xzoom-container">
 
-            <?php $img = explode(',', $productt->photo); ?>
               <img class="xzoom5" id="xzoom-magnific" src="{{filter_var($img[0], FILTER_VALIDATE_URL) ?$img[0]:asset('assets/images/products/'.$productt->photo)}}" xoriginal="{{$img[0]}}" />
               <div class="xzoom-thumbs">
 
                 <div class="all-slider">
 
-                    <a href="{{$img[0]}}">
+                    <!-- <a href="{{$img[0]}}">
                   <img class="xzoom-gallery5" width="80" src="{{$img[0]}}" title="The description goes here">
-                    </a>
+                    </a> -->
+                    <a href="{{filter_var($product->photo, FILTER_VALIDATE_URL) ?$product->photo:asset('assets/images/products/'.$product->photo)}}">
+                <img class="quick-zoom-gallery" width="80" src="{{filter_var($product->photo, FILTER_VALIDATE_URL) ?$product->photo:asset('assets/images/products/'.$product->photo)}}" title="The description goes here">
+                  </a>
 
                 @foreach($productt->galleries as $gal)
                     <a href="{{asset('assets/images/galleries/'.$gal->photo)}}">

@@ -464,7 +464,7 @@
                       <div class="row">
                         <div class="col-lg-4">
                           <div class="left-area">
-                            <h4 class="heading">Flash Deal *</h4>
+                            <h4 class="heading">Flash Deals *</h4>
                             <p class="sub-heading">(In Any Language)</p>
                           </div>
                         </div>
