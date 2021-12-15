@@ -1005,7 +1005,7 @@
 			<div class="tab-pane fade show active" id="nav-log" role="tabpanel" aria-labelledby="nav-log-tab">
 		        <div class="login-area">
 		          <div class="header-area">
-		            <h4 class="title">Your products is from {{$total_vendor}} vendors. You will charge {{$total_vendor}} times shipping cost</h4>
+		            <h4 class="title">Your products is from {{$total_vendor}} vendors. Shipping price may vary.</h4>
 		          </div>
 		    
 		        
