@@ -99,9 +99,9 @@
                 <form id="emailreply">
                   {{csrf_field()}}
                   <ul>
-
+                 
                     <li>
-                      <input type="email" class="input-field" id="eml" name="email" placeholder="{{ $langg->lang363 }} *" required="">
+                      <input type="text" class="input-field" id="eml" name="email" placeholder="Vendor Name" required="">
                     </li>
 
 

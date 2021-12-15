@@ -417,7 +417,7 @@
 
 			@if($ps->featured == 1)
 		<!-- Trending Item Area Start -->
-		<section  class="trending">
+		<section  class="trending" id="fprod">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">

@@ -100,7 +100,7 @@
                                     {{csrf_field()}}
                                     <ul>
                                         <li>
-                                            <input type="email" class="input-field eml-val" id="eml1" name="to" placeholder="{{ __('Email') }} *" value="" required="">
+                                            <input type="text" class="input-field eml-val" id="eml1" name="to" placeholder="{{ __('Vendor Name') }} *" value="" required="">
                                         </li>
                                         <li>
                                             <input type="text" class="input-field" id="order" name="order_number" placeholder="{{ __('Order Numebr') }} *" value="" required="">
