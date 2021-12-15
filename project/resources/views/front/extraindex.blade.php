@@ -444,7 +444,7 @@
 		<!-- Tranding Item Area End -->
 	@endif
 						<!--- Featured Vendors--->
-						<section class="categori-item electronics-section" id="flashdeals">
+						<section class="categori-item electronics-section">
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-12 remove-padding">
@@ -457,7 +457,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="flash-deals">
+						<div class="flash-deals"  id="flashdeals">
 							<div class="flas-deal-slider">
 							@php
 				   $vendors = DB::select('select * from users where is_featured="2" ');
