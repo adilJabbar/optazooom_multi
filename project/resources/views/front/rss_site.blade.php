@@ -10,7 +10,7 @@ if(isset($_GET['search']) && !empty($_GET['search']))
    		   	 <div class="col-lg-12 ">
 	        <div class="li-blog-single-item mb-30">
 	            <div class="row ">
-	                <div class="col-lg-5">
+	                <!-- <div class="col-lg-5">
 	                    <div class="li-blog-banner">
 	                                         
 	                    <?php 
@@ -95,8 +95,8 @@ if(isset($_GET['search']) && !empty($_GET['search']))
 
 	                                                        
 	                    </div>
-	                </div>
-	                <div class="col-lg-7">
+	                </div> -->
+	                <div>
 	                    <div class="li-blog-content">
 	                        <div class="li-blog-details">
 	                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link.'&site='.$site; ?>">{{$item->title}}</a></h3>
@@ -123,7 +123,7 @@ if(isset($_GET['search']) && !empty($_GET['search']))
 	    <div class="col-lg-12 ">
 	        <div class="li-blog-single-item mb-30">
 	            <div class="row ">
-	                <div class="col-lg-5">
+	                <!-- <div class="col-lg-5">
 	                    <div class="li-blog-banner">
 	                                         
 	                    <?php 
@@ -208,8 +208,8 @@ if(isset($_GET['search']) && !empty($_GET['search']))
 
 	                                                        
 	                    </div>
-	                </div>
-	                <div class="col-lg-7">
+	                </div> -->
+	                <div>
 	                    <div class="li-blog-content">
 	                        <div class="li-blog-details">
 	                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link.'&site='.$site; ?>">{{$item->title}}</a></h3>

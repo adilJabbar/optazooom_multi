@@ -21,8 +21,8 @@
                         </a>
                     </li>
                     <li>
-                        @if(isset($item))
-                    <a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a>
+                    @if(isset($item))
+                    <a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>"><?php echo $title ?></a>
                     @endif
                     </li>
                 </ul>
@@ -96,14 +96,6 @@
         }
       
     }
-
-  
-
-
-
-
-                              
-	              				
 
 								preg_match_all('/<img[^>]+>/i',$content, $result);
 								
@@ -186,32 +178,32 @@
                     <div class="row li-main-content">
                         <div class="col-lg-12">
                             <div class="li-blog-single-item pb-30">
-
                                 <div class="li-blog-content">
                                     <div class="li-blog-details">
                                         <h2 class="li-blog-heading"><a href="#"><?php echo $title ?></a></h2>
                                         <div class="li-blog-meta">
-                                         
-                                            <a href="#"><span>Dated: <?php echo $pubDate ?> </a>
+                                            <a href="#"><span><?php echo $pubDate ?> </a>
                                             </span>
                                          
                                         </div>
                                         <div class="li-blog-banner">
-                                            <a href="blog-details.html">
+                                            <div class="row">
+                                                    <div class="col-lg-4">
+                                                  <a href="blog-details.html">
                                                 <?php if(isset($src)){ ?>
                                                     <img class="img-full-detail" src="https://visionmonday.com{{$src}}" alt="">
                                                 <?php }else{ ?>
                                                     <img class="img-full-detail" src="{{asset('assets/images/newsfeed.jpeg')}}" alt="">
 
                                                 <?php } ?>
-                                            </a>
+                                            </a> 
+                                            </div>
+                                            <div class="col-lg-8">
+                                    <p><?php echo  $str = $description;?></p>
+                                            </div>
+                                            </div>
                                         </div>
-                                        <p>
-                                            
-
-                                            <?php echo  $str = $description;    ?>
-                                        </p>
-                                        <a class="read-more-blogs" href="{{$_GET['link']}}">Read Original Article</a>
+               
                                      <!--    <div class="li-blog-sharing d-inline pt-30">
                                             <h4 class="d-inline">share this news feed:</h4>
                                             <a href="https://www.facebook.com/optazoom/"><i class="fa fa-facebook"></i></a>
@@ -219,12 +211,13 @@
                                             <a href="#"><i class="fa fa-pinterest"></i></a>
                                             <a href="#"><i class="fa fa-google-plus"></i></a>
                                         </div> -->
-                                        <div class="pt-100">
-                                           <a href="{{url('optanews')}}"> <p class="go-back text-center" style="text-align:center;">Go BACK</p></a>
+                                        <div class="read_more">
+                                             <a class="read-more-blogs" href="{{$_GET['link']}}">Read Original Article</a>
+                                        </div>
+                                        <div class="go_back">
+                                           <a href="{{url('optanews')}}"> <p class="go-back text-center" style="text-align:center;">Go Back</p></a>
                                         </div>
                                      
-
-
                                     </div>
                                 </div>
                             </div>
@@ -266,13 +259,6 @@
  
     </script>
 	
-
-
-
-
-	
-
-
 @endsection
 
 

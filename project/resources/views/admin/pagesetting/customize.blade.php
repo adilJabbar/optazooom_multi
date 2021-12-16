@@ -85,7 +85,7 @@
                 <div class="col-lg-2"></div>
 
                 <div class="col-lg-4 d-flex justify-content-between">
-                  <label class="control-label" for="flash_deal">{{ __('Flash Deal') }} *</label>
+                  <label class="control-label" for="flash_deal">{{ __('Flash Deals') }} *</label>
                   <label class="switch">
                     <input type="checkbox" name="flash_deal" value="1" {{$data->flash_deal==1?"checked":""}}>
                     <span class="slider round"></span>

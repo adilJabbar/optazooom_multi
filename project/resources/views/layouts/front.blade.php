@@ -326,13 +326,8 @@
 										<div class="collapse navbar-collapse" id="navbarmenu">
 											<ul class="navbar-nav">
 												<li class="nav-item arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
-<<<<<<< Updated upstream
 												<li class="nav-item arrow-icon"> <a href="{{ route('front.indexx')}}#fprod">Featured Products</a></li>
 												<li class="nav-item arrow-icon"><a id="check" href="{{ route('front.indexx')}}#flashdeals">Flash Deals</a></li>
-=======
-												<li class="nav-item arrow-icon"> <a href="#fcat">Featured Categories</a></li>
-												<li class="nav-item arrow-icon"><a href="#flashdeals">Flash Deals</a></li>
->>>>>>> Stashed changes
 												<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
 											</ul>	

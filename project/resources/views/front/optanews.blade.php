@@ -2,12 +2,12 @@
 
 @section('content')
 
-    @if($ps->slider == 1)
+	@if($ps->slider == 1)
 
-        @if(count($sliders))
-            @include('includes.slider-style')
-        @endif
-    @endif
+		@if(count($sliders))
+			@include('includes.slider-style')
+		@endif
+	@endif
 
 <!-- Breadcrumb Area Start -->
 <div class="breadcrumb-area">
@@ -41,8 +41,6 @@
 
 <?php 
 
-
-
      if(isset($key) && !empty($key))
      {
         
@@ -50,52 +48,41 @@
         {  
 
          $pos = strpos($item->title, $key);
+         $pubDate = $item->pubDate;
          if($pos)
          { ?>
              <div class="col-lg-12 ">
         <div class="li-blog-single-item mb-30">
             <div class="row ">
-                <div class="col-lg-5">
+                <!-- <div class="col-lg-5">
                     <div class="li-blog-banner">
                                          
                     <?php 
-                       
-                       
-
-                         
-
-                            // dd('aaa');
                             if(isset($item->image) && !empty($item->image))
                             {
 
-                           
                         ?>
                                      
-                       <img class="img-full" src="https://visionmonday.com{{$item->file}}" alt="">
+                       <!-- <img class="img-full" src="https://visionmonday.com{{$item->file}}" alt=""> -->
                        <?php 
                         }else{
                             ?>
                              <a href="<?php echo $item->link.'" title="'.$item->title  ?> " target="_blank">
-                             <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a>
+                             <!-- <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a> -->
                          <?php }
-                        
-                      
 
-                        ?>
-
-                                                        
+                        ?>                             
                     </div>
-                </div>
-                <div class="col-lg-7">
+                </div> -->
+                <div>
                     <div class="li-blog-content">
                         <div class="li-blog-details">
                             <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
-                            
-                            
-                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify">{{$item->PubDate}}</h3>
-                            
-                            
-                            
+                               <div class="li-blog-meta"> 
+                                            <a href="#"><span><?php echo $pubDate ?> </a>
+                                            </span>
+                                </div>
+                            <h5 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify">{{$item->PubDate}}</h5>
                             <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
                             </p>
                            <br>
@@ -112,12 +99,12 @@
      }else{
 
 
-            
-    foreach ($news_feed as $item ) 
-    {  
+			
+	foreach ($news_feed as $item ) 
+	{  
        
        
-    ?>
+	?>
 
     <div class="col-lg-12 ">
         <div class="li-blog-single-item mb-30">
@@ -173,10 +160,10 @@
                 </div>
                 <!-- Li's Blog Sidebar Area End Here -->
             </div>
-
+            <br>
             <div class="col-lg-12">
                 <div class="load-more">
-                    <button type="button" id="loadMore">Load More</button>
+            	    <button type="button" id="loadMore">Load More</button>
                                     </div>
                 <?php if(isset($pagination_links) && !empty($pagination_links)) : ?>
                     <div class="container Page navigation">
@@ -197,39 +184,39 @@
 
  
     </script>
-    
+	
 
 
 
 
-    
+	
 
 
 @endsection
 
 
 @section('scripts')
-    <script>
+	<script>
 
 $(function () {
     $("div").slice(0, 4).show();
     $("#loadMore").on('click', function (e) {
 
 
-        if($('.optanews_counter').length == 1)
-        {
-            site = 1;
-        }else if($('.optanews_counter').length == 2){
-            site = 2;
-        }else{
-            site = 3;
-            $('#loadMore').hide();
+    	if($('.optanews_counter').length == 1)
+    	{
+    		site = 1;
+    	}else if($('.optanews_counter').length == 2){
+    		site = 2;
+    	}else{
+    		site = 3;
+    		$('#loadMore').hide();
 
-        }
+    	}
         var search = '<?= isset($key)?$key:"" ?>';
    
 
-               $.ajax({  
+    		   $.ajax({  
                 type: "get",
                 url: 'get_second_site_data?site='+site+'&search='+search,
                 success:function(data)
@@ -246,5 +233,5 @@ $(function () {
 
 
 
-    </script>
+	</script>
 @endsection

@@ -27,12 +27,12 @@
 
 <div class="container-fluid">
     <div class="about-optazoom row animate__animated animate__fadeInUp" >
-        <div class="about-img col-md-6" style="padding-left:0px; !important">
+        <div class="about-img col-md-5" style="padding-left:0px; !important">
             <div class="col-md-12">
-                <img src="{{asset('assets/images/about.png')}}"  />
+                <img src="{{asset('assets/images/about_opta.png')}}"  />
             </div>
         </div>
-        <div class="col-md-6" >
+        <div class="col-md-7" >
             <div class="col-md-12">
                 <h3>About<span style="font-weight:300;"> Optazoom</span></h3>
                 <p>
@@ -409,8 +409,6 @@
 		</section>
 		<!-- Blog Area start-->
 	@endif
-
-
 			<!-- Icon Section -->
 
 			<!-- End Icon Section -->
