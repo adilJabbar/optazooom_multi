@@ -8,7 +8,7 @@ class Helper
 
     public static function get_color_name($hex)
     {
-
+        
         $instance = new ColorInterpreter();
 
         $result = $instance->name($hex);

@@ -77,6 +77,18 @@ class VendorController extends Controller
             $input['shop_image'] = $name;
         }
 
+
+            \DB::table('vendor_category')->where('user_id',Auth::user()->id)->delete();
+
+            foreach($request->category as $k => $v)
+            {
+                $dataa['category']  = $v;
+                $dataa['user_id'] =  Auth::user()->id;
+                $dataa['created_at'] =  date('y:m:d h:i:s') ;
+                
+                \DB::table('vendor_category')->insert($dataa);
+            }
+
         $data->update($input);
         $msg = 'Successfully updated your profile';
         return response()->json($msg); 

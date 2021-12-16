@@ -13,7 +13,7 @@
                     </li>
                     <li>
                         <a href="{{ route('user-profile') }}">
-                         My Profile
+                         Profile
                         </a>
                     </li>
                 </ul>
@@ -73,50 +73,45 @@
                                                         value="{{ $user->name }}">
                                                 </div>
                                                 <div class="col-lg-6">
-                                                    <input name="email" type="email" class="input-field"
-                                                        placeholder="{{ $langg->lang265 }}" required=""
-                                                        value="{{ $user->email }}" disabled>
+                                                    <input name="l_name" type="text" class="input-field"
+                                                        placeholder="Last Names" required=""
+                                                        value="{{ $user->l_name }}">
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                <div class="col-lg-6">
+                                                    <input name="email" type="email" class="input-field" 
+                                                        placeholder="{{ $langg->lang265 }}" required=""
+                                                        value="{{ $user->email }}" disabled>
+                                                   
+                                                </div>
                                                 <div class="col-lg-6">
                                                     <input name="phone" type="text" class="input-field"
                                                         placeholder="{{ $langg->lang266 }}" required=""
-                                                        value="{{ $user->phone }}">
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <input name="fax" type="text" class="input-field"
-                                                        placeholder="{{ $langg->lang267 }}" value="{{ $user->fax }}">
+                                                        value="{{ $user->phone }}" disabled>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-lg-6">
-                                                    <input name="city" type="text" class="input-field"
-                                                        placeholder="{{ $langg->lang268 }}" value="{{ $user->city }}">
+                                                    <input name="work_phone" type="text" class="input-field"
+                                                        placeholder="Work Phone" value="{{ $user->work_phone }}">
                                                 </div>
     
-                                                <div class="col-lg-6">
-                                                    <select class="input-field" name="country">
-                                                        <option value="">{{ $langg->lang157 }}</option>
-                                                        @foreach (DB::table('countries')->get() as $data)
-                                                            <option value="{{ $data->country_name }}" {{ $user->country == $data->country_name ? 'selected' : '' }}>
-                                                                {{ $data->country_name }}
-                                                            </option>		
-                                                         @endforeach
-                                                    </select>
+                                                 <div class="col-lg-6">
+                                                    <input name="company" type="text" class="input-field"
+                                                        placeholder="Company Name" value="{{ $user->company }}">
                                                 </div>
     
                                             </div>
                                             <div class="row">
                                                     <div class="col-lg-6">
-                                                            <input name="zip" type="text" class="input-field"
-                                                                placeholder="{{ $langg->lang269 }}" value="{{ $user->zip }}">
-                                                        </div>
+                                                        <select style=" width: 100%;height: 50px;background: #f3f8fc;padding: 0px 30px 0px 45px;border: 1px solid rgba(0, 0, 0, 0.1);font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
+                                                        <option   value="">How Did You Hear About Us?</option>
+                                                        <option  <?php if($user->country == "usa"){ echo "selected"; } ?>  value="facebook">Facebook</option>
+                                                        <option <?php if($user->country == "instagram"){ echo "selected"; } ?> value="instagram">Instagram</option>
+                                                      </select>
+                                                    </div>
     
-                                                <div class="col-lg-6">
-                                                    <textarea class="input-field" name="address" required=""
-                                                        placeholder="{{ $langg->lang270 }}">{{ $user->address }}</textarea>
-                                                </div>
     
                                             </div>
     

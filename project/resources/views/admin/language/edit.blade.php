@@ -425,12 +425,12 @@
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="left-area">
-                                <h4 class="heading">Flash Deals *</h4>
+                                <h4 class="heading">Flash Deal *</h4>
                                 <p class="sub-heading">(In Any Language)</p>
                             </div>
                           </div>
                           <div class="col-lg-7">
-                            <input type="text" class="input-field" name="lang244" placeholder="Flash Deals" required="" value="{{ $lang->lang244 }}">
+                            <input type="text" class="input-field" name="lang244" placeholder="Flash Deal" required="" value="{{ $lang->lang244 }}">
                           </div>
                         </div>
 

@@ -14,7 +14,7 @@
                     </li>
                     <li>
                     <a href="{{ route('front.about') }}">
-                     About Optazoom
+                     Abput Optazoom
                     </a>
                     </li>
                 </ul>

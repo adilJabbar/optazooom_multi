@@ -1,5 +1,4 @@
 
-
 			@if (count($prods) > 0)
 					@foreach ($prods as $key => $prod)
 									<div class="col-lg-4 col-md-4 col-6 remove-padding">
@@ -49,32 +48,31 @@
 
 													$img = explode(',',$prod->photo);
 
-													 if(strpos($prod->thumbnail,'png') || strpos($prod->thumbnail,'jpg') || strpos($prod->thumbnail,'jpeg')) { ?>
-													@if($prod->thumbnail)
+													 if(isset($img[0]) && strpos($img[0],'png') || strpos($img[0],'jpg') || strpos($img[0],'jpeg')) { ?>
+													<!-- @if($img[0]) -->
 													
 												
-													<img class="img-fluid" src="{{ $prod->thumbnail ? asset('assets/images/thumbnails/'.$prod->thumbnail):asset('assets/images/noimage.png') }}" alt="">
-												     @else
+													<img class="img-fluid" src="{{ $img[0] ? asset('assets/images/products/'.$img[0]):asset('assets/images/noimage.png') }}" alt="">
+											<!-- 	     @else
 													<img class="img-fluid" src="{{ $prod->photo ? asset('assets/images/products/'.$prod->photo):asset('assets/images/noimage.png') }}" alt="">
-													@endif
+													@endif -->
 
 
 												<?php }else{ 
 
-													
-														// $img = explode(',',$prod->photo);
-													// if(isset($img[0]) && strpos($img[0],'images')) 
-													// { ?>
-												 <img class="img-fluid" src="{{ $prod->thumbnail ? $prod->thumbnail:asset('assets/images/noimage.png') }}" alt="">
-											<?php	
-												// }else{
+
+														$img = explode(',',$prod->photo);
+													if(isset($img[0]) && strpos($img[0],'images')) 
+													{ ?>
+												 <img class="img-fluid" src="{{ $img[0] ? asset('assets/images/products/'.$img[0]):asset('assets/images/noimage.png') }}" alt="">
+											<?php		}else{
 											    
 											
 													?>
-																<!-- <img class="img-fluid" src="@if(isset($img[0])) {{ $img[0] }} @endif" alt=""> -->
+																<img class="img-fluid" src="@if(isset($img[0])) {{ $img[0] }} @endif" alt="">
 																		   
 
-											 <?php 	//}
+											 <?php 	}
 											 
 											 }?>
 											</div>

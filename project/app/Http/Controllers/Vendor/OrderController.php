@@ -7,7 +7,11 @@ use App\Http\Controllers\Controller;
 use Auth;
 use App\Models\Order;
 use App\Models\VendorOrder;
-
+use FedEx;
+// use FedEx\TrackService\Request;
+use FedEx\TrackService\ComplexType;
+use FedEx\TrackService\SimpleType;
+use FedEx\TrackService\Track;
 class OrderController extends Controller
 {
     public function __construct()
@@ -70,6 +74,83 @@ class OrderController extends Controller
         $order = VendorOrder::where('order_number','=',$slug)->where('user_id','=',$user->id)->update(['status' => $status]);
         return redirect()->route('vendor-order-index')->with('success','Order Status Updated Successfully');
     }
+    }
+
+    public function add_tracking_number()
+    {
+        $tracking_number = $_POST['tracking_number'];
+
+
+
+            $acctNum = '510087240';
+        $accessKey = 'XYC1MVIkU0SuUozl';
+        $password = 'liqepq7o2PNtEffqqbiHoqcru';
+        $meterNum = '119245809';
+        $trackingId1 = 2323;
+        $trackingId2 = '123456789012';
+        $trackingId2 = $_POST['tracking_number'];
+
+
+
+
+
+        // Build Authentication
+            $request['WebAuthenticationDetail'] = array(
+            'UserCredential' => array(
+                'Key'      => $accessKey, //Replace it with FedEx Key, 
+                'Password' => $password //Replace it with FedEx API Password
+            )
+        );
+ 
+ 
+        //Build Client Detail
+        $request['ClientDetail'] = array(
+            'AccountNumber' => $acctNum, //Replace it with Account Number, 
+            'MeterNumber'   => $meterNum //Replace it with Meter Number
+        );
+ 
+         
+        // Build API Version info
+        $request['Version'] = array(
+            'ServiceId'    => 'trck',
+            'Major'        => 10, // You can change it based on you using api version
+            'Intermediate' => 0, // You can change it based on you using api version
+            'Minor'        => 0 // You can change it based on you using api version
+        );
+ 
+ 
+        // Build Tracking Number info
+        $request['SelectionDetails'] = array(
+            'PackageIdentifier' => array(
+                'Type'  => 'TRACKING_NUMBER_OR_DOORTAG',
+                'Value' => $trackingId2 //Replace it with FedEx tracking number
+            )
+        );
+
+
+
+        $wsdlPath = 'TrackService_v18.wsdl'; 
+        $wsdlPath =  url('/').'/project/vendor/maxirus/fedex/src/_wsdl/TrackService_v10.wsdl'; 
+
+        $endPoint = 'https://wsbeta.fedex.com:443/web-services'; //You will get it when requesting to FedEx key. It might change based on the API Environments
+         
+        $client = new \SoapClient($wsdlPath, array('trace' => true));
+        $client->__setLocation($endPoint);
+     
+        $apiResponse = $client->track($request);
+
+        if(isset($apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description))
+        {
+
+
+        $order = Order::find($_POST['order_id']);
+        $order->fedex_trck_num =  $_POST['tracking_number'];
+        $order->update();
+          return redirect()->back()->with('success','Order tracking number add successfullt');
+        }else{
+            return redirect()->back()->with('unsuccess','Order tracking number is not correct');
+        }   
+
     }
 
 }

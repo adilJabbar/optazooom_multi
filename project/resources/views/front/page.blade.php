@@ -13,8 +13,8 @@
                         </a>
                     </li>
                     <li>
-                    <a href="{{ route('front.page',$data->slug) }}">
-                      {{ $data->title }}
+                    <a href="{{ route('front.page',$page->slug) }}">
+                      {{ $page->title }}
                     </a>
                     </li>
                 </ul>
@@ -23,6 +23,9 @@
     </div>
 </div>
 <!-- Breadcrumb Area End -->
+
+
+
 <section class="about">
     <div class="container">
       <div class="row">
@@ -40,4 +43,5 @@
       </div>
     </div>
   </section>
+
 @endsection

@@ -192,7 +192,7 @@
                       @php
                       $is_first = true;
                       @endphp
-                       <select name="color" id="color_select">
+                       <select name="color_name" id="color_select">
                       @foreach($productt->color as $key => $data1)
 
                       
@@ -226,7 +226,7 @@
                   </div>
                   @endif
 
-                  @if(!empty($productt->size) && isset($productt->size_qty[0]))
+                  @if(!empty($productt->size))
 
                   <input type="hidden" id="stock" value="{{ $productt->size_qty[0] }}">
                   @else
@@ -259,7 +259,7 @@
                               </span>
                             </li>
                             <li>
-                              <input type="number" name="qttotal" min="1"  value="1" class="qttotal"></span>
+                              <span class="qttotal">1</span>
                             </li>
                             <li>
                               <span class="qtplus">
@@ -437,7 +437,7 @@
                     <div class="top-menu-area">
                       <ul class="tab-menu">
                         <li><a href="#tabs-1">{{ $langg->lang92 }}</a></li>
-                        <!-- <li><a href="#tabs-2">{{ $langg->lang93 }}</a></li> -->
+                        <li><a href="#tabs-2">{{ $langg->lang93 }}</a></li>
                         <li><a href="#tabs-3">{{ $langg->lang94 }}({{ count($productt->ratings) }})</a></li>
                         @if($gs->is_comment == 1)
                         <li><a href="#tabs-4">{{ $langg->lang95 }}(<span
@@ -450,9 +450,9 @@
                       <div id="tabs-1" class="tab-content-area">
                         <p>{!! $productt->details !!}</p>
                       </div>
-                      <!-- <div id="tabs-2" class="tab-content-area">
+                      <div id="tabs-2" class="tab-content-area">
                         <p>{!! $productt->policy !!}</p>
-                      </div> -->
+                      </div>
                       <div id="tabs-3" class="tab-content-area">
                         <div class="heading-area">
                           <h4 class="title">

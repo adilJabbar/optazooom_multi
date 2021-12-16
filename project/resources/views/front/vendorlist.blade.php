@@ -35,7 +35,7 @@
                             
             <div class="row userss">
             @foreach ($users as $user)
-                    <div class="col-lg-3 col-md-6 col-sm-12">
+                    <div class="col-lg-3">
                         <div class="featured">
                             <div class="featured-vendor">
                                 <a href="{{ route('front.vendor',str_replace(' ', '-', $user->shop_name)) }}">

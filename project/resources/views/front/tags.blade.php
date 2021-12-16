@@ -92,8 +92,8 @@
 		range: true,
 		orientation: "horizontal",
 		min: 0,
-		max: 1000,
-		values: [{{ isset($_GET['min']) ? $_GET['min'] : '0' }}, {{ isset($_GET['max']) ? $_GET['max'] : '1000' }}],
+		max: 10000,
+		values: [{{ isset($_GET['min']) ? $_GET['min'] : '0' }}, {{ isset($_GET['max']) ? $_GET['max'] : '10000' }}],
 		step: 5,
 		slide: function (event, ui) {
 		  if (ui.values[0] == ui.values[1]) {

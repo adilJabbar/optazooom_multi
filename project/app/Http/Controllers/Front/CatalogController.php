@@ -47,6 +47,7 @@ class CatalogController extends Controller
     public function category(Request $request, $slug=null, $slug1=null, $slug2=null)
     {
 
+
       if (Session::has('currency')) 
       {
         $curr = Currency::find(Session::get('currency'));
@@ -176,9 +177,9 @@ class CatalogController extends Controller
                                               }
                                           });
 
-
                                   $prods = $prods->where('status', 1)->get();
       $prods = (new Collection(Product::filterProducts($prods)))->paginate(9);
+ 
 
       $data['prods'] = $prods;
     
@@ -188,6 +189,7 @@ class CatalogController extends Controller
 
         return view('includes.product.filtered-products', $data);
       }
+    
 
       return view('front.category', $data);
     }

@@ -35,14 +35,17 @@
 			$img = explode(',',$prod->photo);
             if(strpos($prod->thumbnail,'png') || strpos($prod->thumbnail,'jpg') || strpos($prod->thumbnail,'jpeg')) {
 			 ?>	
+
 			@if($prod->thumbnail)	
 			<img class="img-fluid" src="{{ $prod->thumbnail ? asset('assets/images/thumbnails/'.$prod->thumbnail):asset('assets/images/noimage.png') }}" alt="">
 			 @else
-			<img class="img-fluid" src="{{ $prod->photo ? asset('assets/images/products/'.$prod->photo):asset('assets/images/noimage.png') }}" alt="">
+				<img class="img-fluid" src="{{ $prod->photo ? asset('assets/images/products/'.$prod->photo):asset('assets/images/noimage.png') }}" alt="">
 			@endif
-			<?php }else{  ?>
-			<img class="img-fluid" src="{{ $prod->thumbnail ? $prod->thumbnail:asset('assets/images/noimage.png') }}" alt="">																		   
-			 <?php  }?>
+				<?php }
+				
+				else {  ?>
+				
+				<img class="img-fluid" src="{{ $prod->thumbnail ? $prod->thumbnail:asset('assets/images/noimage.png') }}" alt="">	 <?php  }?>
 		</div>
 		<div class="info">
 			<div class="stars">

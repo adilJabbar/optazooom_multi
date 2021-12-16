@@ -14,7 +14,7 @@
                     </li>
                     <li>
                         <a href="{{ route('user.login') }}">
-                         Log In
+                         Login
                         </a>
                     </li>
                 </ul>
@@ -232,12 +232,12 @@
                         <form id="verify_otp" action="{{route('user-verify-otp')}}" method="POST">
                              {{ csrf_field() }}
                         <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2 " >
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="first" value="" type="text" id="first" maxlength="1" /> 
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="second" value="" type="text" id="second" maxlength="1" /> 
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="third" type="text" id="third" maxlength="1" /> 
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs"   name="fourth"  type="text" id="fourth" maxlength="1" /> 
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="fifth" type="text" id="fifth" maxlength="1" /> 
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" type="text" name="sixth" id="sixth" maxlength="1" /> </div>
+                         <input  maxlength="1"  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="first" value="" type="text" id="first" maxlength="1" /> 
+                         <input  maxlength="1"  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="second" value="" type="text" id="second" maxlength="1" /> 
+                         <input  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="third" type="text" id="third" maxlength="1" /> 
+                         <input  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs"   name="fourth"  type="text" id="fourth" maxlength="1" /> 
+                         <input  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="fifth" type="text" id="fifth" maxlength="1" /> 
+                         <input  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" type="text" name="sixth" id="sixth" maxlength="1" /> </div>
                         <button class="register-otp-button" type="submit"><i class="fa fa-long-arrow-right circle-icon-arrow"></i> </button>
                         <!-- <a href="#"><i class="fa fa-long-arrow-right circle-icon-arrow"></i></a> -->
                         <input type="hidden" name="id" value="" id="vendor_id">

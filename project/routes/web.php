@@ -1281,6 +1281,7 @@ Route::prefix('vendor')->group(function() {
 
   //------------ ADMIN ORDER SECTION ------------
   Route::get('/orders', 'Vendor\OrderController@index')->name('vendor-order-index');
+  Route::post('add-tracking-number', 'Vendor\OrderController@add_tracking_number');
   Route::get('/order/{id}/show', 'Vendor\OrderController@show')->name('vendor-order-show');
   Route::get('/order/{id}/invoice', 'Vendor\OrderController@invoice')->name('vendor-order-invoice');
   Route::get('/order/{id}/print', 'Vendor\OrderController@printpage')->name('vendor-order-print');

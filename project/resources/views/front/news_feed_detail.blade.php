@@ -77,20 +77,27 @@
 
 
 
-    foreach ($rss->item as $item ) 
+    foreach ($rss->item as $k => $item ) 
     {
+        
+      
 
         if($item->title== $_GET['title'])
         {
+       
             $title = $item->title;
             $description = $item->description;
             $pubDate = $item->pubDate;
+            break;
         }else{
             $title = '';
             $description = '';
             $pubDate = '';
         }
+      
     }
+
+  
 
 
 
@@ -213,7 +220,7 @@
                                             <a href="#"><i class="fa fa-google-plus"></i></a>
                                         </div> -->
                                         <div class="pt-100">
-                                           <a href="{{url('optanews')}}"> <p class="go-back text-center" style="text-align:center;">Go Back</p></a>
+                                           <a href="{{url('optanews')}}"> <p class="go-back text-center" style="text-align:center;">Go BACK</p></a>
                                         </div>
                                      
 

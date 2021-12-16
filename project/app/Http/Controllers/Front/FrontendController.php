@@ -841,7 +841,7 @@ echo json_encode($html);
 
 public function get_vendors_ajax()
 {
-    $users = User::where('name', 'like', '%' . $_GET['key'] . '%')->orWhere('l_name', 'like', $_GET['key'] . '%')->take(10)->get();
+    $users = User::where('is_vendor',2)->where('name', 'like', '%' . $_GET['key'] . '%')->take(10)->get();
     $data='';
      foreach ($users as $user)
      {
@@ -880,7 +880,26 @@ public function news_feed_search(Request $request)
 
 public function get_first_site_data()
 {
-    return view('front.first_site');
+
+     $url = 'https://visionmonday.com/rss/eyecare/';
+                    $rss = Feed::loadRss($url);
+\DB::table('news_feed')->where('site',1)->delete();
+  foreach ($rss->item as $k => $item ) 
+    {
+        $data = array();
+            $data['title'] = $item->title;
+            $data['description'] = $item->description;
+            $data['link'] = $item->link;
+            $data['pubDate'] = $item->pubDate;
+            $data['site'] = 1;
+
+            \DB::table('news_feed')->insert($data);
+
+      
+    }
+    dd('aa');
+                 
+                        return view('front.first_site');
     
 }
 

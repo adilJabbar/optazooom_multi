@@ -221,7 +221,7 @@
 	    				$('.select').niceSelect();	
 				}
             });
-
+		$.fn.dataTable.ext.errMode = 'throw';
       	$(function() {
         $(".btn-area").append('<div class="col-sm-4 table-contents">'+
         	'<a class="add-btn" href="{{route('admin-prod-types')}}">'+
