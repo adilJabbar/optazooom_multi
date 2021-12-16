@@ -326,8 +326,13 @@
 										<div class="collapse navbar-collapse" id="navbarmenu">
 											<ul class="navbar-nav">
 												<li class="nav-item arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
+<<<<<<< Updated upstream
 												<li class="nav-item arrow-icon"> <a href="{{ route('front.indexx')}}#fprod">Featured Products</a></li>
 												<li class="nav-item arrow-icon"><a id="check" href="{{ route('front.indexx')}}#flashdeals">Flash Deals</a></li>
+=======
+												<li class="nav-item arrow-icon"> <a href="#fcat">Featured Categories</a></li>
+												<li class="nav-item arrow-icon"><a href="#flashdeals">Flash Deals</a></li>
+>>>>>>> Stashed changes
 												<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
 											</ul>	
@@ -445,7 +450,7 @@
 						</h4>
 						<ul class="link-list">
 							<li>
-							<a href="{{ route('user.login')}}">Practitioner Login	</a>
+							<a href="{{ route('user.login')}}">Practioner Login	</a>
 							</li>
 
 							<li>
@@ -458,7 +463,7 @@
 							<a  href="javascript:;" data-toggle="modal" data-target="#vendor-login">Become a  Vendor</a>
 							</li>
 							<li>
-							<a href="{{ route('user-forgot')}}">Reset Password</a>
+							<a href="{{ route('user-forgot')}}">Reset Passwrod</a>
 							</li>
 						</ul>
 					</div>
@@ -503,11 +508,11 @@
    
 							<li>
 								<span><i class="fa fa-envelope"></i></span>
-								&nbsp <span><a href="mailto:info@optazoom.com">info@optazoom.com</a></span>
+								&nbsp <a href="mailto://info@yourdomain.com">info@optazoom.com</a>
 							</li>
 							<li>
 								<span><b><i class="fa fa-phone"></i></b> </span>
-								&nbsp <span> <a href="tel:844-700-9666">844-700-9666</a></span>
+								&nbsp  <a href="#">844-700-9666</a>
 							</li>
 							</ul>
 </div>
@@ -1007,7 +1012,7 @@
 			    padding: 0px 30px 0px 45px;
 			    border: 1px
 			    solid rgba(0, 0, 0, 0.1);
-			    font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
+			    font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="country">
                 <option  value="">Country(Optional)</option>
                 <option value="usa">USA</option>
                 <option value="uae">UAE</option>
@@ -1183,6 +1188,19 @@
 	@endif
 
 	@yield('scripts')
+
+
+	<script type="text/javascript">
+  $(".tabs").keyup(function () {
+    if (this.value.length == this.maxLength) {
+      var $next = $(this).next('.tabs');
+      if ($next.length)
+          $(this).next('.tabs').focus();
+      else
+          $(this).blur();
+    }
+});
+</script>
 
 </body>
 
