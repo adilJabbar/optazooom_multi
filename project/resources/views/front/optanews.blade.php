@@ -190,12 +190,6 @@
 
  
     </script>
-	
-
-
-
-
-	
 
 
 @endsection
