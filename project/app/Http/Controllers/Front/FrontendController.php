@@ -864,7 +864,6 @@ public function get_vendors_ajax()
        return json_encode($data);
 }
 
-
 public function news_feed_search(Request $request)
 {
     $this->code_image();
