@@ -32,7 +32,7 @@
                     <div class="order-details">
 
                         <div class="process-steps-area">
-                            @include('includes.order-process')
+                           
 
                         </div>
 
