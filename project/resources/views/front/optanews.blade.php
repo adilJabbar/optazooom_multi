@@ -36,30 +36,7 @@
     display:none;
 }
 
-/*@-webkit-keyframes spin {
-    from {-webkit-transform:rotate(0deg);}
-    to {-webkit-transform:rotate(360deg);}
-}
 
-@keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
-}*/
-
-/*#cover-spin::after {
-    content:'';
-    display:block;
-    position:absolute;
-    left:48%;top:40%;
-    width:40px;height:40px;
-    border-style:solid;
-    border-color:black;
-    border-top-color:transparent;
-    border-width: 4px;
-    border-radius:50%;
-    -webkit-animation: spin .8s linear infinite;
-    animation: spin .8s linear infinite;
-}*/
 
 </style>
 <div id="cover-spin"></div>
@@ -90,17 +67,14 @@
 
     <div class="container containeer li-main-blog-page pt-60 pb-55">
         <div class="container containeer">
-            <div class="row">
-                <!-- Begin Li's Main Content Area -->
-                <div class="col-lg-8 order-lg-1 order-1 load_more ">
-                    <div class="row li-main-content searched_val optanews_counter ">
-                            <span id="bkupData"></span>
 
-<?php 
+<div class="row">
+    <div class="col-lg-6">
+            <?php 
 
      if(isset($key) && !empty($key))
      {
-        
+
         foreach ($news_feed as $item ) 
         {  
 
@@ -108,41 +82,17 @@
          $pubDate = $item->pubDate;
          if($pos)
          { ?>
-             <div class="col-lg-12 ">
+         <div class="col-lg-12 ">
         <div class="li-blog-single-item mb-30">
             <div class="row ">
-                <!-- <div class="col-lg-5">
-                    <div class="li-blog-banner">
-                                         
-                    <?php 
-                            if(isset($item->image) && !empty($item->image))
-                            {
-
-                        ?>
-                                     
-                       <!-- <img class="img-full" src="https://visionmonday.com{{$item->file}}" alt=""> -->
-                       <?php 
-                        }else{
-                            ?>
-                             <a href="<?php echo $item->link.'" title="'.$item->title  ?> " target="_blank">
-                             <!-- <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a> -->
-                         <?php }
-
-                        ?>                             
-                    </div>
-                </div>
-                <div>
+ 
+                <div class="col-lg-12">
                     <div class="li-blog-content">
                         <div class="li-blog-details">
-                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
-                               <div class="li-blog-meta"> 
-                                            <a href="#"><span><?php
+                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>         <?php
                                            
 
-                                             echo  date("D M j Y", strtotime($pubDate)) ?> </a>
-                                            </span>
-                                </div>
-                           <!--  <h5 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify">{{$item->pubDate}}</h5> -->
+                                             echo  date("D M j Y", strtotime($item->pubDate)) ?>
                             <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
                             </p>
                            <br>
@@ -159,10 +109,9 @@
      }else{
 
 
-			
 	foreach ($news_feed as $item ) 
 	{  
-       
+     
        
 	?>
 
@@ -196,10 +145,8 @@
   }
 ?>
 
-
-                    </div>
-                </div>
-
+</div>
+                 <div class="col-lg-4">
                 <!-- Li's Main Content Area End Here -->
                 <!-- Begin Li's Blog Sidebar Area -->
                 <div class="col-lg-3 offset-lg-1 order-lg-2 order-2">
@@ -221,8 +168,10 @@
                    
                     </div>
                 </div>
-                <!-- Li's Blog Sidebar Area End Here -->
             </div>
+
+                <!-- Li's Blog Sidebar Area End Here -->
+         
             <br>
             <div class="col-lg-12">
                 <div class="load-more">
@@ -236,6 +185,11 @@
                     </div>
                 <?php  endif;  ?>
             </div>
+</div>
+
+
+
+
         </div>
     </div>
 
