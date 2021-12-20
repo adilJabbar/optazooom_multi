@@ -868,7 +868,6 @@ public function get_vendors_ajax()
 public function news_feed_search(Request $request)
 {
     $this->code_image();
-       
         $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
         $sliders = DB::table('sliders')->get();
         $key = $request->fsearch; 
