@@ -786,8 +786,8 @@ public function optanews()
        
         $ps = DB::table('pagesettings')->find(1);
         $news_feed = DB::table('news_feed')->get();
-       
-     return view('front.optanews',compact('ps','sliders','news_feed'));
+           $gs = Generalsetting::findOrFail(1);
+     return view('front.optanews',compact('ps','sliders','news_feed','gs'));
 }
 
 public function news_feed_detail()

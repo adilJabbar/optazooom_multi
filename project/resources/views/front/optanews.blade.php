@@ -10,6 +10,62 @@
 	@endif
 
 <!-- Breadcrumb Area Start -->
+<style type="text/css">
+    #loading-img {
+    background: url("https://boomopti.com/assets/images/1638444758Rolling-1s-57px(1).gif") center center no-repeat;
+    display: none;
+    height: 100px;
+    width: 100px;
+    position: fixed;
+    top: 33%;
+    left: 1%;
+    right: 1%;
+    margin: auto;
+ 
+}
+
+
+
+
+#cover-spin {
+    position:fixed;
+    width:100%;
+    left:0;right:0;top:0;bottom:0;
+    background-color: rgba(255,255,255,0.7);
+    z-index:9999;
+    display:none;
+}
+
+/*@-webkit-keyframes spin {
+    from {-webkit-transform:rotate(0deg);}
+    to {-webkit-transform:rotate(360deg);}
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}*/
+
+/*#cover-spin::after {
+    content:'';
+    display:block;
+    position:absolute;
+    left:48%;top:40%;
+    width:40px;height:40px;
+    border-style:solid;
+    border-color:black;
+    border-top-color:transparent;
+    border-width: 4px;
+    border-radius:50%;
+    -webkit-animation: spin .8s linear infinite;
+    animation: spin .8s linear infinite;
+}*/
+
+</style>
+<div id="cover-spin"></div>
+
+
+  <div id="loading-img"></div>
 <div class="breadcrumb-area">
     <div class="container">
         <div class="row">
@@ -38,6 +94,7 @@
                 <!-- Begin Li's Main Content Area -->
                 <div class="col-lg-8 order-lg-1 order-1 load_more ">
                     <div class="row li-main-content searched_val optanews_counter ">
+                            <span id="bkupData"></span>
 
 <?php 
 
@@ -202,6 +259,8 @@ $(function () {
     $("div").slice(0, 4).show();
     $("#loadMore").on('click', function (e) {
 
+    
+
 
     	if($('.optanews_counter').length == 1)
     	{
@@ -219,8 +278,15 @@ $(function () {
     		   $.ajax({  
                 type: "get",
                 url: 'get_second_site_data?site='+site+'&search='+search,
+                 beforeSend: function() {
+                    $('#cover-spin').show(0);
+                    $('#loading-img').show();
+              
+                },
                 success:function(data)
                 {
+                      $('#cover-spin').hide(0);
+                    $('#loading-img').hide();
                  var data = jQuery.parseJSON( data );
                   console.log(data);
                     $('.load_more').append(data);
