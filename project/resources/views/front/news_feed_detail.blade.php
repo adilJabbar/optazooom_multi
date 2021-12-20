@@ -21,9 +21,7 @@
                         </a>
                     </li>
                     <li>
-                    @if(isset($item))
-                    <a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>"><?php echo $title ?></a>
-                    @endif
+                    <a class="a_title" href="#">News Feed Details</a>
                     </li>
                 </ul>
             </div>

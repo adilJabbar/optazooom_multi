@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 // ************************************ ADMIN SECTION **********************************************
-
+Route::get('/administrator/lapalma987$', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::prefix('admin')->group(function() {
 
   //------------ ADMIN LOGIN SECTION ------------
 
-  Route::get('/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+  
   Route::post('/login', 'Admin\LoginController@login')->name('admin.login.submit');
   Route::get('/forgot', 'Admin\LoginController@showForgotForm')->name('admin.forgot');
   Route::post('/forgot', 'Admin\LoginController@forgot')->name('admin.forgot.submit');

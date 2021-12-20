@@ -14,7 +14,7 @@
                     </li>
                     <li>
                         <a href="{{ route('user.login') }}">
-                         Login
+                         Log In
                         </a>
                     </li>
                 </ul>
@@ -150,7 +150,6 @@
     font-weight:300;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
                           <option  value="">How Did You Hear About Us?</option>
                           <option value="google">Facebook</option>
-                          <option value="facebook">Facebook</option>
                           <option value="instagram">Instagram</option>
                           <option value="referral_from_colleague">Referral from Colleague </option>
                           <option value="kristie_nguyen">Kristie Nguyen</option>

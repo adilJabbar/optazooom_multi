@@ -121,7 +121,9 @@ class Cart extends Model
                 }
             }
         }
-        $storedItem['qty'] = $storedItem['qty'] + $qty;
+     
+        $storedItem['qty'] =(int)$storedItem['qty'] + (int)$qty;
+         
         $stck = (string)$item->stock;
         if($stck != null){
                 $storedItem['stock']--;
@@ -389,6 +391,7 @@ public function reducing($item, $id, $size_qty, $size_price) {
     }
 
     public function removeItem($id) {
+      
         $this->totalQty -= $this->items[$id]['qty'];
         $this->totalPrice -= $this->items[$id]['price'];
         unset($this->items[$id]);

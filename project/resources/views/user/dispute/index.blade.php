@@ -1,7 +1,28 @@
 @extends('layouts.front')
 @section('content')
 
-
+<!-- Breadcrumb Area Start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pages">
+                    <li>
+                        <a href="{{ route('front.index') }}">
+                            {{ $langg->lang17 }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('user-orders') }}">
+                            Purchased Items
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Area End -->
 <section class="user-dashbord">
     <div class="container">
       <div class="row">

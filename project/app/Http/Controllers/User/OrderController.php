@@ -94,21 +94,21 @@ class OrderController extends Controller
      
         $apiResponse = $client->track($request);
 
-
         $order = Order::where('order_number','=',$id)->first();
-        if(isset($apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description))
-        {
+    // dd($apiResponse);
+        // if(isset($apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description))
+        // {
 
-            $order_track = new OrderTrack;
-            $order_track->order_id = $order->id;
-            $order_track->title = $apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description;
-            $db_check = OrderTrack::where('order_id',$order->id)->where('title',$apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description)->first();
-            if(!isset($db_check->id))
-            {
-                $order_track->save();
-            }
-        }
-
+        //     $order_track = new OrderTrack;
+        //     $order_track->order_id = $order->id;
+        //     $order_track->title = $apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description;
+        //     $db_check = OrderTrack::where('order_id',$order->id)->where('title',$apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description)->first();
+        //     if(!isset($db_check->id))
+        //     {
+        //         $order_track->save();
+        //     }
+        // }
+      
 
         $datas = array('Pending','Processing','On Delivery','Completed');
         return view('load.track-load',compact('order','datas','apiResponse'));

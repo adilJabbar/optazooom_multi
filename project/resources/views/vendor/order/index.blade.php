@@ -69,7 +69,7 @@
                                       <td>
 
                                         <div class="action-list">
-
+                                 
                                         <a href="{{route('vendor-order-show',$order->order->order_number)}}" class="btn btn-primary product-btn"><i class="fa fa-eye"></i> {{ $langg->lang539 }}</a>
                                             <select class="vendor-btn {{ $order->status }}">
                                             <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'pending']) }}" {{  $order->status == "pending" ? 'selected' : ''  }}>{{ $langg->lang540 }}</option>

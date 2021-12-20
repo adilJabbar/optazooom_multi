@@ -4,26 +4,27 @@
 
 
 @section('content')
-<!--Breadcrumb-->
-<div class="breadcrumb justify-content-center pt-60 pb-60">
-        <div>
-            <ol class="breadcrumb">
-                <h3 class="bread-login">   {{ $langg->lang169 }}</h3>
-            </ol>
-            <ol class="breadcrumb">
-            
-                <li class="breadcrumb-item bread-title"><a href="{{ route('front.index') }}">
-							{{ $langg->lang17 }}
-						</a></li>
-    <li class="breadcrumb-item bread-title active bread-title" aria-current="page">	 <a href="{{ route('payment.return') }}">
-              {{ $langg->lang169 }}
-            </a></li>
-            </ol>
+ <!-- Breadcrumb Area Start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pages">
+                    <li>
+                        <a href="{{ route('front.index') }}">
+                            {{ $langg->lang17 }}
+                        </a>
+                    </li>
+                    <li>
+                    <a class="a_title" href="{{ route('front.index') }}"> {{ $langg->lang169 }}</a>
+                    
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <!--Breadcrumb end-->
-
+</div>
+<!-- Breadcrumb Area End -->
 
 
 

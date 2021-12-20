@@ -1117,19 +1117,21 @@ $(function($) {
             Cart Page Quantity
         -----------------------------*/
         $(document).on('click', '.qtminus', function() {
+             
             var el = $(this);
             var $tselector = el.parent().parent().find('.qttotal');
-            total = $($tselector).text();
+            total = $($tselector).val();
             if (total > 1) {
                 total--;
             }
-            $($tselector).text(total);
+            $($tselector).val(total);
         });
 
         $(document).on('click', '.qtplus', function() {
+     
             var el = $(this);
             var $tselector = el.parent().parent().find('.qttotal');
-            total = $($tselector).text();
+            total = $($tselector).val();
             if (stock != "") {
                 var stk = parseInt(stock);
                 if (total < stk) {
@@ -1140,14 +1142,15 @@ $(function($) {
                 total++;
             }
 
-            $($tselector).text(total);
+            $($tselector).val(total);
         });
 
 
 
 
         $(document).on("click", "#addcrt", function() {
-            var qty = $('.qttotal').html();
+         
+            var qty = $('.qttotal').val();
             var pid = $(this).parent().parent().parent().parent().find("#product_id").val();
 
             if ($('.product-attr').length > 0) {
@@ -1166,15 +1169,19 @@ $(function($) {
 
 
             }
-
-
+          
+            var color = $('#color').val();
+            if(typeof color === 'undefined')
+            {
+                color = '';
+            }
 
 
 
             $.ajax({
                 type: "GET",
                 url: mainurl + "/addnumcart",
-                data: { id: pid, qty: qty, size: sizes, color: colors, size_qty: size_qty, size_price: size_price, size_key: size_key, keys: keys, values: values, prices: prices },
+                data: { id: pid, qty: qty, size: sizes, color: color, size_qty: size_qty, size_price: size_price, size_key: size_key, keys: keys, values: values, prices: prices },
                 success: function(data) {
 
                     if (data == 'digital') {

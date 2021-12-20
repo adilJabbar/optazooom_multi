@@ -828,6 +828,7 @@ class CartController extends Controller
         }
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
+   
         $a = $cart->removeItem($id);
 
    

@@ -326,8 +326,9 @@
 										<div class="collapse navbar-collapse" id="navbarmenu">
 											<ul class="navbar-nav">
 												<li class="nav-item arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
+
 												<li class="nav-item arrow-icon"> <a href="{{ route('front.indexx')}}#fprod">Featured Products</a></li>
-												<li class="nav-item arrow-icon"><a id="check" href="{{ route('front.indexx')}}#flashdeals">Flash Deals</a></li>
+												<li class="nav-item arrow-icon"><a id="check" href="{{ route('front.indexx')}}#flashdeals">Flash Deals</a></li>											
 												<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
 											</ul>	
@@ -445,20 +446,20 @@
 						</h4>
 						<ul class="link-list">
 							<li>
-							<a href="{{ route('user.login')}}">Practioner Login	</a>
+							<a href="{{ route('user.login')}}">Practitioner Log In	</a>
 							</li>
 
 							<li>
-							<a href="javascript:;" data-toggle="modal" data-target="#vendor-login">Vendor Login</a>
+							<a href="javascript:;" data-toggle="modal" data-target="#vendor-login">Vendor Log In</a>
 							</li>
 							<li>
 							<a href="{{ route('user.optanews')}}">Optazoom News</a>
 							</li>
 							<li>
-							<a  href="javascript:;" data-toggle="modal" data-target="#vendor-login">Become a  Vendor</a>
+							<a  href="javascript:;" data-toggle="modal" data-target="#vendor-login">Become a Vendor</a>
 							</li>
 							<li>
-							<a href="{{ route('user-forgot')}}">Reset Passwrod</a>
+							<a href="{{ route('user-forgot')}}">Reset Password</a>
 							</li>
 						</ul>
 					</div>
@@ -991,7 +992,7 @@
     font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
                         <option  value="">How Did You Hear About Us?</option>
 						<option value="google">Facebook</option>
-                        <option value="facebook">Facebook</option>
+                       
                         <option value="instagram">Instagram</option>
 						<option value="referral_from_colleague">Referral from Colleague </option>
 						<option value="kristie_nguyen">Kristie Nguyen</option>

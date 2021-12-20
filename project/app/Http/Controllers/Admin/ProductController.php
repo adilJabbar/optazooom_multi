@@ -30,7 +30,7 @@ class ProductController extends Controller
     //*** JSON Request
     public function datatables()
     {
-         $datas = Product::where('product_type','=','normal')->orderBy('id','desc')->get();
+         $datas = Product::where('product_type','=','normal')->take(6250)->orderBy('id','desc')->get();
 
          //--- Integrating This Collection Into Datatables
          return Datatables::of($datas)

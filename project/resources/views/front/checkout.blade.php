@@ -12,27 +12,28 @@
 @endsection
 
 @section('content')
-
-
-    <!--Breadcrumb-->
-    <div class="breadcrumb justify-content-center pt-60 pb-60">
-        <div>
-            <ol class="breadcrumb">
-                <h3 class="bread-login">{{ $langg->lang136 }}</h3>
-            </ol>
-            <ol class="breadcrumb">
-            
-                <li class="breadcrumb-item bread-title"><a href="{{ route('front.index') }}">
-							{{ $langg->lang17 }}
-						</a></li>
-    <li class="breadcrumb-item bread-title active bread-title" aria-current="page">		<a href="{{ route('front.checkout') }}">
-							{{ $langg->lang136 }}
-						</a></li>
-            </ol>
+    <!-- Breadcrumb Area Start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pages">
+                    <li>
+                        <a href="{{ route('front.index') }}">
+                            {{ $langg->lang17 }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('front.checkout') }}">
+                            {{ $langg->lang136 }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-
-    <!--Breadcrumb end-->
+</div>
+<!-- Breadcrumb Area End -->
 
 	<!-- Check Out Area Start -->
 	<section class="checkout">
@@ -1005,11 +1006,11 @@
 			<div class="tab-pane fade show active" id="nav-log" role="tabpanel" aria-labelledby="nav-log-tab">
 		        <div class="login-area">
 		          <div class="header-area">
-<<<<<<< Updated upstream
+
 		            <h4 class="title">Your products is from {{$total_vendor}} vendors. Shipping price may vary.</h4>
-=======
+
 		            <h4 class="title">Your products is from {{$total_vendor}} vendors. You will chanrge {{$total_vendor}} times shipping cost</h4>
->>>>>>> Stashed changes
+
 		          </div>
 		    
 		        

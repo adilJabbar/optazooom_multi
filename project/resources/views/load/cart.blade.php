@@ -24,10 +24,12 @@
 																	</span>
 																</div>
 															</div><!-- End .product-details -->
-
+                                         
+                                         
+                                          <?php $img = explode(',',$product['item']['photo']); ?>
 															<figure class="product-image-container">
 																<a href="{{ route('front.product', $product['item']['slug']) }}" class="product-image">
-																	<img src="{{ $product['item']['photo'] ? filter_var($product['item']['photo'], FILTER_VALIDATE_URL) ?$product['item']['photo']:asset('assets/images/products/'.$product['item']['photo']):asset('assets/images/noimage.png') }}" alt="product">
+																	<img src="{{filter_var($img[0], FILTER_VALIDATE_URL) ?$img[0]:asset('assets/images/products/'.$product['item']['photo'])}}" alt="product">
 																</a>
 																<div class="cart-remove" data-class="cremove{{ $product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values']) }}" data-href="{{ route('product.cart.remove',$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])) }}" title="Remove Product">
 																	<i class="icofont-close"></i>

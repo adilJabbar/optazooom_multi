@@ -66,8 +66,10 @@
 					<div class="full-stars" style="width:{{App\Models\Rating::ratings($prod->id)}}%"></div>
 				</div>
 			</div>
+			
+	@if(Auth::guard('web')->check())
 			<h4 class="price">{{ $prod->showPrice() }} <del><small>{{ $prod->showPreviousPrice() }}</small></del></h4>
-					<h5 class="name">{{ $prod->showName() }}</h5>
+			@endif					<h5 class="name">{{ $prod->showName() }}</h5>
 					<div class="item-cart-area">
 												@if($prod->product_type == "affiliate")
 													<span class="add-to-cart-btn affilate-btn" data-href="{{ route('affiliate.product', $prod->slug) }}"><i class="icofont-cart"></i> {{ $langg->lang251 }}

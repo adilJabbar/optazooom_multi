@@ -1,6 +1,28 @@
 @extends('layouts.front')
 @section('content')
 <!-- User Dashbord Area Start -->
+<!-- Breadcrumb Area Start -->
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="pages">
+                    <li>
+                        <a href="{{ route('front.index') }}">
+                            {{ $langg->lang17 }}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('user-orders') }}">
+                         Purchased Items
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Area End -->
 <section class="user-dashbord">
     <div class="container">
         <div class="row">
@@ -23,6 +45,10 @@
                         <div class="view-order-page">
                             <h3 class="order-code">{{ $langg->lang285 }} {{$order->order_number}} [{{$order->status}}]
                             </h3>
+                           
+                              <h3 class="order-code"> @if(!empty($order->fedex_trck_num)) Fedex Tracking Number#  {{$order->fedex_trck_num}} @endif
+                            </h3>   
+                            
                             <div class="print-order text-right">
                                 <a href="{{route('user-order-print',$order->id)}}" target="_blank"
                                     class="print-order-btn">
@@ -35,6 +61,7 @@
                             @if($order->dp == 1)
 
                             <div class="billing-add-area">
+                               
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h5>{{ $langg->lang287 }}</h5>
@@ -146,6 +173,7 @@
                                 </div>
                             </div>
                             <div class="billing-add-area">
+                               
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h5>{{ $langg->lang287 }}</h5>

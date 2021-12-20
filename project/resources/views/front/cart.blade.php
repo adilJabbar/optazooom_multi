@@ -55,10 +55,14 @@
                      $discount += $product['discount1'];
                      }
                     @endphp
+                    
+                     <?php $img = explode(',',$product['item']['photo']); ?>
+                     
+                     
                     <tr class="cremove{{ $product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values']) }}">
                       <td class="product-img">
                         <div class="item">
-                          <img src="{{ $product['item']['photo'] ? asset('assets/images/products/'.$product['item']['photo']):asset('assets/images/noimage.png') }}" alt="">
+                          <img src="{{filter_var($img[0], FILTER_VALIDATE_URL) ?$img[0]:asset('assets/images/products/'.$product['item']['photo'])}}" alt="">
                           <p class="name"><a href="{{ route('front.product', $product['item']['slug']) }}">{{mb_strlen($product['item']['name'],'utf-8') > 35 ? mb_substr($product['item']['name'],0,35,'utf-8').'...' : $product['item']['name']}}</a></p>
                         </div>
                       </td>
@@ -68,7 +72,7 @@
                                                 @endif
                                                 @if(!empty($product['color']))
                                                 <div class="d-flex mt-2">
-                                                <b>{{ $langg->lang313 }}</b>:  <span id="color-bar" style="border: 10px solid #{{$product['color'] == "" ? "white" : $product['color']}};"></span>
+                                                <b>{{ $langg->lang313 }}</b>:{{$product['color'] == "" ? "white" : $product['color']}}  <span id="color-bar" style="border: 10px solid #{{$product['color'] == "" ? "white" : $product['color']}};"></span>
                                                 </div>
                                                 @endif
 

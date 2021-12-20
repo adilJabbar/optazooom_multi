@@ -824,7 +824,7 @@ public function get_second_site_data()
         $rss = Feed::loadRss($url);
     }else if($_GET['site'] == 2)
     {
-        $url = 'https://www.opticianonline.net/site/GetRssFeed/All';
+        $url = 'https://www.journalofoptometry.org/en-rss-ultimo';
         $rss = Feed::loadRss($url);
     }else{
         $url = 'https://www.journalofoptometry.org/en-rss-ultimo';

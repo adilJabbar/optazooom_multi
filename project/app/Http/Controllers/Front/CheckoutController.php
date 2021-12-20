@@ -90,22 +90,22 @@ class CheckoutController extends Controller
 
                        
                         $check_stripe_account = User::find($users[0])->account_num;
-                        if(empty($check_stripe_account))
-                        {
-                         return redirect()->back()->with('unsuccess',"Vendor are not connected with stripe."); 
-                        }
+                        // if(empty($check_stripe_account))
+                        // {
+                        //  return redirect()->back()->with('unsuccess',"Vendor are not connected with stripe."); 
+                        // }
                         
-                Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-                         $response = \Stripe\PaymentIntent::create([
-                          'amount' => 100,
-                          'currency' => 'usd',
-                          'application_fee_amount' => 10,
-                          'payment_method_types' => ['card'],
-                          'on_behalf_of' => $check_stripe_account,
-                          'transfer_data' => [
-                            'destination' => $check_stripe_account,
-                          ]
-                        ]);
+                // Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+                //          $response = \Stripe\PaymentIntent::create([
+                //           'amount' => 100,
+                //           'currency' => 'usd',
+                //           'application_fee_amount' => 10,
+                //           'payment_method_types' => ['card'],
+                //           'on_behalf_of' => $check_stripe_account,
+                //           'transfer_data' => [
+                //             'destination' => $check_stripe_account,
+                //           ]
+                //         ]);
                          // dd($response);
 
                         $shipping_data  = DB::table('shippings')->where('user_id','=',$users[0])->get();
