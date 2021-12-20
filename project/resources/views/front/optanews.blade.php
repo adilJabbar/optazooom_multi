@@ -51,13 +51,37 @@
          $pubDate = $item->pubDate;
          if($pos)
          { ?>
-             <div>
+             <div class="col-lg-12 ">
+        <div class="li-blog-single-item mb-30">
+            <div class="row ">
+                <!-- <div class="col-lg-5">
+                    <div class="li-blog-banner">
+                                         
+                    <?php 
+                            if(isset($item->image) && !empty($item->image))
+                            {
+
+                        ?>
+                                     
+                       <!-- <img class="img-full" src="https://visionmonday.com{{$item->file}}" alt=""> -->
+                       <?php 
+                        }else{
+                            ?>
+                             <a href="<?php echo $item->link.'" title="'.$item->title  ?> " target="_blank">
+                             <!-- <img class="img-full" src="{{asset('assets/images/newsfeed.jpeg')}}" alt=""></a> -->
+                         <?php }
+
+                        ?>                             
+                    </div>
+                </div>
+                <div>
                     <div class="li-blog-content">
                         <div class="li-blog-details">
                             <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
                                <div class="li-blog-meta"> 
                                             <a href="#"><span><?php
                                            
+
                                              echo  date("D M j Y", strtotime($pubDate)) ?> </a>
                                             </span>
                                 </div>
@@ -157,6 +181,23 @@
             </div>
         </div>
     </div>
+
+
+    <script type="text/javascript">
+
+
+
+
+ 
+    </script>
+	
+
+
+
+
+	
+
+
 @endsection
 
 
