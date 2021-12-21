@@ -78,10 +78,6 @@ class FrontendController extends Controller
 
     function getOS() {
 
-
-
-
-
         $user_agent     =   !empty($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "Unknown";
 
         $os_platform    =   "Unknown OS Platform";
@@ -958,7 +954,7 @@ public function search_by()
       $sort = '';
       $search = $_GET['key'];
 
-    if( $_GET['search_by'] == "prodcut")
+    if( $_GET['search_by'] == "Prodcut")
     {
            $prods = Product::when($search, function ($query, $search) {
                                       return $query->where('name', 'like', '%' . $search . '%');
@@ -967,34 +963,24 @@ public function search_by()
                                       return $query->orderBy('id', 'DESC');
                                   });
 
-    }elseif ($_GET['search_by'] == "cat") {
+    }
+    if ($_GET['search_by'] == "Category") {
         $search = $_GET['key'];
 
-         $cat = null;
-           if (!empty($search)) {
 
-        $cat = Category::where('slug', $search)->first();
-
-        $data['cat'] = $cat;
-
-         $prods = Product::when($cat, function ($query, $cat) {
-                                      return $query->where('category_id', $cat->id);
-                                  })
-                                  ->when($search, function ($query, $search) {
-                                      return $query->where('name', 'like', '%' . $search . '%');
-                                  })
-                                  ->when(empty($sort), function ($query, $sort) {
-                                      return $query->orderBy('id', 'DESC');
-                                  });
+            $html = view('includes.search_view_by_cat', compact('search'))->render();
+            echo json_encode(['html'=>$html]);
+            exit();
 
 
 
-      }
-    }else{
-         $prods = Product::when(empty($sort), function ($query, $sort) {
-                                      return $query->orderBy('id', 'DESC');
-                                  });
+
     }
+    // else{
+    //      $prods = Product::when(empty($sort), function ($query, $sort) {
+    //                                   return $query->orderBy('id', 'DESC');
+    //                               });
+    // }
 
 
 

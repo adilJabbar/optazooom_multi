@@ -1,5 +1,5 @@
 @extends('layouts.vendor')
-     
+
 @section('styles')
 
 
@@ -54,7 +54,7 @@
 
                                                 @if(Auth::user()->id == $order->vendor_shipping_id)
                                                 @if($order->shipping_cost != 0)
-                                                @php 
+                                                @php
                                                 $price = round(($order->shipping_cost / $order->currency_value),2);
                                                 @endphp
                                                 @if(DB::table('shippings')->where('price','=',$price)->count() > 0)
@@ -66,10 +66,10 @@
                                                 @endif
                                                 @endif
                                                 @endif
-                                                
+
                                                 @if(Auth::user()->id == $order->vendor_packing_id)
                                                 @if($order->packing_cost != 0)
-                                                @php 
+                                                @php
                                                 $pprice = round(($order->packing_cost / $order->currency_value),2);
                                                 @endphp
                                                 @if(DB::table('packages')->where('price','=',$pprice)->count() > 0)
@@ -86,7 +86,7 @@
                                                     <th width="45%">{{ $langg->lang553 }}</th>
                                                     <td width="10%">:</td>
 
-                                                        @php 
+                                                        @php
 
                                                         $price = round($order->vendororders()->where('user_id','=',$user->id)->sum('price'),2);
 
@@ -97,7 +97,7 @@
                                                         if($order->tax != 0){
                                                             $tax = ($price / 100) * $order->tax;
                                                             $price  += $tax;
-                                                            }   
+                                                            }
 
                                                         @endphp
 
@@ -115,35 +115,35 @@
                                                     <td width="10%">:</td>
                                                     <td width="45%">{{$order->method}}</td>
                                                 </tr>
-                
+
                                                 @if($order->method != "Cash On Delivery")
                                                 @if($order->method=="Stripe")
                                                 <tr>
                                                     <th width="45%">{{$order->method}} {{ $langg->lang796 }}</th>
                                                     <td width="10%">:</td>
                                                     <td width="45%">{{$order->charge_id}}</td>
-                                                </tr>                        
+                                                </tr>
                                                 @endif
                                                 <tr>
                                                     <th width="45%">{{$order->method}} {{ $langg->lang797 }}</th>
                                                     <td width="10%">:</td>
                                                     <td width="45%">{{$order->txnid}}</td>
-                                                </tr>                         
+                                                </tr>
                                                 @endif
 
                                                 <tr>
                                                     <th width="45%">{{ $langg->lang798 }}</th>
                                                     <th width="10%">:</th>
                                                     <td width="45%">{!! $order->payment_status == 'Pending' ? "<span class='badge badge-danger'>". $langg->lang799 ."</span>":"<span class='badge badge-success'>". $langg->lang800 ."</span>" !!}</td>
-                                                </tr>   
+                                                </tr>
                                                 @if(!empty($order->order_note))
                                                 <tr>
                                                     <th width="45%">{{ $langg->lang801 }}</th>
                                                     <th width="10%">:</th>
                                                     <td width="45%">{{$order->order_note}}</td>
-                                                </tr> 
+                                                </tr>
                                                 @endif
-                                                
+
                                                 </tbody>
                                             </table>
                                         </div>
@@ -291,7 +291,7 @@
                                 @if($product['item']['user_id'] != 0)
                                     @if($product['item']['user_id'] == $user->id)
                                     <tr>
-                                        
+
                                             <td><input type="hidden" value="{{$key}}">{{ $product['item']['id'] }}</td>
 
                                             <td>
@@ -381,7 +381,7 @@
                                                     @foreach( array_combine(explode(',', $product['keys']), explode(',', $product['values']))  as $key => $value)
                                                     <p>
 
-                                                        <b>{{ ucwords(str_replace('_', ' ', $key))  }} : </b> {{ $value }} 
+                                                        <b>{{ ucwords(str_replace('_', ' ', $key))  }} : </b> {{ $value }}
 
                                                     </p>
                                                     @endforeach
@@ -518,8 +518,8 @@ $('#example2').dataTable( {
         $(document).on('click','#license' , function(e){
             var id = $(this).parent().find('input[type=hidden]').val();
             var key = $(this).parent().parent().find('input[type=hidden]').val();
-            $('#key').html(id);  
-            $('#license-key').val(key);    
+            $('#key').html(id);
+            $('#license-key').val(key);
     });
         $(document).on('click','#license-edit' , function(e){
             $(this).hide();

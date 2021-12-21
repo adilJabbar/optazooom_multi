@@ -1,4 +1,4 @@
-       
+
        <div class="col-lg-3 col-md-6">
           <div class="left-area">
             <div class="filter-result-area">
@@ -26,9 +26,9 @@
                             </div>
                           </div>
                     </form>            -->
-             
+
                       <div class="main-search-bar">
-                        
+
                 <div class="search-icon" style="margin-right:3px; margin-top:1px;">
                    <i class="fa fa-search"></i>
                 </div>
@@ -53,17 +53,17 @@
                  </div>
 
                 <div class="search-text-input">
-                  <input type="hidden" name="search_by" id="search_by" value="all"> 
+                  <input type="hidden" name="search_by" id="search_by" value="all">
                   <input  type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on"/>
                 </div>
               </div>
-                </div>   
+                </div>
             <style>
-             
+
             </style>
 
-       
-              
+
+
             </div>
 
             <div class="body-area">
@@ -74,7 +74,7 @@
                 @if (!empty(request()->input('sort')))
                   <input type="hidden" name="sort" value="{{ request()->input('sort') }}">
                 @endif
-                <ul class="filter-list filter-list-category" style="height:900px; overflow:auto;">
+                <ul class="filter-list filter-list-category categoriess" style="height:900px; overflow:auto;">
                 <?php
 									$categories_order = DB::table('categories')->orderby('name' , 'ASC')->get();
 									?>
@@ -265,4 +265,3 @@
 
           </div>
         </div>
- 

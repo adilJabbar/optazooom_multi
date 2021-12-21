@@ -1,6 +1,38 @@
 @extends('layouts.front')
 @section('content')
+<style type="text/css">
+    #loading-img {
+    background: url("https://boomopti.com/assets/images/1638444758Rolling-1s-57px(1).gif") center center no-repeat;
+    display: none;
+    height: 100px;
+    width: 100px;
+    position: fixed;
+    top: 33%;
+    left: 1%;
+    right: 1%;
+    margin: auto;
 
+}
+
+
+
+
+#cover-spin {
+    position:fixed;
+    width:100%;
+    left:0;right:0;top:0;bottom:0;
+    background-color: rgba(255,255,255,0.7);
+    z-index:9999;
+    display:none;
+}
+
+
+
+</style>
+<div id="cover-spin"></div>
+
+
+  <div id="loading-img"></div>
 <!-- Breadcrumb Area Start -->
 <div class="breadcrumb-area">
    <div class="container">
@@ -88,7 +120,7 @@
 <script>
 
 
-  
+
                 function select_all(a)
                 {
                   $('#search_by').val(a);
@@ -97,17 +129,31 @@
 
                 $('#prod_namee').keyup(function(){
 
-                    
+                    $('#cover-spin').show(0);
+                    $('#loading-img').show();
+
+
+
                      $.ajax(
                       '<?php echo url('search_by?search_by=') ?>'+$('#search_by').val()+'&key='+$(this).val(),
                       {
                           success: function(data)
                            {
-                            var obj = jQuery.parseJSON(data);
-                            console.log(obj.html);
-                            $('.fil_products').html(obj.html)
+                            $('#cover-spin').hide(0);
+                            $('#loading-img').hide();
+                               if($('#search_by').val() == 'Category')
+                               {
+                                var obj = jQuery.parseJSON(data);
+                                console.log(obj.html);
+                                $('.categoriess').html(obj.html)
+                               }else{
+                                var obj = jQuery.parseJSON(data);
+                                console.log(obj.html);
+                                $('.fil_products').html(obj.html)
+                               }
+
                           }
-                         
+
                        }
                 );
 
@@ -115,7 +161,7 @@
 
 
 
-   
+
 
 
 

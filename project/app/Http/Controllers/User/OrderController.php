@@ -26,6 +26,7 @@ class OrderController extends Controller
     {
         $user = Auth::guard('web')->user();
         $orders = Order::where('user_id','=',$user->id)->orderBy('id','desc')->get();
+
         return view('user.order.index',compact('user','orders'));
     }
 
@@ -52,19 +53,19 @@ class OrderController extends Controller
         // Build Authentication
             $request['WebAuthenticationDetail'] = array(
             'UserCredential' => array(
-                'Key'      => $accessKey, //Replace it with FedEx Key, 
+                'Key'      => $accessKey, //Replace it with FedEx Key,
                 'Password' => $password //Replace it with FedEx API Password
             )
         );
- 
- 
+
+
         //Build Client Detail
         $request['ClientDetail'] = array(
-            'AccountNumber' => $acctNum, //Replace it with Account Number, 
+            'AccountNumber' => $acctNum, //Replace it with Account Number,
             'MeterNumber'   => $meterNum //Replace it with Meter Number
         );
- 
-         
+
+
         // Build API Version info
         $request['Version'] = array(
             'ServiceId'    => 'trck',
@@ -72,8 +73,8 @@ class OrderController extends Controller
             'Intermediate' => 0, // You can change it based on you using api version
             'Minor'        => 0 // You can change it based on you using api version
         );
- 
- 
+
+
         // Build Tracking Number info
         $request['SelectionDetails'] = array(
             'PackageIdentifier' => array(
@@ -84,14 +85,14 @@ class OrderController extends Controller
 
 
 
-        $wsdlPath = 'TrackService_v18.wsdl'; 
-        $wsdlPath =  url('/').'/project/vendor/maxirus/fedex/src/_wsdl/TrackService_v10.wsdl'; 
+        $wsdlPath = 'TrackService_v18.wsdl';
+        $wsdlPath =  url('/').'/project/vendor/maxirus/fedex/src/_wsdl/TrackService_v10.wsdl';
 
         $endPoint = 'https://wsbeta.fedex.com:443/web-services'; //You will get it when requesting to FedEx key. It might change based on the API Environments
-         
+
         $client = new \SoapClient($wsdlPath, array('trace' => true));
         $client->__setLocation($endPoint);
-     
+
         $apiResponse = $client->track($request);
 
         $order = Order::where('order_number','=',$id)->first();
@@ -108,7 +109,7 @@ class OrderController extends Controller
         //         $order_track->save();
         //     }
         // }
-      
+
 
         $datas = array('Pending','Processing','On Delivery','Completed');
         return view('load.track-load',compact('order','datas','apiResponse'));
@@ -120,6 +121,7 @@ class OrderController extends Controller
     {
         $user = Auth::guard('web')->user();
         $order = Order::findOrfail($id);
+
         $cart = json_decode($order->cart,true);
         return view('user.order.details',compact('user','order','cart'));
     }
@@ -152,7 +154,7 @@ class OrderController extends Controller
         $order->txnid = $trans;
         $order->update();
         $data = $order->txnid;
-        return response()->json($data);            
-    }  
+        return response()->json($data);
+    }
 
 }
