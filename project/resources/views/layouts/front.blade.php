@@ -49,6 +49,7 @@
 
 	@yield('styles')
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
 </head>
 
 <body>

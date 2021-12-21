@@ -121,7 +121,7 @@ class DashboardController extends Controller
             }
         }
         $admin->update($input);
-        $msg = 'Successfully change your passwprd';
+        $msg = 'Successfully change your password';
         return response()->json($msg);
     }
 

@@ -74,11 +74,11 @@
 
     <li>
         <a href="#menu3" class="accordion-toggle wave-effect" data-toggle="collapse" aria-expanded="false">
-            <i class="icofont-user"></i>{{ __('Customers') }}
+            <i class="icofont-user"></i>{{ __('Practitioner') }}
         </a>
         <ul class="collapse list-unstyled" id="menu3" data-parent="#accordion">
             <li>
-                <a href="{{ route('admin-user-index') }}"><span>{{ __('Customers List') }}</span></a>
+                <a href="{{ route('admin-user-index') }}"><span>{{ __('Practitioner List') }}</span></a>
             </li>
             <li>
                 <a href="{{ route('admin-withdraw-index') }}"><span>{{ __('Withdraws') }}</span></a>

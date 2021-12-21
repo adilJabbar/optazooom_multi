@@ -477,11 +477,11 @@ textarea.input-field {
                                   <span class="remove lang-remove"><i class="fas fa-times"></i></span>
                                   <div class="row">
                                     <div class="col-lg-6">
-                                      <textarea name="keys[]" class="input-field" placeholder="Enter Language Key" required="">Customers</textarea>
+                                      <textarea name="keys[]" class="input-field" placeholder="Enter Language Key" required="">Practitioner</textarea>
                                     </div>
 
                                     <div class="col-lg-6">
-                                      <textarea  name="values[]" class="input-field" placeholder="Enter Language Value" required="">Customers</textarea>
+                                      <textarea  name="values[]" class="input-field" placeholder="Enter Language Value" required="">Practitioner</textarea>
                                     </div>
                                   </div>
                                 </div>
@@ -491,11 +491,11 @@ textarea.input-field {
                                   <span class="remove lang-remove"><i class="fas fa-times"></i></span>
                                   <div class="row">
                                     <div class="col-lg-6">
-                                      <textarea name="keys[]" class="input-field" placeholder="Enter Language Key" required="">Customers List</textarea>
+                                      <textarea name="keys[]" class="input-field" placeholder="Enter Language Key" required="">Practitioner List</textarea>
                                     </div>
 
                                     <div class="col-lg-6">
-                                      <textarea  name="values[]" class="input-field" placeholder="Enter Language Value" required="">Customers List</textarea>
+                                      <textarea  name="values[]" class="input-field" placeholder="Enter Language Value" required="">Practitioner List</textarea>
                                     </div>
                                   </div>
                                 </div>
