@@ -309,8 +309,18 @@ a.clear {
 .pending {
     background-color: #ff9600 !important;
 }
+.paid {
+    background-color: #ff9600 !important;
+}
 
 .completed {
+    background-color: #00970c !important;
+}
+.delivered {
+    background-color: #00970c !important;
+}
+
+.shipped {
     background-color: #00970c !important;
 }
 
