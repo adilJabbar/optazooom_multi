@@ -29,7 +29,7 @@
     <div class="about-optazoom row animate__animated animate__fadeInUp" >
         <div class="about-img col-md-5" style="padding-left:0px; !important">
             <div class="col-md-12">
-                <img src="{{asset('assets/images/about_opta.png')}}"  />
+                <img src="{{asset('assets/images/about.png')}}"  />
             </div>
         </div>
         <div class="col-md-7" >
@@ -675,7 +675,6 @@
 	@endif
 
 	@if($ps->service == 1)
-
 	{{-- Info Area Start --}}
 	<section class="info-area">
 			<div class="container-fluid">

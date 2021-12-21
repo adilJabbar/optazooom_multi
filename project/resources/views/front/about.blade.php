@@ -29,7 +29,7 @@
             <div class="about-content row" style="padding-bottom: 30px; padding-top:30px;">
                 <div class="col-lg-3 col-md-3">
                     <div class="about-img" style="margin-top:50px;">
-                        <img src="{{asset('assets/images/aron_opta.jpeg')}}"">
+                        <img src="{{asset('assets/images/aron.jpg')}}"">
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-8 offset-lg-1">
