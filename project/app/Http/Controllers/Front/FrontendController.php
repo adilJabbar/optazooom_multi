@@ -78,6 +78,10 @@ class FrontendController extends Controller
 
     function getOS() {
 
+
+
+
+
         $user_agent     =   !empty($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "Unknown";
 
         $os_platform    =   "Unknown OS Platform";
