@@ -27,10 +27,10 @@ use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
-   
+
     public function __construct()
     {
-         $this->auth_guests(); 
+         $this->auth_guests();
         if(isset($_SERVER['HTTP_REFERER'])){
             $referral = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST);
             if ($referral != $_SERVER['SERVER_NAME']){
@@ -77,6 +77,10 @@ class FrontendController extends Controller
     }
 
     function getOS() {
+
+
+
+
 
         $user_agent     =   !empty($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : "Unknown";
 
@@ -127,7 +131,7 @@ class FrontendController extends Controller
 	public function indexx()
 	{
 
-     
+
         $this->code_image();
          if(!empty($request->reff))
          {
@@ -146,9 +150,9 @@ class FrontendController extends Controller
          }
         $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
         $sliders = DB::table('sliders')->get();
-       
+
         $ps = DB::table('pagesettings')->find(1);
-    
+
 	    return view('front.index',compact('ps','sliders'));
 	}
 
@@ -260,7 +264,7 @@ class FrontendController extends Controller
         $ps = DB::table('pagesettings')->find(1);
         $partners = DB::table('partners')->get();
         $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
-      
+
 
           $feature_products =  Product::with('user')->where('featured','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(8)->get()->reject(function($item){
 
@@ -272,8 +276,8 @@ class FrontendController extends Controller
             return false;
 
           });
-       
-     
+
+
         $trending_products =  Product::with('user')->where('trending','=',1)->where('status','=',1)->select($selectable)->orderBy('id','desc')->take(9)->get()->reject(function($item){
 
             if($item->user_id != 0){
@@ -284,7 +288,7 @@ class FrontendController extends Controller
             return false;
 
           });
-       
+
         return view('front.featured',compact('ps','trending_products','feature_products'));
 
         }
@@ -301,12 +305,12 @@ class FrontendController extends Controller
                   }
                 }
                 return false;
-    
+
               });
               return view('front.flash',compact('ps','discount_products'));
 
         }
-    
+
 // -------------------------------- HOME PAGE SECTION ENDS ----------------------------------------
 
 
@@ -362,10 +366,10 @@ class FrontendController extends Controller
         }
         return "";
     }
-    
-    
+
+
     function success(Request $request ,$get){
-   
+
         return view('front.thank',compact('get'));
     }
 
@@ -682,7 +686,7 @@ function finalize(){
 }
 
 function updateFinalize(){
-	
+
 	   if (!Schema::hasColumn('orders', 'whole_discount')){
             Schema::table('orders', function($table) {
                 $table->double("whole_discount")->default(0);
@@ -700,8 +704,8 @@ function updateFinalize(){
         $or->update();
         $new_cart = [];
         }
-		
-		
+
+
     $actual_path = str_replace('project','',base_path());
 
     if (file_exists($actual_path."backup-index.zip")) {
@@ -801,7 +805,7 @@ public function optanews()
          }
         $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
         $sliders = DB::table('sliders')->get();
-       
+
         $ps = DB::table('pagesettings')->find(1);
         $news_feed = DB::table('news_feed')->get();
            $gs = Generalsetting::findOrFail(1);
@@ -828,7 +832,7 @@ public function news_feed_detail()
          }
         $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
         $sliders = DB::table('sliders')->get();
-       
+
         $ps = DB::table('pagesettings')->find(1);
      return view('front.news_feed_detail',compact('ps','sliders'));
 }
@@ -886,10 +890,10 @@ public function news_feed_search(Request $request)
     $this->code_image();
         $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
         $sliders = DB::table('sliders')->get();
-        $key = $request->fsearch; 
+        $key = $request->fsearch;
         $ps = DB::table('pagesettings')->find(1);
         $news_feed = DB::table('news_feed')->get();
-       
+
      return view('front.optanews',compact('ps','sliders','key','news_feed'));
 }
 
@@ -899,7 +903,7 @@ public function get_first_site_data()
      $url = 'https://visionmonday.com/rss/eyecare/';
                     $rss = Feed::loadRss($url);
 \DB::table('news_feed')->where('site',1)->delete();
-  foreach ($rss->item as $k => $item ) 
+  foreach ($rss->item as $k => $item )
     {
         $data = array();
             $data['title'] = $item->title;
@@ -910,29 +914,29 @@ public function get_first_site_data()
 
             \DB::table('news_feed')->insert($data);
 
-      
+
     }
     dd('aa');
-                 
+
                         return view('front.first_site');
-    
+
 }
 
 public function get_second_site()
 {
     return view('front.second_site');
-    
+
 }
 public function get_third_site_data()
 {
     return view('front.third_site');
-    
+
 }
 
 public function get_forth_site_data()
 {
     return view('front.forth_site');
-    
+
 }
 // -------------------------------- PRINT SECTION ENDS ----------------------------------------
 
@@ -940,7 +944,7 @@ public function get_forth_site_data()
 public function search_by()
   {
 
-      if (Session::has('currency')) 
+      if (Session::has('currency'))
       {
         $curr = Currency::find(Session::get('currency'));
       }
@@ -970,7 +974,7 @@ public function search_by()
            if (!empty($search)) {
 
         $cat = Category::where('slug', $search)->first();
-       
+
         $data['cat'] = $cat;
 
          $prods = Product::when($cat, function ($query, $cat) {
@@ -994,13 +998,13 @@ public function search_by()
 
 
 
- 
-     
+
+
         $prods = $prods->where('status', 1)->get();
         $prods = (new Collection(Product::filterProducts($prods)))->paginate(9);
         $data['prods'] = $prods;
    $html = view('front.search_by',$data)->render();
       echo json_encode(['html'=>$html]);
-     
+
     }
 }
