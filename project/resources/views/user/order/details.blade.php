@@ -32,7 +32,8 @@
                     <div class="order-details">
 
                         <div class="process-steps-area">
-                           
+
+                            @include('includes.order-process')
 
                         </div>
 
@@ -45,10 +46,10 @@
                         <div class="view-order-page">
                             <h3 class="order-code">{{ $langg->lang285 }} {{$order->order_number}} [{{$order->status}}]
                             </h3>
-                           
+
                               <h3 class="order-code"> @if(!empty($order->fedex_trck_num)) Fedex Tracking Number#  {{$order->fedex_trck_num}} @endif
-                            </h3>   
-                            
+                            </h3>
+
                             <div class="print-order text-right">
                                 <a href="{{route('user-order-print',$order->id)}}" target="_blank"
                                     class="print-order-btn">
@@ -61,7 +62,7 @@
                             @if($order->dp == 1)
 
                             <div class="billing-add-area">
-                               
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h5>{{ $langg->lang287 }}</h5>
@@ -93,16 +94,16 @@
                                         {{$order->method}} {{ $langg->lang295 }} <p>{{$order->charge_id}}</p>
                                         @endif
                                         {{$order->method}} {{ $langg->lang296 }} <p id="ttn">{{$order->txnid}}</p>
-                                        <a id="tid" style="cursor: pointer;" class="mybtn2">{{ $langg->lang297 }}</a> 
+                                        <a id="tid" style="cursor: pointer;" class="mybtn2">{{ $langg->lang297 }}</a>
 
                                         <form id="tform">
                                             <input style="display: none; width: 100%;" type="text" id="tin" placeholder="{{ $langg->lang299 }}" required="" class="mb-3">
                                             <input type="hidden" id="oid" value="{{$order->id}}">
 
                                             <button style="display: none; padding: 5px 15px; height: auto; width: auto; line-height: unset;" id="tbtn" type="submit" class="mybtn1">{{ $langg->lang300 }}</button>
-                                                
+
                                                 <a style="display: none; cursor: pointer;  padding: 5px 15px; height: auto; width: auto; line-height: unset;" id="tc"  class="mybtn1">{{ $langg->lang298 }}</a>
-                                                
+
                                                 {{-- Change 1 --}}
                                         </form>
                                         @endif
@@ -144,7 +145,7 @@
                                         @endif
 
                                         @if($order->shipping_cost != 0)
-                                        @php 
+                                        @php
                                         $price = round(($order->shipping_cost / $order->currency_value),2);
                                         @endphp
                                         @if(DB::table('shippings')->where('price','=',$price)->count() > 0)
@@ -156,7 +157,7 @@
 
                                     @if($order->packing_cost != 0)
 
-                                        @php 
+                                        @php
                                         $pprice = round(($order->packing_cost / $order->currency_value),2);
                                         @endphp
 
@@ -173,7 +174,7 @@
                                 </div>
                             </div>
                             <div class="billing-add-area">
-                               
+
                                 <div class="row">
                                     <div class="col-md-6">
                                         <h5>{{ $langg->lang287 }}</h5>
@@ -208,16 +209,16 @@
                                         @endif
                                         {{$order->method}} {{ $langg->lang296 }} <p id="ttn"> {{$order->txnid}}</p>
 
-                                        <a id="tid" style="cursor: pointer;" class="mybtn2">{{ $langg->lang297 }}</a> 
+                                        <a id="tid" style="cursor: pointer;" class="mybtn2">{{ $langg->lang297 }}</a>
 
                                         <form id="tform">
                                             <input style="display: none; width: 100%;" type="text" id="tin" placeholder="{{ $langg->lang299 }}" required="" class="mb-3">
                                             <input type="hidden" id="oid" value="{{$order->id}}">
 
                                             <button style="display: none; padding: 5px 15px; height: auto; width: auto; line-height: unset;" id="tbtn" type="submit" class="mybtn1">{{ $langg->lang300 }}</button>
-                                                
+
                                                 <a style="display: none; cursor: pointer;  padding: 5px 15px; height: auto; width: auto; line-height: unset;" id="tc"  class="mybtn1">{{ $langg->lang298 }}</a>
-                                                
+
                                                 {{-- Change 1 --}}
                                         </form>
                                         @endif

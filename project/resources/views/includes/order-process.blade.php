@@ -1,17 +1,18 @@
-@if($order->status == 'pending')
+
+@if($order->status == 'pending' ||$order->status == 'paid' )
 
                                     <ul class="process-steps">
                                             <li class="active">
                                                 <div class="icon">1</div>
-                                                <div class="title">Order placed</div>
+                                                <div class="title">Paid</div>
                                             </li>
                                             <li class="">
                                                 <div class="icon">2</div>
-                                                <div class="title">On review</div>
+                                                <div class="title">Processing</div>
                                             </li>
                                             <li class="">
                                                 <div class="icon">3</div>
-                                                <div class="title">On delivery</div>
+                                                <div class="title">Shipped</div>
                                             </li>
                                             <li class="">
                                                 <div class="icon">4</div>
@@ -24,38 +25,15 @@
                                     <ul class="process-steps">
                                             <li class="active">
                                                 <div class="icon">1</div>
-                                                <div class="title">Order placed</div>
+                                                <div class="title">Paid</div>
                                             </li>
                                             <li class="active">
                                                 <div class="icon">2</div>
-                                                <div class="title">On review</div>
+                                                <div class="title">Processing</div>
                                             </li>
                                             <li class="">
                                                 <div class="icon">3</div>
-                                                <div class="title">On delivery</div>
-                                            </li>
-                                            <li class="">
-                                                <div class="icon">4</div>
-                                                <div class="title">Delivered</div>
-                                            </li>
-                                    </ul>
-
-
-@elseif($order->status == 'on delivery')
-
-
-                                    <ul class="process-steps">
-                                            <li class="active">
-                                                <div class="icon">1</div>
-                                                <div class="title">Order placed</div>
-                                            </li>
-                                            <li class="active">
-                                                <div class="icon">2</div>
-                                                <div class="title">On review</div>
-                                            </li>
-                                            <li class="active">
-                                                <div class="icon">3</div>
-                                                <div class="title">On delivery</div>
+                                                <div class="title">Shipped</div>
                                             </li>
                                             <li class="">
                                                 <div class="icon">4</div>
@@ -63,20 +41,43 @@
                                             </li>
                                     </ul>
 
-@elseif($order->status == 'completed')
+
+@elseif($order->status == 'shipped')
+
 
                                     <ul class="process-steps">
                                             <li class="active">
                                                 <div class="icon">1</div>
-                                                <div class="title">Order placed</div>
+                                                <div class="title">Paid</div>
                                             </li>
                                             <li class="active">
                                                 <div class="icon">2</div>
-                                                <div class="title">On review</div>
+                                                <div class="title">Processing</div>
                                             </li>
                                             <li class="active">
                                                 <div class="icon">3</div>
-                                                <div class="title">On delivery</div>
+                                                <div class="title">Shipped</div>
+                                            </li>
+                                            <li class="">
+                                                <div class="icon">4</div>
+                                                <div class="title">Delivered</div>
+                                            </li>
+                                    </ul>
+
+@elseif($order->status == 'delivered')
+
+                                    <ul class="process-steps">
+                                            <li class="active">
+                                                <div class="icon">1</div>
+                                                <div class="title">Paid</div>
+                                            </li>
+                                            <li class="active">
+                                                <div class="icon">2</div>
+                                                <div class="title">Processing</div>
+                                            </li>
+                                            <li class="active">
+                                                <div class="icon">3</div>
+                                                <div class="title">Shipped</div>
                                             </li>
                                             <li class="active">
                                                 <div class="icon">4</div>

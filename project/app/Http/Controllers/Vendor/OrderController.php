@@ -40,7 +40,7 @@ class OrderController extends Controller
        $cart = json_decode($order->cart,true);
         $cart->items[$request->license_key]['license'] = $request->license;
         $order->cart = utf8_encode(bzcompress(serialize($cart), 9));
-        $order->update();         
+        $order->update();
         $msg = 'Successfully Changed The License Key.';
         return response()->json($msg);
     }
@@ -72,6 +72,8 @@ class OrderController extends Controller
 
         $user = Auth::user();
         $order = VendorOrder::where('order_number','=',$slug)->where('user_id','=',$user->id)->update(['status' => $status]);
+        $order = VendorOrder::where('order_number','=',$slug)->where('user_id','=',$user->id)->first();
+        $order = Order::where('id','=',$order->order_id)->update(['status' => $status]);
         return redirect()->route('vendor-order-index')->with('success','Order Status Updated Successfully');
     }
     }
@@ -97,19 +99,19 @@ class OrderController extends Controller
         // Build Authentication
             $request['WebAuthenticationDetail'] = array(
             'UserCredential' => array(
-                'Key'      => $accessKey, //Replace it with FedEx Key, 
+                'Key'      => $accessKey, //Replace it with FedEx Key,
                 'Password' => $password //Replace it with FedEx API Password
             )
         );
- 
- 
+
+
         //Build Client Detail
         $request['ClientDetail'] = array(
-            'AccountNumber' => $acctNum, //Replace it with Account Number, 
+            'AccountNumber' => $acctNum, //Replace it with Account Number,
             'MeterNumber'   => $meterNum //Replace it with Meter Number
         );
- 
-         
+
+
         // Build API Version info
         $request['Version'] = array(
             'ServiceId'    => 'trck',
@@ -117,8 +119,8 @@ class OrderController extends Controller
             'Intermediate' => 0, // You can change it based on you using api version
             'Minor'        => 0 // You can change it based on you using api version
         );
- 
- 
+
+
         // Build Tracking Number info
         $request['SelectionDetails'] = array(
             'PackageIdentifier' => array(
@@ -129,14 +131,14 @@ class OrderController extends Controller
 
 
 
-        $wsdlPath = 'TrackService_v18.wsdl'; 
-        $wsdlPath =  url('/').'/project/vendor/maxirus/fedex/src/_wsdl/TrackService_v10.wsdl'; 
+        $wsdlPath = 'TrackService_v18.wsdl';
+        $wsdlPath =  url('/').'/project/vendor/maxirus/fedex/src/_wsdl/TrackService_v10.wsdl';
 
         $endPoint = 'https://wsbeta.fedex.com:443/web-services'; //You will get it when requesting to FedEx key. It might change based on the API Environments
-         
+
         $client = new \SoapClient($wsdlPath, array('trace' => true));
         $client->__setLocation($endPoint);
-     
+
         $apiResponse = $client->track($request);
 
         if(isset($apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description))
@@ -149,7 +151,7 @@ class OrderController extends Controller
           return redirect()->back()->with('success','Order tracking number add successfullt');
         }else{
             return redirect()->back()->with('unsuccess','Order tracking number is not correct');
-        }   
+        }
 
     }
 

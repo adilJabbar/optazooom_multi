@@ -76,7 +76,7 @@
                             </div>
                             <div class="col-lg-2"></div>
                             <div class="col-lg-4 d-flex justify-content-between">
-                              <label class="control-label">{{ __('Customers') }} *</label>
+                              <label class="control-label">{{ __('Practitioner') }} *</label>
                               <label class="switch">
                                 <input type="checkbox" name="section[]" value="customers" {{ $data->sectionCheck('customers') ? 'checked' : '' }}>
                                 <span class="slider round"></span>

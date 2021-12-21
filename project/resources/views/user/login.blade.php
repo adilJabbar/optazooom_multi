@@ -172,7 +172,7 @@
 
                  <div class="from-input">
                    <input type="checkbox" id="opta-login" name="opta-login" value="opta-login">
-                   <label for="opta-login"> By submitting this form, I agree to the <span style="color:#fdac38;"><a href="{{asset('/vendor_code_conduct')}}">Privacy Policy</a></span> of OptaZoom</label><br>
+                   <label for="opta-login"> By submitting this form, I agree to the <span style="color:#fdac38;"><a href="{{asset('/privacy')}}">Privacy Policy</a></span> of OptaZoom</label><br>
                  </div>
 
                   @if($gs->is_capcha == 1)

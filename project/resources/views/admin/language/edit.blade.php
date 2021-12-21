@@ -2463,7 +2463,7 @@
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="left-area">
-                                <h4 class="heading">Cvv *</h4>
+                                <h4 class="heading">CVV *</h4>
                                 <p class="sub-heading">(In Any Language)</p>
                             </div>
                           </div>
@@ -6685,7 +6685,7 @@
                         <div class="row">
                           <div class="col-lg-4">
                             <div class="left-area">
-                                <h4 class="heading">Dashbord *</h4>
+                                <h4 class="heading">Dashboard *</h4>
                                 <p class="sub-heading">(In Any Language)</p>
                             </div>
                           </div>

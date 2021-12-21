@@ -10,7 +10,11 @@
 
                 <ul class="filter-list filter-list-category" style="height:900px; overflow:auto;">
                 <?php
-									$categories_order = DB::table('categories')->orderby('name' , 'ASC')->get();
+
+                $string = str_replace('-',' ', request()->segment(count(request()->segments())));
+
+				$categories_order = DB::table('categories')->join('products','products.category_id','=','categories.id')->join('users','users.id','=','products.user_id')->where('users.shop_name',$string)->select('categories.*')->distinct('categories.name')->orderby('categories.name' , 'ASC')->get();
+
 									?>
                   @foreach ($categories_order as $element)
                   <li>

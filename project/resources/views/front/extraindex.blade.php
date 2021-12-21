@@ -29,12 +29,12 @@
     <div class="about-optazoom row animate__animated animate__fadeInUp" >
         <div class="about-img col-md-5" style="padding-left:0px; !important">
             <div class="col-md-12">
-                <img src="{{asset('assets/images/about_opta.png')}}"  />
+                <img src="{{asset('assets/images/about.png')}}"  />
             </div>
         </div>
         <div class="col-md-7" >
             <div class="col-md-12">
-                <h3>About<span style="font-weight:300;"> Optazoom</span></h3>
+                <h3>About<span style="font-weight:300;">Optazoom</span></h3>
                 <p>
                             With OptaZoom, shopping for all your practice needs becomes easy. Spend less time and money ordering the same items from multiple vendors and spend more time with patients.
             <br><br>
@@ -675,7 +675,6 @@
 	@endif
 
 	@if($ps->service == 1)
-
 	{{-- Info Area Start --}}
 	<section class="info-area">
 			<div class="container-fluid">

@@ -1008,9 +1008,6 @@
 		          <div class="header-area">
 
 		            <h4 class="title">Your products is from {{$total_vendor}} vendors. Shipping price may vary.</h4>
-
-		            <h4 class="title">Your products is from {{$total_vendor}} vendors. You will chanrge {{$total_vendor}} times shipping cost</h4>
-
 		          </div>
 		    
 		        

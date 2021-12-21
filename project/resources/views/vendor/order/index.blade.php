@@ -1,6 +1,6 @@
-@extends('layouts.vendor') 
+@extends('layouts.vendor')
 
-@section('content')  
+@section('content')
                     <div class="content-area">
                         <div class="mr-breadcrumb">
                             <div class="row">
@@ -24,7 +24,7 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="mr-table allproduct">
-                                        @include('includes.form-success') 
+                                        @include('includes.form-success')
 
                                         <div class="table-responsiv">
                                         <div class="gocover" style="background: url({{asset('assets/images/'.$gs->admin_loader)}}) no-repeat scroll center center rgba(45, 45, 45, 0.5);"></div>
@@ -42,22 +42,22 @@
 
 
                                               <tbody>
-                                                @foreach($orders as $orderr) 
-                                                @php 
+                                                @foreach($orders as $orderr)
+                                                @php
                                                 $qty = $orderr->sum('qty');
-                                                $price = $orderr->sum('price');                                       
+                                                $price = $orderr->sum('price');
                                                 @endphp
                     @foreach($orderr as $order)
 
 
-@php 
+@php
 
   if($user->shipping_cost != 0){
       $price +=  round($user->shipping_cost * $order->order->currency_value , 2);
     }
   if(App\Models\Order::where('order_number','=',$order->order->order_number)->first()->tax != 0){
       $price  += ($price / 100) * App\Models\Order::where('order_number','=',$order->order->order_number)->first()->tax;
-    }    
+    }
 
 @endphp
                                                         <tr>
@@ -69,19 +69,19 @@
                                       <td>
 
                                         <div class="action-list">
-                                 
+
                                         <a href="{{route('vendor-order-show',$order->order->order_number)}}" class="btn btn-primary product-btn"><i class="fa fa-eye"></i> {{ $langg->lang539 }}</a>
                                             <select class="vendor-btn {{ $order->status }}">
-                                            <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'pending']) }}" {{  $order->status == "pending" ? 'selected' : ''  }}>{{ $langg->lang540 }}</option>
+                                            <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'paid']) }}" {{  $order->status == "paid" ? 'selected' : ''  }}>Paid</option>
                                             <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'processing']) }}" {{  $order->status == "processing" ? 'selected' : ''  }}>{{ $langg->lang541 }}</option>
-                                            <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'completed']) }}" {{  $order->status == "completed" ? 'selected' : ''  }}>{{ $langg->lang542 }}</option>
-                                            <option value="{{ route('vendor-order-status',[ $order->order->order_number, 'declined']) }}" {{  $order->status == "declined" ? 'selected' : ''  }}>{{ $langg->lang543 }}</option>
+                                            <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'shipped']) }}" {{  $order->status == "shipped" ? 'selected' : ''  }}>Shipped</option>
+                                            <option value="{{ route('vendor-order-status',[ $order->order->order_number, 'delivered']) }}" {{  $order->status == "delivered" ? 'selected' : ''  }}>Deliverd</option>
                                             </select>
 
 
                                             <button <?php if(!empty($order->order->fedex_trck_num)){ echo "disabled"; } ?> type="button" class="btn btn-primary product-btn" data-toggle="modal" onclick="send_order_id({{$order->order->id}})" data-target="#myModal">Add Tracking Number</button>
 
- 
+
 
 
 
@@ -99,7 +99,7 @@
 
                                                   @endforeach
                                                   </tbody>
-                                                    
+
                                                 </table>
                                         </div>
                                     </div>
@@ -112,7 +112,7 @@
  <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-    
+
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
@@ -125,18 +125,18 @@
             <input type="text" required="required" name="tracking_number" placeholder="add tracking number" value="">
             <input type="hidden" name="order_id" id="order_id_for_track" value="">
             <button class="btn btn-success btn-ok order-btn" type="submit"> Add </button>
-          </form>   
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
+
     </div>
   </div>
 
 
-  
+
 <div class="modal fade" id="confirm-delete2" tabindex="-1" role="dialog" aria-labelledby="modal1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -210,7 +210,7 @@
 {{-- ORDER MODAL ENDS --}}
 
 
-@endsection    
+@endsection
 
 @section('scripts')
 
@@ -231,9 +231,9 @@ $('.vendor-btn').on('change',function(){
         var table = $('#geniustable').DataTable({
                ordering: false
            });
-                                                                
+
     </script>
 
 {{-- DATA TABLE --}}
-    
-@endsection   
+
+@endsection
