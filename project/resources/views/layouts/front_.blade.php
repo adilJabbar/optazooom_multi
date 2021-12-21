@@ -993,7 +993,7 @@
     solid rgba(0, 0, 0, 0.1);
     font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
                         <option  value="">How Did You Hear About Us?</option>
-						<option value="google">Facebook</option>
+						<option value="google">Google</option>
                         <option value="facebook">Facebook</option>
                         <option value="instagram">Instagram</option>
 						<option value="referral_from_colleague">Referral from Colleague </option>

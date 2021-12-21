@@ -295,7 +295,7 @@ $(function($) {
                         items: 1,
                     },
                     414: {
-                        items: 2,
+                        items: 1,
                     },
                     768: {
                         items: 2,
@@ -337,10 +337,10 @@ $(function($) {
             smartSpeed: 800,
             responsive: {
                 0: {
-                    items: 2,
+                    items: 1,
                 },
                 414: {
-                    items: 2,
+                    items: 1,
                 },
                 768: {
                     items: 2,
@@ -368,10 +368,10 @@ $(function($) {
             smartSpeed: 800,
             responsive: {
                 0: {
-                    items: 2,
+                    items: 1,
                 },
                 414: {
-                    items: 2,
+                    items: 1,
                 },
                 768: {
                     items: 2,

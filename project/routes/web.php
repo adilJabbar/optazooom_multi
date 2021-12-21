@@ -1495,6 +1495,8 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   Route::get('front-index', 'Front\FrontendController@indexx')->name('front.indexx');
   Route::get('/extras', 'Front\FrontendController@extraIndex')->name('front.extraIndex');
   Route::get('/featured', 'Front\FrontendController@featured')->name('front.featured');
+  Route::get('/flash_deals', 'Front\FrontendController@flash')->name('front.flash');
+
 
 
 

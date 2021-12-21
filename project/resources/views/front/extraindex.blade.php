@@ -638,7 +638,7 @@
 							</div>
 					</div>
 					<div class="creation-account aos-init aos-animate" data-aos="fade-up">
-								<a href="javascript:;" data-toggle="modal" data-target="#vendor-login"><button class="btn become-vendor ">Join Free Today</button></a>
+								<a href="{{ route('user.login')}}"><button class="btn become-vendor ">Join Free Today</button></a>
 					</div>
 			</section> 
 			@endif

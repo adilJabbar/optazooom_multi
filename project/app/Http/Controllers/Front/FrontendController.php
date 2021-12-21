@@ -288,6 +288,24 @@ class FrontendController extends Controller
         return view('front.featured',compact('ps','trending_products','feature_products'));
 
         }
+        public function flash(){
+            $ps = DB::table('pagesettings')->find(1);
+            $partners = DB::table('partners')->get();
+            $selectable = ['id','user_id','name','slug','features','colors','thumbnail','price','previous_price','attributes','size','size_price','discount_date'];
+
+            $discount_products =  Product::with('user')->where('is_discount','=',1)->where('status','=',1)->orderBy('id','desc')->take(8)->get()->reject(function($item){
+
+                if($item->user_id != 0){
+                  if($item->user->is_vendor != 2){
+                    return true;
+                  }
+                }
+                return false;
+    
+              });
+              return view('front.flash',compact('ps','discount_products'));
+
+        }
     
 // -------------------------------- HOME PAGE SECTION ENDS ----------------------------------------
 

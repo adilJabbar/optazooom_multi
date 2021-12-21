@@ -327,8 +327,8 @@
 											<ul class="navbar-nav">
 												<li class="nav-item arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
 
-												<li class="nav-item arrow-icon"> <a href="{{ route('front.indexx')}}#fprod">Featured Products</a></li>
-												<li class="nav-item arrow-icon"><a id="check" href="{{ route('front.indexx')}}#flashdeals">Flash Deals</a></li>											
+												<li class="nav-item arrow-icon"> <a href="{{ route('front.featured')}}">Featured Products</a></li>
+												<li class="nav-item arrow-icon"><a id="check" href="{{ route('front.flash')}}">Flash Deals</a></li>											
 												<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
 											</ul>	
@@ -469,7 +469,7 @@
 						<h4 class="title">
 							{{ $langg->lang24 }}
 						</h4>
-						<ul style="overflow:auto;width:auto;height:200px;">
+						<ul style="overflow:auto;width:auto;height:200px; padding-right:10px;">
 
 						<?php 
 
@@ -991,8 +991,8 @@
     solid rgba(0, 0, 0, 0.1);
     font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
                         <option  value="">How Did You Hear About Us?</option>
-						<option value="google">Facebook</option>
-                       
+						<option value="google">Google</option>
+						<option value="facebook">Facebook</option>
                         <option value="instagram">Instagram</option>
 						<option value="referral_from_colleague">Referral from Colleague </option>
 						<option value="kristie_nguyen">Kristie Nguyen</option>

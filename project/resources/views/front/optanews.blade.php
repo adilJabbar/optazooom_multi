@@ -54,7 +54,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="{{ route('user.optanews')}}">
                            News Feed 
                         </a>
                     </li>
@@ -69,7 +69,7 @@
         <div class="container containeer">
 
 <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-9">
             <?php 
 
      if(isset($key) && !empty($key))
@@ -146,10 +146,10 @@
 ?>
 
 </div>
-                 <div class="col-lg-4">
+                 <div class="col-lg-3">
                 <!-- Li's Main Content Area End Here -->
                 <!-- Begin Li's Blog Sidebar Area -->
-                <div class="col-lg-3 offset-lg-1 order-lg-2 order-2">
+                <div>
                     <div class="li-blog-sidebar-wrapper">
                         <div class="li-blog-sidebar">
                             <h4 class="li-blog-sidebar-title">Search</h4>
