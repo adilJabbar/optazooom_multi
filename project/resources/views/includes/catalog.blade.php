@@ -46,7 +46,7 @@
                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="margin-right:3px; top:2px; position:relative;">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="line-height:30px;">
-                      <a onclick="select_all('All')" class="dropdown-item" href="javascript:void(0)">Search By All</a>
+
                       <a onclick="select_all('Prodcut')" class="dropdown-item" href="javascript:void(0)">Search By Product</a>
                       <a onclick="select_all('Category')" class="dropdown-item" href="javascript:void(0)">Search By Category</a>
                     </div>
