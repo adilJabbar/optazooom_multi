@@ -1,7 +1,7 @@
 on:
   push:
     branches:    
-      - master
+      - main
     
 name: 🚀 Deploy website on push
 jobs:
@@ -25,3 +25,4 @@ jobs:
           -**/.git*
           -**/.git*/**
           -**/vendor/**
+          -**/assets/**
