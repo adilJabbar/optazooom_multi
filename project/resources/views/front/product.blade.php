@@ -189,7 +189,7 @@
                                       @php
                                       $is_first = true;
                                       @endphp
-                                      <select name="color" id="color_select">
+                                      <select name="color" id="color_select" style="height:32px;">
                                       @foreach($productt->color as $key => $data1)      
                                       <?php try {
                                           //dd(Helper::get_color_name($productt->color[$key])['hex']);
