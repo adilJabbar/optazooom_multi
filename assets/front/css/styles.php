@@ -448,6 +448,9 @@ color: <?php echo $color; ?>;
         .flash-deals .flas-deal-slider .item .deal-counter span {
           color: <?php echo $color; ?>;
           }
+          .deal-counter span{
+            color: <?php echo $color; ?>;
+          }
           .hot-and-new-item .owl-carousel .owl-controls .owl-nav .owl-prev,
           .hot-and-new-item .owl-carousel .owl-controls .owl-nav .owl-next {
             border: 1px solid <?php echo $color; ?>;

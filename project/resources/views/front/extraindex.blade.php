@@ -518,11 +518,15 @@
 
 			<section class="categori-item electronics-section">
 					<div class="container-fluid">
-							<div class="section-top">
-									<h2 class="section-title">
-									OPTICAL PROFESSIONALS LOVE OPTAZOOM
-									</h2>
-								</div>
+						<div class="row">
+							<div class="col-lg-12 remove-padding">
+								<div class="section-top">
+											<h2 class="section-title">
+											OPTICAL PROFESSIONALS LOVE OPTAZOOM
+											</h2>
+									</div>
+							</div>
+					</div>	
 						<div class="main-slider-testimonials">
 							<div class="professionals">
 									<div class="profesional-profile">

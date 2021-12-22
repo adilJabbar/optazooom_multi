@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <ul class="pages">
                     <li>
-                        <a href="{{ route('front.index') }}">
+                        <a href="{{ route('front.indexx') }}">
                             {{ $langg->lang17 }}
                         </a>
                     </li>
@@ -55,10 +55,10 @@
                      $discount += $product['discount1'];
                      }
                     @endphp
-                    
+
                      <?php $img = explode(',',$product['item']['photo']); ?>
-                     
-                     
+
+
                     <tr class="cremove{{ $product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values']) }}">
                       <td class="product-img">
                         <div class="item">
@@ -93,23 +93,31 @@
                       <td class="unit-price quantity">
                         <p class="product-unit-price">
 
-                          {{ App\Models\Product::convertPrice($product['item_price']) }}                        
+                          {{ App\Models\Product::convertPrice($product['item_price']) }}
                         </p>
           @if($product['item']['type'] == 'Physical')
 
                           <div class="qty">
                               <ul>
-              <input type="hidden" class="prodid" value="{{$product['item']['id']}}">  
-              <input type="hidden" class="itemid" value="{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}">     
-              <input type="hidden" class="size_qty" value="{{$product['size_qty']}}">     
-              <input type="hidden" class="size_price" value="{{$product['size_price']}}">   
+              <input type="hidden" class="prodid" value="{{$product['item']['id']}}">
+              <input type="hidden" class="itemid" value="{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}">
+              <input type="hidden" class="size_qty" value="{{$product['size_qty']}}">
+              <input type="hidden" class="size_price" value="{{$product['size_price']}}">
                                 <li>
                                   <span class="qtminus1 reducing">
                                     <i class="icofont-minus"></i>
                                   </span>
                                 </li>
                                 <li>
-                                  <span class="qttotal1" id="qty{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}">{{ $product['qty'] }}</span>
+                                    <style>
+                                        input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+                                    </style>
+                                    <input class="qttotal1" id="qty{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}" type="number" name="qttotal"value="1" class="qttotal"></span>
+                                  {{-- <span class="qttotal1" id="qty{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}">{{ $product['qty'] }}</span> --}}
                                 </li>
                                 <li>
                                   <span class="qtplus1 adding">
@@ -125,7 +133,7 @@
 
                             @if($product['size_qty'])
                             <input type="hidden" id="stock{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}" value="{{$product['size_qty']}}">
-                            @elseif($product['item']['type'] != 'Physical') 
+                            @elseif($product['item']['type'] != 'Physical')
                             <input type="hidden" id="stock{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}" value="1">
                             @else
                             <input type="hidden" id="stock{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}" value="{{$product['stock']}}">
@@ -133,9 +141,9 @@
 
                             <td class="total-price">
                               <p id="prc{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}">
-                                {{ App\Models\Product::convertPrice($product['price']) }}                 
+                                {{ App\Models\Product::convertPrice($product['price']) }}
                               </p>
-      
+
                               <small id="prev{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}" class="{{Session::has('current_discount'.$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values']))  && isset(Session::get('current_discount'.$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values']))[$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])]) ? '' : 'd-none'}}">(Discount <small id="discount{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}">{{Session::has('current_discount'.$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values']))  && isset(Session::get('current_discount'.$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values']))[$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])])   ? Session::get('current_discount'.$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values']))[$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])]   : '' }}</small>%)</small>
                             </td>
                       <td>
@@ -165,7 +173,7 @@
               </li>
               <li class="wdiscount_info {{$discount != 0 ? '':'d-none' }}">
                 <p>
-                  {{ __('Wholesell Discount') }} 
+                  {{ __('Wholesell Discount') }}
                 </p>
                 <P>
                   <b class="wdiscount">{{ App\Models\Product::convertPrice($discount)}}</b>
@@ -218,4 +226,4 @@
   </div>
 </section>
 <!-- Cart Area End -->
-@endsection 
+@endsection

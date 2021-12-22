@@ -90,7 +90,7 @@ class LoginController extends Controller
           if(Auth::guard('web')->user()->is_vendor == 2 || Auth::guard('web')->user()->is_vendor == 1)
           {
             Auth::guard('web')->logout();
-            return response()->json(array('errors' => [ 0 => 'Your are not practitionar.' ]));   
+            return response()->json(array('errors' => [ 0 => 'Your are not Practitioner.' ]));   
           }
           // Login as User
           return response()->json(1);          
@@ -188,7 +188,7 @@ class LoginController extends Controller
           if(Auth::guard('web')->user()->is_vendor == 2 || Auth::guard('web')->user()->is_vendor == 1)
           {
             Auth::guard('web')->logout();
-            return response()->json(array('errors' => [ 0 => 'Your are not practitionar.' ]));   
+            return response()->json(array('errors' => [ 0 => 'Your are not Practitioner.' ]));   
           }
           // Login as User
           return response()->json(1);          

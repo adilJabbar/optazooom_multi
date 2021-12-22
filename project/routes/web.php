@@ -19,7 +19,7 @@ Route::prefix('admin')->group(function() {
 
   //------------ ADMIN LOGIN SECTION ------------
 
-  
+
   Route::post('/login', 'Admin\LoginController@login')->name('admin.login.submit');
   Route::get('/forgot', 'Admin\LoginController@showForgotForm')->name('admin.forgot');
   Route::post('/forgot', 'Admin\LoginController@forgot')->name('admin.forgot.submit');
@@ -183,7 +183,7 @@ Route::prefix('admin')->group(function() {
   Route::get('/users/deposit/{id}', 'Admin\UserController@deposit')->name('admin-user-deposit');
   Route::post('/user/deposit/{id}', 'Admin\UserController@depositUpdate')->name('admin-user-deposit-update');
 
-  Route::get('/users/transactions/datatables', 'Admin\UserController@transdatatables')->name('admin-trans-datatables'); //JSON REQUEST  
+  Route::get('/users/transactions/datatables', 'Admin\UserController@transdatatables')->name('admin-trans-datatables'); //JSON REQUEST
   Route::get('/users/transactions', 'Admin\UserController@transactions')->name('admin-trans-index');
   Route::get('/users/transactions/{id}/show', 'Admin\UserController@transhow')->name('admin-trans-show');
 
@@ -254,7 +254,7 @@ Route::prefix('admin')->group(function() {
 
 // Verification Section Ends
 
-  
+
   });
 
 
@@ -565,12 +565,12 @@ Route::prefix('admin')->group(function() {
   Route::get('/featuredlink/edit/{id}', 'Admin\FeaturedLinkController@edit')->name('admin-featuredlink-edit');
   Route::post('/featuredlink/edit/{id}', 'Admin\FeaturedLinkController@update')->name('admin-featuredlink-update');
   Route::get('/featuredlink/delete/{id}', 'Admin\FeaturedLinkController@destroy')->name('admin-featuredlink-delete');
-  
-  
+
+
     //------------ FEATURED LINK SECTION ENDS ------------
-  
+
     //------------ FEATURED BANNER SECTION ------------
-  
+
   Route::get('/featuredbanner/datatables', 'Admin\FeaturedBannerController@datatables')->name('admin-featuredbanner-datatables');
   Route::get('/featuredbanner', 'Admin\FeaturedBannerController@index')->name('admin-featuredbanner-index');
   Route::get('/featuredbanner/create', 'Admin\FeaturedBannerController@create')->name('admin-featuredbanner-create');
@@ -578,7 +578,7 @@ Route::prefix('admin')->group(function() {
   Route::get('/featuredbanner/edit/{id}', 'Admin\FeaturedBannerController@edit')->name('admin-featuredbanner-edit');
   Route::post('/featuredbanner/edit/{id}', 'Admin\FeaturedBannerController@update')->name('admin-featuredbanner-update');
   Route::get('/featuredbanner/delete/{id}', 'Admin\FeaturedBannerController@destroy')->name('admin-featuredbanner-delete');
-  
+
     //------------ FEATURED BANNER SECTION ENDS ------------
 
 
@@ -912,7 +912,7 @@ Route::group(['middleware'=>'permissions:super'],function(){
   Route::get('/activation', 'Admin\DashboardController@activation')->name('admin-activation-form');
   Route::post('/activation', 'Admin\DashboardController@activation_submit')->name('admin-activate-purchase');
   Route::get('/clear/backup', 'Admin\DashboardController@clear_bkup')->name('admin-clear-backup');
-  
+
   // ------------ ROLE SECTION ----------------------
 
   Route::get('/role/datatables', 'Admin\RoleController@datatables')->name('admin-role-datatables');
@@ -1007,7 +1007,7 @@ Route::prefix('user')->group(function() {
   Route::post('/deposit/stripe/submit', 'User\DstripeController@store')->name('deposit.stripe.submit');
   Route::post('/deposit/paystack/submit', 'User\DpaystackController@store')->name('deposit.paystack.submit');
   Route::post('/deposit/voguepay/submit', 'User\DvoguepayController@store')->name('deposit.voguepay.submit');
-  
+
 Route::get('/deposit/payment/{number}', 'User\DepositController@sendDeposit')->name('user.deposit.send');
 
   //PayTM Routes
@@ -1102,9 +1102,9 @@ Route::get('/deposit/payment/{number}', 'User\DepositController@sendDeposit')->n
 
   // Flutterwave Routes
   Route::post('/flutter/payment/submit', 'User\FlutterController@store')->name('user.flutter.submit');
-  
-  
-//   Mobile api Route 
+
+
+//   Mobile api Route
 Route::post('/api/deposit/stripe/submit', 'User\Payment\StripeController@store')->name('user.deposit.payment.stripe');
 
 
@@ -1112,12 +1112,12 @@ Route::post('/api/deposit/stripe/submit', 'User\Payment\StripeController@store')
 // Mobile Deposit Route section
 
   Route::get('/deposit/app/payment/{slug1}/{slug2}','Payment\CheckoutController@depositloadpayment')->name('deposit.app.payment');
-  
+
 
 
 
   Route::get('/api/checkout/instamojo/notify', 'User\Payment\InstamojoController@notify')->name('api.user.instamojo.notify');
-  
+
 
   Route::post('/api/paystack/submit', 'User\Payment\PaystackController@store')->name('api.user.paystack.submit');
   Route::post('/api/voguepay/submit', 'User\Payment\VoguepayController@store')->name('api.user.voguepay.submit');
@@ -1156,18 +1156,18 @@ Route::post('/api/deposit/stripe/submit', 'User\Payment\StripeController@store')
   // Flutterwave Routes
 Route::post('/api/flutter/submit', 'User\Payment\FlutterWaveController@store')->name('api.user.flutter.submit');
   Route::post('/api/flutter/notify', 'User\Payment\FlutterWaveController@notify')->name('api.user.flutter.notify');
-  
+
   //2checkout Routes
   Route::post('/api/twocheckout-submit', 'User\Payment\TwoCheckoutController@store')->name('api.user.twocheckout.submit');
 
 
-  
+
 // Mobile Deposit Route section
-  
-  
-  
-  
-  
+
+
+
+
+
 
   // User Vendor Send Message
 
@@ -1502,14 +1502,14 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
 
   Route::get('get_vendors_ajax', 'Front\FrontendController@get_vendors_ajax')->name('get_vendors_ajax');
 
-    // Optanews RSS feed 
+    // Optanews RSS feed
 
   Route::get('/optanews', 'Front\FrontendController@optanews')->name('user.optanews');
   Route::post('/news_feed_search', 'Front\FrontendController@news_feed_search')->name('news_feed_search');
   Route::get('/news_feed_detail', 'Front\FrontendController@news_feed_detail')->name('news_feed_detail');
   Route::get('/get_second_site_data', 'Front\FrontendController@get_second_site_data')->name('get_second_site_data');
   Route::get('/get_first_site_data', 'Front\FrontendController@get_first_site_data')->name('get_first_site_data');
-  
+
   Route::get('/currency/{id}', 'Front\FrontendController@currency')->name('front.currency');
   Route::get('/language/{id}', 'Front\FrontendController@language')->name('front.language');
   Route::get('/front/get/category', 'Front\FrontendController@getCategory')->name('front.get.category');
@@ -1597,6 +1597,9 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   Route::get('/addnumcart','Front\CartController@addnumcart');
   Route::get('/addtonumcart','Front\CartController@addtonumcart');
   Route::get('/addbyone','Front\CartController@addbyone');
+  Route::get('/addcustom','Front\CartController@addcustom');
+
+
   Route::get('/reducebyone','Front\CartController@reducebyone');
   Route::get('/upcolor','Front\CartController@upcolor');
   Route::get('/removecart/{id}','Front\CartController@removecart')->name('product.cart.remove');
@@ -1613,7 +1616,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   Route::get('/checkout/payment/cancle', 'Front\PaymentController@paycancle')->name('payment.cancle');
   Route::get('/checkout/payment/notify', 'Front\PaymentController@notify')->name('payment.notify');
   Route::get('/checkout/instamojo/notify', 'Front\InstamojoController@notify')->name('instamojo.notify');
-  
+
   Route::get('/payment/successfull/{get}', 'Front\FrontendController@success')->name('front.payment.success');
 
   Route::post('/paystack/submit', 'Front\PaystackController@store')->name('paystack.submit');
@@ -1672,12 +1675,12 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   Route::post('/wallet-submit', 'Front\CheckoutController@wallet')->name('wallet.submit');
 
   // CHECKOUT SECTION ENDS
-  
-  
-  
+
+
+
 //   Mobile Checkout section
   Route::get('/deposit/app/payment/{slug1}/{slug2}','Payment\CheckoutController@depositloadpayment')->name('deposit.app.payment');
-  
+
 
   Route::get('/checkout/payment/{slug1}/{slug2}','Front\CheckoutController@loadpayment')->name('front.load.payment');
   Route::get('/api/checkout/payment/return', 'Payment\PaymentController@payreturn')->name('api.payment.return');
@@ -1686,7 +1689,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   Route::get('/api/checkout/instamojo/notify', 'Payment\InstamojoController@notify')->name('api.instamojo.notify');
   Route::post('/api/flutter/submit', 'Payment\FlutterWaveController@store')->name('api.flutter.submit');
   Route::post('/flutter/notify', 'Payment\FlutterWaveController@notify')->name('api.flutter.notify');
-  
+
   Route::get('/payment/successfull/{get}', 'Front\FrontendController@success')->name('front.payment.success');
 
   Route::post('/api/paystack/submit', 'Payment\PaystackController@store')->name('api.paystack.submit');
@@ -1727,7 +1730,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   Route::post('/api/twocheckout-submit', 'Payment\TwoCheckoutController@store')->name('api.twocheckout.submit');
 
 //   Mobile Checkout section
-  
+
 
   // TAG SECTION
   Route::get('/search/','Front\CatalogController@search')->name('front.search');

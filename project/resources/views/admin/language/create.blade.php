@@ -2645,12 +2645,12 @@
                       <div class="row">
                         <div class="col-lg-4">
                           <div class="left-area">
-                            <h4 class="heading">Cvv *</h4>
+                            <h4 class="heading">CVV *</h4>
                             <p class="sub-heading">(In Any Language)</p>
                           </div>
                         </div>
                         <div class="col-lg-7">
-                          <input type="text" class="input-field" name="lang164" placeholder="Cvv" required=""
+                          <input type="text" class="input-field" name="lang164" placeholder="CVV" required=""
                             value="Cvv">
                         </div>
                       </div>
@@ -6925,7 +6925,7 @@
                           </div>
                         </div>
                         <div class="col-lg-7">
-                          <input type="text" class="input-field" name="lang423" placeholder="Cvv" required=""
+                          <input type="text" class="input-field" name="lang423" placeholder="CVV" required=""
                             value="Cvv">
                         </div>
                       </div>

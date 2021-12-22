@@ -9,7 +9,7 @@
             <div class="col-lg-12">
                 <ul class="pages">
                     <li>
-                        <a href="{{ route('front.index') }}">
+                        <a href="{{ route('front.indexx') }}">
                             {{ $langg->lang17 }}
                         </a>
                     </li>
@@ -64,9 +64,9 @@
 					@endif
 					</li>
 					<li>
-						<span class="add-to-compare" data-href="{{ route('product.compare.add',$prod->id) }}"  data-toggle="tooltip" data-placement="right" title="{{ $langg->lang57 }}" data-placement="right">
+						<!-- <span class="add-to-compare" data-href="{{ route('product.compare.add',$prod->id) }}"  data-toggle="tooltip" data-placement="right" title="{{ $langg->lang57 }}" data-placement="right">
 							<i class="icofont-exchange"></i>
-						</span>
+						</span> -->
 					</li>
 				</ul>
 			</div>

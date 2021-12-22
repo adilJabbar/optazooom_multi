@@ -8,7 +8,7 @@
       <div class="col-lg-12">
         <ul class="pages">
 
-          <li><a href="{{route('front.index')}}">{{ $langg->lang17 }}</a></li>
+          <li><a href="{{route('front.indexx')}}">{{ $langg->lang17 }}</a></li>
           <li><a href="{{route('front.category',$productt->category->slug)}}">{{$productt->category->name}}</a></li>
           @if($productt->subcategory_id != null)
           <li><a
@@ -189,7 +189,7 @@
                                       @php
                                       $is_first = true;
                                       @endphp
-                                      <select name="color" id="color_select">
+                                      <select name="color" id="color_select" style="height:32px;">
                                       @foreach($productt->color as $key => $data1)      
                                       <?php try {
                                           //dd(Helper::get_color_name($productt->color[$key])['hex']);
@@ -425,7 +425,6 @@
             </div>
 
 <!--add here-->
-
 
 
                   <div class="row">

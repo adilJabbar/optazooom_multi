@@ -6009,7 +6009,7 @@
                             </div>
                           </div>
                           <div class="col-lg-7">
-                            <input type="text" class="input-field" name="lang264" placeholder="User Name" required="" value="{{ $lang->lang264 }}">
+                            <input type="text" class="input-field" name="lang264" placeholder="First Name" required="" value="{{ $lang->lang264 }}">
                           </div>
                         </div>
 
@@ -6437,7 +6437,7 @@
                             </div>
                           </div>
                           <div class="col-lg-7">
-                            <input type="text" class="input-field" name="lang423" placeholder="Cvv" required="" value="{{ $lang->lang423 }}">
+                            <input type="text" class="input-field" name="lang423" placeholder="CVV" required="" value="{{ $lang->lang423 }}">
                           </div>
                         </div>
 
@@ -6690,7 +6690,7 @@
                             </div>
                           </div>
                           <div class="col-lg-7">
-                            <input type="text" class="input-field" name="lang441" placeholder="Dashbord" required="" value="{{ $lang->lang441 }}">
+                            <input type="text" class="input-field" name="lang441" placeholder="Dashboard" required="" value="{{ $lang->lang441 }}">
                           </div>
                         </div>
 

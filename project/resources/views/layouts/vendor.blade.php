@@ -53,7 +53,7 @@
 				<div class="header">
 					<div class="container-fluid">
 						<div class="d-flex justify-content-between">
-						<a class="admin-logo" href="{{ route('front.index') }}" target="_blank">
+						<a class="admin-logo" href="{{ route('front.indexx') }}" target="_blank">
 								<img src="{{asset('assets/images/'.$gs->logo)}}" alt="">
 							</a>
 							<div class="menu-toggle-button">
