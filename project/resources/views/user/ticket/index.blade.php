@@ -121,15 +121,15 @@
     <div class="modal-content">
 
     <div class="modal-header d-block text-center">
-        <h4 class="modal-title d-inline-block">{{ $langg->lang390 }}</h4>
+        <!-- <h4 class="modal-title d-inline-block">{{ $langg->lang390 }}</h4> -->
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
     </div>
 
                 <div class="modal-body">
-            <p class="text-center">{{ $langg->lang391 }}</p>
-            <p class="text-center">{{ $langg->lang393 }}</p>
+                <p class="text-center">Are you sure you want to delete this conversation?</p>
+            <!-- <p class="text-center">{{ $langg->lang393 }}</p> -->
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-default" data-dismiss="modal">{{ $langg->lang394 }}</button>
