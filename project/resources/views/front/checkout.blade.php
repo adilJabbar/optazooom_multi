@@ -19,7 +19,7 @@
             <div class="col-lg-12">
                 <ul class="pages">
                     <li>
-                        <a href="{{ route('front.index') }}">
+                        <a href="{{ route('front.indexx') }}">
                             {{ $langg->lang17 }}
                         </a>
                     </li>
@@ -1007,7 +1007,9 @@
 		        <div class="login-area">
 		          <div class="header-area">
 
-		            <h4 class="title">Your products is from {{$total_vendor}} vendors. Shipping price may vary.</h4>
+		            <h4 class="title">
+					Your products are being shipped from {{$total_vendor}} vendors. Shipping price may vary.
+					</h4>
 		          </div>
 		    
 		        
