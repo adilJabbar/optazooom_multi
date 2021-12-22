@@ -116,16 +116,21 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
+          
+          <h4 class="modal-title text-center">Add Tracking Number</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add Tracking Number</h4>
         </div>
         <div class="modal-body">
           <form action="{{url('vendor/add-tracking-number')}}" method="POST">
             @csrf
-            <input type="text" required="required" name="tracking_number" placeholder="add tracking number" value="">
+            <input class="form-control" type="text" required="required" name="tracking_number" placeholder="Add tracking number" value="">
             <input type="hidden" name="order_id" id="order_id_for_track" value="">
             <button class="btn btn-success btn-ok order-btn" type="submit"> Add </button>
           </form>
+            <div class="track-btn" style="text-align:center; padding-top:20px">
+            <button class="btn btn-success btn-ok order-btn" style="padding:6px 80px;" type="submit"> Add </button>
+           </div>
+          </form>   
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

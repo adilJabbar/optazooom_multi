@@ -954,7 +954,7 @@ public function search_by()
       $sort = '';
       $search = $_GET['key'];
 
-    if( $_GET['search_by'] == "Prodcut")
+    if( $_GET['search_by'] == "Prodcut" || $_GET['search_by'] == "all")
     {
            $prods = Product::when($search, function ($query, $search) {
                                       return $query->where('name', 'like', '%' . $search . '%');
@@ -964,6 +964,7 @@ public function search_by()
                                   });
 
     }
+
     if ($_GET['search_by'] == "Category") {
         $search = $_GET['key'];
 

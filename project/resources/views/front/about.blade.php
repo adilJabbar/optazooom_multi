@@ -27,8 +27,8 @@
     <!-- Page Area Start -->
     <div class="container">
             <div class="about-content row" style="padding-bottom: 30px; padding-top:30px;">
-                <div class="col-lg-3 col-md-3">
-                    <div class="about-img" style="margin-top:50px;">
+                <div class="col-lg-3 col-md-3 col-">
+                    <div class="about-img" style="margin-top:50px; text-align:center;">
                         <img src="{{asset('assets/images/aron.jpg')}}"">
                     </div>
                 </div>
