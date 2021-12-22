@@ -54,7 +54,7 @@
 
                 <div class="search-text-input">
                   <input type="hidden" name="search_by" id="search_by" value="all">
-                  <input  type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search" value="{{ request()->input('search') }}" autocomplete="on"/>
+                  <input  type="text" class="filter-search" id="prod_namee" name="search" placeholder="Search By Product" value="{{ request()->input('search') }}" autocomplete="on"/>
                 </div>
               </div>
                 </div>
