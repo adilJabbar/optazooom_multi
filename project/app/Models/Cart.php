@@ -31,7 +31,7 @@ class Cart extends Model
                 if (array_key_exists($id.$size.$color.str_replace(str_split(' ,'),'',$values), $this->items)) {
                     $storedItem = $this->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)];
                 }
-            }            
+            }
         }
         else {
             if ($this->items) {
@@ -45,42 +45,42 @@ class Cart extends Model
         $stck = (string)$item->stock;
         if($stck != null){
                 $storedItem['stock']--;
-        }            
-        if(!empty($item->size)){ 
+        }
+        if(!empty($item->size)){
         $storedItem['size'] = $item->size[0];
-        }  
+        }
         if(!empty($size)){
-        $storedItem['size'] = $size;    
-        } 
-        if(!empty($item->size_qty)){ 
+        $storedItem['size'] = $size;
+        }
+        if(!empty($item->size_qty)){
         $storedItem['size_qty'] = $item->size_qty[0];
-        }  
-        if($item->size_price != null){ 
+        }
+        if($item->size_price != null){
         $storedItem['size_price'] = $item->size_price[0];
         $size_cost = $item->size_price[0];
-        } 
+        }
         if(!empty($color)){
-        $storedItem['color'] = $color;    
-        } 
+        $storedItem['color'] = $color;
+        }
 
         if(!empty($keys)){
-        $storedItem['keys'] = $keys;    
+        $storedItem['keys'] = $keys;
         }
         if(!empty($values)){
-        $storedItem['values'] = $values;    
+        $storedItem['values'] = $values;
         }
         $item->price += $size_cost;
-        $storedItem['item_price'] = $item->price;  
+        $storedItem['item_price'] = $item->price;
         if(!empty($item->whole_sell_qty))
         {
             foreach(array_combine($item->whole_sell_qty,$item->whole_sell_discount) as $whole_sell_qty => $whole_sell_discount)
             {
                 if($storedItem['qty'] == $whole_sell_qty)
-                {   
+                {
                     $whole_discount[$id.$size.$color.str_replace(str_split(' ,'),'',$values)] = $whole_sell_discount;
                     Session::put('current_discount',$whole_discount);
                     break;
-                }                  
+                }
             }
             if(Session::has('current_discount')) {
                     $data = Session::get('current_discount');
@@ -111,7 +111,7 @@ class Cart extends Model
                 if (array_key_exists($id.$size.$color.str_replace(str_split(' ,'),'',$values), $this->items)) {
                     $storedItem = $this->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)];
                 }
-            }            
+            }
         }
         else {
             if ($this->items) {
@@ -121,61 +121,61 @@ class Cart extends Model
                 }
             }
         }
-     
+
         $storedItem['qty'] =(int)$storedItem['qty'] + (int)$qty;
-         
+
         $stck = (string)$item->stock;
         if($stck != null){
                 $storedItem['stock']--;
-        }              
-        if(!empty($item->size)){ 
+        }
+        if(!empty($item->size)){
         $storedItem['size'] = $item->size[0];
-        }  
+        }
         if(!empty($size)){
-        $storedItem['size'] = $size;    
+        $storedItem['size'] = $size;
         }
         if(!empty($size_key)){
-        $storedItem['size_key'] = $size_key;    
+        $storedItem['size_key'] = $size_key;
         }
-        if(!empty($item->size_qty)){ 
+        if(!empty($item->size_qty)){
         $storedItem['size_qty'] = $item->size_qty [0];
-        }  
-        if(!empty($size_qty)){
-        $storedItem['size_qty'] = $size_qty;    
         }
-        if(!empty($item->size_price)){ 
+        if(!empty($size_qty)){
+        $storedItem['size_qty'] = $size_qty;
+        }
+        if(!empty($item->size_price)){
         $storedItem['size_price'] = $item->size_price[0];
         $size_cost = $item->size_price[0];
-        }  
+        }
         if(!empty($size_price)){
-        $storedItem['size_price'] = $size_price;    
+        $storedItem['size_price'] = $size_price;
         $size_cost = $size_price;
         }
-        if(!empty($item->color)){ 
+        if(!empty($item->color)){
         $storedItem['color'] = $item->color[0];
-        }  
+        }
         if(!empty($color)){
-        $storedItem['color'] = $color;    
+        $storedItem['color'] = $color;
         }
         if(!empty($keys)){
-        $storedItem['keys'] = $keys;    
+        $storedItem['keys'] = $keys;
         }
         if(!empty($values)){
-        $storedItem['values'] = $values;    
+        $storedItem['values'] = $values;
         }
 
         $item->price += $size_cost;
-        $storedItem['item_price'] = $item->price;  
+        $storedItem['item_price'] = $item->price;
         if(!empty($item->whole_sell_qty))
         {
             // foreach(array_combine($item->whole_sell_qty,$item->whole_sell_discount) as $whole_sell_qty => $whole_sell_discount)
             // {
             //     if($storedItem['qty'] == $whole_sell_qty)
-            //     {   
+            //     {
             //         $whole_discount[$id.$size.$color.str_replace(str_split(' ,'),'',$values)] = $whole_sell_discount;
             //         Session::put('current_discount',$whole_discount);
             //         break;
-            //     }                  
+            //     }
             // }
 
             foreach($item->whole_sell_qty as $key => $data){
@@ -225,33 +225,34 @@ public function adding($item, $id, $size_qty) {
             $storedItem = $this->items[$id];
         }
     }
+
     $storedItem['qty']++;
 
         if($item->stock != null){
             $storedItem['stock']--;
-        }   
+        }
 
     // CURRENCY ISSUE CHECK IT CAREFULLY
-    $onePrice = $storedItem['item_price'] ; 
-    $item->price = $onePrice;  
-    
+    $onePrice = $storedItem['item_price'] ;
+    $item->price = $onePrice;
+
 
     if(!empty($item->whole_sell_qty))
     {
         foreach(array_combine($item->whole_sell_qty,$item->whole_sell_discount) as $whole_sell_qty => $whole_sell_discount)
         {
             if($storedItem['qty'] == $whole_sell_qty)
-            {   
+            {
                 $whole_discount[$id] = $whole_sell_discount;
-                
+
                 $whole_qty[$id] = $whole_sell_qty;
                 Session::put('current_discount'.$id,$whole_discount);
                 Session::put('whole_sell_qty'.$id,$whole_sell_qty);
                 break;
-            }                  
+            }
         }
-       
-      
+
+
  if (Session::has('currency'))
     {
         $curr = Currency::find(Session::get('currency'));
@@ -261,11 +262,11 @@ public function adding($item, $id, $size_qty) {
         $curr = Currency::where('is_default','=',1)->first();
     }
 
-   
+
        if(Session::has('current_discount'.$id)) {
-        
+
         $data = Session::get('current_discount'.$id);
-        
+
             if (array_key_exists($id, $data)) {
                     $discount = $item->price * ($data[$id] / 100);
                     $item->price = $item->price - $discount;
@@ -274,26 +275,108 @@ public function adding($item, $id, $size_qty) {
                     $storedItem['discount'] = $curr->sign.round($discount * $curr->value,2);
                     $storedItem['discount_percentage'] = $data[$id];
                     $storedItem['cart_id'] = $id;
-                
+
             }
         }else
             {
-                
+
                 $storedItem['discount'] = null;
                 $storedItem['discount1'] = null;
                 $storedItem['discount_percentage'] = null;
                 $storedItem['cart_id'] = null;
             }
     }
-    
-    
-    
+
+
+
     $storedItem['price'] =  $item->price * $storedItem['qty'];
     $this->items[$id] = $storedItem;
     $this->totalQty += $storedItem['qty'];
-    
+
 }
 
+
+
+
+
+
+
+public function adding_custom($item, $id, $size_qty,$qty) {
+    $storedItem = ['qty' => 0,'size_key' => 0, 'size_qty' =>  $item->size_qty,'size_price' => $item->size_price, 'size' => $item->size, 'color' => $item->color, 'stock' => $item->stock, 'price' => $item->price, 'item' => $item, 'license' => '', 'dp' => '0','keys' => '', 'values' => '','item_price' => $item->price];
+    if ($this->items) {
+        if (array_key_exists($id, $this->items)) {
+            $storedItem = $this->items[$id];
+        }
+    }
+
+    $storedItem['qty']=+$qty;
+
+        if($item->stock != null){
+            $storedItem['stock']--;
+        }
+
+    // CURRENCY ISSUE CHECK IT CAREFULLY
+    $onePrice = $storedItem['item_price'] ;
+    $item->price = $onePrice;
+
+
+    if(!empty($item->whole_sell_qty))
+    {
+        foreach(array_combine($item->whole_sell_qty,$item->whole_sell_discount) as $whole_sell_qty => $whole_sell_discount)
+        {
+            if($storedItem['qty'] == $whole_sell_qty)
+            {
+                $whole_discount[$id] = $whole_sell_discount;
+
+                $whole_qty[$id] = $whole_sell_qty;
+                Session::put('current_discount'.$id,$whole_discount);
+                Session::put('whole_sell_qty'.$id,$whole_sell_qty);
+                break;
+            }
+        }
+
+
+ if (Session::has('currency'))
+    {
+        $curr = Currency::find(Session::get('currency'));
+    }
+    else
+    {
+        $curr = Currency::where('is_default','=',1)->first();
+    }
+
+
+       if(Session::has('current_discount'.$id)) {
+
+        $data = Session::get('current_discount'.$id);
+
+            if (array_key_exists($id, $data)) {
+                    $discount = $item->price * ($data[$id] / 100);
+                    $item->price = $item->price - $discount;
+                    $discount = $discount * Session::get('whole_sell_qty'.$id);
+                    $storedItem['discount1'] = round($discount * $curr->value,2);
+                    $storedItem['discount'] = $curr->sign.round($discount * $curr->value,2);
+                    $storedItem['discount_percentage'] = $data[$id];
+                    $storedItem['cart_id'] = $id;
+
+            }
+        }else
+            {
+
+                $storedItem['discount'] = null;
+                $storedItem['discount1'] = null;
+                $storedItem['discount_percentage'] = null;
+                $storedItem['cart_id'] = null;
+            }
+    }
+
+
+
+    $storedItem['price'] =  $item->price * $storedItem['qty'];
+    $this->items[$id] = $storedItem;
+    $this->totalQty += $storedItem['qty'];
+
+}
 // **************** ADDING QUANTITY ENDS *******************
 
 
@@ -310,14 +393,14 @@ public function reducing($item, $id, $size_qty, $size_price) {
     $storedItem['qty']--;
         if($item->stock != null){
             $storedItem['stock']++;
-        }    
+        }
 
     // CURRENCY ISSUE CHECK IT CAREFULLY
 
-    $item->price += (double)$size_price;   
+    $item->price += (double)$size_price;
 
-    $onePrice = $storedItem['item_price'] ; 
-    $item->price = $onePrice;  
+    $onePrice = $storedItem['item_price'] ;
+    $item->price = $onePrice;
 
     if(!empty($item->whole_sell_qty))
     {
@@ -325,21 +408,21 @@ public function reducing($item, $id, $size_qty, $size_price) {
         foreach($item->whole_sell_qty as $key => $data1)
         {
             if($storedItem['qty'] < $item->whole_sell_qty[$key])
-            {   
+            {
                 if($storedItem['qty'] < $item->whole_sell_qty[0])
-                {   
-                   
+                {
+
                     Session::forget('current_discount'.$id);
-                   
+
                     break;
-                }  
-                
+                }
+
                 $whole_discount[$id] = $item->whole_sell_discount[$key-1];
                 Session::put('current_discount'.$id,$whole_discount);
                 Session::put('whole_sell_qty'.$id,$item->whole_sell_qty[$key-1]);
-                
+
                 break;
-            }      
+            }
 
         }
         if (Session::has('currency'))
@@ -355,18 +438,18 @@ public function reducing($item, $id, $size_qty, $size_price) {
         if (array_key_exists($id, $data)) {
             $discount = $item->price * ($data[$id] / 100);
             $item->price = $item->price - $discount;
-            
+
             $discount = $discount * Session::get('whole_sell_qty'.$id);
           $storedItem['discount1'] = round($discount * $curr->value,2);
           $storedItem['discount'] = $curr->sign.round($discount * $curr->value,2);
           $storedItem['discount_percentage'] = $data[$id];
           $storedItem['cart_id'] = $id;
         }
-    }else{ 
+    }else{
             $storedItem['discount1'] = null;
             $storedItem['discount'] = null;
             $storedItem['discount_percentage'] = null;
-            
+
         }
     }
 
@@ -379,7 +462,7 @@ public function reducing($item, $id, $size_qty, $size_price) {
     public function MobileupdateLicense($id,$license) {
         $this->items[$id]['license'] = $license;
     }
-    
+
     public function updateLicense($id,$license) {
 
         $this->items[$id]['license'] = $license;
@@ -391,7 +474,7 @@ public function reducing($item, $id, $size_qty, $size_price) {
     }
 
     public function removeItem($id) {
-      
+
         $this->totalQty -= $this->items[$id]['qty'];
         $this->totalPrice -= $this->items[$id]['price'];
         unset($this->items[$id]);

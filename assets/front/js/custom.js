@@ -1234,17 +1234,18 @@ $(function($) {
             var size_qty = $(this).parent().parent().find('.size_qty').val();
             var size_price = $(this).parent().parent().find('.size_price').val();
             var stck = $("#stock" + itemid).val();
-            var qty = $("#qty" + itemid).html();
+            var qty = $("#qty" + itemid).val();
             if (stck != "") {
                 var stk = parseInt(stck);
                 if (qty < stk) {
                     qty++;
-                    $("#qty" + itemid).html(qty);
+                    $("#qty" + itemid).val(qty);
                 }
             } else {
                 qty++;
-                $("#qty" + itemid).html(qty);
+                $("#qty" + itemid).val(qty);
             }
+            
             $.ajax({
                 type: "GET",
                 url: mainurl + "/addbyone",
@@ -1288,6 +1289,74 @@ $(function($) {
             });
         });
 
+
+     $(document).on("keyup", ".qttotal1", function() {
+            var pid = $(this).parent().parent().find('.prodid').val();
+            var itemid = $(this).parent().parent().find('.itemid').val();
+            var size_qty = $(this).parent().parent().find('.size_qty').val();
+            var size_price = $(this).parent().parent().find('.size_price').val();
+            var stck = $("#stock" + itemid).val();
+            var qty = $("#qty" + itemid).val();
+            // if (stck != "") {
+            //     var stk = parseInt(stck);
+            //     if (qty < stk) {
+            //         qty++;
+            //         $("#qty" + itemid).val(qty);
+            //     }
+            // } else {
+            //     qty++;
+            //     $("#qty" + itemid).val(qty);
+            // }
+           if(qty == 1)
+           {
+               return false;
+           }
+          
+           
+            $.ajax({
+                type: "GET",
+                url: mainurl + "/addcustom",
+                data: { id: pid, itemid: itemid, size_qty: size_qty, size_price: size_price,qty:qty },
+                success: function(data) {
+                    if (data == 0) {} else {
+                        $(".discount").html($("#d-val").val());
+                        $(".cart-total").html(data[0]);
+                        if (data[7] != 0) {
+
+                            $('.wdiscount_info').removeClass('d-none')
+                            $('.wdiscount').html(data[5]);
+                            if (data[8]) {
+                                $('.discount' + data[4]).html(data[5]);
+                                $('#discount' + data[4]).parent().removeClass('d-none');
+                                $('#discount' + data[4]).html(data[6]);
+                            } else {
+                                $('.discount' + data[4]).html(data[5]);
+                                $('#prev' + data[4]).addClass('d-none');
+                            }
+                        } else {
+                            $('.wdiscount_info').addClass('d-none');
+                            $('.wdiscount').html(0);
+                            $('#prev' + data[4]).addClass('d-none');
+
+                        }
+
+
+
+
+                        $(".discount").html($("#d-val").val());
+                        $(".cart-total").html(data[0]);
+                        $(".main-total").html(data[3]);
+                        $(".coupon-total").val(data[3]);
+                        $("#prc" + itemid).html(data[2]);
+                        $("#prct" + itemid).html(data[2]);
+                        $("#cqt" + itemid).html(data[1]);
+                        $("#qty" + itemid).val(data[1]);
+                    }
+                }
+            });
+        });
+
+
         // Reduce By ONE
 
         $(document).on("click", ".reducing", function() {
@@ -1300,14 +1369,14 @@ $(function($) {
             var size_qty = $(this).parent().parent().find('.size_qty').val();
             var size_price = $(this).parent().parent().find('.size_price').val();
             var stck = $("#stock" + itemid).val();
-            var qty = $("#qty" + itemid).html();
+            var qty = $("#qty" + itemid).val();
             qty--;
 
 
             if (qty < 1) {
-                $("#qty" + itemid).html("1");
+                $("#qty" + itemid).val("1");
             } else {
-                $("#qty" + itemid).html(qty);
+                $("#qty" + itemid).val(qty);
                 $.ajax({
                     type: "GET",
                     url: mainurl + "/reducebyone",
