@@ -134,7 +134,6 @@
 		</div>
 	</section>
 	<!-- Top Header Area End -->
-
 	<!-- Logo Header Area Start -->
 	<section class="logo-header">
 		<div class="container">

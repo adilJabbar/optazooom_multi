@@ -14,7 +14,7 @@
           @if(isset($bcat))
                 
               <li>
-                <a href="{{ route('front.index') }}">
+                <a href="{{ route('front.indexx') }}">
                   {{ $langg->lang17 }}
                 </a>
               </li>
@@ -32,7 +32,7 @@
           @elseif(isset($slug))
 
               <li>
-                <a href="{{ route('front.index') }}">
+                <a href="{{ route('front.indexx') }}">
                   {{ $langg->lang17 }}
                 </a>
               </li>
@@ -50,7 +50,7 @@
           @elseif(isset($search))
                 
               <li>
-                <a href="{{ route('front.index') }}">
+                <a href="{{ route('front.indexx') }}">
                   {{ $langg->lang17 }}
                 </a>
               </li>
@@ -73,7 +73,7 @@
           @elseif(isset($date))
                 
               <li>
-                <a href="{{ route('front.index') }}">
+                <a href="{{ route('front.indexx') }}">
                   {{ $langg->lang17 }}
                 </a>
               </li>
@@ -91,7 +91,7 @@
           @else
                 
               <li>
-                <a href="{{ route('front.index') }}">
+                <a href="{{ route('front.indexx') }}">
                   {{ $langg->lang17 }}
                 </a>
               </li>

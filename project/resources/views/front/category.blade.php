@@ -40,7 +40,7 @@
          <div class="col-lg-12">
             <ul class="pages">
                <li>
-                  <a href="{{route('front.index')}}">{{ $langg->lang17 }}</a>
+                  <a href="{{route('front.indexx')}}">{{ $langg->lang17 }}</a>
                </li>
                @if (!empty($cat))
                <li>
