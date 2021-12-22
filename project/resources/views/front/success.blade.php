@@ -47,7 +47,7 @@
                                     <p class="text">
                                         {{ $langg->order_text }}
                                     </p>
-                                    <a href="{{ route('front.index') }}" class="link">{{ $langg->lang170 }}</a>
+                                    <a href="{{ route('user-dashboard') }}" class="link">{{ $langg->lang170 }}</a>
                                   </div>
                         </div>
                         <div class="row">

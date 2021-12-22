@@ -69,12 +69,12 @@
                                             <div class="row">
                                                 <div class="col-lg-6">
                                                     <input name="name" type="text" class="input-field"
-                                                        placeholder="{{ $langg->lang264 }}" required=""
+                                                        placeholder="First Name" required=""
                                                         value="{{ $user->name }}">
                                                 </div>
                                                 <div class="col-lg-6">
                                                     <input name="l_name" type="text" class="input-field"
-                                                        placeholder="Last Names" required=""
+                                                        placeholder="Last Name" required=""
                                                         value="{{ $user->l_name }}">
                                                 </div>
                                             </div>

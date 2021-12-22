@@ -15,7 +15,7 @@
                     </li>
                     <li>
                     <a href="{{ route('user-forgot') }}">
-                           Forgot
+                           Forgot Password
                         </a>
                     </li>
                 </ul>

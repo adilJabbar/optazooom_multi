@@ -64,9 +64,9 @@
 					@endif
 					</li>
 					<li>
-						<span class="add-to-compare" data-href="{{ route('product.compare.add',$prod->id) }}"  data-toggle="tooltip" data-placement="right" title="{{ $langg->lang57 }}" data-placement="right">
+						<!-- <span class="add-to-compare" data-href="{{ route('product.compare.add',$prod->id) }}"  data-toggle="tooltip" data-placement="right" title="{{ $langg->lang57 }}" data-placement="right">
 							<i class="icofont-exchange"></i>
-						</span>
+						</span> -->
 					</li>
 				</ul>
 			</div>
