@@ -23,9 +23,7 @@
     margin: auto;
  
 }
-.containeer {
-    max-width:1280px;
-}
+
 
 
 
@@ -71,7 +69,7 @@
         <div class="container containeer">
 
 <div class="row">
-    <div class="col-lg-9 col-md-8">
+    <div class="col-lg-9">
             <?php 
 
      if(isset($key) && !empty($key))
@@ -148,7 +146,7 @@
 ?>
 
 </div>
-                 <div class="col-lg-3 col-md-4">
+                 <div class="col-lg-3">
                 <!-- Li's Main Content Area End Here -->
                 <!-- Begin Li's Blog Sidebar Area -->
                 <div>

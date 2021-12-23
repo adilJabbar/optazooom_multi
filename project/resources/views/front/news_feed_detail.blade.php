@@ -163,7 +163,7 @@
 
 
           <div class="li-main-blog-page li-main-blog-details-page pt-60 pb-60 pb-sm-45 pb-xs-45">
-        <div class="container">
+        <div class="container-setting-page-detail">
             <div class="row">
                 <!-- Begin Li's Blog Sidebar Area -->
                 <div class="col-lg-3 order-lg-2 order-2">

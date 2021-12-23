@@ -144,7 +144,7 @@ $(function($) {
                     items: 1,
                 },
                 414: {
-                    items: 1,
+                    items: 2,
                 },
                 768: {
                     items: 2,
