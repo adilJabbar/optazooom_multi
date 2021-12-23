@@ -40,7 +40,11 @@
                             <div class="featured-vendor">
                                 <a href="{{ route('front.vendor',str_replace(' ', '-', $user->shop_name)) }}">
                                     <div class="cat-img">
-                                    <img src="{{ $user->photo ? asset('assets/images/users/'.$user->photo):asset('assets/images/noimage.png') }}" />
+                                    @if($user->thumbnail)
+                                    <img src="{{ $user->thumbnail ? asset('assets/images/users/'.$user->photo):asset('assets/images/noimage.png') }}" />
+					                @else
+                                    <img class="img-fluid" src="{{ $user->photo ? asset('assets/images/products/'.$user->photo):asset('assets/images/noimage.png') }}" alt="">
+                                    @endif
                                     
                                 </div>
 
