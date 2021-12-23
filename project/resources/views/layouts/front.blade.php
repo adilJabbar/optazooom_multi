@@ -536,14 +536,14 @@
 		<div class="copy-bg">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-9">
+					<div class="col-lg-9 col-md-8">
 							<div class="content">
 								<div class="content">
 									<p>{!! $gs->copyright !!}</p>
 							    </div>
 						   </div>
 					</div>
-					<div class="col-lg-3 copy">
+					<div class="col-lg-3 col-md-4 copy">
                             <!-- Footer Links Area End Here -->
                             <!-- Begin Footer Payment Area -->
                             <div class="copyright">
