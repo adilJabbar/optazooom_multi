@@ -35,7 +35,14 @@
 
 											  <div class="row">
 												  <div class="col-lg-12 text-right">
+													  @if(Auth::user()->email == "ozbpioptical@gmail.com")
+
+														  <span style="margin-top:10px;"><a class="btn btn-primary" href="{{asset('assets/callbpi_data_final.csv')}}">{{ $langg->lang531 }}</a></span>
+
+													  @else
+
 													  <span style="margin-top:10px;"><a class="btn btn-primary" href="{{asset('assets/product-csv-format.csv')}}">{{ $langg->lang531 }}</a></span>
+												  @endif
 												  </div>
 
 											  </div>
