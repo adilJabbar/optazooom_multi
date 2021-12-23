@@ -211,7 +211,7 @@ class ProductController extends Controller
 
         $data->thumbnail  = $thumbnail;
         $data->update();
-        return response()->json(['status'=>true,'file_name' => $image_name]);
+        return response()->json(array('status'=>true,'file_name' => $image_name));
     }
 
 
@@ -233,10 +233,297 @@ class ProductController extends Controller
 
 //        echo Auth::user()->email;
 //        echo "<PRE>";print_r($user);exit;
+        $log = "";
+
+        if(Auth::user()->email == "amconlabs@gmail.com")
+        {
+            $prods = $user->products()->orderBy('id','desc')->get()->count();
+
+//            echo "<PRE>";print_r($request->all());exit;
+
+//            echo "prods ". $prods;
+//            exit;
+
+//            $log = "";
+//
+            $rules = array(
+                'csvfile'      => 'required|mimes:csv,txt',
+            );
+
+            $validator = Validator::make($request->all(), $rules);
+
+            if ($validator->fails()) {
+                return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
+            }
 
 
-        if(Auth::user()->email == "ozhilcovision@gmail.com")
 
+            $filename = '';
+            if ($file = $request->file('csvfile'))
+            {
+                $extensions = ['csv'];
+                if(!in_array($file->getClientOriginalExtension(),$extensions)){
+                    return response()->json(array('errors' => ['Image format not supported']));
+                }
+                $filename = time().'-'.$file->getClientOriginalName();
+                $file->move('assets/temp_files',$filename);
+            }
+
+            //$filename = $request->file('csvfile')->getClientOriginalName();
+            //return response()->json($filename);
+            $datas = "";
+
+
+            $file = fopen(public_path('assets/temp_files/'.$filename),"r");
+            $i = 1;
+            while (($line = fgetcsv($file)) !== FALSE) {
+
+//                echo "<PRE>";
+//                print_r($line);
+//                exit;
+
+                if($i != 1)
+                {
+
+                    $sku = $line[0];
+                    $main_category = $line[1];
+                    $sub_category = $line[2];
+                    $product_name = $line[3];
+                    $product_feature_image = $line[4];
+                    $product_description = $line[5];
+                    $current_price = $line[6];
+                    $previous_price = $line[7];
+                    $stock = $line[8];
+                    $size = $line[9];
+                    $size_quantity = $line[10];
+                    $size_extra_price = $line[11];
+
+                    $colors = $line[12];
+                    $tags = $line[13];
+                    $youtube = $line[14];
+                    $policy = $line[15];
+                    $meta_tag = $line[16];
+                    $meta_description = $line[17];
+                    $product_type = $line[18];
+                    $affiliate_link = $line[19];
+                    $collection = $line[20];
+                    $extra_price = $line[21];
+                    $variations = $line[22];
+
+
+
+
+
+
+
+                    if (!Product::where('sku',$sku)->exists()){
+
+                        //--- Validation Section Ends
+
+                        //--- Logic Section
+                        $data = new Product;
+                        $sign = Currency::where('is_default','=',1)->first();
+
+                        $input['type'] = 'Physical';
+                        $input['sku'] = $sku;
+
+                        $input['category_id'] = null;
+                        $input['subcategory_id'] = null;
+                        $input['childcategory_id'] = null;
+
+                        $mcat = Category::where(DB::raw('lower(name)'), strtolower($main_category));
+                        //$mcat = Category::where("name", $main_category);
+                        if(!$mcat->exists())
+                        {
+                            $slug = \Str::slug($main_category);
+                            $cat = new Category;
+                            $cat->name = $main_category;
+                            $cat->slug = $slug;
+                            $cat->status = 1;
+                            $cat->is_featured = 0;
+                            $cat->save();
+                            $mcat = Category::where(DB::raw('lower(name)'), strtolower($main_category));
+                        }
+
+
+                        if($mcat->exists()){
+
+                            $input['category_id'] = $mcat->first()->id;
+
+                            $input['photo'] = $product_feature_image;
+                            $input['name'] = $product_name;
+                            $input['price'] = $current_price;
+                            $input['details'] = $product_description;
+                            $input['stock'] = $stock != "" ? $stock : 0;
+                            $input['slug'] = Str::slug($input['name'],'-').'-'.strtolower($input['sku']);
+                            $input['product_type'] = 'normal';
+                            $input['tags'] = $tags;
+
+                            $input['previous_price'] = $previous_price;
+                            $input['size'] = $size;
+                            $input['size_quantity'] = $size_quantity;
+                            $input['size_extra_price'] = $size_extra_price;
+                            $input['colors'] = $colors;
+                            $input['tags'] = $tags;
+                            $input['youtube'] = $youtube;
+                            $input['policy'] = $policy;
+                            $input['meta_tag'] = $meta_tag;
+                            $input['meta_description'] = $meta_description;
+//                            $input['product_type'] = $product_type;
+                            $input['affiliate_link'] = $affiliate_link;
+                            $input['collection'] = $collection;
+                            $input['extra_price'] = $extra_price;
+                            $input['variations'] = $variations;
+
+
+//                echo "<PRE>";
+//                print_r($input);
+//                exit;
+
+
+
+                            $image_url = $product_feature_image;
+
+                            $imagesss = explode(',',$image_url);
+                            // echo "---";
+
+                            if(isset($imagesss[0]))
+                            {
+                                foreach($imagesss as $img_k => $img_v)
+                                {
+                                    if($img_k == 0)
+                                    {
+                                        $ch = curl_init();
+                                        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+                                        curl_setopt ($ch, CURLOPT_URL, $img_v);
+                                        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, 20);
+                                        curl_setopt ($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+                                        curl_setopt ($ch, CURLOPT_FOLLOWLOCATION, true);
+                                        curl_setopt($ch, CURLOPT_HEADER, true);
+                                        curl_setopt($ch, CURLOPT_NOBODY, true);
+
+                                        $content = curl_exec ($ch);
+
+                                        $contentType = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+
+                                        $thumb_url = '';
+                                        $img_v = str_replace(' ', '%20', $img_v);
+
+
+                                        if(strpos($img_v,'png') || strpos($img_v,'jpg') || strpos($img_v,'jpeg'))
+                                        {
+                                            try {
+                                                if (!preg_match("~^(?:f|ht)tps?://~i", $img_v)) {
+                                                    $img_v = "https:" . $img_v;
+                                                }
+
+                                                $fimg = Image::make($img_v)->resize(800, 800);
+
+                                                $fphoto = Str::random(12).'.jpg';
+                                                $fimg->save(public_path().'/assets/images/products/'.$fphoto);
+                                                $input['photo']  = $fphoto;
+                                                $thumb_url = $img_v;
+
+                                            } catch (\Exception $e) {
+
+                                                $fimg = Image::make(public_path().'/assets/images/noimage.png')->resize(800, 800);
+
+                                                $fphoto = Str::random(12).'.jpg';
+                                                $fimg->save(public_path().'/assets/images/products/'.$fphoto);
+                                                $input['photo']  = $fphoto;
+                                                $thumb_url = public_path().'/assets/images/noimage.png';
+                                            }
+
+                                            $timg = Image::make($thumb_url)->resize(285, 285);
+                                            $thumbnail = Str::random(12).'.jpg';
+                                            $timg->save(public_path().'/assets/images/thumbnails/'.$thumbnail);
+                                            $input['thumbnail']  = $thumbnail;
+                                        }else{
+
+                                            $input['thumbnail']  = $img_v;
+                                        }
+
+                                    }
+
+                                }
+                            }
+
+
+                            $input['price'] = ((float)$input['price'] / (float)$sign->value);
+
+
+                            $input['previous_price'] = ((int)$input['previous_price'] / $sign->value);
+                            $input['user_id'] = $user->id;
+                            // Save Data
+
+                            $data->fill($input)->save();
+
+                            $lastid = $data->id;
+
+                            /*get last inserted order ID*/
+
+                            $RegistrationByUsersID = DB::getPdo()->lastInsertId();
+
+
+//                            echo "lastid ".$lastid;
+//                            echo "<BR>";
+//                            echo "<PRE>";
+//                            print_r($input);
+//                            exit;
+
+
+
+
+                            if(isset($imagesss[1]))
+                            {
+
+                                foreach($imagesss as $img_kk => $img_vv)
+                                {
+
+                                    if($img_k!=0)
+                                    {
+                                        $img_vv = str_replace(' ', '%20', $img_vv);
+
+                                        $gallery = new Gallery;
+                                        $name = Str::random(12).'.jpg';
+                                        if (!preg_match("~^(?:f|ht)tps?://~i", $img_vv)) {
+                                            $img_vv = "https:" . $img_vv;
+                                        }
+                                        try {
+                                            $img = Image::make($img_vv);
+
+                                            $thumbnail = Str::random(12).'.jpg';
+                                            $img->save(public_path().'/assets/images/galleries/'.$name);
+                                            $gallery['photo'] = $name;
+                                            $gallery['product_id'] = $lastid;
+                                            $gallery->save();
+                                        } catch (\Exception $e) {
+                                        }
+                                    }
+                                }
+                            }
+
+
+
+                        }else{
+                            $log .= "<br>Row No: ".$i." - No Category Found!<br>";
+                        }
+
+                    }
+                    else{
+                        $log .= "<br>Row No: ".$i." - Duplicate Product Code!<br>";
+                    }
+
+                }
+
+                $i++;
+
+            }
+
+            fclose($file);
+
+        }
+       else if(Auth::user()->email == "ozhilcovision@gmail.com")
         {
             $prods = $user->products()->orderBy('id','desc')->get()->count();
 
