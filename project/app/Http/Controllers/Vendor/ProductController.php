@@ -312,6 +312,7 @@ class ProductController extends Controller
                     $brand = $line[21];
                     $product_code = $line[22];
                     $specification = $line[23];
+                    $impeller_mounting_hole = $line[23];
 
 
 
@@ -377,6 +378,7 @@ class ProductController extends Controller
                             $input['brand'] = $brand;
                             $input['product_code'] = $product_code;
                             $input['specification'] = $specification;
+                            $input['impeller_mounting_hole'] =  $impeller_mounting_hole;
 
 
 //                echo "<PRE>";
@@ -468,11 +470,7 @@ class ProductController extends Controller
                             $RegistrationByUsersID = DB::getPdo()->lastInsertId();
 
 
-//                            echo "lastid ".$lastid;
-//                            echo "<BR>";
-//                            echo "<PRE>";
-//                            print_r($input);
-//                            exit;
+
 
 
 
