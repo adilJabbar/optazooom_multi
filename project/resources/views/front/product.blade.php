@@ -3002,13 +3002,6 @@ if($email == 'ozronsoptical@gmail.com')
                       </div>
                 </div>
             </div>
-                                                                                                                                                <div class="form-group">
-              <label class="control-label" for="input-quantity">Qty</label>
-              <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control">
-              <input type="hidden" name="product_id" value="773">
-              <br>
-              <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-primary btn-lg btn-block">Add to Cart</button>
-            </div>
                       </div>
 
 
@@ -3611,18 +3604,7 @@ if($email == 'ozronsoptical@gmail.com')
 
  <?php }
 ?>
-
-
-
-
-
-
-
-
-
-
                   <div class="row">
-iv class="row">
                           <div class="col-lg-12">
                           <div id="product-details-tab">
                             <div class="top-menu-area">
