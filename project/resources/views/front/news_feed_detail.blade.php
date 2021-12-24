@@ -212,6 +212,7 @@
                                         <div class="read_more">
                                              <a class="read-more-blogs" href="{{$_GET['link']}}">Read Original Article</a>
                                         </div>
+                                        <br>
                                         <div class="go_back">
                                            <a href="{{url('optanews')}}"> <p class="go-back text-center" style="text-align:center;">Go Back</p></a>
                                         </div>
