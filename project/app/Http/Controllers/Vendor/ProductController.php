@@ -569,9 +569,8 @@ class ProductController extends Controller
             $i = 1;
             while (($line = fgetcsv($file)) !== FALSE) {
 
-//                echo "<PRE>";
-//                print_r($line);
-//                exit;
+
+
 
                 if($i != 1)
                 {
@@ -600,10 +599,54 @@ class ProductController extends Controller
                     $collection = $line[20];
                     $extra_price = $line[21];
                     $variations = $line[22];
+                    $current_price_detail = $current_price;
+                    $current_price =  (float) filter_var( $current_price, FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION );
+
+
+                    $current_price = number_format((float)$current_price, 2, '.', '');
+                    // $current_price = explode('/',$current_price);
+                    // $current_price = trim($current_price[0], "$");
+
+                    // set volume proce
+
+                    $volumee = array();
+                    $percetangee = array();
+                    if(!empty($extra_price))
+                    {
+                        $all_volume_price =  explode('|', $extra_price);
+
+                        foreach($all_volume_price as $k => $v)
+                        {
+
+
+                            $separated =  explode('/', $v);
+
+
+                            $volume = (int) filter_var($separated[0], FILTER_SANITIZE_NUMBER_INT);
+
+
+                            $volume_pricee = (float) filter_var( $separated[0], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION );
+
+
+                            $volume = (int) filter_var($separated[1], FILTER_SANITIZE_NUMBER_INT);
 
 
 
+                            $aa = (float)$current_price - (float)$volume_pricee;
 
+                            $percetange =  $aa / $current_price * 100;
+
+
+
+                            $percetangee[] = (int)round($percetange);
+
+                            $volumee[] = (int)$volume;
+
+                        }
+                    }
+
+                    $percetange = implode(', ', $percetangee);
+                    $volumee = implode(', ', $volumee);
 
 
 
@@ -665,11 +708,10 @@ class ProductController extends Controller
                             $input['collection'] = $collection;
                             $input['extra_price'] = $extra_price;
                             $input['variations'] = $variations;
+                            $input['current_price_detail'] = $current_price_detail;
+                            $input['whole_sell_discount'] = $percetange;
+                            $input['whole_sell_qty'] = $volumee;
 
-
-//                echo "<PRE>";
-//                print_r($input);
-//                exit;
 
 
 
