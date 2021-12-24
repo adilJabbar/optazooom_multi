@@ -2793,6 +2793,422 @@ if($email == 'ozronsoptical@gmail.com')
 <!-- Optical First Data Ends Here -->
 
 
+<?php }elseif($email == 'ozbpioptical@gmail.com')
+ { ?>
+
+<!-- BPI Data Starts Here -->
+<div class="row">
+        <div class="col-lg-5 col-md-12">
+            <div class="xzoom-container">
+
+              <?php $img = explode(',', $productt->photo); ?>
+                <img class="xzoom5" id="xzoom-magnific" src="{{filter_var($img[0], FILTER_VALIDATE_URL) ?$img[0]:asset('assets/images/products/'.$productt->photo)}}" xoriginal="{{$img[0]}}" />
+                <div class="xzoom-thumbs">
+
+                  <div class="all-slider">
+
+                    <!--  <a href="{{$img[0]}}">-->
+                    <!--<img class="xzoom-gallery5" width="80" src="{{filter_var($img[0], FILTER_VALIDATE_URL) ?$img[0]:asset('assets/images/products/'.$productt->photo)}}" title="The description goes here">-->
+                    <!--  </a>-->
+
+                  @foreach($productt->galleries as $gal)
+                      <a href="{{asset('assets/images/galleries/'.$gal->photo)}}">
+                        <img class="xzoom-gallery5" width="80" src="{{asset('assets/images/galleries/'.$gal->photo)}}" title="The description goes here">
+                      </a>
+                  @endforeach
+
+                  </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-7">
+                  <div class="right-area">
+                    <div class="product-info">
+                      <h4 class="product-name">{{ $productt->name }}</h4>
+                            <div class="info-meta-1">
+                                    <ul>
+                                              @if($productt->type == 'Physical')
+                                              @if($productt->emptyStock())
+                                              <li class="product-outstook">
+                                                <p>
+                                                  <i class="icofont-close-circled"></i>
+                                                  {{ $langg->lang78 }}
+                                                </p>
+                                              </li>
+                                              @else
+
+                                              <li class="product-isstook">
+                                                <p>
+                                                  <i class="icofont-check-circled"></i>
+                                                  {{ $gs->show_stock == 0 ? '' : $productt->stock }} {{ $langg->lang79 }}
+                                                </p>
+                                              </li>
+                                              @endif
+                                              @endif
+                                              <li>
+                                                <div class="ratings">
+                                                  <div class="empty-stars"></div>
+                                                  <div class="full-stars" style="width:{{App\Models\Rating::ratings($productt->id)}}%"></div>
+                                                </div>
+                                              </li>
+                                              <li class="review-count">
+                                                <p>{{count($productt->ratings)}} {{ $langg->lang80 }}</p>
+                                              </li>
+                                          @if($productt->product_condition != 0)
+                                            <li>
+                                              <div class="{{ $productt->product_condition == 2 ? 'mybadge' : 'mybadge1' }}">
+                                                {{ $productt->product_condition == 2 ? 'New' : 'Used' }}
+                                              </div>
+                                            </li>
+                                          @endif
+                                    </ul>
+                            </div>
+
+
+                @if(Auth::user())
+                <div class="product-price">
+                  <p class="title">{{ $langg->lang87 }} :</p>
+                        <p class="price"><span id="sizeprice">{{ $productt->showPrice() }}</span>
+                          <small><del>{{ $productt->showPreviousPrice() }}</del></small></p>
+                          @if($productt->youtube != null)
+                          <a href="{{ $productt->youtube }}" class="video-play-btn mfp-iframe">
+                            <i class="fas fa-play"></i>
+                          </a>
+                        @endif
+                      </div>
+
+                  @endif
+
+                      <div class="info-meta-2">
+                        <ul>
+
+                          @if($productt->type == 'License')
+
+                          @if($productt->platform != null)
+                          <li>
+                            <p>{{ $langg->lang82 }}: <b>{{ $productt->platform }}</b></p>
+                          </li>
+                          @endif
+
+                          @if($productt->region != null)
+                          <li>
+                            <p>{{ $langg->lang83 }}: <b>{{ $productt->region }}</b></p>
+                          </li>
+                          @endif
+
+                          @if($productt->licence_type != null)
+                          <li>
+                            <p>{{ $langg->lang84 }}: <b>{{ $productt->licence_type }}</b></p>
+                          </li>
+                          @endif
+
+                          @endif
+
+                        </ul>
+                      </div>
+
+
+                      @if(!empty($productt->size))
+                      <div class="product-size">
+                        <p class="title">{{ $langg->lang88 }} :</p>
+                        <ul class="siz-list">
+                          @php
+                          $is_first = true;
+                          @endphp
+                          @foreach($productt->size as $key => $data1)
+                          <li class="{{ $is_first ? 'active' : '' }}">
+                            <span class="box">{{ $data1 }}
+                              <input type="hidden" class="size" value="{{ $data1 }}">
+                              <input type="hidden" class="size_qty" value="@if(isset($productt->size_qty[$key])){{ $productt->size_qty[$key] }}@endif">
+                              <input type="hidden" class="size_key" value="{{$key}}">
+                              <input type="hidden" class="size_price"
+                                value="@if(isset($productt->size_price[$key])){{ round($productt->size_price[$key] * $curr->value,2) }} @endif">
+                            </span>
+                          </li>
+                          @php
+                          $is_first = false;
+                          @endphp
+                          @endforeach
+                          <li>
+                        </ul>
+                      </div>
+                      @endif
+
+                      @if(!empty($productt->color))
+                      <div class="product-color">
+                        <p class="title">{{ $langg->lang89 }} :</p>
+                        <ul class="color-list">
+                          @php
+                          $is_first = true;
+                          @endphp
+                          <select name="color" id="color_select">
+                          @foreach($productt->color as $key => $data1)
+                          <?php try {
+                              //dd(Helper::get_color_name($productt->color[$key])['hex']);
+
+                          $color_back = Helper::get_color_name($productt->color[$key])['hex'];
+                            echo $color_back;
+                          } catch (Exception $e) {
+                            $color_back = '#ffffff';
+                          }
+
+                          ?>
+
+                            <option value="{{ $productt->color[$key]}} ">{{ $productt->color[$key]}} </option>
+
+                      <!--     <li class="{{ $is_first ? 'active' : '' }}">
+                            <span >@if(isset($productt->color[$key])){{ $productt->color[$key]}}  @else(isset($productt->color[$key]['name'])) {{Helper::get_color_name($productt->color[$key])['name']}} @endif</span>
+                            <span class="box" data-color="{{ $productt->color[$key] }}" style="background-color:{{$color_back}}"></span>
+                          </li> -->
+                          @php
+                          $is_first = false;
+                          @endphp
+                          @endforeach
+                          </select>
+
+                        </ul>
+                      </div>
+                      @endif
+
+                      @if(!empty($productt->size) && isset($productt->size_qty[0]))
+
+                      <input type="hidden" id="stock" value="{{ $productt->size_qty[0] }}">
+                      @else
+                      @php
+                      $stck = (string)$productt->stock;
+                      @endphp
+
+                      <!-- Variation 1 -->
+                      <div id="product">	                        <hr>
+            <h3>Available Options</h3>
+           <div class="form-group required">
+              <label class="control-label">Impeller Mounting Hole</label>
+                <div id="input-option228">
+                        <div class="radio">
+                        <label>
+                          <input type="radio" name="option[228]" value="57">
+                            <img src="http://callbpi.com/golf/image/cache/catalog/Impeller_pics/blade-50x50.jpg" alt="Plain 1/2&quot;" class="img-thumbnail">              
+                          Plain 1/2"
+                        </label>
+                      </div>
+                    <div class="radio">
+                        <label>
+                          <input type="radio" name="option[228]" value="58">
+                            <img src="http://callbpi.com/golf/image/cache/catalog/Impeller_pics/blade-50x50.jpg" alt="Plain 5/8&quot;" class="img-thumbnail">              
+                          Plain 5/8" 
+                        </label>
+                      </div>
+                </div>
+            </div>
+                                                                                                                                                <div class="form-group">
+              <label class="control-label" for="input-quantity">Qty</label>
+              <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control">
+              <input type="hidden" name="product_id" value="773">
+              <br>
+              <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-primary btn-lg btn-block">Add to Cart</button>
+            </div>
+                      </div>
+
+
+
+                      @if($stck != null)
+                      <input type="hidden" id="stock" value="{{ $stck }}">
+                      @elseif($productt->type != 'Physical')
+                      <input type="hidden" id="stock" value="0">
+                      @else
+                      <input type="hidden" id="stock" value="">
+                      @endif
+
+                      @endif
+                      <input type="hidden" id="product_price" value="{{ round($productt->vendorPrice() * $curr->value,2) }}">
+
+                      <input type="hidden" id="product_id" value="{{ $productt->id }}">
+                      <input type="hidden" id="curr_pos" value="{{ $gs->currency_format }}">
+                      <input type="hidden" id="curr_sign" value="{{ $curr->sign }}">
+                      <div class="info-meta-3">
+                        <ul class="meta-list">
+                          @if($productt->product_type != "affiliate")
+                          <li class="d-block count {{ $productt->type == 'Physical' ? '' : 'd-none' }}">
+                            <div class="qty">
+                              <ul>
+                                <li>
+                                  <span class="qtminus">
+                                    <i class="icofont-minus"></i>
+                                  </span>
+                                </li>
+                                <li>
+                                  <input type="number" name="qttotal" min="1"  value="1" class="qttotal"></span>
+                                </li>
+                                <li>
+                                  <span class="qtplus">
+                                    <i class="icofont-plus"></i>
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                          @endif
+
+                          @if (!empty($productt->attributes))
+                            @php
+                              $attrArr = json_decode($productt->attributes, true);
+                            @endphp
+                          @endif
+                          @if (!empty($attrArr))
+                            <div class="product-attributes my-4">
+                              <div class="row">
+                              @foreach ($attrArr as $attrKey => $attrVal)
+                                @if (array_key_exists("details_status",$attrVal) && $attrVal['details_status'] == 1)
+
+                              <div class="col-lg-6">
+                                  <div class="form-group mb-2">
+                                    <strong for="" class="text-capitalize">{{ str_replace("_", " ", $attrKey) }} :</strong>
+                                    <div class="">
+                                    @foreach ($attrVal['values'] as $optionKey => $optionVal)
+                                      <div class="custom-control custom-radio">
+                                        <input type="hidden" class="keys" value="">
+                                        <input type="hidden" class="values" value="">
+                                        <input type="radio" id="{{$attrKey}}{{ $optionKey }}" name="{{ $attrKey }}" class="custom-control-input product-attr"  data-key="{{ $attrKey }}" data-price = "{{ $attrVal['prices'][$optionKey] * $curr->value }}" value="{{ $optionVal }}" {{ $loop->first ? 'checked' : '' }}>
+                                        <label class="custom-control-label" for="{{$attrKey}}{{ $optionKey }}">{{ $optionVal }}
+
+                                        @if (!empty($attrVal['prices'][$optionKey]))
+                                          +
+                                          {{$curr->sign}} {{$attrVal['prices'][$optionKey] * $curr->value}}
+                                        @endif
+                                        </label>
+                                      </div>
+                                    @endforeach
+                                    </div>
+                                  </div>
+                              </div>
+                                @endif
+                              @endforeach
+                              </div>
+                            </div>
+                          @endif
+
+                          @if($productt->product_type == "affiliate")
+
+                          <li class="addtocart">
+                            <a href="{{ route('affiliate.product', $productt->slug) }}" target="_blank"><i
+                                class="icofont-cart"></i> {{ $langg->lang251 }}</a>
+                          </li>
+                          @else
+                          @if($productt->emptyStock())
+                          <li class="addtocart">
+                            <a href="javascript:;" class="cart-out-of-stock">
+                              <i class="icofont-close-circled"></i>
+                              {{ $langg->lang78 }}</a>
+                          </li>
+                          @else
+                          @if(Auth::user())
+                          <li class="addtocart">
+                            <a href="javascript:;" id="addcrt"><i class="icofont-cart"></i>{{ $langg->lang90 }}</a>
+                          </li>
+
+                          <li class="addtocart">
+                            <a id="qaddcrt" href="javascript:;">
+                              <i class="icofont-cart"></i>{{ $langg->lang251 }}
+                            </a>
+                          </li>
+                          @else
+                            <li class="addtocart">
+                            <a rel-toggle="tooltip" title="{{ $langg->lang90 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+                              <i class="icofont-cart"></i>{{ $langg->lang90 }}
+                            </a>
+                          </li>
+
+                            <li class="addtocart">
+                            <a rel-toggle="tooltip" title="{{ $langg->lang251 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+                              <i class="icofont-cart"></i>{{ $langg->lang251 }}
+                            </a>
+                          </li>
+
+                          @endif
+                          @endif
+
+                          @endif
+
+                          @if(Auth::guard('web')->check())
+                          <li class="favorite">
+                            <a href="javascript:;" class="add-to-wish"
+                              data-href="{{ route('user-wishlist-add',$productt->id) }}"><i class="icofont-heart-alt"></i></a>
+                          </li>
+                          @else
+                          <li class="favorite">
+                            <a href="javascript:;" data-toggle="modal" data-target="#comment-log-reg"><i
+                                class="icofont-heart-alt"></i></a>
+                          </li>
+                          @endif
+                          <li class="compare">
+                            <a href="javascript:;" class="add-to-compare"
+                              data-href="{{ route('product.compare.add',$productt->id) }}"><i class="icofont-exchange"></i></a>
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="social-links social-sharing a2a_kit a2a_kit_size_32">
+                        <ul class="link-list social-links">
+                          <li>
+                            <a class="facebook a2a_button_facebook" href="">
+                              <i class="fab fa-facebook-f"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="twitter a2a_button_twitter" href="">
+                              <i class="fab fa-twitter"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="linkedin a2a_button_linkedin" href="">
+                              <i class="fab fa-linkedin-in"></i>
+                            </a>
+                          </li>
+                          <li>
+                            <a class="pinterest a2a_button_pinterest" href="">
+                              <i class="fab fa-pinterest-p"></i>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                      <script async src="https://static.addtoany.com/menu/page.js"></script>
+
+
+                      @if($productt->ship != null)
+                        <p class="estimate-time">{{ $langg->lang86 }}: <b> {{ $productt->ship }}</b></p>
+                      @endif
+                      @if( $productt->sku != null )
+                      <p class="p-sku">
+                        {{ $langg->lang77 }}: <span class="idno">{{ $productt->sku }}</span>
+                      </p>
+                      @endif
+                  @if($gs->is_report)
+
+                  {{-- PRODUCT REPORT SECTION --}}
+
+                                @if(Auth::guard('web')->check())
+
+                                <div class="report-area">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#report-modal"><i class="fas fa-flag"></i> {{ $langg->lang776 }}</a>
+                                </div>
+
+                                @else
+
+                                <div class="report-area">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#comment-log-reg"><i class="fas fa-flag"></i> {{ $langg->lang776 }}</a>
+                                </div>
+                                @endif
+
+                  {{-- PRODUCT REPORT SECTION ENDS --}}
+
+                  @endif
+                    </div>
+                  </div>
+
+                </div>
+     </div>
+<!-- BPI Data Ends Here -->
 
 
  <?php }else{ ?>
