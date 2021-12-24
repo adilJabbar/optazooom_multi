@@ -95,7 +95,8 @@ class OrderController extends Controller
 
         $apiResponse = $client->track($request);
 
-        $order = Order::where('order_number','=',$id)->first();
+        $order = Order::where('fedex_trck_num','=',$id)->first();
+
     // dd($apiResponse);
         // if(isset($apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description))
         // {

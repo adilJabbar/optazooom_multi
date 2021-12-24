@@ -243,6 +243,9 @@ background: none !important; }
 .completed {
   background-color: #01c004 !important;
 }
+.shipped {
+  background-color: #ffa11a !important;
+}
 .processing {
   background-color: #02abff !important;
 }

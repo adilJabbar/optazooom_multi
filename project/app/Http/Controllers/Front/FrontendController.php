@@ -576,44 +576,44 @@ class FrontendController extends Controller
 
     // Vendor Subscription Check
     public function subcheck(){
-        $settings = Generalsetting::findOrFail(1);
-        $today = Carbon::now()->format('Y-m-d');
-        $newday = strtotime($today);
-        foreach (DB::table('users')->where('is_vendor','=',2)->get() as  $user) {
-                $lastday = $user->date;
-                $secs = strtotime($lastday)-$newday;
-                $days = $secs / 86400;
-                if($days <= 5)
-                {
-                  if($user->mail_sent == 1)
-                  {
-                    if($settings->is_smtp == 1)
-                    {
-                        $data = [
-                            'to' => $user->email,
-                            'type' => "subscription_warning",
-                            'cname' => $user->name,
-                            'oamount' => "",
-                            'aname' => "",
-                            'aemail' => "",
-                            'onumber' => ""
-                        ];
-                        $mailer = new GeniusMailer();
-                        $mailer->sendAutoMail($data);
-                    }
-                    else
-                    {
-                    $headers = "From: ".$settings->from_name."<".$settings->from_email.">";
-                    mail($user->email,'Your subscription plan duration will end after five days. Please renew your plan otherwise all of your products will be deactivated.Thank You.',$headers);
-                    }
-                    DB::table('users')->where('id',$user->id)->update(['mail_sent' => 0]);
-                  }
-                }
-                if($today > $lastday)
-                {
-                    DB::table('users')->where('id',$user->id)->update(['is_vendor' => 1]);
-                }
-            }
+        // $settings = Generalsetting::findOrFail(1);
+        // $today = Carbon::now()->format('Y-m-d');
+        // $newday = strtotime($today);
+        // foreach (DB::table('users')->where('is_vendor','=',2)->get() as  $user) {
+        //         $lastday = $user->date;
+        //         $secs = strtotime($lastday)-$newday;
+        //         $days = $secs / 86400;
+        //         if($days <= 5)
+        //         {
+        //           if($user->mail_sent == 1)
+        //           {
+        //             if($settings->is_smtp == 1)
+        //             {
+        //                 $data = [
+        //                     'to' => $user->email,
+        //                     'type' => "subscription_warning",
+        //                     'cname' => $user->name,
+        //                     'oamount' => "",
+        //                     'aname' => "",
+        //                     'aemail' => "",
+        //                     'onumber' => ""
+        //                 ];
+        //                 $mailer = new GeniusMailer();
+        //                 $mailer->sendAutoMail($data);
+        //             }
+        //             else
+        //             {
+        //             $headers = "From: ".$settings->from_name."<".$settings->from_email.">";
+        //             mail($user->email,'Your subscription plan duration will end after five days. Please renew your plan otherwise all of your products will be deactivated.Thank You.',$headers);
+        //             }
+        //             DB::table('users')->where('id',$user->id)->update(['mail_sent' => 0]);
+        //           }
+        //         }
+        //         if($today > $lastday)
+        //         {
+        //             DB::table('users')->where('id',$user->id)->update(['is_vendor' => 1]);
+        //         }
+        //     }
     }
     // Vendor Subscription Check Ends
 

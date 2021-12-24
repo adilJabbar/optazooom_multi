@@ -161,7 +161,7 @@
                                     <?php if (isset($_GET['category'])) { ?>
                                         <input type="hidden" name="category" value="<?= $_GET['category']; ?>" class="li-search-field" placeholder="Search any news here">
                                     <?php } ?>
-                                    <button id="btn" type="button" class="li-search-btn"><i class="fa fa-search"></i></button>
+                                    <button id="btn" type="submit" class="li-search-btn"><i class="fa fa-search"></i></button>
                              </form>
                             </div>
                         </div>
@@ -175,8 +175,9 @@
             <br>
             <div class="col-lg-12">
                 <div class="load-more load_more">
-            	    <button type="button" id="loadMore">Load More</button>
+
                 </div>
+                <button style="margin-left:40%" type="button" id="loadMore">Load More</button>
                 <?php if(isset($pagination_links) && !empty($pagination_links)) : ?>
                     <div class="container Page navigation">
                         <nav aria-label="Page navigation example">

@@ -316,6 +316,9 @@ a.clear {
 .completed {
     background-color: #00970c !important;
 }
+.shipped {
+    background-color: #ffa11a !important;
+  }
 .delivered {
     background-color: #00970c !important;
 }

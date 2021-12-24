@@ -23,6 +23,12 @@
     </div>
 </div>
 <!-- Breadcrumb Area End -->
+<style>
+
+.shipped {
+    background-color: #ffa11a !important;
+  }
+  </style>
 <section class="user-dashbord">
     <div class="container">
       <div class="row">
@@ -49,7 +55,7 @@
 												</thead>
 												<tbody>
 													 @foreach($orders as $order)
-												
+
 													<tr>
 														<td>
 																{{$order->order_number}}
