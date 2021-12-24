@@ -40,9 +40,9 @@
                             <div class="featured-vendor">
                                 <a href="{{ route('front.vendor',str_replace(' ', '-', $user->shop_name)) }}">
                                     <div class="cat-img">
-                                    
-                                    <img src="{{ $user->thumbnail ? asset('assets/images/users/'.$user->photo):asset('assets/images/noimage.png') }}" />
-					               
+                                   
+                                    <img src="{{ $user->photo ? asset('assets/images/users/'.$user->photo):asset('assets/images/noimage.png') }}" />
+					                
                                 </div>
 
                                 <hr>
