@@ -312,7 +312,7 @@ class ProductController extends Controller
                     $brand = $line[21];
                     $product_code = $line[22];
                     $specification = $line[23];
-                    $impeller_mounting_hole = $line[23];
+                    $impeller_mounting_hole = $line[24];
 
 
 
