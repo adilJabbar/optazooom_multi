@@ -2986,20 +2986,24 @@ if($email == 'ozronsoptical@gmail.com')
            <div class="form-group required">
               <label class="control-label">Impeller Mounting Hole</label>
                 <div id="input-option228">
+
+                    <?php
+                          $impeller_mounting_hole =   explode(',',$productt->impeller_mounting_hole);
+                          $variation_images =   explode(',',$productt->variation_images);
+                        //   dd( $impeller_mounting_hole,$variation_images);
+                        ?>
+
+
+                    @foreach($impeller_mounting_hole as $k => $v)
                         <div class="radio">
                         <label>
-                          <input type="radio" name="option[228]" value="57">
-                            <img src="http://callbpi.com/golf/image/cache/catalog/Impeller_pics/blade-50x50.jpg" alt="Plain 1/2&quot;" class="img-thumbnail">              
-                          Plain 1/2"
+                          <input type="radio" name="impller_mounting_hole" value="{{$v}}">
+                            <img src="{{$variation_images[$k]}}" alt="Plain 1/2&quot;" class="img-thumbnail">
+                            {{$v}}
                         </label>
                       </div>
-                    <div class="radio">
-                        <label>
-                          <input type="radio" name="option[228]" value="58">
-                            <img src="http://callbpi.com/golf/image/cache/catalog/Impeller_pics/blade-50x50.jpg" alt="Plain 5/8&quot;" class="img-thumbnail">              
-                          Plain 5/8" 
-                        </label>
-                      </div>
+
+                      @endforeach
                 </div>
             </div>
                       </div>
