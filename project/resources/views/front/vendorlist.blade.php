@@ -31,8 +31,7 @@
                 </div>
             </div>
             
-       <div class="container pt-60">
-                            
+       <div class="container pt-60">                 
             <div class="row userss">
             @foreach ($users as $user)
                     <div class="col-lg-3">
