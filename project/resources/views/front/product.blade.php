@@ -2874,8 +2874,13 @@ if($email == 'ozronsoptical@gmail.com')
                         <div class="product-price">
                           <p class="title">{{ $langg->lang87 }} :</p>
                                 <p class="price"><span id="sizeprice">
+                                    @if($email == "amconlabs@gmail.com" )
                                     {{$productt->current_price_detail}}
-                                    {{-- {{ $productt->showPrice() }} --}}
+                                    @else
+                                    {{ $productt->showPrice() }}
+                                    @endif
+
+
 
 
                                 </span>
