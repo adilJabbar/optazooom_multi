@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-lg-5 col-md-5">
                     <div class="about-img" style="margin-top:50px;">
-                        <img src="{{asset('assets/images/aron_opta_2.jpg')}}"">
+                        <img src="{{asset('assets/images/aron_opta_2.png')}}"">
                     </div>
                 </div>
             </div>
