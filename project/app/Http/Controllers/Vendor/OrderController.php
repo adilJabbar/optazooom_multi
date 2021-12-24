@@ -136,17 +136,23 @@ class OrderController extends Controller
 
         $endPoint = 'https://wsbeta.fedex.com:443/web-services'; //You will get it when requesting to FedEx key. It might change based on the API Environments
 
-        $client = new \SoapClient($wsdlPath, array('trace' => true));
-        $client->__setLocation($endPoint);
+        // $client = new \SoapClient($wsdlPath, array('trace' => true));
+        // $client->__setLocation($endPoint);
 
         $apiResponse = $client->track($request);
-
+        $order = Order::find($_POST['order_id']);
+        $order->fedex_trck_num =  $_POST['tracking_number'];
+        $order->status = "shipped";
+        $order->update();
+          return redirect()->back()->with('success','Order tracking number add successfullt');
+          exit();
         if(isset($apiResponse->CompletedTrackDetails->TrackDetails->StatusDetail->Description))
         {
 
 
         $order = Order::find($_POST['order_id']);
         $order->fedex_trck_num =  $_POST['tracking_number'];
+        $order->status = "shipped";
         $order->update();
           return redirect()->back()->with('success','Order tracking number add successfullt');
         }else{

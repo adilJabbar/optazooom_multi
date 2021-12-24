@@ -21,7 +21,7 @@
     left: 1%;
     right: 1%;
     margin: auto;
- 
+
 }
 
 
@@ -55,7 +55,7 @@
                     </li>
                     <li>
                         <a href="{{ route('user.optanews')}}">
-                           News Feed 
+                           News Feed
                         </a>
                     </li>
                 </ul>
@@ -68,15 +68,15 @@
     <div class="container containeer li-main-blog-page pt-60 pb-55">
         <div class="container containeer">
 
-<div class="row">
+<div class="row optanews_counter">
     <div class="col-lg-9">
-            <?php 
+            <?php
 
      if(isset($key) && !empty($key))
      {
 
-        foreach ($news_feed as $item ) 
-        {  
+        foreach ($news_feed as $item )
+        {
 
          $pos = strpos($item->title, $key);
          $pubDate = $item->pubDate;
@@ -85,12 +85,12 @@
          <div class="col-lg-12 ">
         <div class="li-blog-single-item mb-30">
             <div class="row ">
- 
+
                 <div class="col-lg-12">
                     <div class="li-blog-content">
                         <div class="li-blog-details">
                             <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>         <?php
-                                           
+
 
                                              echo  date("D M j Y", strtotime($item->pubDate)) ?>
                             <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
@@ -105,25 +105,25 @@
     </div>
 
          <?php }
-        }  
+        }
      }else{
 
 
-	foreach ($news_feed as $item ) 
-	{  
-     
-       
+	foreach ($news_feed as $item )
+	{
+
+
 	?>
 
     <div class="col-lg-12 ">
         <div class="li-blog-single-item mb-30">
             <div class="row ">
- 
+
                 <div class="col-lg-12">
                     <div class="li-blog-content">
                         <div class="li-blog-details">
                             <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>         <?php
-                                           
+
 
                                              echo  date("D M j Y", strtotime($item->pubDate)) ?>
                             <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?>
@@ -139,7 +139,7 @@
 
 
 <?php
-    
+
 
 }
   }
@@ -161,22 +161,23 @@
                                     <?php if (isset($_GET['category'])) { ?>
                                         <input type="hidden" name="category" value="<?= $_GET['category']; ?>" class="li-search-field" placeholder="Search any news here">
                                     <?php } ?>
-                                    <button id="btn" type="button" class="li-search-btn"><i class="fa fa-search"></i></button>
+                                    <button id="btn" type="submit" class="li-search-btn"><i class="fa fa-search"></i></button>
                              </form>
                             </div>
                         </div>
-                   
+
                     </div>
                 </div>
             </div>
 
                 <!-- Li's Blog Sidebar Area End Here -->
-         
+
             <br>
             <div class="col-lg-12">
-                <div class="load-more">
-            	    <button type="button" id="loadMore">Load More</button>
-                                    </div>
+                <div class="load-more load_more">
+
+                </div>
+                <button style="margin-left:40%" type="button" id="loadMore">Load More</button>
                 <?php if(isset($pagination_links) && !empty($pagination_links)) : ?>
                     <div class="container Page navigation">
                         <nav aria-label="Page navigation example">
@@ -199,7 +200,7 @@
 
 
 
- 
+
     </script>
 
 
@@ -213,7 +214,7 @@ $(function () {
     $("div").slice(0, 4).show();
     $("#loadMore").on('click', function (e) {
 
-    
+
 
 
     	if($('.optanews_counter').length == 1)
@@ -227,15 +228,15 @@ $(function () {
 
     	}
         var search = '<?= isset($key)?$key:"" ?>';
-   
 
-    		   $.ajax({  
+
+    		   $.ajax({
                 type: "get",
                 url: 'get_second_site_data?site='+site+'&search='+search,
                  beforeSend: function() {
                     $('#cover-spin').show(0);
                     $('#loading-img').show();
-              
+
                 },
                 success:function(data)
                 {

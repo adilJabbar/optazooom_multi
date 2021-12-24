@@ -709,9 +709,8 @@ input[type=checkbox]:checked + label:before {
 .wholesell-details-page{
   background: <?php echo $color; ?>0f;
 }
-.sub-categori .left-area .filter-result-area .body-area .filter-list li a:hover{
-  color: <?php echo $color; ?>;
-}
+<!-- .sub-categori .left-area .filter-result-area .body-area .filter-list li a:hover{
+} -->
       .contact-us .right-area .contact-info .content a:hover {
     color: <?php echo $color; ?>;
  }

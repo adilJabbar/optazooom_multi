@@ -73,8 +73,8 @@
                                         <a href="{{route('vendor-order-show',$order->order->order_number)}}" class="btn btn-primary product-btn"><i class="fa fa-eye"></i> {{ $langg->lang539 }}</a>
                                             <select class="vendor-btn {{ $order->status }}">
                                             <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'paid']) }}" {{  $order->status == "paid" ? 'selected' : ''  }}>Paid</option>
-                                            <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'processing']) }}" {{  $order->status == "processing" ? 'selected' : ''  }}>{{ $langg->lang541 }}</option>
-                                            <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'shipped']) }}" {{  $order->status == "shipped" ? 'selected' : ''  }}>Shipped</option>
+                                            <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'processing']) }}" {{  $order->status == "processing" ? 'selected' : ''  }}>Accept</option>
+                                            {{-- <option value="{{ route('vendor-order-status',[ $order->order->order_number,  'shipped']) }}" {{  $order->status == "shipped" ? 'selected' : ''  }}>Shipped</option> --}}
                                             <option value="{{ route('vendor-order-status',[ $order->order->order_number, 'delivered']) }}" {{  $order->status == "delivered" ? 'selected' : ''  }}>Deliverd</option>
                                             </select>
 
@@ -116,7 +116,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          
+
           <h4 class="modal-title text-center">Add Tracking Number</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
@@ -130,7 +130,7 @@
             <div class="track-btn" style="text-align:center; padding-top:20px">
             <button class="btn btn-success btn-ok order-btn" style="padding:6px 80px;" type="submit"> Add </button>
            </div>
-          </form>   
+          </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

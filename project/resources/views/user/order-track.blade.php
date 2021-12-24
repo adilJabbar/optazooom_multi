@@ -30,7 +30,7 @@
             <div class="user-profile-details">
                 <div class="order-history">
                     <div class="header-area d-flex align-items-center">
-                        <h4 class="title">{{ $langg->lang772 }}</h4>          
+                        <h4 class="title">{{ $langg->lang772 }}</h4>
                     </div>
                         <div class="order-tracking-content">
                             @include('includes.form-success')
@@ -41,7 +41,7 @@
                                 <a href="#"  data-toggle="modal" data-target="#order-tracking-modal"></a>
                             </form>
                         </div>
-                      
+
                     </div>
                 </div>
 		    </div>
@@ -60,25 +60,7 @@
                 </button>
             </div>
             <div class="modal-body" id="order-track">
-            <div class="container">
-    <article class="card">
-        <header class="card-header"> My Orders / Tracking </header>
-        <div class="card-body">
-            <h6>Order ID: OD45345345435</h6>
-            <article class="card">
-                <div class="card-body row">
-                    <div class="col"> <strong>Estimated Delivery time:</strong> <br>29 nov 2019 </div>
-                    <div class="col"> <strong>Shipping BY:</strong> <br> BLUEDART, | <i class="fa fa-phone"></i> +1598675986 </div>
-                    <div class="col"> <strong>Status:</strong> <br> Picked by the courier </div>
-                    <div class="col"> <strong>Tracking #:</strong> <br> BD045903594059 </div>
-                </div>
-            </article>
-   
-            <hr>
-            <hr> <a href="#" class="btn btn-warning" data-abc="true"> <i class="fa fa-chevron-left"></i> Back to orders</a>
-        </div>
-    </article>
-</div>
+
             </div>
             </div>
         </div>
