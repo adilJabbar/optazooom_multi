@@ -313,7 +313,7 @@ class ProductController extends Controller
                     $product_code = $line[22];
                     $specification = $line[23];
                     $impeller_mounting_hole = $line[24];
-
+                    $variation_images = $line[25];
 
 
 
@@ -379,6 +379,7 @@ class ProductController extends Controller
                             $input['product_code'] = $product_code;
                             $input['specification'] = $specification;
                             $input['impeller_mounting_hole'] =  $impeller_mounting_hole;
+                            $input['variation_images'] =  $variation_images;
 
 
 //                echo "<PRE>";
