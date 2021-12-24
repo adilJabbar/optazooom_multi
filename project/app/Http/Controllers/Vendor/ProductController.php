@@ -645,8 +645,8 @@ class ProductController extends Controller
                         }
                     }
 
-                    $percetange = implode(', ', $percetangee);
-                    $volumee = implode(', ', $volumee);
+                    $percetange = implode(',', $percetangee);
+                    $volumee = implode(',', $volumee);
 
 
 
