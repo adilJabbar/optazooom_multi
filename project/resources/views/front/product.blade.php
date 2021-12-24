@@ -546,12 +546,7 @@ if($email == 'ozronsoptical@gmail.com')
             @if(Auth::user())
             <div class="product-price">
               <p class="title">{{ $langg->lang87 }} :</p>
-                    <p class="price"><span id="sizeprice">
-                        {{$productt->current_price_detail}}
-                        {{-- {{ $productt->showPrice() }} --}}
-
-
-                    </span>
+                    <p class="price"><span id="sizeprice">{{ $productt->showPrice() }}</span>
                       <small><del>{{ $productt->showPreviousPrice() }}</del></small></p>
                       @if($productt->youtube != null)
                       <a href="{{ $productt->youtube }}" class="video-play-btn mfp-iframe">
@@ -2878,7 +2873,17 @@ if($email == 'ozronsoptical@gmail.com')
                         @if(Auth::user())
                         <div class="product-price">
                           <p class="title">{{ $langg->lang87 }} :</p>
-                                <p class="price"><span id="sizeprice">{{ $productt->showPrice() }}</span>
+                                <p class="price"><span id="sizeprice">
+                                    @if($email == "amconlabs@gmail.com" )
+                                    {{$productt->current_price_detail}}
+                                    @else
+                                    {{ $productt->showPrice() }}
+                                    @endif
+
+
+
+
+                                </span>
                                   <small><del>{{ $productt->showPreviousPrice() }}</del></small></p>
                                   @if($productt->youtube != null)
                                   <a href="{{ $productt->youtube }}" class="video-play-btn mfp-iframe">
@@ -3190,7 +3195,18 @@ if($email == 'ozronsoptical@gmail.com')
 
  <?php }
 ?>
-                     <div class="row">
+
+
+
+
+
+
+
+
+
+
+                  <div class="row">
+iv class="row">
                           <div class="col-lg-12">
                           <div id="product-details-tab">
                             <div class="top-menu-area">
@@ -3239,7 +3255,8 @@ if($email == 'ozronsoptical@gmail.com')
                                             </p>
                                           </div>
                                           <div class="right-area">
-                                            <div class="header-area">
+                         <div class="row">
+r-area">
                                               <div class="stars-area">
                                                 <ul class="stars">
                                                   <div class="ratings">
