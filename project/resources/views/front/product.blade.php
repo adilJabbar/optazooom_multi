@@ -3930,14 +3930,6 @@ r-area">
                   {{-- CONTACT SELLER ENDS --}}
 
       </div>
-
-
-
-
-
-
-
-
       <div class="categori  mt-30">
         <div class="section-top">
             <h2 class="section-title">
