@@ -102,9 +102,9 @@ class Cart extends Model
 
 // **************** ADD TO CART MULTIPLE *******************
 
-    public function addnum($item, $id, $qty, $size, $color, $size_qty, $size_price, $size_key, $keys, $values) {
+    public function addnum($item, $id, $qty, $size, $color, $size_qty, $size_price, $size_key, $keys, $values,$impller_mounting_hole='') {
         $size_cost = 0;
-        $storedItem = ['qty' => 0,'size_key' => 0, 'size_qty' =>  $item->size_qty,'size_price' => $item->size_price, 'size' => $item->size, 'color' => $item->color, 'stock' => $item->stock, 'price' => $item->price, 'item' => $item, 'license' => '', 'dp' => '0','keys' => $keys, 'values' => $values,'item_price' => $item->price];
+        $storedItem = ['qty' => 0,'size_key' => 0, 'size_qty' =>  $item->size_qty,'size_price' => $item->size_price, 'size' => $item->size, 'color' => $item->color, 'stock' => $item->stock, 'price' => $item->price, 'item' => $item, 'license' => '', 'dp' => '0','keys' => $keys, 'values' => $values,'item_price' => $item->price,'impller_mounting_hole'=>$impller_mounting_hole];
         if($item->type == 'Physical')
         {
             if ($this->items) {

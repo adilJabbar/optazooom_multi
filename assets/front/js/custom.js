@@ -1175,13 +1175,20 @@ $(function($) {
             {
                 color = '';
             }
-
+            if($('input[name="impller_mounting_hole"]').val())
+            {
+                var impller_mounting_hole = $('input[name="impller_mounting_hole"]:checked').val();
+         
+            }else{
+                impller_mounting_hole = '';
+            }
+            
 
 
             $.ajax({
                 type: "GET",
                 url: mainurl + "/addnumcart",
-                data: { id: pid, qty: qty, size: sizes, color: color, size_qty: size_qty, size_price: size_price, size_key: size_key, keys: keys, values: values, prices: prices },
+                data: { id: pid, qty: qty, size: sizes, color: color, size_qty: size_qty, size_price: size_price, size_key: size_key, keys: keys, values: values, prices: prices,impller_mounting_hole:impller_mounting_hole },
                 success: function(data) {
 
                     if (data == 'digital') {

@@ -154,13 +154,13 @@
 
             @else
 
-            <div class="service-center">
-              <div class="header-area">
+            <!-- <div class="service-center"> -->
+              <!-- <div class="header-area">
                 <h4 class="title">
                     {{ $langg->lang227 }}
                 </h4>
-              </div>
-              <div class="body-area">
+              </div> -->
+              <!-- <div class="body-area">
                 <ul class="list">
                   <li>
                       <a href="javascript:;" data-toggle="modal" data-target="{{ Auth::guard('web')->check() ? '#vendorform1' : '#comment-log-reg' }}">
@@ -173,9 +173,9 @@
                         </a>
                   </li>
                 </ul>
-              <!-- Modal -->
-              </div>
-
+              
+              </div> -->
+<!-- 
               <div class="footer-area">
                 <p class="title">
                   {{ $langg->lang229 }}
@@ -199,10 +199,10 @@
 
                 </ul>
               </div>
-            </div>
+            </div> -->
 
-
-            @endif
+<!-- 
+            @endif -->
 
 
           </div>

@@ -39,7 +39,9 @@ class CartController extends Controller
         }
         $gs = Generalsetting::findOrFail(1);
         $oldCart = Session::get('cart');
+
         $cart = new Cart($oldCart);
+
         $products = $cart->items;
         $totalPrice = $cart->totalPrice;
         $mainTotal = $totalPrice;
@@ -331,6 +333,7 @@ class CartController extends Controller
 
     public function addnumcart()
     {
+
         $id = $_GET['id'];
         $qty = $_GET['qty'];
         $size = str_replace(' ','-',$_GET['size']);
@@ -341,6 +344,7 @@ class CartController extends Controller
         $keys =  $_GET['keys'];
         $values = $_GET['values'];
         $prices = $_GET['prices'];
+        $impller_mounting_hole = $_GET['impller_mounting_hole'];
         $keys = $keys == "" ? '' :implode(',',$keys);
         $values = $values == "" ? '' : implode(',',$values );
         if (Session::has('currency')) {
@@ -409,7 +413,7 @@ class CartController extends Controller
         $color = str_replace('#','',$color);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->addnum($prod, $prod->id, $qty, $size,$color,$size_qty,$size_price,$size_key,$keys,$values);
+        $cart->addnum($prod, $prod->id, $qty, $size,$color,$size_qty,$size_price,$size_key,$keys,$values,$impller_mounting_hole);
         if($cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['dp'] == 1)
         {
             return 'digital';
@@ -431,6 +435,7 @@ class CartController extends Controller
         $cart->totalPrice += $data['price'];
         Session::put('cart',$cart);
         $data[0] = count($cart->items);
+
         return response()->json($data);
     }
 
