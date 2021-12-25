@@ -1744,7 +1744,7 @@ class ProductController extends Controller
                             $input['meta_description'] = $line[18];
                             $input['tags'] = $line[14];
                             $input['product_type'] = 'normal';
-                            $input['collection'] = $line[20];
+                            $input['collection'] = $line[21];
 
                             if(Auth::user()->email == "dynamiclabs@gmail.com")
                             {
@@ -1766,17 +1766,17 @@ class ProductController extends Controller
 
 
 
-                                $input['variation_images'] = $line[21];
-                                $input['color_price'] = !empty($line[22])?$line[22]:null;
-                                $input['strength'] = $line[23];
-                                $input['strength_price'] = $line[24];
-                                $input['frame_color'] = $line[25];
-                                $input['frame_color_price'] = $line[26];
-                                $input['frame_size'] = $line[27];
-                                $input['frame_size_price'] = $line[28];
-                                $input['lens'] = $line[29];
-                                $input['lens_price'] = $line[30];
-                                $input['bulk_price'] = $line[31];
+                                $input['variation_images'] = $line[22];
+                                $input['color_price'] = !empty($line[23])?$line[23]:null;
+                                $input['strength'] = $line[24];
+                                $input['strength_price'] = $line[25];
+                                $input['frame_color'] = $line[26];
+                                $input['frame_color_price'] = $line[27];
+                                $input['frame_size'] = $line[28];
+                                $input['frame_size_price'] = $line[29];
+                                $input['lens'] = $line[30];
+                                $input['lens_price'] = $line[31];
+                                $input['bulk_price'] = $line[32];
 
 
 
@@ -1804,7 +1804,7 @@ class ProductController extends Controller
                             }
 
 
-
+                            dd($line,$input);
 
 
                             $input['slug'] = Str::slug($input['name'],'-').'-'.strtolower($input['sku']);
