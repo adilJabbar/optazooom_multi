@@ -886,7 +886,7 @@ class ProductController extends Controller
                     $size_extra_price = $line[11];
 
                     $colors = $line[12];
-                    $color_price = $line[13];
+                    $color_price = !empty($line[13])?$line[13]:null;
 
                     $tags = $line[14];
                     $youtube = $line[15];
@@ -1744,7 +1744,7 @@ class ProductController extends Controller
                             $input['meta_description'] = $line[18];
                             $input['tags'] = $line[14];
                             $input['product_type'] = 'normal';
-                            $input['collection'] = $line[21];
+                            $input['collection'] = $line[20];
 
                             if(Auth::user()->email == "dynamiclabs@gmail.com")
                             {
@@ -1764,8 +1764,20 @@ class ProductController extends Controller
 
                             }elseif(Auth::user()->email == "ozronsoptical@gmail.com"){
 
-                                $input['strength'] = $line[22];
-                                $input['lens'] = $line[23];
+
+
+                                $input['variation_images'] = $line[21];
+                                $input['color_price'] = !empty($line[22])?$line[22]:null;
+                                $input['strength'] = $line[23];
+                                $input['strength_price'] = $line[24];
+                                $input['frame_color'] = $line[25];
+                                $input['frame_color_price'] = $line[26];
+                                $input['frame_size'] = $line[27];
+                                $input['frame_size_price'] = $line[28];
+                                $input['lens'] = $line[29];
+                                $input['lens_price'] = $line[30];
+                                $input['bulk_price'] = $line[31];
+
 
 
                             }else{
