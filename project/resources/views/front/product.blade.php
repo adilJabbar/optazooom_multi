@@ -899,7 +899,7 @@
                             <div class="top-menu-area">
                                 <ul class="tab-menu">
                                     <li><a href="#tabs-1">{{ $langg->lang92 }}</a></li>
-                                    <li><a href="#tabs-2">{{ $langg->lang93 }}</a></li>
+                                    <!-- <li><a href="#tabs-2">{{ $langg->lang93 }}</a></li> -->
                                     <li><a href="#tabs-3">{{ $langg->lang94 }}({{ count($productt->ratings) }})</a></li>
                                     @if($gs->is_comment == 1)
                                     <li><a href="#tabs-4">{{ $langg->lang95 }}(<span
