@@ -76,6 +76,12 @@
                                                 </div>
                                                 @endif
 
+                                                @if(!empty($product['impller_mounting_hole']))
+                                                <div class="d-flex mt-2">
+                                                <b>Impeller mounting hole </b>:{{$product['impller_mounting_hole'] == "" ? "white" : $product['impller_mounting_hole']}}  <span id="color-bar" style="border: 10px solid #{{$product['impller_mounting_hole'] == "" ? "white" : $product['impller_mounting_hole']}};"></span>
+                                                </div>
+                                                @endif
+
                                                     @if(!empty($product['keys']))
 
                                                     @foreach( array_combine(explode(',', $product['keys']), explode(',', $product['values']))  as $key => $value)
