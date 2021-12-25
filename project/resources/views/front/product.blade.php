@@ -201,13 +201,13 @@
 
                                             <?php try {
                                 //dd(Helper::get_color_name($productt->color[$key])['hex']);
-                              
+
                             $color_back = Helper::get_color_name($productt->color[$key])['hex'];
                               echo $color_back;
                             } catch (Exception $e) {
                               $color_back = '#ffffff';
                             }
-                                
+
                             ?>
 
                                             <option value="{{ $productt->color[$key]}} ">{{ $productt->color[$key]}}
@@ -477,7 +477,7 @@
                                                 </div>
                                             </div>
                                         </div>
-             <?php } elseif($email == 'ozronsoptical@gmail.com') 
+             <?php } elseif($email == 'ozronsoptical@gmail.com')
              {?>
               <!-- Rons Optical Details and Data Starts Here -->
                             <div class="row">
@@ -900,7 +900,7 @@
                                         </div>
                             </div>
               <!-- Rons Optical Details and Data ends here -->
-              <?php } elseif($email == 'ozcaprioptics@gmail.com') 
+              <?php } elseif($email == 'ozcaprioptics@gmail.com')
              {?>
              <!-- Capri Optics Details and Data Starts Here -->
 <div class="row">
@@ -1087,7 +1087,9 @@
                   @endphp
 
                   <!-- Variation 1 -->
-                  <table class="table">
+                <?php echo $productt->specification ?>
+
+                  {{-- <table class="table">
 <thead class="thead-dark">
   <tr>
     <th>Color</th>
@@ -1132,7 +1134,7 @@
     <td>45-17-123</td>
   </tr>
 </tbody>
-</table>
+</table> --}}
                   @if($stck != null)
                   <input type="hidden" id="stock" value="{{ $stck }}">
                   @elseif($productt->type != 'Physical')
@@ -1498,13 +1500,13 @@
 
                                             <?php try {
                                 //dd(Helper::get_color_name($productt->color[$key])['hex']);
-                              
+
                             $color_back = Helper::get_color_name($productt->color[$key])['hex'];
                               echo $color_back;
                             } catch (Exception $e) {
                               $color_back = '#ffffff';
                             }
-                                
+
                             ?>
 
                                             <option value="{{ $productt->color[$key]}} ">{{ $productt->color[$key]}}
@@ -1748,8 +1750,8 @@
                     </div>
                   </div>
                 <?php } ?>
-             
-        
+
+
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="product-details-tab">
