@@ -235,12 +235,12 @@
                                 $stck = (string)$productt->stock;
                                 @endphp
                                 <!-- Available Options For BPI -->
-                                <div id="product">	                        <hr>
-                      <h3>Available Options</h3>
+                                <div id="product">	                       
+                                @if(!empty($productt->impeller_mounting_hole))
+                                <h3>Available Options</h3>
                                 <div class="form-group required">
                                     <label class="control-label">Impeller Mounting Hole</label>
                                         <div id="input-option228">
-
                                             <?php
                                                 $impeller_mounting_hole =   explode(',',$productt->impeller_mounting_hole);
                                                 $variation_images =   explode(',',$productt->variation_images);
@@ -260,7 +260,9 @@
                                             @endforeach
                                         </div>
                                     </div>
+                                    @endif
                                             </div>
+
                                                         @if($stck != null)
                                                         <input type="hidden" id="stock" value="{{ $stck }}">
                                                         @elseif($productt->type != 'Physical')
@@ -1089,52 +1091,6 @@
                   <!-- Variation 1 -->
                 <?php echo $productt->specification ?>
 
-                  {{-- <table class="table">
-<thead class="thead-dark">
-  <tr>
-    <th>Color</th>
-    <th>Pack</th>
-    <th>A</th>
-    <th>B</th>
-    <th>ED</th>
-    <th>CIRC</th>
-    <th>UPC</th>
-    <th>Size</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Black</td>
-    <td>100</td>
-    <td>23.23</td>
-    <td>12.23</td>
-    <td>12.45</td>
-    <td>12</td>
-    <td>100</td>
-    <td>45-17-123</td>
-  </tr>
-  <tr>
-  <td>Black</td>
-    <td>123</td>
-    <td>23.23</td>
-    <td>12.23</td>
-    <td>12.45</td>
-    <td>12</td>
-    <td>100</td>
-    <td>45-17-123</td>
-  </tr>
-  <tr>
-  <td>Black</td>
-    <td>43</td>
-    <td>23.23</td>
-    <td>12.23</td>
-    <td>12.45</td>
-    <td>12</td>
-    <td>100</td>
-    <td>45-17-123</td>
-  </tr>
-</tbody>
-</table> --}}
                   @if($stck != null)
                   <input type="hidden" id="stock" value="{{ $stck }}">
                   @elseif($productt->type != 'Physical')
@@ -1916,20 +1872,20 @@
             </div>
             @if($gs->reg_vendor == 1)
             <div class="col-lg-3">
-                @if(!empty($productt->whole_sell_qty))
+                        @if(!empty($productt->whole_sell_qty))
                 <div class="table-area wholesell-details-page">
                     <h3>{{ $langg->lang770 }}</h3>
                     <table class="table">
-                        <tr>
-                            <th>{{ $langg->lang768 }}</th>
-                            <th>{{ $langg->lang769 }}</th>
-                        </tr>
-                        @foreach($productt->whole_sell_qty as $key => $data1)
-                        <tr>
-                            <td>{{ $productt->whole_sell_qty[$key] }}+</td>
-                            <td>{{ $productt->whole_sell_discount[$key] }}% {{ $langg->lang771 }}</td>
-                        </tr>
-                        @endforeach
+                    <tr>
+                        <th>{{ $langg->lang768 }}</th>
+                        <th>{{ $langg->lang769 }}</th>
+                    </tr>
+                    @foreach($productt->whole_sell_qty as $key => $data1)
+                    <tr>
+                        <td>{{ $productt->whole_sell_qty[$key] }}+</td>
+                        <td>{{ $productt->whole_sell_discount[$key] }}% {{ $langg->lang771 }}</td>
+                    </tr>
+                    @endforeach
                     </table>
                 </div>
                 @endif
