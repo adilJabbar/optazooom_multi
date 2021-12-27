@@ -35,10 +35,10 @@
                 <div class="col-lg-8 col-md-8 offset-lg-1">
                     <div class="pt-30">
                         <p>
-                        Hi! I’m Aaron, the founder of OptaZoom. 
-                        I grew up in Santa Monica in a family optical business, that’s been around for nearly 40 years and still here today; serving optical and optometry practices internationally (Triumph Optical). Around 4 years ago I developed optazoom.com that enables ECP’s to order from many different suppliers in one place, like Amazon or instacart. 
-                        The goal of OptaZoom was to make as many familiar supplier availble to ECP’s, at the same time offer those products that they already know at the same price as going direct, all in one platform. 
-                        I currently live in Los Angeles with my beautiful wife and daughter Talia. I love my family and I strive each day to move the eye care industry forward, one step at a time. 
+                        Hi! I’m Aaron, the founder of OptaZoom.<br>
+                        I grew up in Santa Monica in a family optical business, that’s been around for nearly 40 years and still here today; serving optical and optometry practices internationally (Triumph Optical). Around 4 years ago I developed optazoom.com that enables ECP’s to order from many different suppliers in one place, like Amazon or instacart.<br> 
+                        The goal of OptaZoom was to make as many familiar supplier availble to ECP’s, at the same time offer those products that they already know at the same price as going direct, all in one platform. <br>
+                        I currently live in Los Angeles with my beautiful wife and daughter Talia. I love my family and I strive each day to move the eye care industry forward, one step at a time.<br>
                         Click the link below and join the OptaZoom family making that ordering process one less thing to worry about in your practice.
                        </p>
                     </div>
