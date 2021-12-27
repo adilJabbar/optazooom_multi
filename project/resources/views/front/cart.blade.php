@@ -81,6 +81,26 @@
                                                 <b>Impeller mounting hole </b>:{{$product['impller_mounting_hole'] == "" ? "white" : $product['impller_mounting_hole']}}  <span id="color-bar" style="border: 10px solid #{{$product['impller_mounting_hole'] == "" ? "white" : $product['impller_mounting_hole']}};"></span>
                                                 </div>
                                                 @endif
+                                                @if(!empty($product['strength']))
+                                                <div class="d-flex mt-2">
+                                                <b>Strength </b>:{{$product['strength'] == "" ? "white" : $product['strength']}}  <span id="color-bar" style="border: 10px solid #{{$product['strength'] == "" ? "white" : $product['strength']}};"></span>
+                                                </div>
+                                                @endif
+                                                @if(!empty($product['lens']))
+                                                <div class="d-flex mt-2">
+                                                <b>Lens </b>:{{$product['lens'] == "" ? "white" : $product['lens']}}  <span id="color-bar" style="border: 10px solid #{{$product['lens'] == "" ? "white" : $product['lens']}};"></span>
+                                                </div>
+                                                @endif
+                                                @if(!empty($product['frame_size']))
+                                                <div class="d-flex mt-2">
+                                                <b>Frame Size </b>:{{$product['frame_size'] == "" ? "white" : $product['frame_size']}}  <span id="color-bar" style="border: 10px solid #{{$product['frame_size'] == "" ? "white" : $product['frame_size']}};"></span>
+                                                </div>
+                                                @endif
+                                                @if(!empty($product['frame_color']))
+                                                <div class="d-flex mt-2">
+                                                <b>Frame Color </b>:{{$product['frame_color'] == "" ? "white" : $product['frame_color']}}  <span id="color-bar" style="border: 10px solid #{{$product['frame_color'] == "" ? "white" : $product['frame_color']}};"></span>
+                                                </div>
+                                                @endif
 
                                                     @if(!empty($product['keys']))
 
