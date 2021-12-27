@@ -334,6 +334,7 @@ class CartController extends Controller
     public function addnumcart()
     {
 
+
         $id = $_GET['id'];
         $qty = $_GET['qty'];
         $size = str_replace(' ','-',$_GET['size']);
@@ -345,6 +346,10 @@ class CartController extends Controller
         $values = $_GET['values'];
         $prices = $_GET['prices'];
         $impller_mounting_hole = $_GET['impller_mounting_hole'];
+        $strength = $_GET['strength'];
+        $lens = $_GET['lens'];
+        $frame_size = $_GET['frame_size'];
+        $frame_color = $_GET['frame_color'];
         $keys = $keys == "" ? '' :implode(',',$keys);
         $values = $values == "" ? '' : implode(',',$values );
         if (Session::has('currency')) {
@@ -413,7 +418,7 @@ class CartController extends Controller
         $color = str_replace('#','',$color);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->addnum($prod, $prod->id, $qty, $size,$color,$size_qty,$size_price,$size_key,$keys,$values,$impller_mounting_hole);
+        $cart->addnum($prod, $prod->id, $qty, $size,$color,$size_qty,$size_price,$size_key,$keys,$values,$impller_mounting_hole,$strength,$lens,$frame_size,$frame_color);
         if($cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['dp'] == 1)
         {
             return 'digital';

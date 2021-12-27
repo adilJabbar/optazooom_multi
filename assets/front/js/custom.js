@@ -1175,6 +1175,27 @@ $(function($) {
             {
                 color = '';
             }
+            var strength = $('#strength').val();
+            if(typeof strength === 'undefined')
+            {
+                strength = '';
+            }
+            var lens = $('#lens').val();
+            if(typeof lens === 'undefined')
+            {
+                lens = '';
+            }
+            var frame_size = $('#frame_size').val();
+            if(typeof frame_size === 'undefined')
+            {
+                frame_size = '';
+            }
+            var frame_color = $('#frame_color').val();
+            if(typeof frame_color === 'undefined')
+            {
+                frame_color = '';
+            }
+
             if($('input[name="impller_mounting_hole"]').val())
             {
                 var impller_mounting_hole = $('input[name="impller_mounting_hole"]:checked').val();
@@ -1184,11 +1205,11 @@ $(function($) {
             }
             
 
-
+            
             $.ajax({
                 type: "GET",
                 url: mainurl + "/addnumcart",
-                data: { id: pid, qty: qty, size: sizes, color: color, size_qty: size_qty, size_price: size_price, size_key: size_key, keys: keys, values: values, prices: prices,impller_mounting_hole:impller_mounting_hole },
+                data: { id: pid, qty: qty, size: sizes, color: color, size_qty: size_qty, size_price: size_price, size_key: size_key, keys: keys, values: values, prices: prices,impller_mounting_hole:impller_mounting_hole,strength:strength,lens:lens,frame_size:frame_size,frame_color:frame_color},
                 success: function(data) {
 
                     if (data == 'digital') {

@@ -235,7 +235,7 @@
                                 $stck = (string)$productt->stock;
                                 @endphp
                                 <!-- Available Options For BPI -->
-                                <div id="product">	                       
+                                <div id="product">
                                 @if(!empty($productt->impeller_mounting_hole))
                                 <h3>Available Options</h3>
                                 <div class="form-group required">
@@ -680,7 +680,7 @@
 
                                                  ?>
 
-                                                <select name="color" id="strength_select">
+                                                <select name="strength" id="strength">
                                                 @foreach($strength as $key => $data1)
                                                 <?php
 
@@ -711,7 +711,7 @@
 
                                              ?>
 
-                                            <select name="color" id="lens_select">
+                                            <select name="lens" id="lens">
                                             @foreach($lens as $key => $data1)
                                             <?php
 
@@ -742,7 +742,7 @@
 
                                          ?>
 
-                                        <select name="color" id="frame_size_select">
+                                        <select name="frame_size" id="frame_size">
                                         @foreach($frame_size as $key => $data1)
                                         <?php
 
@@ -776,7 +776,7 @@
 
                                          ?>
 
-                                        <select name="color" id="frame_color_select">
+                                        <select name="frame_color" id="frame_color">
                                         @foreach($frame_color as $key => $data1)
                                         <?php
 
