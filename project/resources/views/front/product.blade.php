@@ -192,7 +192,7 @@
                                         @php
                                         $is_first = true;
                                         @endphp
-                                        <select name="color_name" id="color_select">
+                                        <select  name="color_name" id="color_select">
                                             @foreach($productt->color as $key => $data1)
 
 
@@ -628,7 +628,7 @@
                                                 @php
                                                 $is_first = true;
                                                 @endphp
-                                                <select name="color" id="color_select">
+                                                <select  name="color" id="color_select">
                                                 @foreach($productt->color as $key => $data1)
                                                 <?php try {
                                                     //dd(Helper::get_color_name($productt->color[$key])['hex']);
@@ -666,46 +666,135 @@
                                             @endphp
 
                                             <!-- Variation 1 -->
-                                            <label>Lens Type : </label>
-                                            <select class="form-select-custom form-select-lg mb-3">
-                                                <option selected>Lens</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+
+                                         @if(!empty($productt->strength))
+
+
+                                            <div class="product-color">
+                                                <p class="title">Strength :</p>
+                                                <ul class="color-list">
+                                                @php
+                                                $is_first = true;
+                                                @endphp
+                                                <?php  $strength = explode(',',$productt->strength);
+
+                                                 ?>
+
+                                                <select name="color" id="strength_select">
+                                                @foreach($strength as $key => $data1)
+                                                <?php
+
+                                                ?>
+
+                                                    <option value="{{ $data1}} ">{{  $data1}} </option>
+
+
+                                                @php
+                                                $is_first = false;
+                                                @endphp
+                                                @endforeach
+                                                </select>
+
+                                                </ul>
+                                            </div>
+                                        @endif
+                                        @if(!empty($productt->lens))
+
+
+                                        <div class="product-color">
+                                            <p class="title">Lens :</p>
+                                            <ul class="color-list">
+                                            @php
+                                            $is_first = true;
+                                            @endphp
+                                            <?php  $lens = explode(',',$productt->lens);
+
+                                             ?>
+
+                                            <select name="color" id="lens_select">
+                                            @foreach($lens as $key => $data1)
+                                            <?php
+
+                                            ?>
+
+                                                <option value="{{ $data1}} ">{{  $data1}} </option>
+
+
+                                            @php
+                                            $is_first = false;
+                                            @endphp
+                                            @endforeach
                                             </select>
+
+                                            </ul>
+                                        </div>
+                                    @endif
+                                    @if(!empty($productt->frame_size))
+
+
+                                    <div class="product-color">
+                                        <p class="title">Frame Size :</p>
+                                        <ul class="color-list">
+                                        @php
+                                        $is_first = true;
+                                        @endphp
+                                        <?php  $frame_size = explode(',',$productt->frame_size);
+
+                                         ?>
+
+                                        <select name="color" id="frame_size_select">
+                                        @foreach($frame_size as $key => $data1)
+                                        <?php
+
+                                        ?>
+
+                                            <option value="{{ $data1}} ">{{  $data1}} </option>
+
+
+                                        @php
+                                        $is_first = false;
+                                        @endphp
+                                        @endforeach
+                                        </select>
+
+                                        </ul>
+                                    </div>
+                                    @endif
                                             <br>
-                                            <!-- Variation 2 -->
-                                            <label>Strength : </label>
-                                            <select class="form-select-custom form-select-lg mb-3">
-                                                <option selected>Strength</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            <!-- Variation 3 -->
-                                            <label>Frame Size : </label>
-                                            <select class="form-select-custom form-select-lg mb-3">
-                                                <option selected>Frame Size</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            <!-- Variation 4 -->
-                                            <label>Frame Color: </label>
-                                            <select class="form-select-custom form-select-lg mb-3">
-                                                <option selected>Frame Color</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            <!-- Variation 4 -->
-                                            <label>Dimension: </label>
-                                            <select class="form-select-custom form-select-lg mb-3">
-                                                <option selected>Dimension</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
+
+
+                                    @if(!empty($productt->frame_color))
+
+
+                                    <div class="product-color">
+                                        <p class="title">Frame Color :</p>
+                                        <ul class="color-list">
+                                        @php
+                                        $is_first = true;
+                                        @endphp
+                                        <?php  $frame_color = explode(',',$productt->frame_color);
+
+                                         ?>
+
+                                        <select name="color" id="frame_color_select">
+                                        @foreach($frame_color as $key => $data1)
+                                        <?php
+
+                                        ?>
+
+                                            <option value="{{ $data1}} ">{{  $data1}} </option>
+
+
+                                        @php
+                                        $is_first = false;
+                                        @endphp
+                                        @endforeach
+                                        </select>
+
+                                        </ul>
+                                    </div>
+                                    @endif
+
                                             @if($stck != null)
                                             <input type="hidden" id="stock" value="{{ $stck }}">
                                             @elseif($productt->type != 'Physical')
@@ -2360,6 +2449,35 @@
       });
       return false;
   });
+</script>
+<?php
+
+
+
+$product_variation_images = explode(',',$productt->variation_images);
+
+
+?>
+<script>
+ $('#color_select').on('change',function(){
+var variation_img = '<?php echo json_encode($product_variation_images);  ?>';
+var color = '<?php echo json_encode( $productt->color); ?>';
+
+var val = $(this).val();
+$.each(JSON.parse(color),function(index, value) {
+    value =value.replace(/'/g,  '"');
+    val =val.replace(/'/g,  '"');
+  console.log(value);
+  console.log(val);
+//   if(val==color)
+//   {
+//         alert('aaa');
+//   }
+
+});
+
+
+ })
 </script>
 
 @endsection
