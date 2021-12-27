@@ -1179,7 +1179,71 @@
 
                   <!-- Variation 1 -->
                 <?php echo $productt->specification ?>
-
+                <form class="cart variation-form" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="product_id" value="51906">
+                <table class="to-cart">
+                <thead>
+                <tr>
+                    <th class="col col-qty col-color">Quantity</th>
+                    <th class="col col-size">Size</th>
+                    <th class="col col-customer">Customer Name</th>
+                </tr>
+               </thead>
+               <tbody>                                                                                       
+               <tr class="variation-row purchasable" data-id="51907">
+                <td class="col col-color col-qty">
+                 <div class="quantity">
+                    <label class="screen-reader-text" for="quantity_61c9b3cd6b40c">Quantity</label>
+                    <input type="number" id="quantity_61c9b3cd6b40c" class="input-text qty text" step="1" min="0" max="" name="quantity" value="" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
+	           </div>
+                <span>Black Green Red</span>
+                  <input type="hidden" data-type="attribute" name="pa_color" value="Black Green Red">
+                </td>
+              <td class="col col-size">
+              <input type="hidden" data-type="attribute" name="pa_size" value="51- 19- 145">
+               <label> 51- 19- 145 </label>
+            </td>
+             <td class="col col-customer">
+              <input type="text" class="input-customer" name="customer" placeholder="Add Customer Name">
+            </td>
+            </tr>                                                                                       
+            <tr class="variation-row purchasable" data-id="51909">
+               <td class="col col-color col-qty">
+                <div class="quantity">
+		<label class="screen-reader-text" for="quantity_61c9b3cd6c078">Quantity</label>
+		<input type="number" id="quantity_61c9b3cd6c078" class="input-text qty text" step="1" min="0" max="" name="quantity" value="" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
+	           </div>
+	     <span>Crystal Black Grey</span>
+        <input type="hidden" data-type="attribute" name="pa_color" value="Crystal Black Grey">
+          </td>
+          <td class="col col-size">
+          <input type="hidden" data-type="attribute" name="pa_size" value="51- 19- 145">
+         <label> 51- 19- 145 </label>
+         </td>
+        <td class="col col-customer">
+         <input type="text" class="input-customer" name="customer" placeholder="Add Customer Name">
+        </td>
+        </tr>                                                                     
+        <tr class="variation-row purchasable" data-id="51911">
+        <td class="col col-color col-qty">
+        <div class="quantity">
+		<label class="screen-reader-text" for="quantity_61c9b3cd6cc5e">Quantity</label>
+		<input type="number" id="quantity_61c9b3cd6cc5e" class="input-text qty text" step="1" min="0" max="" name="quantity" value="" title="Qty" size="4" pattern="[0-9]*" inputmode="numeric">
+	   </div>
+	     <span>Tortoise Blue Red</span>
+        <input type="hidden" data-type="attribute" name="pa_color" value="Tortoise Blue Red">
+        </td>
+        <td class="col col-size">
+        <input type="hidden" data-type="attribute" name="pa_size" value="51- 19- 145">
+        <label>  51- 19- 145 </label>
+         </td>
+          <td class="col col-customer">
+         <input type="text" class="input-customer" name="customer" placeholder="Add Customer Name">
+          </td>
+        </tr>
+            </tbody>
+        </table>
+    </form>
                   @if($stck != null)
                   <input type="hidden" id="stock" value="{{ $stck }}">
                   @elseif($productt->type != 'Physical')
