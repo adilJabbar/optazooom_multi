@@ -1766,6 +1766,11 @@ class ProductController extends Controller
 
 
 
+
+
+
+
+
                                 $input['variation_images'] = $line[22];
                                 $input['color_price'] = !empty($line[23])?$line[23]:null;
                                 $input['strength'] = $line[24];
@@ -1777,6 +1782,60 @@ class ProductController extends Controller
                                 $input['lens'] = $line[30];
                                 $input['lens_price'] = $line[31];
                                 $input['bulk_price'] = $line[32];
+
+
+
+                            $extra_price =  $input['bulk_price'];
+                            $current_price =  (float) filter_var( $input['price'], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION );
+
+
+                            $current_price = number_format((float)$current_price, 2, '.', '');
+                            // $current_price = explode('/',$current_price);
+                            // $current_price = trim($current_price[0], "$");
+
+                            // set volume proce
+
+                            $volumee = array();
+                            $percetangee = array();
+                            if(!empty($extra_price))
+                            {
+                                $all_volume_price =  explode(',', $extra_price);
+
+                                foreach($all_volume_price as $k => $v)
+                                {
+
+
+                                    $separated =  explode('/', $v);
+
+
+                                    $volume = (int) filter_var($separated[0], FILTER_SANITIZE_NUMBER_INT);
+
+
+                                    $volume_pricee = (float) filter_var( $separated[0], FILTER_SANITIZE_NUMBER_FLOAT, FILTER_FLAG_ALLOW_FRACTION );
+
+
+                                    $volume = (int) filter_var($separated[1], FILTER_SANITIZE_NUMBER_INT);
+
+
+
+                                    $aa = (float)$current_price - (float)$volume_pricee;
+
+                                    $percetange =  $aa / $current_price * 100;
+
+
+
+                                    $percetangee[] = (int)round($percetange);
+
+                                    $volumee[] = (int)$volume;
+
+                                }
+                            }
+
+                            $input['whole_sell_discount'] = implode(',', $percetangee);
+                            $input['whole_sell_qty'] = implode(',', $volumee);
+
+
+
 
 
 
@@ -1802,9 +1861,6 @@ class ProductController extends Controller
                                     $input['mateiral'] = $line[38];
                                 }
                             }
-
-
-                            dd($line,$input);
 
 
                             $input['slug'] = Str::slug($input['name'],'-').'-'.strtolower($input['sku']);
