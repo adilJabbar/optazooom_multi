@@ -680,7 +680,7 @@
 
                                                  ?>
 
-                                                <select name="strength" id="strength">
+                                                <select name="strength" class="form-select-custom" id="strength">
                                                 @foreach($strength as $key => $data1)
                                                 <?php
 
@@ -711,7 +711,7 @@
 
                                              ?>
 
-                                            <select name="lens" id="lens">
+                                            <select name="lens" class="form-select-custom" id="lens">
                                             @foreach($lens as $key => $data1)
                                             <?php
 
@@ -742,7 +742,7 @@
 
                                          ?>
 
-                                        <select name="frame_size" id="frame_size">
+                                        <select name="frame_size" class="form-select-custom" id="frame_size">
                                         @foreach($frame_size as $key => $data1)
                                         <?php
 
@@ -776,7 +776,7 @@
 
                                          ?>
 
-                                        <select name="frame_color" id="frame_color">
+                                        <select name="frame_color" class="form-select-custom" id="frame_color">
                                         @foreach($frame_color as $key => $data1)
                                         <?php
 
