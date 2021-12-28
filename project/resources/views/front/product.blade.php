@@ -628,7 +628,7 @@
                                                 @php
                                                 $is_first = true;
                                                 @endphp
-                                                <select  name="color" id="color_select">
+                                                <select  name="color" class= "form-select-custom" id="color_select">
                                                 @foreach($productt->color as $key => $data1)
                                                 <?php try {
                                                     //dd(Helper::get_color_name($productt->color[$key])['hex']);
@@ -1138,7 +1138,7 @@
                       @php
                       $is_first = true;
                       @endphp
-                      <select name="color" id="color_select">
+                      <select name="color" class="form-select-custom" id="color_select">
                       @foreach($productt->color as $key => $data1)
                       <?php try {
                           //dd(Helper::get_color_name($productt->color[$key])['hex']);
@@ -1598,7 +1598,7 @@
                                         @php
                                         $is_first = true;
                                         @endphp
-                                        <select name="color_name" id="color_select">
+                                        <select name="color_name" class="form-select-custom" id="color_select">
                                             @foreach($productt->color as $key => $data1)
 
 
