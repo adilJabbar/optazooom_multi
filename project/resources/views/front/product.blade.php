@@ -760,9 +760,7 @@
                                         </ul>
                                     </div>
                                     @endif
-                                            <br>
-
-
+                                
                                     @if(!empty($productt->frame_color))
 
 
