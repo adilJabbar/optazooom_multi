@@ -369,11 +369,11 @@
                                                                             class="icofont-cart"></i>{{ $langg->lang90 }}</a>
                                                                 </li>
 
-                                                                <li class="addtocart">
+                                                                {{-- <li class="addtocart">
                                                                     <a id="qaddcrt" href="javascript:;">
                                                                         <i class="icofont-cart"></i>{{ $langg->lang251 }}
                                                                     </a>
-                                                                </li>
+                                                                </li> --}}
                                                                 @else
                                                                 <li class="addtocart">
                                                                     <a rel-toggle="tooltip" title="{{ $langg->lang90 }}" data-toggle="modal"
@@ -886,11 +886,11 @@
                                                     <a href="javascript:;" id="addcrt"><i class="icofont-cart"></i>{{ $langg->lang90 }}</a>
                                                 </li>
 
-                                                <li class="addtocart">
+                                                {{-- <li class="addtocart">
                                                     <a id="qaddcrt" href="javascript:;">
                                                     <i class="icofont-cart"></i>{{ $langg->lang251 }}
                                                     </a>
-                                                </li>
+                                                </li> --}}
                                                 @else
                                                     <li class="addtocart">
                                                     <a rel-toggle="tooltip" title="{{ $langg->lang90 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
@@ -1358,11 +1358,11 @@
                         <a href="javascript:;" id="addcrt"><i class="icofont-cart"></i>{{ $langg->lang90 }}</a>
                       </li>
 
-                      <li class="addtocart">
+                      {{-- <li class="addtocart">
                         <a id="qaddcrt" href="javascript:;">
                           <i class="icofont-cart"></i>{{ $langg->lang251 }}
                         </a>
-                      </li>
+                      </li> --}}
                       @else
                         <li class="addtocart">
                         <a rel-toggle="tooltip" title="{{ $langg->lang90 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
@@ -1849,11 +1849,11 @@
                         <a href="javascript:;" id="<?php if($email=='info@opticalfirst.com'){ echo 'addcrtt'; }else{ ?>addcrt <?php } ?>"><i class="icofont-cart"></i>{{ $langg->lang90 }}</a>
                       </li>
 
-                      <li class="addtocart">
+                      {{-- <li class="addtocart">
                         <a id="qaddcrt" href="javascript:;">
                           <i class="icofont-cart"></i>{{ $langg->lang251 }}
                         </a>
-                      </li>
+                      </li> --}}
                       @else
                         <li class="addtocart">
                         <a rel-toggle="tooltip" title="{{ $langg->lang90 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
@@ -2267,11 +2267,11 @@
                                                     class="icofont-cart"></i>{{ $langg->lang90 }}</a>
                                         </li>
 
-                                        <li class="addtocart">
+                                        {{-- <li class="addtocart">
                                             <a id="qaddcrt" href="javascript:;">
                                                 <i class="icofont-cart"></i>{{ $langg->lang251 }}
                                             </a>
-                                        </li>
+                                        </li> --}}
                                         @else
                                         <li class="addtocart">
                                             <a rel-toggle="tooltip" title="{{ $langg->lang90 }}" data-toggle="modal"
