@@ -48,7 +48,7 @@ class CatalogController extends Controller
     {
 
 
-      if (Session::has('currency')) 
+      if (Session::has('currency'))
       {
         $curr = Currency::find(Session::get('currency'));
       }
@@ -179,24 +179,24 @@ class CatalogController extends Controller
 
                                   $prods = $prods->where('status', 1)->get();
       $prods = (new Collection(Product::filterProducts($prods)))->paginate(9);
- 
+
 
       $data['prods'] = $prods;
-    
+
       if($request->ajax()) {
 
       $data['ajax_check'] = 1;
 
         return view('includes.product.filtered-products', $data);
       }
-    
+
 
       return view('front.category', $data);
     }
 
 
     public function getsubs(Request $request) {
-   
+
       $category = Category::where('slug', $request->category)->firstOrFail();
       $subcategories = Subcategory::where('category_id', $category->id)->get();
       return $subcategories;
@@ -242,7 +242,7 @@ class CatalogController extends Controller
         $this->code_image();
         $productt = Product::where('slug','=',$slug)->firstOrFail();
         if($productt->status == 0){
-          return response()->view('errors.404')->setStatusCode(404); 
+          return response()->view('errors.404')->setStatusCode(404);
         }
         $productt->views+=1;
         $productt->update();
@@ -267,6 +267,7 @@ class CatalogController extends Controller
         {
             $vendors = Product::where('status','=',1)->where('user_id','=',0)->take(8)->get();
         }
+
         return view('front.product',compact('productt','curr','vendors'));
 
     }
