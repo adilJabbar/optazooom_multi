@@ -105,10 +105,13 @@
                                             </div>
                                             <div class="row">
                                                     <div class="col-lg-6">
-                                                        <select style=" width: 100%;height: 50px;background: #f3f8fc;padding: 0px 30px 0px 45px;border: 1px solid rgba(0, 0, 0, 0.1);font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
+                                                        <select style=" width: 100%;height: 50px;background: #f3f8fc;padding: 0px 30px 0px 10px;border: 1px solid rgba(0, 0, 0, 0.1);font-size: 14px;" class="User Name" placeholder="How Did You Hear About Us?" name="hear_from">
                                                         <option   value="">How Did You Hear About Us?</option>
-                                                        <option  <?php if($user->country == "usa"){ echo "selected"; } ?>  value="facebook">Facebook</option>
+                                                        <option  <?php if($user->country == "google"){ echo "selected"; } ?>  value="google">Google</option>
+                                                        <option  <?php if($user->country == "facebook"){ echo "selected"; } ?>  value="facebook">Facebook</option>
                                                         <option <?php if($user->country == "instagram"){ echo "selected"; } ?> value="instagram">Instagram</option>
+                                                        <option  <?php if($user->country == "referral_from_colleague"){ echo "selected"; } ?>  value="referral_from_colleague">Referral from Colleague </option>
+                                                        <option  <?php if($user->country == "kristie_nguyen"){ echo "selected"; } ?>  value="kristie_nguyen">Kristie Nguyen </option>
                                                       </select>
                                                     </div>
     

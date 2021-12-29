@@ -120,17 +120,17 @@
 												<div class="col-lg-6 {{ $digital == 1 ? 'd-none' : '' }}">
 													<select class="form-control" id="shipop" name="shipping" required="">
 														<option value="shipto">{{ $langg->lang149 }}</option>
-														<option value="pickup">{{ $langg->lang150 }}</option>
+														<!-- <option value="pickup">{{ $langg->lang150 }}</option> -->
 													</select>
 												</div>
 		
-												<div class="col-lg-6 d-none" id="shipshow">
+												<!-- <div class="col-lg-6 d-none" id="shipshow">
 													<select class="form-control nice" name="pickup_location">
 														@foreach($pickups as $pickup)
 														<option value="{{$pickup->location}}">{{$pickup->location}}</option>
 														@endforeach
 													</select>
-												</div>
+												</div> -->
 		
 												<div class="col-lg-6">
 													<input class="form-control" type="text" name="name"

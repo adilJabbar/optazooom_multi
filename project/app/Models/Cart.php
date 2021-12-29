@@ -213,6 +213,132 @@ class Cart extends Model
     }
 
 
+
+    public function addnumm($item, $id, $qty, $size, $color, $size_qty, $size_price, $size_key, $keys, $values,$impller_mounting_hole='',$strength='',$lens='',$frame_size='',$frame_color='',$left_eye='',$right_eye='',$bc='',$left_diy='',$right_diy='',$right_eye_cyl='',$left_eye_cyl='',$left_eye_axis='',$right_eye_axis='',$power='',$prescription='',$powerr='') {
+        $size_cost = 0;
+        $storedItem = ['qty' => 0,'size_key' => 0, 'size_qty' =>  $item->size_qty,'size_price' => $item->size_price, 'size' => $item->size, 'color' => $item->color, 'stock' => $item->stock, 'price' => $item->price, 'item' => $item, 'license' => '', 'dp' => '0','keys' => $keys, 'values' => $values,'item_price' => $item->price,'impller_mounting_hole'=>$impller_mounting_hole,'strength'=>$strength,'lens'=>$lens,'frame_size'=>$frame_size,'frame_color'=>$frame_color,'left_eye'=>$left_eye,'right_eye'=>$right_eye,'bc'=>$bc,'left_diy'=>$left_diy,'right_diy'=>$right_diy,'right_eye_cyl'=>$right_eye_cyl,'left_eye_cyl'=>$left_eye_cyl,'left_eye_axis'=>$left_eye_axis,'right_eye_axis'=>$right_eye_axis,'power'=>$power,'prescription'=>$prescription,'powerr'=>$powerr];
+        if($item->type == 'Physical')
+        {
+            if ($this->items) {
+                if (array_key_exists($id.$size.$color.str_replace(str_split(' ,'),'',$values), $this->items)) {
+                    $storedItem = $this->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)];
+                }
+            }
+        }
+        else {
+            if ($this->items) {
+                if (array_key_exists($id.$size.$color.str_replace(str_split(' ,'),'',$values), $this->items)) {
+                    $storedItem = $this->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)];
+                    $storedItem['dp'] = 1;
+                }
+            }
+        }
+
+        $storedItem['qty'] =(int)$storedItem['qty'] + (int)$qty;
+
+        $stck = (string)$item->stock;
+        if($stck != null){
+                $storedItem['stock']--;
+        }
+        if(!empty($item->size)){
+        $storedItem['size'] = $item->size[0];
+        }
+        if(!empty($size)){
+        $storedItem['size'] = $size;
+        }
+        if(!empty($size_key)){
+        $storedItem['size_key'] = $size_key;
+        }
+        if(!empty($item->size_qty)){
+        $storedItem['size_qty'] = $item->size_qty [0];
+        }
+        if(!empty($size_qty)){
+        $storedItem['size_qty'] = $size_qty;
+        }
+        if(!empty($item->size_price)){
+        $storedItem['size_price'] = $item->size_price[0];
+        $size_cost = $item->size_price[0];
+        }
+        if(!empty($size_price)){
+        $storedItem['size_price'] = $size_price;
+        $size_cost = $size_price;
+        }
+        if(!empty($item->color)){
+        $storedItem['color'] = $item->color[0];
+        }
+        if(!empty($color)){
+        $storedItem['color'] = $color;
+        }
+        if(!empty($keys)){
+        $storedItem['keys'] = $keys;
+        }
+        if(!empty($values)){
+        $storedItem['values'] = $values;
+        }
+
+        $item->price += $size_cost;
+        if(!empty($_POST['eye_price_input']))
+        {
+            $item->price = $item->price+$_POST['eye_price_input'];
+        }
+        if(!empty($_POST['title_price_input']))
+        {
+            $item->price = $item->price+$_POST['title_price_input'];
+        }
+        if(!empty($_POST['color_price_input']))
+        {
+            $item->price = $item->price+$_POST['color_price_input'];
+        }
+        $storedItem['item_price'] = $item->price;
+        if(!empty($item->whole_sell_qty))
+        {
+            // foreach(array_combine($item->whole_sell_qty,$item->whole_sell_discount) as $whole_sell_qty => $whole_sell_discount)
+            // {
+            //     if($storedItem['qty'] == $whole_sell_qty)
+            //     {
+            //         $whole_discount[$id.$size.$color.str_replace(str_split(' ,'),'',$values)] = $whole_sell_discount;
+            //         Session::put('current_discount',$whole_discount);
+            //         break;
+            //     }
+            // }
+
+            foreach($item->whole_sell_qty as $key => $data){
+                if(($key + 1) != count($item->whole_sell_qty)){
+                    if(($storedItem['qty'] >= $item->whole_sell_qty[$key]) && ($storedItem['qty'] < $item->whole_sell_qty[$key+1])){
+                        $whole_discount[$id.$size.$color.str_replace(str_split(' ,'),'',$values)] = $item->whole_sell_discount[$key];
+                        Session::put('current_discount',$whole_discount);
+                        $ck = 'first';
+                        break;
+                    }
+                }
+                else {
+                    if(($storedItem['qty'] >= $item->whole_sell_qty[$key])){
+                        $whole_discount[$id.$size.$color.str_replace(str_split(' ,'),'',$values)] = $item->whole_sell_discount[$key];
+                        Session::put('current_discount',$whole_discount);
+                        $ck = 'last';
+                        break;
+                    }
+                }
+            }
+
+            if(Session::has('current_discount')) {
+                    $data = Session::get('current_discount');
+                if (array_key_exists($id.$size.$color.str_replace(str_split(' ,'),'',$values), $data)) {
+
+                    $discount = $item->price * ($data[$id.$size.$color.str_replace(str_split(' ,'),'',$values)] / 100);
+                    $item->price = $item->price - $discount;
+                }
+            }
+        }
+
+
+        $storedItem['price'] = $item->price * $storedItem['qty'];
+
+        $this->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)] = $storedItem;
+        $this->totalQty += $storedItem['qty'];
+    }
+
+
 // **************** ADD TO CART MULTIPLE ENDS *******************
 
 

@@ -43,6 +43,7 @@ class CartController extends Controller
         $cart = new Cart($oldCart);
 
         $products = $cart->items;
+        // dd($cart->items);
         $totalPrice = $cart->totalPrice;
         $mainTotal = $totalPrice;
         $tx = $gs->tax;
@@ -331,7 +332,7 @@ class CartController extends Controller
         return response()->json($data);
     }
 
-    public function addnumcart()
+    public function addnumcart(Request $request)
     {
 
 
@@ -444,6 +445,160 @@ class CartController extends Controller
         return response()->json($data);
     }
 
+
+    public function addnumcartt(Request $request)
+    {
+
+
+        $id = $_POST['id'];
+        $qty = $_POST['qty'];
+        $size = str_replace(' ','-',$_POST['size']);
+        $color = $_POST['color'];
+        $size_qty = $_POST['size_qty'];
+        $size_price = (double)$_POST['size_price'];
+        $size_key = $_POST['size_key'];
+        $keys =  $_POST['keys'];
+        $values = $_POST['values'];
+        $prices = $_POST['prices'];
+        $impller_mounting_hole = $_POST['impller_mounting_hole'];
+        $strength = $_POST['strength'];
+        $lens = $_POST['lens'];
+        $frame_size = $_POST['frame_size'];
+        $frame_color = $_POST['frame_color'];
+        $powerr = $_POST['powerr'];
+
+
+
+
+
+
+
+        $keys = $keys == "" ? '' :implode(',',$keys);
+        $values = $values == "" ? '' : implode(',',$values );
+        if (Session::has('currency')) {
+            $curr = Currency::find(Session::get('currency'));
+        }
+        else {
+            $curr = Currency::where('is_default','=',1)->first();
+        }
+
+
+        $size_price = ($size_price / $curr->value);
+        $prod = Product::where('id','=',$id)->first(['id','user_id','slug','name','photo','size','size_qty','size_price','color','price','stock','type','file','link','license','license_qty','measure','whole_sell_qty','whole_sell_discount','attributes']);
+
+
+        if($prod->user_id != 0){
+        $gs = Generalsetting::findOrFail(1);
+        $prc = $prod->price + $gs->fixed_commission + ($prod->price/100) * $gs->percentage_commission ;
+        $prod->price = round($prc,2);
+        }
+        if(!empty($prices))
+        {
+         foreach($prices as $data){
+            $prod->price += ($data / $curr->value);
+        }
+
+        }
+
+
+        if(!empty($prod->license_qty))
+        {
+        $lcheck = 1;
+            foreach($prod->license_qty as $ttl => $dtl)
+            {
+                if($dtl < 1)
+                {
+                    $lcheck = 0;
+                }
+                else
+                {
+                    $lcheck = 1;
+                    break;
+                }
+            }
+                if($lcheck == 0)
+                {
+                    return 0;
+                }
+        }
+        if(empty($size))
+        {
+            if(!empty($prod->size))
+            {
+            $size = trim($prod->size[0]);
+            }
+            $size = str_replace(' ','-',$size);
+        }
+
+        if(empty($color))
+        {
+            if(!empty($prod->color))
+            {
+            $color = $prod->color[0];
+
+            }
+        }
+
+        $left_eye = $_POST['left_eye'];
+        $right_eye = $_POST['right_eye'];
+        $bc = $_POST['bc'];
+        $left_diy = $_POST['left_diy'];
+        $right_diy = $_POST['right_diy'];
+        $right_eye_cyl = $_POST['right_eye_cyl'];
+        $left_eye_cyl = $_POST['left_eye_cyl'];
+        $left_eye_axis = $_POST['left_eye_axis'];
+        $right_eye_axis = $_POST['right_eye_axis'];
+        $power = $_POST['power'];
+
+
+
+        $color = str_replace('#','',$color);
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+
+
+
+        if ($file = $request->file('img'))
+        {
+            $prescription = time().str_replace(' ', '', $file->getClientOriginalName());
+
+            $file->move(public_path('assets/images/prescription'),$prescription);
+
+        }else{
+            $prescription = '';
+        }
+
+
+        $cart = new Cart($oldCart);
+        $cart->addnumm($prod, $prod->id, $qty, $size,$color,$size_qty,$size_price,$size_key,$keys,$values,$impller_mounting_hole,$strength,$lens,$frame_size,$frame_color,$left_eye,$right_eye,$bc,$left_diy,$right_diy,$right_eye_cyl,$left_eye_cyl,$left_eye_axis,$right_eye_axis,$power,$prescription,$powerr);
+        if($cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['dp'] == 1)
+        {
+            return 'digital';
+        }
+        if($cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['stock'] < 0)
+        {
+            return 0;
+        }
+        if($cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['size_qty'])
+        {
+            if($cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['qty'] > $cart->items[$id.$size.$color.str_replace(str_split(' ,'),'',$values)]['size_qty'])
+            {
+                return 0;
+            }
+        }
+
+        $cart->totalPrice = 0;
+        foreach($cart->items as $data)
+
+        $cart->totalPrice += $data['price'];
+
+        Session::put('cart',$cart);
+        $data[0] = count($cart->items);
+        // $oldCart = Session::get('cart');
+
+        // $cart = new Cart($oldCart);
+        // dd($cart);
+        return response()->json($data);
+    }
 
 
     public function addtonumcart()

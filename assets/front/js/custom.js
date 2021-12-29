@@ -844,6 +844,7 @@ $(function($) {
 
         // Product Details Product Size Active Js Code
         $(document).on('click', '.product-size .siz-list .box', function() {
+            
             $('.qttotal').html('1');
             var parent = $(this).parent();
             size_qty = $(this).find('.size_qty').val();
@@ -856,6 +857,29 @@ $(function($) {
             total = total.toFixed(2);
             stock = size_qty;
 
+            if($('input[name="title_price"]').val())
+            {
+                var title_price = $('input[name="title_price"]').val();
+         
+            }else{
+                title_price = 0;
+            }
+            if($('input[name="eye_price"]').val())
+            {
+                var eye_price = $('input[name="eye_price"]').val();
+         
+            }else{
+                eye_price = 0;
+            }
+            if($('input[name="color_price"]').val())
+            {
+                var color_price = $('input[name="color_price"]').val();
+         
+            }else{
+                color_price = 0;
+            }
+            total = parseFloat(total)+parseFloat(color_price)+parseFloat(eye_price)+parseFloat(title_price);
+            total = total.toFixed(2);
             var pos = $('#curr_pos').val();
             var sign = $('#curr_sign').val();
             if (pos == '0') {
@@ -869,7 +893,7 @@ $(function($) {
         // Product Details Attribute Code 
 
         $(document).on('change', '.product-attr', function() {
-
+         
             var total = 0;
             total = getAmount() + getSizePrice();
             total = total.toFixed(2);
@@ -882,9 +906,13 @@ $(function($) {
             }
         });
 
+    
+
+
+
 
         function getSizePrice() {
-
+          
             var total = 0;
             if ($('.product-size .siz-list li').length > 0) {
                 total = parseFloat($('.product-size .siz-list li.active').find('.size_price').val());
@@ -1204,12 +1232,124 @@ $(function($) {
                 impller_mounting_hole = '';
             }
             
-
+            
             
             $.ajax({
                 type: "GET",
                 url: mainurl + "/addnumcart",
                 data: { id: pid, qty: qty, size: sizes, color: color, size_qty: size_qty, size_price: size_price, size_key: size_key, keys: keys, values: values, prices: prices,impller_mounting_hole:impller_mounting_hole,strength:strength,lens:lens,frame_size:frame_size,frame_color:frame_color},
+                contentType: false,
+                processData: false,
+                success: function(data) {
+
+                    if (data == 'digital') {
+                        toastr.error(langg.already_cart);
+                    } else if (data == 0) {
+                        toastr.error(langg.out_stock);
+                    } else {
+                        $("#cart-count").html(data[0]);
+                        $("#cart-items").load(mainurl + '/carts/view');
+                        toastr.success(langg.add_cart);
+                    }
+                }
+            });
+
+        });
+
+
+
+        $(document).on("click", "#addcrtt", function() {
+          
+         
+            var qty = $('.qttotal').val();
+            var pid = $(this).parent().parent().parent().parent().find("#product_id").val();
+
+            if ($('.product-attr').length > 0) {
+                values = $(".product-attr:checked").map(function() {
+                    return $(this).val();
+                }).get();
+
+                keys = $(".product-attr:checked").map(function() {
+                    return $(this).data('key');
+                }).get();
+
+                prices = $(".product-attr:checked").map(function() {
+                    return $(this).data('price');
+                }).get();
+
+
+
+            }
+          
+            var color = $('#color').val();
+            if(typeof color === 'undefined')
+            {
+                color = '';
+            }
+            var strength = $('#strength').val();
+            if(typeof strength === 'undefined')
+            {
+                strength = '';
+            }
+            var lens = $('#lens').val();
+            if(typeof lens === 'undefined')
+            {
+                lens = '';
+            }
+            var frame_size = $('#frame_size').val();
+            if(typeof frame_size === 'undefined')
+            {
+                frame_size = '';
+            }
+            var frame_color = $('#frame_color').val();
+            if(typeof frame_color === 'undefined')
+            {
+                frame_color = '';
+            }
+            var powerr = $('#powerr').val();
+            
+            if(typeof powerr === 'undefined')
+            {
+                powerr = '';
+            }
+
+            if($('input[name="impller_mounting_hole"]').val())
+            {
+                var impller_mounting_hole = $('input[name="impller_mounting_hole"]:checked').val();
+         
+            }else{
+                impller_mounting_hole = '';
+            }
+            // var form = $('#prescription').serializeArray();
+            var form = new FormData($('#prescription')[0]);
+            form.append('id', pid);
+            form.append('qty', qty);
+            form.append('size', sizes);
+            form.append('color', color);
+            form.append('size_qty', size_qty);
+            form.append('size_price', size_price);
+            form.append('size_key', size_key);
+            form.append('keys', keys);
+            form.append('values', values);
+            form.append('prices', prices);
+            form.append('lens', lens);
+            form.append('impller_mounting_hole', impller_mounting_hole);
+            form.append('strength', strength);
+            form.append('frame_size', frame_size);
+            form.append('frame_color', frame_color);
+            form.append('powerr', powerr);
+            
+            form.append('title_price_input', $('#title_price_input').val());
+            form.append('eye_price_input', $('#eye_price_input').val());
+            form.append('color_price_input', $('#color_price_input').val());
+            
+            $.ajax({
+                type: "POST",
+                url: mainurl + "/addnumcartt",
+                data: form,
+                contentType: false,
+                cache: false,
+                processData:false,
                 success: function(data) {
 
                     if (data == 'digital') {
@@ -1303,15 +1443,16 @@ $(function($) {
 
 
 
-
+                        
                         $(".discount").html($("#d-val").val());
                         $(".cart-total").html(data[0]);
+                        $(".total-price p").html(data[0]);
                         $(".main-total").html(data[3]);
                         $(".coupon-total").val(data[3]);
                         $("#prc" + itemid).html(data[2]);
                         $("#prct" + itemid).html(data[2]);
                         $("#cqt" + itemid).html(data[1]);
-                        $("#qty" + itemid).html(data[1]);
+                        $("#qty" + itemid).val(data[1]);
                     }
                 }
             });
@@ -1437,7 +1578,7 @@ $(function($) {
                         $("#prc" + itemid).html(data[2]);
                         $("#prct" + itemid).html(data[2]);
                         $("#cqt" + itemid).html(data[1]);
-                        $("#qty" + itemid).html(data[1]);
+                        $("#qty" + itemid).val(data[1]);
                     }
                 });
             }

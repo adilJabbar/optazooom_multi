@@ -1595,6 +1595,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   Route::get('/addcart/{id}','Front\CartController@addcart')->name('product.cart.add');
   Route::get('/addtocart/{id}','Front\CartController@addtocart')->name('product.cart.quickadd');
   Route::get('/addnumcart','Front\CartController@addnumcart');
+  Route::post('/addnumcartt','Front\CartController@addnumcartt');
   Route::get('/addtonumcart','Front\CartController@addtonumcart');
   Route::get('/addbyone','Front\CartController@addbyone');
   Route::get('/addcustom','Front\CartController@addcustom');
