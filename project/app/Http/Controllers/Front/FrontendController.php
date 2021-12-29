@@ -30,11 +30,12 @@ class FrontendController extends Controller
 
     public function __construct()
     {
-        if(!\Session::get('authencated_admin'))
+
+        $user = User::where('is_vendor',3)->first();
+        if($user->status!=1)
         {
 
-            return redirect('/');
-            exit();
+            dd('you are not enter email and password');
 
         }
 
@@ -128,10 +129,7 @@ class FrontendController extends Controller
 
 
 // -------------------------------- HOME PAGE SECTION ----------------------------------------
-    public function index()
-    {
-         return view('front.lock_user');
-    }
+
 	public function indexx()
 	{
 
