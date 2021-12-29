@@ -290,7 +290,7 @@
                                                                                 </span>
                                                                             </li>
                                                                             <li>
-                                                                                <span class="qttotal">1</span>
+                                                                            <input type="number" name="qttotal" min="1"  value="1" class="qttotal"></span>
                                                                             </li>
                                                                             <li>
                                                                                 <span class="qtplus">
@@ -1182,9 +1182,9 @@
                 <table class="to-cart">
                 <thead>
                 <tr>
-                    <th class="col col-qty col-color">Quantity</th>
-                    <th class="col col-size">Size</th>
-                    <th class="col col-customer">Customer Name</th>
+                    <th class="col-4 col-qty col-color">Quantity</th>
+                    <th class="col-4 col-size">Size</th>
+                    <th class="col-4 col-customer">Customer Name</th>
                 </tr>
                </thead>
                <tbody>
@@ -1667,7 +1667,7 @@
                                                         </span>
                                                     </li>
                                                     <li>
-                                                        <span class="qttotal">1</span>
+                                                    <input type="number" name="qttotal" min="1"  value="1" class="qttotal"></span>
                                                     </li>
                                                     <li>
                                                         <span class="qtplus">
