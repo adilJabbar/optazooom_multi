@@ -2960,6 +2960,7 @@
 <script type="text/javascript">
 
 $(document).on('change', '.color-price', function() {
+    alert('aaa');
             var color = '<?php echo json_encode($productt->color); ?>';
             var color_price = '<?php echo json_encode($productt->color_price_extra); ?>';
             value = $(this).val();
@@ -2968,6 +2969,9 @@ $(document).on('change', '.color-price', function() {
             color_price =color_price.split(",");
             var original_price = parseFloat($('#product_price').val());
             size_price = parseFloat($('.product-size .siz-list li.active').find('.size_price').val());
+            if (isNaN(size_price)) {
+                size_price = 0;
+            }
             $.each(JSON.parse(color), function (i, elem) {
             if(String(value) == String(elem))
             {
@@ -2986,7 +2990,7 @@ $(document).on('change', '.color-price', function() {
                     eye_price = 0;
                 }
 
-                total = parseFloat(color_price[i])+original_price+size_price+parseFloat(title_price)+parseFloat(eye_price);
+                total = parseFloat(color_price[i])+parseFloat(original_price)+parseFloat(size_price)+parseFloat(title_price)+parseFloat(eye_price);
                 $('#color_price_input').val(color_price[i]);
                 $('#sizeprice').html('$' + total.toFixed(2));
 
