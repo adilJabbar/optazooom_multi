@@ -538,17 +538,32 @@ class CartController extends Controller
 
             }
         }
+        if(isset($_POST['left_eye']))
+        {
 
-        $left_eye = $_POST['left_eye'];
-        $right_eye = $_POST['right_eye'];
-        $bc = $_POST['bc'];
-        $left_diy = $_POST['left_diy'];
-        $right_diy = $_POST['right_diy'];
-        $right_eye_cyl = $_POST['right_eye_cyl'];
-        $left_eye_cyl = $_POST['left_eye_cyl'];
-        $left_eye_axis = $_POST['left_eye_axis'];
-        $right_eye_axis = $_POST['right_eye_axis'];
-        $power = $_POST['power'];
+            $left_eye = $_POST['left_eye'];
+            $right_eye = $_POST['right_eye'];
+            $bc = $_POST['bc'];
+            $left_diy = $_POST['left_diy'];
+            $right_diy = $_POST['right_diy'];
+            $right_eye_cyl = $_POST['right_eye_cyl'];
+            $left_eye_cyl = $_POST['left_eye_cyl'];
+            $left_eye_axis = $_POST['left_eye_axis'];
+            $right_eye_axis = $_POST['right_eye_axis'];
+            $power = $_POST['power'];
+        }else{
+            $left_eye = '';
+            $right_eye = '';
+            $bc = '';
+            $left_diy = '';
+            $right_diy = '';
+            $right_eye_cyl = '';
+            $left_eye_cyl = '';
+            $left_eye_axis = '';
+            $right_eye_axis = '';
+            $power = '';
+        }
+
 
 
 
