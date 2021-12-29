@@ -32,12 +32,12 @@ class FrontendController extends Controller
     {
 
         $user = User::where('is_vendor',3)->first();
-        if($user->status!=1)
-        {
+        // if($user->status!=1)
+        // {
 
-            dd('you are not enter email and password');
+        //     dd('you are not enter email and password');
 
-        }
+        // }
 
          $this->auth_guests();
         if(isset($_SERVER['HTTP_REFERER'])){
