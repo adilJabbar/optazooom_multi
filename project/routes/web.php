@@ -1755,7 +1755,7 @@ Route::get('/package/delete/{id}', 'Vendor\PackageController@destroy')->name('ve
   // LOGIN WITH FACEBOOK OR GOOGLE SECTION ENDS
 
   //  CRONJOB
-  Route::get('/vendor/subscription/check','Front\FrontendController@subcheck');
+//   Route::get('/vendor/subscription/check','Front\FrontendController@subcheck');
   // CRONJOB ENDS
 
   Route::get('/test/checkout', 'Front\FrontendController@testcheckout');
