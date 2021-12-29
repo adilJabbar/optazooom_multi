@@ -134,7 +134,7 @@ class LoginController extends Controller
 
             return redirect()->back()->with('error','Credentails are not matched');
           }else{
-
+            \Session::put('authencated_admin', 'true');
              return redirect()->route('front.indexx');
           }
         }else{

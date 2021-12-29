@@ -30,6 +30,14 @@ class FrontendController extends Controller
 
     public function __construct()
     {
+        if(!\Session::get('authencated_admin'))
+        {
+
+            return redirect('/');
+            exit();
+
+        }
+
          $this->auth_guests();
         if(isset($_SERVER['HTTP_REFERER'])){
             $referral = parse_url($_SERVER['HTTP_REFERER'], PHP_URL_HOST);
