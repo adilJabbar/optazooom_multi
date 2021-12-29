@@ -8,7 +8,7 @@
             </div>
             <div class="body-area">
 
-                <ul class="filter-list filter-list-category" style="height:900px; overflow:auto;">
+                <ul class="filter-list filter-list-category">
                 <?php
 
                 $string = str_replace('-',' ', request()->segment(count(request()->segments())));

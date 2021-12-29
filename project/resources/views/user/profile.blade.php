@@ -13,7 +13,7 @@
                     </li>
                     <li>
                         <a href="{{ route('user-profile') }}">
-                         Profile
+                        My Profile
                         </a>
                     </li>
                 </ul>

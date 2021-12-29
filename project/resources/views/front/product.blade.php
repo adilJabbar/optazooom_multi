@@ -2513,12 +2513,7 @@
   });
 </script>
 <?php
-
-
-
 $product_variation_images = explode(',',$productt->variation_images);
-
-
 ?>
 <script>
  $('#color_select').on('change',function(){
