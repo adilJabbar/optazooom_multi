@@ -760,7 +760,7 @@
                                         </ul>
                                     </div>
                                     @endif
-                                
+
                                     @if(!empty($productt->frame_color))
 
 
@@ -1187,7 +1187,7 @@
                     <th class="col col-customer">Customer Name</th>
                 </tr>
                </thead>
-               <tbody>                                                                                       
+               <tbody>
                <tr class="variation-row purchasable" data-id="51907">
                 <td class="col col-color col-qty">
                  <div class="quantity">
@@ -1204,7 +1204,7 @@
              <td class="col col-customer">
               <input type="text" class="input-customer" name="customer" placeholder="Add Customer Name">
             </td>
-            </tr>                                                                                       
+            </tr>
             <tr class="variation-row purchasable" data-id="51909">
                <td class="col col-color col-qty">
                 <div class="quantity">
@@ -1221,7 +1221,7 @@
         <td class="col col-customer">
          <input type="text" class="input-customer" name="customer" placeholder="Add Customer Name">
         </td>
-        </tr>                                                                     
+        </tr>
         <tr class="variation-row purchasable" data-id="51911">
         <td class="col col-color col-qty">
         <div class="quantity">
@@ -1635,7 +1635,7 @@
 
                                 @if(!empty($productt->size))
 
-                                <input type="hidden" id="stock" value="{{ $productt->size_qty[0] }}">
+                                <input type="hidden" id="stock" value="@if(isset($productt->size_qty[0]) && !empty($productt->size_qty[0])) {{ $productt->size_qty[0] }} @endif">
                                 @else
                                 @php
                                 $stck = (string)$productt->stock;
