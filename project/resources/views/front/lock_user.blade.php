@@ -103,7 +103,7 @@
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <nav class="comment-log-reg-tabmenu">
-          
+
         </nav>
         <div class="tab-content" id="nav-tabContent">
           <div class="tab-pane fade show active" id="nav-log" role="tabpanel" aria-labelledby="nav-log-tab">
@@ -112,10 +112,10 @@
                 <h4 class="title">Enter Private Credentials</h4>
               </div>
               <div class="login-form signin-form">
-                
+
 @if ($message = Session::get('error'))
 <div class="alert alert-danger alert-block">
-  <button type="button" class="close" data-dismiss="alert">×</button> 
+  <button type="button" class="close" data-dismiss="alert">×</button>
         <strong>{{ $message }}</strong>
 </div>
 @endif
@@ -132,13 +132,13 @@
                     <i class="icofont-ui-password"></i>
                   </div>
                   <div class="form-forgot-pass">
-                
-                   
+
+
                   </div>
                   <input type="hidden" name="modal" value="1">
                   <input class="mauthdata" type="hidden" value="{{ $langg->lang177 }}">
                   <button type="submit" style="background-color: #6199d6" class="submit-btn">{{ $langg->lang178 }}</button>
-                
+
                 </form>
               </div>
             </div>
@@ -234,8 +234,8 @@
                   </div> -->
 
                   @endif
-                                        
-                                 
+
+
                   <input class="mprocessdata" type="hidden" value="{{ $langg->lang188 }}">
                   <button type="submit" class="submit-btn">{{ $langg->lang189 }}</button>
 
@@ -256,7 +256,7 @@
   <!--Modal Popup start for OTP Verification-->
 
     <div class="modal fade pt-100" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">       
+        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
           <div class="modal-content">
             <div class="modal-header">
             </div>
@@ -267,20 +267,20 @@
                     </div>
             <div class="modal-body ">
                 <div class="position-relative" >
-                    <div class="p-2 text-center"> 
+                    <div class="p-2 text-center">
                    <div id="message_otp"></div>
-                    <div id="msg"></div>     
-                        <div> 
+                    <div id="msg"></div>
+                        <div>
                             <p class="code-title">Enter Code Here</p>
                         </div>
                         <form id="verify_otp" action="{{route('user-verify-otp')}}" method="POST">
                              {{ csrf_field() }}
                         <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2 " >
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="first" value="" type="text" id="first" maxlength="1" /> 
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="second" value="" type="text" id="second" maxlength="1" /> 
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="third" type="text" id="third" maxlength="1" /> 
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs"   name="fourth"  type="text" id="fourth" maxlength="1" /> 
-                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="fifth" type="text" id="fifth" maxlength="1" /> 
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="first" value="" type="text" id="first" maxlength="1" />
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="second" value="" type="text" id="second" maxlength="1" />
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="third" type="text" id="third" maxlength="1" />
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs"   name="fourth"  type="text" id="fourth" maxlength="1" />
+                         <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" name="fifth" type="text" id="fifth" maxlength="1" />
                          <input  oninput="this.value=this.value.replace(/[^0-9]/g,'');" class="m-2 text-center form-control rounded tabs" type="text" name="sixth" id="sixth" maxlength="1" /> </div>
                         <button class="register-otp-button" type="submit"><i class="fa fa-long-arrow-right circle-icon-arrow"></i> </button>
                         <!-- <a href="#"><i class="fa fa-long-arrow-right circle-icon-arrow"></i></a> -->
@@ -293,7 +293,7 @@
                              <a href="#" class="text-decoration-none ms-3"><span class="time" id="timer">00:59</span></a> </div>
                         </div>
                     </div>
-                   
+
                 </div>
             </div>
           </div>
@@ -457,7 +457,7 @@
                         placeholder="{{ $langg->lang51 }}" required="">
                       <i class="icofont-refresh"></i>
                     </div>
-                    
+
 
 
                     @endif
@@ -657,43 +657,43 @@
                            <div class="col-lg-12">
 
 <div class="form-input">
-                               
+
                                     <label>Select Supplier Category (You can check more then one)</label>
                                     <div style="border-bottom: 1px solid #cfcfcf;"></div>
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox" id="cases" name="category[]" value="case">
                                         <label for="cases">Cases</label>
-                                        
+
                                     </span>
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox" id="frames" name="category[]" value="frames">
                                         <label for="frames">Frames</label>
-                                        
+
                                     </span>
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox" id="supplies" name="category[]" value="supplies">
                                         <label for="supplies">Supplies</label>
-                                        
+
                                     </span>
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox" id="lenses" name="category[]" value="lenses">
                                         <label for="lenses">Contact Lenses</label>
-                                        
+
                                     </span>
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox"  id="all" name="category[]" value="all">
                                         <label for="all">All</label>
-                                        
+
                                     </span>
 
-                   
+
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox" id="other" name="category[]" value="other">
                                         <label for="other">Others</label>
                                     </span>
-                                    
-                                
-     
+
+
+
                             </div>
                             </div>
                          <!--   <div class="col-lg-6">
@@ -726,7 +726,7 @@
                         <option value="referral_from_colleague">Referral from Colleague </option>
                         <option value="kristie_nguyen">Kristie Nguyen</option>
                       </select>
-           
+
                   </div>
                             </div>
 
@@ -743,7 +743,7 @@
                 <option value="uae">UAE</option>
                 <option value="uk">United Kingdom</option>
               </select>
-           
+
     </div>
 </div>
 
@@ -874,7 +874,7 @@
         </div>
     </div>
 <!-- Order Tracking modal End -->
-        
+
 <script type="text/javascript">
   var mainurl = "{{url('/')}}";
   var gs      = {!! json_encode(\App\Models\Generalsetting::first()->makeHidden(['stripe_key', 'stripe_secret', 'smtp_pass', 'instamojo_key', 'instamojo_token', 'paystack_key', 'paystack_email', 'paypal_business', 'paytm_merchant', 'paytm_secret', 'paytm_website', 'paytm_industry', 'paytm_mode', 'molly_key', 'razorpay_key', 'razorpay_secret'])) !!};
@@ -902,7 +902,7 @@
   <script src="{{asset('assets/front/js/main.js')}}"></script>
   <!-- custom -->
   <script src="{{asset('assets/front/js/custom.js')}}"></script>
-  
+
 
     {!! $seo->google_analytics !!}
 
