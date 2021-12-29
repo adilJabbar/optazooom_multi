@@ -199,19 +199,17 @@
 
 
 
-                                            <?php try {
-                                //dd(Helper::get_color_name($productt->color[$key])['hex']);
-
-                            $color_back = Helper::get_color_name($productt->color[$key])['hex'];
-                              echo $color_back;
-                            } catch (Exception $e) {
-                              $color_back = '#ffffff';
-                            }
+                                    <?php try {
+                                      $color_back = Helper::get_color_name($productt->color[$key])['hex'];
+                                        echo $color_back;
+                                    } catch (Exception $e) {
+                                        $color_back = '#ffffff';
+                                    }
 
                             ?>
 
-                                            <option value="{{ $productt->color[$key]}} ">{{ $productt->color[$key]}}
-                                            </option>
+                            <option value="{{ $productt->color[$key]}} ">{{ $productt->color[$key]}}
+                            </option>
 
                                             <!--     <li class="{{ $is_first ? 'active' : '' }}">
                               <span >@if(isset($productt->color[$key])){{ $productt->color[$key]}}  @else(isset($productt->color[$key]['name'])) {{Helper::get_color_name($productt->color[$key])['name']}} @endif</span>
@@ -990,7 +988,30 @@
                             </div>
               <!-- Rons Optical Details and Data ends here -->
               <?php } elseif($email == 'ozcaprioptics@gmail.com')
-             {?>
+             {
+                if(!empty($productt->color_price_extra))
+                    {
+                        $color_pice_extra = explod(',',$productt->color_price_extra);
+                    }
+                    if(!empty($productt->title))
+                    {
+                        $title = explod(',',$productt->title);
+                    }
+                    if(!empty($productt->title_price_extra))
+                    {
+                        $title_price_extra = explod(',',$productt->title_price_extra);
+                    }
+                    if(!empty($productt->eye))
+                    {
+                        $eye = explod(',',$productt->eye);
+                    }
+                    if(!empty($productt->eye_price_extra))
+                    {
+                        $eye_price_extra = explod(',',$productt->eye_price_extra);
+                    }
+
+
+                 ?>
              <!-- Capri Optics Details and Data Starts Here -->
 <div class="row">
     <div class="col-lg-5 col-md-12">
@@ -1438,7 +1459,505 @@
             </div>
  </div>
 <!-- Capri Optics Details and Data ends here -->
-                    <?php }else{ ?>
+                    <?php }else if($email == 'info@opticalfirst.com'){ ?>
+
+                        <!-- Optical First Data Starts Here -->
+<div class="row">
+    <div class="col-lg-5 col-md-12">
+        <div class="xzoom-container">
+            <input type="hidden" name="title_price" value="" id="title_price_input" />
+            <input type="hidden" name="eye_price" value=""  id="eye_price_input" />
+            <input type="hidden" name="color_price" value=""  id="color_price_input" />
+          <?php $img = explode(',', $productt->photo); ?>
+            <img class="xzoom5" id="xzoom-magnific" src="{{filter_var($img[0], FILTER_VALIDATE_URL) ?$img[0]:asset('assets/images/products/'.$productt->photo)}}" xoriginal="{{$img[0]}}" />
+            <div class="xzoom-thumbs">
+
+              <div class="all-slider">
+
+                <!--  <a href="{{$img[0]}}">-->
+                <!--<img class="xzoom-gallery5" width="80" src="{{filter_var($img[0], FILTER_VALIDATE_URL) ?$img[0]:asset('assets/images/products/'.$productt->photo)}}" title="The description goes here">-->
+                <!--  </a>-->
+
+              @foreach($productt->galleries as $gal)
+                  <a href="{{asset('assets/images/galleries/'.$gal->photo)}}">
+                    <img class="xzoom-gallery5" width="80" src="{{asset('assets/images/galleries/'.$gal->photo)}}" title="The description goes here">
+                  </a>
+              @endforeach
+
+              </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-7">
+              <div class="right-area">
+                <div class="product-info">
+                  <h4 class="product-name">{{ $productt->name }}</h4>
+                        <div class="info-meta-1">
+                                <ul>
+                                          @if($productt->type == 'Physical')
+                                          @if($productt->emptyStock())
+                                          <li class="product-outstook">
+                                            <p>
+                                              <i class="icofont-close-circled"></i>
+                                              {{ $langg->lang78 }}
+                                            </p>
+                                          </li>
+                                          @else
+
+                                          <li class="product-isstook">
+                                            <p>
+                                              <i class="icofont-check-circled"></i>
+                                              {{ $gs->show_stock == 0 ? '' : $productt->stock }} {{ $langg->lang79 }}
+                                            </p>
+                                          </li>
+                                          @endif
+                                          @endif
+                                          <li>
+                                            <div class="ratings">
+                                              <div class="empty-stars"></div>
+                                              <div class="full-stars" style="width:{{App\Models\Rating::ratings($productt->id)}}%"></div>
+                                            </div>
+                                          </li>
+                                          <li class="review-count">
+                                            <p>{{count($productt->ratings)}} {{ $langg->lang80 }}</p>
+                                          </li>
+                                      @if($productt->product_condition != 0)
+                                        <li>
+                                          <div class="{{ $productt->product_condition == 2 ? 'mybadge' : 'mybadge1' }}">
+                                            {{ $productt->product_condition == 2 ? 'New' : 'Used' }}
+                                          </div>
+                                        </li>
+                                      @endif
+                                </ul>
+                        </div>
+
+
+            @if(Auth::user())
+            <div class="product-price">
+              <p class="title">{{ $langg->lang87 }} :</p>
+                    <p class="price"><span id="sizeprice">{{ $productt->showPrice() }}</span>
+                      <small><del>{{ $productt->showPreviousPrice() }}</del></small></p>
+                      @if($productt->youtube != null)
+                      <a href="{{ $productt->youtube }}" class="video-play-btn mfp-iframe">
+                        <i class="fas fa-play"></i>
+                      </a>
+                    @endif
+                  </div>
+
+              @endif
+
+                  <div class="info-meta-2">
+                    <ul>
+
+                      @if($productt->type == 'License')
+
+                      @if($productt->platform != null)
+                      <li>
+                        <p>{{ $langg->lang82 }}: <b>{{ $productt->platform }}</b></p>
+                      </li>
+                      @endif
+
+                      @if($productt->region != null)
+                      <li>
+                        <p>{{ $langg->lang83 }}: <b>{{ $productt->region }}</b></p>
+                      </li>
+                      @endif
+
+                      @if($productt->licence_type != null)
+                      <li>
+                        <p>{{ $langg->lang84 }}: <b>{{ $productt->licence_type }}</b></p>
+                      </li>
+                      @endif
+
+                      @endif
+
+                    </ul>
+                  </div>
+
+
+                  @if(!empty($productt->size))
+                  <div class="product-size">
+                    <p class="title">{{ $langg->lang88 }} :</p>
+                    <ul class="siz-list">
+                      @php
+                      $is_first = true;
+                      @endphp
+                      @foreach($productt->size as $key => $data1)
+                      <li class="{{ $is_first ? 'active' : '' }}">
+                        <span class="box">{{ $data1 }}
+                          <input type="hidden" class="size" value="{{ $data1 }}">
+                          <input type="hidden" class="size_qty" value="@if(isset($productt->size_qty[$key])){{ $productt->size_qty[$key] }}@endif">
+                          <input type="hidden" class="size_key" value="{{$key}}">
+                          <input type="hidden" class="size_price"
+                            value="@if(isset($productt->size_price[$key])){{ round($productt->size_price[$key] * $curr->value,2) }} @endif">
+                        </span>
+                      </li>
+                      @php
+                      $is_first = false;
+                      @endphp
+                      @endforeach
+                      <li>
+                    </ul>
+                  </div>
+                  @endif
+
+                  @if(!empty($productt->color))
+                  <div class="product-color">
+                    <p class="title">{{ $langg->lang89 }} :</p>
+                    <ul class="color-list">
+                      @php
+                      $is_first = true;
+                      @endphp
+                      <select name="color" id="color_select" class="color-price">
+                      @foreach($productt->color as $key => $data1)
+                      <?php try {
+                          //dd(Helper::get_color_name($productt->color[$key])['hex']);
+
+                      $color_back = Helper::get_color_name($productt->color[$key])['hex'];
+                        echo $color_back;
+                      } catch (Exception $e) {
+                        $color_back = '#ffffff';
+                      }
+
+                      ?>
+
+                        <option value="{{ $productt->color[$key]}} ">{{ $productt->color[$key]}} </option>
+
+                  <!--     <li class="{{ $is_first ? 'active' : '' }}">
+                        <span >@if(isset($productt->color[$key])){{ $productt->color[$key]}}  @else(isset($productt->color[$key]['name'])) {{Helper::get_color_name($productt->color[$key])['name']}} @endif</span>
+                        <span class="box" data-color="{{ $productt->color[$key] }}" style="background-color:{{$color_back}}"></span>
+                      </li> -->
+                      @php
+                      $is_first = false;
+                      @endphp
+                      @endforeach
+                      </select>
+
+                    </ul>
+                  </div>
+                  @endif
+
+                  @if(!empty($productt->eye) && isset($productt->eye))
+
+                  <input type="hidden" id="stock" value="@if(isset($productt->size_qty[0])){{ $productt->size_qty[0] }}@endif">
+
+                  @php
+                  $stck = (string)$productt->stock;
+                  @endphp
+
+                  <!-- Variation 1 -->
+                  @if(!empty($productt->eye) && isset($productt->eye))
+                  <?php $eye = explode(',',$productt->eye) ?>
+                  <label>Eye : </label>
+                  <select name="eye" class="form-select-custom form-select-lg mb-3 eye">
+                      @foreach($eye as $eye_v => $eye_k)
+                      <option value="{{$eye_k}}" >{{$eye_k}}</option>
+                      @endforeach
+                 </select>
+                 @endif
+
+                 <?php
+                 if(!empty($productt->eye_price_extra))
+                 {
+                    $eye_price_extra = explode(',',$productt->eye_price_extra);
+                 }
+
+                 ?>
+                 <br>
+
+                 @if(!empty($productt->title) && isset($productt->title))
+
+                 <input type="hidden" id="stock" value="@if(isset($productt->size_qty[0])){{ $productt->size_qty[0] }}@endif">
+
+                 @php
+                 $stck = (string)$productt->stock;
+                 @endphp
+
+                 <!-- Variation 1 -->
+                 @if(!empty($productt->title) && isset($productt->title))
+                 <?php $title = explode(',',$productt->title) ?>
+                 <label>Title : </label>
+                 <select name="title" class="form-select-custom form-select-lg mb-3 title">
+                     @foreach($title as $title_v => $title_k)
+                     <option value="{{$title_k}}" >{{$title_k}}</option>
+                     @endforeach
+                </select>
+                @endif
+                @endif
+                <?php
+                if(!empty($productt->title_price_extra))
+                {
+                   $title_price_extra = explode(',',$productt->title_price_extra);
+                }
+
+                ?>
+
+                <form id="prescription"  method="GET" enctype="multipart/form-data">
+
+
+                 <!-- Variation 2 -->
+
+                  <label>Add My Prescription: </label>
+
+                  <select class="form-select-custom form-select-lg mb-3" onchange="check(this);">
+                      <option selected>Choose Add My Prescription</option>
+                      <option value="uppres">Upload Prescription</option>
+                      <option value="manpres">Insert Prescription Manually</option>
+                 </select>
+                 <div id="upload_prescription" style="display: none;">
+                    <label for="left_os">Upload Image</label>
+                    <input type="file" id="img" name="img" accept="image/*">
+                 </div>
+                 <div id="manual_prescription" style="display:none;">
+
+                        <label for="left_os">Left Eye (OS): Power</label>
+                        <input class="form-select-custom"  id="left_os" type="number" name="left_eye">
+
+
+                        <label for="right">Right Eye (OD): Power</label>
+                        <input class="form-select-custom" id="right_od" type="number" name="right_eye">
+
+
+                        <label for="bc">BC</label>
+                        <input class="form-select-custom" id="bc" type="number" name="bc">
+
+                        <label for="left_diy">Left DIY</label>
+                        <input class="form-select-custom" id="left_diy" type="number" name="left_diy">
+
+                        <label for="right_diy">Right DIY</label>
+                        <input class="form-select-custom" id="right_diy" type="number" name="right_diy">
+
+                        <label for="right_cyl">Right Eye CYL</label>
+                        <input class="form-select-custom" id="right_cyl" type="number" name="right_eye_cyl">
+
+                        <label for="left_cyl">Left Eye CYL</label>
+                        <input class="form-select-custom" id="left_cyl" type="number" name="left_eye_cyl">
+
+                        <label for="left_axis">Left Eye Axis</label>
+                        <input class="form-select-custom" id="left_axis" type="number" name="left_eye_axis">
+
+                        <label for="right_axis">Right Eye Axis</label>
+                        <input  class="form-select-custom" id="right_axis" type="number" name="right_eye_axis">
+
+                        <label for="left_os">Add Power</label>
+                        <select class="form-select-custom" name="power">
+                          <option value="choose add power">Choose Add Power</option>
+                          <option value="">10</option>
+                          <option value="">20</option>
+                          <option value="">30</option>
+                          <option value="">40</option>
+                        </select>
+
+                    </div>
+                </form>
+
+
+                  @if($stck != null)
+                  <input type="hidden" id="stock" value="{{ $stck }}">
+                  @elseif($productt->type != 'Physical')
+                  <input type="hidden" id="stock" value="0">
+                  @else
+                  <input type="hidden" id="stock" value="">
+                  @endif
+
+                  @endif
+                  <input type="hidden" id="product_price" value="{{ round($productt->vendorPrice() * $curr->value,2) }}">
+
+                  <input type="hidden" id="product_id" value="{{ $productt->id }}">
+                  <input type="hidden" id="curr_pos" value="{{ $gs->currency_format }}">
+                  <input type="hidden" id="curr_sign" value="{{ $curr->sign }}">
+                  <div class="info-meta-3">
+                    <ul class="meta-list">
+                      @if($productt->product_type != "affiliate")
+                      <li class="d-block count {{ $productt->type == 'Physical' ? '' : 'd-none' }}">
+                        <div class="qty">
+                          <ul>
+                            <li>
+                              <span class="qtminus">
+                                <i class="icofont-minus"></i>
+                              </span>
+                            </li>
+                            <li>
+                              <input type="number" name="qttotal" min="1"  value="1" class="qttotal"></span>
+                            </li>
+                            <li>
+                              <span class="qtplus">
+                                <i class="icofont-plus"></i>
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </li>
+                      @endif
+
+                      @if (!empty($productt->attributes))
+                        @php
+                          $attrArr = json_decode($productt->attributes, true);
+                        @endphp
+                      @endif
+                      @if (!empty($attrArr))
+                        <div class="product-attributes my-4">
+                          <div class="row">
+                          @foreach ($attrArr as $attrKey => $attrVal)
+                            @if (array_key_exists("details_status",$attrVal) && $attrVal['details_status'] == 1)
+
+                          <div class="col-lg-6">
+                              <div class="form-group mb-2">
+                                <strong for="" class="text-capitalize">{{ str_replace("_", " ", $attrKey) }} :</strong>
+                                <div class="">
+                                @foreach ($attrVal['values'] as $optionKey => $optionVal)
+                                  <div class="custom-control custom-radio">
+                                    <input type="hidden" class="keys" value="">
+                                    <input type="hidden" class="values" value="">
+                                    <input type="radio" id="{{$attrKey}}{{ $optionKey }}" name="{{ $attrKey }}" class="custom-control-input product-attr"  data-key="{{ $attrKey }}" data-price = "{{ $attrVal['prices'][$optionKey] * $curr->value }}" value="{{ $optionVal }}" {{ $loop->first ? 'checked' : '' }}>
+                                    <label class="custom-control-label" for="{{$attrKey}}{{ $optionKey }}">{{ $optionVal }}
+
+                                    @if (!empty($attrVal['prices'][$optionKey]))
+                                      +
+                                      {{$curr->sign}} {{$attrVal['prices'][$optionKey] * $curr->value}}
+                                    @endif
+                                    </label>
+                                  </div>
+                                @endforeach
+                                </div>
+                              </div>
+                          </div>
+                            @endif
+                          @endforeach
+                          </div>
+                        </div>
+                      @endif
+
+                      @if($productt->product_type == "affiliate")
+
+                      <li class="addtocart">
+                        <a href="{{ route('affiliate.product', $productt->slug) }}" target="_blank"><i
+                            class="icofont-cart"></i> {{ $langg->lang251 }}</a>
+                      </li>
+                      @else
+                      @if($productt->emptyStock())
+                      <li class="addtocart">
+                        <a href="javascript:;" class="cart-out-of-stock">
+                          <i class="icofont-close-circled"></i>
+                          {{ $langg->lang78 }}</a>
+                      </li>
+                      @else
+                      @if(Auth::user())
+                      <li class="addtocart">
+                        <a href="javascript:;" id="<?php if($email=='info@opticalfirst.com'){ echo 'addcrtt'; }else{ ?>addcrt <?php } ?>"><i class="icofont-cart"></i>{{ $langg->lang90 }}</a>
+                      </li>
+
+                      <li class="addtocart">
+                        <a id="qaddcrt" href="javascript:;">
+                          <i class="icofont-cart"></i>{{ $langg->lang251 }}
+                        </a>
+                      </li>
+                      @else
+                        <li class="addtocart">
+                        <a rel-toggle="tooltip" title="{{ $langg->lang90 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+                          <i class="icofont-cart"></i>{{ $langg->lang90 }}
+                        </a>
+                      </li>
+
+                        <li class="addtocart">
+                        <a rel-toggle="tooltip" title="{{ $langg->lang251 }}" data-toggle="modal" id="wish-btn" data-target="#comment-log-reg" data-placement="right">
+                          <i class="icofont-cart"></i>{{ $langg->lang251 }}
+                        </a>
+                      </li>
+
+                      @endif
+                      @endif
+
+                      @endif
+
+                      @if(Auth::guard('web')->check())
+                      <li class="favorite">
+                        <a href="javascript:;" class="add-to-wish"
+                          data-href="{{ route('user-wishlist-add',$productt->id) }}"><i class="icofont-heart-alt"></i></a>
+                      </li>
+                      @else
+                      <li class="favorite">
+                        <a href="javascript:;" data-toggle="modal" data-target="#comment-log-reg"><i
+                            class="icofont-heart-alt"></i></a>
+                      </li>
+                      @endif
+                      <li class="compare">
+                        <a href="javascript:;" class="add-to-compare"
+                          data-href="{{ route('product.compare.add',$productt->id) }}"><i class="icofont-exchange"></i></a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="social-links social-sharing a2a_kit a2a_kit_size_32">
+                    <ul class="link-list social-links">
+                      <li>
+                        <a class="facebook a2a_button_facebook" href="">
+                          <i class="fab fa-facebook-f"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="twitter a2a_button_twitter" href="">
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="linkedin a2a_button_linkedin" href="">
+                          <i class="fab fa-linkedin-in"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a class="pinterest a2a_button_pinterest" href="">
+                          <i class="fab fa-pinterest-p"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <script async src="https://static.addtoany.com/menu/page.js"></script>
+
+
+                  @if($productt->ship != null)
+                    <p class="estimate-time">{{ $langg->lang86 }}: <b> {{ $productt->ship }}</b></p>
+                  @endif
+                  @if( $productt->sku != null )
+                  <p class="p-sku">
+                    {{ $langg->lang77 }}: <span class="idno">{{ $productt->sku }}</span>
+                  </p>
+                  @endif
+              @if($gs->is_report)
+
+              {{-- PRODUCT REPORT SECTION --}}
+
+                            @if(Auth::guard('web')->check())
+
+                            <div class="report-area">
+                                <a href="javascript:;" data-toggle="modal" data-target="#report-modal"><i class="fas fa-flag"></i> {{ $langg->lang776 }}</a>
+                            </div>
+
+                            @else
+
+                            <div class="report-area">
+                                <a href="javascript:;" data-toggle="modal" data-target="#comment-log-reg"><i class="fas fa-flag"></i> {{ $langg->lang776 }}</a>
+                            </div>
+                            @endif
+
+              {{-- PRODUCT REPORT SECTION ENDS --}}
+
+              @endif
+                </div>
+              </div>
+
+            </div>
+ </div>
+<!-- Optical First Data Ends Here -->
+                <?php
+
+
+
+                ?>
+
+
+               <?php     }else{ //dd($email); ?>
                   <div class="row">
                     <div class="col-lg-5 col-md-12">
                         <div class="xzoom-container">
@@ -2439,6 +2958,122 @@
 @section('scripts')
 
 <script type="text/javascript">
+
+$(document).on('change', '.color-price', function() {
+            var color = '<?php echo json_encode($productt->color); ?>';
+            var color_price = '<?php echo json_encode($productt->color_price_extra); ?>';
+            value = $(this).val();
+            value = value.replace(/\s/g, '');
+            color_price = JSON.parse(color_price);
+            color_price =color_price.split(",");
+            var original_price = parseFloat($('#product_price').val());
+            size_price = parseFloat($('.product-size .siz-list li.active').find('.size_price').val());
+            $.each(JSON.parse(color), function (i, elem) {
+            if(String(value) == String(elem))
+            {
+                if($('input[name="title_price"]').val())
+                {
+                    var title_price = $('input[name="title_price"]').val();
+
+                }else{
+                    title_price = 0;
+                }
+                if($('input[name="eye_price"]').val())
+                {
+                    var eye_price = $('input[name="eye_price"]').val();
+
+                }else{
+                    eye_price = 0;
+                }
+
+                total = parseFloat(color_price[i])+original_price+size_price+parseFloat(title_price)+parseFloat(eye_price);
+                $('#color_price_input').val(color_price[i]);
+                $('#sizeprice').html('$' + total.toFixed(2));
+
+                return false;
+               }
+            });
+        });
+
+
+        $(document).on('change', '.eye', function() {
+            var eye = '<?php echo json_encode($productt->eye); ?>';
+            var eye = <?php echo json_encode($productt->eye) ?>;
+
+            var eye_price = '<?php echo json_encode($productt->eye_price_extra); ?>';
+            value = $(this).val();
+            value = value.replace(/\s/g, '');
+            eye_price = JSON.parse(eye_price);
+            eye_price =eye_price.split(",");
+            eye =eye.split(",");
+            var original_price = parseFloat($('#product_price').val());
+            size_price = parseFloat($('.product-size .siz-list li.active').find('.size_price').val());
+            // alert(eye);
+            $.each(eye, function (i, elem) {
+
+            if(String(value) == String(elem))
+               {
+                if($('input[name="title_price"]').val())
+                {
+                    var title_price = $('input[name="title_price"]').val();
+
+                }else{
+                    title_price = 0;
+                }
+                if($('input[name="color_price"]').val())
+                {
+                    var color_price = $('input[name="color_price"]').val();
+
+                }else{
+                    color_price = 0;
+                }
+                total = parseFloat(eye_price[i])+original_price+size_price+parseFloat(title_price)+parseFloat(color_price);
+                $('#eye_price_input').val(eye_price[i]);
+                $('#sizeprice').html('$' + total.toFixed(2));
+                return false;
+               }
+            });
+        });
+        $(document).on('change', '.title', function() {
+            var title = '<?php echo json_encode($productt->title); ?>';
+            var title = <?php echo json_encode($productt->title) ?>;
+
+            var title_price = '<?php echo json_encode($productt->title_price_extra); ?>';
+            value = $(this).val();
+            value = value.replace(/\s/g, '');
+            title_price = JSON.parse(title_price);
+            title_price =title_price.split(",");
+            title =title.split(",");
+            var original_price = parseFloat($('#product_price').val());
+            size_price = parseFloat($('.product-size .siz-list li.active').find('.size_price').val());
+            // alert(eye);
+            $.each(title, function (i, elem) {
+            if(String(value) == String(elem))
+            {
+                if($('input[name="eye_price"]').val())
+                {
+                    var eye_price = $('input[name="eye_price"]').val();
+
+                }else{
+                    eye_price = 0;
+                }
+                if($('input[name="color_price"]').val())
+                {
+                    var color_price = $('input[name="color_price"]').val();
+
+                }else{
+                    color_price = 0;
+                }
+                total = parseFloat(title_price[i])+original_price+size_price+parseFloat(eye_price)+parseFloat(color_price);
+                $('#title_price_input').val(title_price[i]);
+                $('#sizeprice').html('$' + total.toFixed(2));
+                return false;
+               }
+            });
+        });
+
+
+
   $(document).on("submit", "#emailreply1", function() {
       var token = $(this).find('input[name=_token]').val();
       var subject = $(this).find('input[name=subject]').val();
@@ -2521,20 +3156,36 @@ var variation_img = '<?php echo json_encode($product_variation_images);  ?>';
 var color = '<?php echo json_encode( $productt->color); ?>';
 
 var val = $(this).val();
+
 $.each(JSON.parse(color),function(index, value) {
     value =value.replace(/'/g,  '"');
     val =val.replace(/'/g,  '"');
-  console.log(value);
-  console.log(val);
-//   if(val==color)
-//   {
-//         alert('aaa');
-//   }
+
+  if(value==val)
+  {
+        alert('aaa');
+  }
 
 });
 
 
  })
+
+
+ function check(that){
+      if (that.value == "uppres") {
+              document.getElementById("upload_prescription").style.display = "block";
+          } else {
+              document.getElementById("upload_prescription").style.display = "none";
+          }
+          if (that.value == "manpres") {
+              document.getElementById("manual_prescription").style.display = "block";
+          } else {
+              document.getElementById("manual_prescription").style.display = "none";
+          }
+    }
 </script>
+
+
 
 @endsection

@@ -102,6 +102,72 @@
                                                 </div>
                                                 @endif
 
+                                                @if(!empty($product['left_eye']))
+                                                <div class="d-flex mt-2">
+                                                <b>Left Eye </b>:{{$product['left_eye'] == "" ? "white" : $product['left_eye']}}  <span id="color-bar" style="border: 10px solid #{{$product['left_eye'] == "" ? "white" : $product['left_eye']}};"></span>
+                                                </div>
+                                                @endif
+
+                                                @if(!empty($product['right_eye']))
+                                                <div class="d-flex mt-2">
+                                                <b>Right Eye </b>:{{$product['right_eye'] == "" ? "white" : $product['right_eye']}}  <span id="color-bar" style="border: 10px solid #{{$product['right_eye'] == "" ? "white" : $product['right_eye']}};"></span>
+                                                </div>
+                                                @endif
+
+                                                @if(!empty($product['bc']))
+                                                <div class="d-flex mt-2">
+                                                <b>BC </b>:{{$product['bc'] == "" ? "white" : $product['bc']}}  <span id="color-bar" style="border: 10px solid #{{$product['bc'] == "" ? "white" : $product['bc']}};"></span>
+                                                </div>
+                                                @endif
+
+                                                @if(!empty($product['left_diy']))
+                                                <div class="d-flex mt-2">
+                                                <b>Left DIY </b>:{{$product['left_diy'] == "" ? "white" : $product['left_diy']}}  <span id="color-bar" style="border: 10px solid #{{$product['left_diy'] == "" ? "white" : $product['left_diy']}};"></span>
+                                                </div>
+                                                @endif
+
+                                                @if(!empty($product['right_diy']))
+                                                <div class="d-flex mt-2">
+                                                <b>Right DIY </b>:{{$product['right_diy'] == "" ? "white" : $product['right_diy']}}  <span id="color-bar" style="border: 10px solid #{{$product['right_diy'] == "" ? "white" : $product['right_diy']}};"></span>
+                                                </div>
+                                                @endif
+
+                                                @if(!empty($product['right_eye_cyl']))
+                                                <div class="d-flex mt-2">
+                                                <b>Right Eye CYL </b>:{{$product['right_eye_cyl'] == "" ? "white" : $product['right_eye_cyl']}}  <span id="color-bar" style="border: 10px solid #{{$product['right_eye_cyl'] == "" ? "white" : $product['right_eye_cyl']}};"></span>
+                                                </div>
+                                                @endif
+
+                                                @if(!empty($product['left_eye_cyl']))
+                                                <div class="d-flex mt-2">
+                                                <b>Left Eye CYL </b>:{{$product['left_eye_cyl'] == "" ? "white" : $product['left_eye_cyl']}}  <span id="color-bar" style="border: 10px solid #{{$product['left_eye_cyl'] == "" ? "white" : $product['left_eye_cyl']}};"></span>
+                                                </div>
+                                                @endif
+
+                                                @if(!empty($product['left_eye_axis']))
+                                                <div class="d-flex mt-2">
+                                                <b>Left Eye Axis </b>:{{$product['left_eye_axis'] == "" ? "white" : $product['left_eye_axis']}}  <span id="color-bar" style="border: 10px solid #{{$product['left_eye_axis'] == "" ? "white" : $product['left_eye_axis']}};"></span>
+                                                </div>
+                                                @endif
+
+                                                @if(!empty($product['right_eye_axis']))
+                                                <div class="d-flex mt-2">
+                                                <b>Right Eye Axis </b>:{{$product['right_eye_axis'] == "" ? "white" : $product['right_eye_axis']}}  <span id="color-bar" style="border: 10px solid #{{$product['right_eye_axis'] == "" ? "white" : $product['right_eye_axis']}};"></span>
+                                                </div>
+                                                @endif
+                                                @if(!empty($product['powerr']))
+                                                <div class="d-flex mt-2">
+                                                <b>Power </b>:{{$product['powerr'] == "" ? "white" : $product['powerr']}}  <span id="color-bar" style="border: 10px solid #{{$product['powerr'] == "" ? "white" : $product['powerr']}};"></span>
+                                                </div>
+                                                @endif
+                                                @if(!empty($product['prescription']))
+                                                <div class="d-flex mt-2">
+                                                <b>Prescription </b>:<a href="{{asset('assets/images/prescription/'.$product['prescription'])}}"><img src="{{asset('assets/images/prescription/'.$product['prescription'])}}" /></a></span>
+                                                </div>
+                                                @endif
+
+
+
                                                     @if(!empty($product['keys']))
 
                                                     @foreach( array_combine(explode(',', $product['keys']), explode(',', $product['values']))  as $key => $value)
@@ -142,7 +208,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0;
 }
                                     </style>
-                                    <input class="qttotal1" id="qty{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}" type="number" name="qttotal"value="1" class="qttotal"></span>
+                                    <input class="qttotal1" id="qty{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}" type="number" name="qttotal"value="{{$product['qty']}}" class="qttotal"></span>
                                   {{-- <span class="qttotal1" id="qty{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}">{{ $product['qty'] }}</span> --}}
                                 </li>
                                 <li>
@@ -166,6 +232,7 @@ input[type=number]::-webkit-outer-spin-button {
                             @endif
 
                             <td class="total-price">
+
                               <p id="prc{{$product['item']['id'].$product['size'].$product['color'].str_replace(str_split(' ,'),'',$product['values'])}}">
                                 {{ App\Models\Product::convertPrice($product['price']) }}
                               </p>
