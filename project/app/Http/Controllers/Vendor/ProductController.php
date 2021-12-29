@@ -1644,11 +1644,11 @@ class ProductController extends Controller
                 'csvfile'      => 'required|mimes:csv,txt',
             );
 
-            $validator = Validator::make($request->all(), $rules);
+            // $validator = Validator::make($request->all(), $rules);
 
-            if ($validator->fails()) {
-                return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
-            }
+            // if ($validator->fails()) {
+            //     return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
+            // }
 
             $filename = '';
             if ($file = $request->file('csvfile'))
@@ -1839,7 +1839,22 @@ class ProductController extends Controller
 
 
 
+                            }elseif(Auth::user()->email == "info@opticalfirst.com"){
+
+
+                                $input['brand'] = $line[22];
+                                $input['eye'] = !empty($line[23])?$line[23]:null;
+                                $input['eye_price_extra'] = $line[24];
+                                $input['color_price_extra'] = $line[25];
+                                $input['title'] = $line[26];
+                                $input['title_price_extra'] = $line[27];
+                                $input['prescription_form'] = $line[28];
+
+
+                                // dd($input,$line);
+
                             }else{
+
                                 if(isset($line[22]))
                                 {
                                     $input['model'] = $line[22];

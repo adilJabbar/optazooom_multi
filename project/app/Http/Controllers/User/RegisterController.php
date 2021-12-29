@@ -25,8 +25,8 @@ class RegisterController extends Controller
     	// {
 	    //     $value = session('captcha_string');
 	    //     if ($request->codes != $value){
-	    //         return response()->json(array('errors' => [ 0 => 'Please enter Correct Capcha Code.' ]));    
-	    //     }    		
+	    //         return response()->json(array('errors' => [ 0 => 'Please enter Correct Capcha Code.' ]));
+	    //     }
     	// }
 
 
@@ -37,14 +37,14 @@ class RegisterController extends Controller
 		        'password' => 'required|confirmed'
                 ];
         $validator = Validator::make($request->all(), $rules);
-        
+
         if ($validator->fails()) {
           return response()->json(array('errors' => $validator->getMessageBag()->toArray()));
         }
         //--- Validation Section Ends
 
 	        $user = new User;
-	        $input = $request->all();        
+	        $input = $request->all();
 	        $input['password'] = bcrypt($request['password']);
 	        $token = md5(time().$request->name.$request->email);
 	        $input['verification_link'] = $token;
@@ -55,11 +55,11 @@ class RegisterController extends Controller
 	          if(!empty($request->vendor))
 	          {
 					//--- Validation Section
-					
+
 					$input['is_vendor'] = 2;
 
 			  }
-			 
+
 			$id = $user->fill($input)->save();
 
 
@@ -70,14 +70,14 @@ class RegisterController extends Controller
           		$dataa['category']  = $v;
 				$dataa['user_id'] =  $user->id ;
 				$dataa['created_at'] =  date('y:m:d h:i:s') ;
-				
+
           		\DB::table('vendor_category')->insert($dataa);
           	}
-				
+
 
 		  }
 
-	       
+
 
             $user->email_verified = 'no';
             $user->update();
@@ -85,10 +85,10 @@ class RegisterController extends Controller
 	        $notification->user_id = $user->id;
 	        $notification->save();
 
-            // Auth::guard('web')->login($user); 
+            // Auth::guard('web')->login($user);
             $this->send_message( $user->phone,$input['mobile_varification_code']);
           	return response()->json(['status'=>1,'id'=>$user->id]);
-	        
+
 
     }
 
@@ -97,7 +97,7 @@ class RegisterController extends Controller
         $gs = Generalsetting::findOrFail(1);
 
         if($gs->is_verification_email == 1)
-	        {    	
+	        {
         $user = User::where('verification_link','=',$token)->first();
         if(isset($user))
         {
@@ -106,12 +106,12 @@ class RegisterController extends Controller
 	        $notification = new Notification;
 	        $notification->user_id = $user->id;
 	        $notification->save();
-            Auth::guard('web')->login($user); 
+            Auth::guard('web')->login($user);
             return redirect()->route('user-dashboard')->with('success','Email Verified Successfully');
         }
     		}
     		else {
-    		return redirect()->back();	
+    		return redirect()->back();
     		}
     }
 
@@ -126,22 +126,22 @@ class RegisterController extends Controller
         $client = new Client($account_sid, $auth_token);
        // dd($client);
           try {
-  
+
             $account_sid = getenv("TWILIO_SID");
             $auth_token = getenv("TWILIO_TOKEN");
             $twilio_number = getenv("TWILIO_NUMBER");
 
- 
+
             $client = new Client($account_sid, $auth_token);
            $clientt =  $client->messages->create($reciever_number, [
-                'from' => $twilio_number, 
+                'from' => $twilio_number,
                 'body' => $message]);
-  
 
-  
-  
+
+
+
             // dd($clientt, 'SMS Sent Successfully.');
-  
+
         } catch (Exception $e) {
             dd("Error: ". $e->getMessage());
         }
@@ -154,11 +154,11 @@ class RegisterController extends Controller
     	$gs = Generalsetting::findOrFail(1);
     		$user = User::find($id);
 			$otp_number = $request->get('first').$request->get('second').$request->get('third').$request->get('fourth').$request->get('fifth').$request->get('sixth');
-				
+
 				    $token = $user->verification_link;
 
 
-				    
+
 				$mobile_verification_code = $user->mobile_varification_code;
 			if($otp_number == $mobile_verification_code )
 			{
@@ -166,9 +166,9 @@ class RegisterController extends Controller
 				// if($_POST['forgot_pass']){
 				// 	$link_activate = base_url()."login/verify_email/".$data['email_verification_code'];
 				// 	$email = $mobile_verification_code = $this->db->get_where('users',['id'=>$id])->row()->email;
-				// 	$msg = 'Hi '.$this->db->get_where('users',['id'=>$id])->row()->f_name.', Your password updation link is activated. You can change your password by clicking the below link  
-				// 	</br>'.base_url('login/password_update/').$id.'/'.$this->db->get_where('users',['id'=>$id])->row()->password; 
-		          
+				// 	$msg = 'Hi '.$this->db->get_where('users',['id'=>$id])->row()->f_name.', Your password updation link is activated. You can change your password by clicking the below link
+				// 	</br>'.base_url('login/password_update/').$id.'/'.$this->db->get_where('users',['id'=>$id])->row()->password;
+
 		  //           $email = $this->et->do_email('Optazoom','Optazoom',$email,'Updation Password',$msg);
 				// }
 
@@ -198,7 +198,7 @@ class RegisterController extends Controller
 	        $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
 	        mail($to,$subject,$msg,$headers);
 	        }
-          	
+
 				$user->mobile_varification_status = 1;
 				$user->mobile_varification_code = '';
 				$user->update();
@@ -210,14 +210,14 @@ class RegisterController extends Controller
 	        else {
 
 	        }
-				
+
 				// echo json_encode(['message'=>'success']);
-				
+
 			}else{
 				return response()->json(['message'=>'error']);
 				 exit;
 			}
-		
+
 
     }
 
