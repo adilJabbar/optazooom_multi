@@ -608,11 +608,12 @@ class CartController extends Controller
 
         Session::put('cart',$cart);
         $data[0] = count($cart->items);
-        // $oldCart = Session::get('cart');
+        $oldCart = Session::get('cart');
 
-        // $cart = new Cart($oldCart);
+        $cart = new Cart($oldCart);
         // dd($cart);
         return response()->json($data);
+        exit();
     }
 
 
