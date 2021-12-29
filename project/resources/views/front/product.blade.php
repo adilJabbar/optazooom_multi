@@ -2960,7 +2960,7 @@
 <script type="text/javascript">
 
 $(document).on('change', '.color-price', function() {
-    alert('aaa');
+
             var color = '<?php echo json_encode($productt->color); ?>';
             var color_price = '<?php echo json_encode($productt->color_price_extra); ?>';
             value = $(this).val();
