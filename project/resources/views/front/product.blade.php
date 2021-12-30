@@ -2186,7 +2186,7 @@
                                                         </span>
                                                     </li>
                                                     <li>
-                                                        <span class="qttotal">1</span>
+                                                        <input type="number" name="qttotal" min="1"  value="1" class="qttotal"></span>
                                                     </li>
                                                     <li>
                                                         <span class="qtplus">
