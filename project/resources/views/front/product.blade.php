@@ -192,7 +192,7 @@
                                         @php
                                         $is_first = true;
                                         @endphp
-                                        <select  name="color_name" id="color_select">
+                                        <select  name="color_name" class="form-select-custom" id="color_select">
                                             @foreach($productt->color as $key => $data1)
 
 
@@ -1665,7 +1665,7 @@
                  }
 
                  ?>
-                 <br>
+                 
 
                  @if(!empty($productt->title) && isset($productt->title))
 
