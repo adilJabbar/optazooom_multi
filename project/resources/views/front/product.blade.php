@@ -1604,13 +1604,13 @@
                   @endif
 
                   @if(!empty($productt->color))
-                  <div>
+                  <div class="color-custom">
                     <label>{{ $langg->lang89 }} :</label>
                     <ul class="color-list">
                       @php
                       $is_first = true;
                       @endphp
-                      <select name="color" id="color_select" class="color-price">
+                      <select name="color" id="color_select" class="form-select-custom color-price">
                       @foreach($productt->color as $key => $data1)
                       <?php try {
                           //dd(Helper::get_color_name($productt->color[$key])['hex']);
