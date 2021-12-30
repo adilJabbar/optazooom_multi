@@ -838,6 +838,7 @@ $(function($) {
         var colors = "";
         var total = "";
         var stock = $("#stock").val();
+       
         var keys = "";
         var values = "";
         var prices = "";
@@ -1160,6 +1161,7 @@ $(function($) {
             var el = $(this);
             var $tselector = el.parent().parent().find('.qttotal');
             total = $($tselector).val();
+           
             if (stock != "") {
                 var stk = parseInt(stock);
                 if (total < stk) {
@@ -1169,7 +1171,7 @@ $(function($) {
             } else {
                 total++;
             }
-
+          
             $($tselector).val(total);
         });
 
