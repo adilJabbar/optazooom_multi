@@ -1604,13 +1604,13 @@
                   @endif
 
                   @if(!empty($productt->color))
-                  <div>
+                  <div class="color-custom">
                     <label>{{ $langg->lang89 }} :</label>
                     <ul class="color-list">
                       @php
                       $is_first = true;
                       @endphp
-                      <select name="color" id="color_select" class="color-price">
+                      <select name="color" id="color_select" class="form-select-custom color-price">
                       @foreach($productt->color as $key => $data1)
                       <?php try {
                           //dd(Helper::get_color_name($productt->color[$key])['hex']);
@@ -1744,10 +1744,28 @@
                         <label for="left_os">Add Power</label>
                         <select class="form-select-custom" name="power">
                           <option value="choose add power">Choose Add Power</option>
-                          <option value="">10</option>
-                          <option value="">20</option>
-                          <option value="">30</option>
-                          <option value="">40</option>
+                          <option value="75">75</option>
+                          <option value="100">100</option>
+                          <option value="125">125</option>
+                          <option value="150">150</option>
+                          <option value="175">175</option>
+                          <option value="200">200</option>
+                          <option value="225">225</option>
+                          <option value="250">250</option>
+                          <option value="275">275</option>
+                          <option value="300">300</option>
+                          <option value="325">325</option>
+                          <option value="350">350</option>
+                          <option value="375">375 XR</option>
+                          <option value="400">400 XR</option>
+                          <option value="425">425 XR</option>
+                          <option value="450">450 XR</option>
+                          <option value="475">475 XR</option>
+                          <option value="500">500 XR</option>
+                          <option value="525">525 XR</option>
+                          <option value="550">550 XR</option>
+                          <option value="570">570 XR</option>
+                         
                         </select>
 
                     </div>
