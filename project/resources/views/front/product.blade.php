@@ -1604,8 +1604,8 @@
                   @endif
 
                   @if(!empty($productt->color))
-                  <div class="product-color">
-                    <p class="title">{{ $langg->lang89 }} :</p>
+                  <div>
+                    <label>{{ $langg->lang89 }} :</label>
                     <ul class="color-list">
                       @php
                       $is_first = true;
