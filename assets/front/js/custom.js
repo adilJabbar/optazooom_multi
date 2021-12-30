@@ -1232,14 +1232,12 @@ $(function($) {
                 impller_mounting_hole = '';
             }
             
-            
+         
             
             $.ajax({
                 type: "GET",
                 url: mainurl + "/addnumcart",
-                data: { id: pid, qty: qty, size: sizes, color: color, size_qty: size_qty, size_price: size_price, size_key: size_key, keys: keys, values: values, prices: prices,impller_mounting_hole:impller_mounting_hole,strength:strength,lens:lens,frame_size:frame_size,frame_color:frame_color},
-                contentType: false,
-                processData: false,
+                data: {id: pid, qty: qty, size: sizes, color: color, size_qty: size_qty, size_price: size_price, size_key: size_key, keys: keys, values: values, prices: prices,impller_mounting_hole:impller_mounting_hole,strength:strength,lens:lens,frame_size:frame_size,frame_color:frame_color},
                 success: function(data) {
 
                     if (data == 'digital') {
