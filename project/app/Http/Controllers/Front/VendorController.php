@@ -63,6 +63,7 @@ class VendorController extends Controller
         $vprods = (new Collection(Product::filterProducts($prods)))->paginate(9);
         $data['vprods'] = $vprods;
 
+    $data['max'] =  Product::where('user_id',$vendor->id)->max('price');
 
         return view('front.vendor', $data);
     }
