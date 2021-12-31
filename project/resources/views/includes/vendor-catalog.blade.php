@@ -16,10 +16,15 @@
 				$categories_order = DB::table('categories')->join('products','products.category_id','=','categories.id')->join('users','users.id','=','products.user_id')->where('users.shop_name',$string)->select('categories.*')->distinct('categories.name')->orderby('categories.name' , 'ASC')->get();
                     foreach ($vprods as $key => $value) {
                         $price =   $value->price;
-
+                        if($max_price<$price)
+                        {
+                            $max_price = $price;
+                        }
 
                     }
+
 									?>
+                                    <input type="hidden" id="max_price_product" name="max_price_product" value="{{$max_price}}" />
                   @foreach ($categories_order as $element)
                   <li>
                     <div class="content">
