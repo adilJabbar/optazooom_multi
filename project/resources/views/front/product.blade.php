@@ -186,7 +186,7 @@
                                 @endif
 
                                 @if(!empty($productt->color))
-                                <div class="product-color">
+                                <div>
                                     <p class="title">{{ $langg->lang89 }} :</p>
                                     <ul class="color-list">
                                         @php
@@ -620,8 +620,8 @@
                                             @endif
 
                                             @if(!empty($productt->color))
-                                            <div class="product-color">
-                                                <p class="title">{{ $langg->lang89 }} :</p>
+                                            <div>
+                                                <label>{{ $langg->lang89 }} :</label>
                                                 <ul class="color-list">
                                                 @php
                                                 $is_first = true;
@@ -668,8 +668,8 @@
                                          @if(!empty($productt->strength))
 
 
-                                            <div class="product-color">
-                                                <p class="title">Strength :</p>
+                                            <div>
+                                                <label>Strength :</label>
                                                 <ul class="color-list">
                                                 @php
                                                 $is_first = true;
@@ -699,7 +699,7 @@
                                         @if(!empty($productt->lens))
 
 
-                                        <div class="product-color">
+                                        <div>
                                             <p class="title">Lens :</p>
                                             <ul class="color-list">
                                             @php
@@ -762,7 +762,7 @@
                                     @if(!empty($productt->frame_color))
 
 
-                                    <div class="product-color">
+                                    <div >
                                         <p class="title">Frame Color :</p>
                                         <ul class="color-list">
                                         @php
@@ -1153,7 +1153,7 @@
                   @endif
 
                   @if(!empty($productt->color))
-                  <div class="product-color">
+                  <div>
                     <p class="title">{{ $langg->lang89 }} :</p>
                     <ul class="color-list">
                       @php
@@ -1575,22 +1575,7 @@
 
                     </ul>
                   </div>
-                  @if(!empty($productt->size))
 
-                  <input type="hidden" id="stock" value="@if(isset($productt->size_qty[0]) && !empty($productt->size_qty[0])) {{ $productt->size_qty[0] }} @endif">
-                  @else
-                  @php
-                  $stck = (string)$productt->stock;
-                  @endphp
-                  @if($stck != null)
-                  <input type="hidden" id="stock" value="{{ $stck }}">
-                  @elseif($productt->type != 'Physical')
-                  <input type="hidden" id="stock" value="0">
-                  @else
-                  <input type="hidden" id="stock" value="">
-                  @endif
-
-                  @endif
 
                   @if(!empty($productt->size))
                   <div class="product-size">
@@ -1680,7 +1665,7 @@
                  }
 
                  ?>
-
+                 
 
                  @if(!empty($productt->title) && isset($productt->title))
 
@@ -1780,7 +1765,7 @@
                           <option value="525">525 XR</option>
                           <option value="550">550 XR</option>
                           <option value="570">570 XR</option>
-
+                         
                         </select>
 
                     </div>
@@ -2144,7 +2129,7 @@
                                 @endif
 
                                 @if(!empty($productt->color))
-                                <div class="product-color">
+                                <div >
                                     <p class="title">{{ $langg->lang89 }} :</p>
                                     <ul class="color-list">
                                         @php
