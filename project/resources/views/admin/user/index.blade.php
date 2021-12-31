@@ -6,13 +6,13 @@
 						<div class="mr-breadcrumb">
 							<div class="row">
 								<div class="col-lg-12">
-										<h4 class="heading">{{ __("Customers") }}</h4>
+										<h4 class="heading">{{ __("Practitioner") }}</h4>
 										<ul class="links">
 											<li>
 												<a href="{{ route('admin.dashboard') }}">{{ __("Dashboard") }} </a>
 											</li>
 											<li>
-												<a href="{{ route('admin-user-index') }}">{{ __("Customers") }}</a>
+												<a href="{{ route('admin-user-index') }}">{{ __("Practitioner") }}</a>
 											</li>
 										</ul>
 								</div>
