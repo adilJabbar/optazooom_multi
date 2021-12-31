@@ -34,6 +34,7 @@
 
     <?php
         $max = DB::table('products')->max('price');
+
     ?>
     <input type="hidden" id="max_price_product" name="max_price_product" value="{{$max}}" />
 
