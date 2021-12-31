@@ -1,12 +1,12 @@
 <a href="{{ route('front.product', $prod->slug) }}" class="item">
-<?php $email = DB::table('users')->where('id',$prod->user_id)->first('email');
+                                       <?php $email = DB::table('users')->where('id',$prod->user_id)->first('email');
                                         $email = $email->email;
 										if($email == 'ozcaprioptics@gmail.com')
 										{
 										?>
 										
 											<div class="item-img">
-												@if(!empty($prod->features))
+												@if(!isset($prod->features))
 													<div class="sell-area">
 													  @foreach($prod->features as $key => $data1)
 														<span class="sale" style="background-color:{{ $prod->colors[$key] }}">{{ $prod->features[$key] }}</span>
