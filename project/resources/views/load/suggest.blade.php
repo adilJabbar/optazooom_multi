@@ -48,7 +48,16 @@
 	<div class="docname">
 		<a href="{{ route('front.product', $prod->slug) }}">
 			@if($prod->thumbnail)
-			<img src="{{ asset('assets/images/thumbnails/'.$prod->thumbnail) }}" alt="">
+
+
+
+
+            @if($prod->user_id == 50)
+            <img src="{{$prod->thumbnail}}" alt="">
+            @else
+            <img src="{{ asset('assets/images/thumbnails/'.$prod->thumbnail) }}" alt="">
+            @endif
+
 			@else
 			<img class="img-fluid" src="{{ $prod->photo ? asset('assets/images/products/'.$prod->photo):asset('assets/images/noimage.png') }}" alt="">
             @endif
@@ -57,5 +66,5 @@
 				<!-- <span style="font-size: 14px; font-weight:600; display:block;">{{ $attrPrice != 0 ?  $gs->currency_format == 0 ? $curr->sign.$withSelectedAtrributePrice : $withSelectedAtrributePrice.$curr->sign :$prod->showPrice() }}</span> -->
 			</div>
 		</a>
-	</div> 
+	</div>
 @endforeach

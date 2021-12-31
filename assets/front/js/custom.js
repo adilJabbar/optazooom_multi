@@ -635,7 +635,7 @@ $(function($) {
 
         // Auto Complete Section
         $('#prod_name').on('keyup', function() {
-
+            
             var search = encodeURIComponent($(this).val());
             if (search == "") {
                 $(".autocomplete").hide();
