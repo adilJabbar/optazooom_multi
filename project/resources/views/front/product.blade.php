@@ -65,7 +65,6 @@
 
                             </div>
                         </div>
-
                     </div>
                     <div class="col-lg-7">
                         <div class="right-area">
@@ -2099,7 +2098,7 @@
 
                                     </ul>
                                 </div>
-
+                                <?php echo $productt->specification ?>
 
                                 @if(!empty($productt->size))
                                 <div class="product-size">
