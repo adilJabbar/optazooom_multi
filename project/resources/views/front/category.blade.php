@@ -32,6 +32,11 @@
 <div id="cover-spin"></div>
 
 
+    <?php
+        $max = DB::table('products')->max('price');
+    ?>
+    <input type="hidden" id="max_price_product" name="max_price_product" value="{{$max}}" />
+
   <div id="loading-img"></div>
 <!-- Breadcrumb Area Start -->
 <div class="breadcrumb-area">
@@ -302,7 +307,7 @@
       range: true,
       orientation: "horizontal",
       min: 0,
-      max: 10000,
+      max: $('#max_price_product').val(),
       values: [{{ isset($_GET['min']) ? $_GET['min'] : '0' }}, {{ isset($_GET['max']) ? $_GET['max'] : '10000' }}],
       step: 5,
 
@@ -310,6 +315,7 @@
         if (ui.values[0] == ui.values[1]) {
           return false;
         }
+
 
         $("#min_price").val(ui.values[0]);
         $("#max_price").val(ui.values[1]);

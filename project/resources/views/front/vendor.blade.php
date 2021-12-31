@@ -201,11 +201,13 @@
 <script type="text/javascript">
 
   $(function () {
+
+
     $("#slider-range").slider({
     range: true,
     orientation: "horizontal",
     min: 0,
-    max: 10000,
+    max: $('#max_price_product').val(),
     values: [{{ isset($_GET['min']) ? $_GET['min'] : '0' }}, {{ isset($_GET['max']) ? $_GET['max'] : '10000' }}],
     step: 5,
 

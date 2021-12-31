@@ -31,6 +31,7 @@ class FrontendController extends Controller
     public function __construct()
     {
 
+
         $user = User::where('is_vendor',3)->first();
         // if($user->status!=1)
         // {

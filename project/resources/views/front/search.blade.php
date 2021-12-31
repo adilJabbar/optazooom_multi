@@ -51,7 +51,7 @@
                 			@if(isset($min) || isset($max))
 
 						        <div class="page-center category">
-						          {!! $products->appends(['cat_id' => $cat_id ,'min' => $min, 'max' => $max])->links() !!}          
+						          {!! $products->appends(['cat_id' => $cat_id ,'min' => $min, 'max' => $max])->links() !!}
 						        </div>
 
 						    @elseif(!empty($sort))
@@ -63,7 +63,7 @@
 
 						    	@else
 						        <div class="page-center category">
-						          {!! $products->appends(['cat_id' => $cat_id, 'min' => $min, 'max' => $max, 'sort' => $sort])->links() !!}          
+						          {!! $products->appends(['cat_id' => $cat_id, 'min' => $min, 'max' => $max, 'sort' => $sort])->links() !!}
 						        </div>
 						        @endif
 						    @else
