@@ -75,20 +75,23 @@
      if(isset($key) && !empty($key))
      {
 
+
         foreach ($news_feed as $item )
         {
 
-         $pos = strpos($item->title, $key);
+        //  $pos = strpos($item->title, $key);
          $pubDate = $item->pubDate;
-         if($pos)
-         { ?>
+         if(!isset($pos))
+         {
+
+             ?>
          <div class="col-lg-12 ">
         <div class="li-blog-single-item mb-30">
             <div class="row ">
                 <div class="col-lg-12">
                     <div class="li-blog-content">
                         <div class="li-blog-details">
-                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>    
+                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
                                  <?php echo  date("D M j Y", strtotime($item->pubDate)) ?>
                             <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?></p>
                            <br>
@@ -117,7 +120,7 @@
                 <div class="col-lg-12">
                     <div class="li-blog-content">
                         <div class="li-blog-details">
-                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>         
+                            <h3 class="li-blog-heading pt-xs-25 pt-sm-25 text-justify"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></h3>
                             <?php echo  date("D M j Y", strtotime($item->pubDate)) ?>
                             <p class="p_news text-justify"><?php echo  $str = substr($item->description, 0, 150) . '...';    ?></p>
                            <br>
@@ -169,7 +172,13 @@
                     <div class="load-more load_more">
 
                     </div>
-                    <button style="margin-left:40%" type="button" id="loadMore">Load More</button>
+                    <?php
+                        if(!isset($key))
+                        {
+                        ?>
+                        <button style="margin-left:40%" type="button" id="loadMore">Load More</button>
+                    <?php } ?>
+
                     <?php if(isset($pagination_links) && !empty($pagination_links)) : ?>
                         <div class="container Page navigation">
                             <nav aria-label="Page navigation example">

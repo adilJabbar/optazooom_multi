@@ -789,8 +789,9 @@ public function deleteDir($dirPath) {
 
 public function optanews()
 {
-    $url = 'https://visionmonday.com/rss/eyecare/';
-    $rss = Feed::loadRss($url);
+\DB::table('news_feed')->delete();
+$url = 'https://visionmonday.com/rss/eyecare/';
+$rss = Feed::loadRss($url);
 \DB::table('news_feed')->where('site',1)->delete();
 foreach ($rss->item as $k => $item )
 {
@@ -802,9 +803,39 @@ $data['pubDate'] = $item->pubDate;
 $data['site'] = 1;
 
 \DB::table('news_feed')->insert($data);
-
-
 }
+
+$url = 'https://www.optometrytimes.com/rss';
+$rss = Feed::loadRss($url);
+
+
+foreach ($rss->item as $k => $item )
+{
+$data = array();
+$data['title'] = $item->title;
+$data['description'] = $item->description;
+$data['link'] = $item->link;
+$data['pubDate'] = $item->pubDate;
+$data['site'] = 2;
+
+\DB::table('news_feed')->insert($data);
+}
+
+$url = 'https://www.journalofoptometry.org/en-rss-ultimo';
+$rss = Feed::loadRss($url);
+
+foreach ($rss->item as $k => $item )
+{
+$data = array();
+$data['title'] = $item->title;
+$data['description'] = $item->description;
+$data['link'] = $item->link;
+$data['pubDate'] = $item->pubDate;
+$data['site'] = 3;
+
+\DB::table('news_feed')->insert($data);
+}
+
 // dd($rss->item);
      $this->code_image();
          if(!empty($request->reff))
@@ -826,7 +857,7 @@ $data['site'] = 1;
         $sliders = DB::table('sliders')->get();
 
         $ps = DB::table('pagesettings')->find(1);
-        $news_feed = DB::table('news_feed')->get();
+        $news_feed = DB::table('news_feed')->where('site',1)->get();
            $gs = Generalsetting::findOrFail(1);
      return view('front.optanews',compact('ps','sliders','news_feed','gs'));
 }
@@ -911,7 +942,9 @@ public function news_feed_search(Request $request)
         $sliders = DB::table('sliders')->get();
         $key = $request->fsearch;
         $ps = DB::table('pagesettings')->find(1);
-        $news_feed = DB::table('news_feed')->get();
+
+        $news_feed = DB::table('news_feed')->where('title', 'like', '%'.$request->fsearch.'%')->get();
+
 
      return view('front.optanews',compact('ps','sliders','key','news_feed'));
 }
