@@ -643,6 +643,7 @@ input[type=checkbox]:checked + label:before {
   }
   .sub-categori .left-area .filter-result-area .body-area .filter-btn {
         border: 1px solid <?php echo $color; ?>;
+        margin-bottom:20px;
         }
         .sub-categori .left-area .filter-result-area .body-area .filter-btn:hover {
           color: <?php echo $color; ?>;
