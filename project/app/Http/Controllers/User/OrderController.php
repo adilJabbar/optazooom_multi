@@ -88,7 +88,7 @@ class OrderController extends Controller
         $wsdlPath = 'TrackService_v18.wsdl';
         $wsdlPath =  url('/').'/project/vendor/maxirus/fedex/src/_wsdl/TrackService_v10.wsdl';
 
-        $endPoint = 'https://ws.fedex.com:443/web-services/track'; //You will get it when requesting to FedEx key. It might change based on the API Environments
+        $endPoint = 'https://wsbeta.fedex.com:443/web-services'; //You will get it when requesting to FedEx key. It might change based on the API Environments
 
         $client = new \SoapClient($wsdlPath, array('trace' => true));
         $client->__setLocation($endPoint);
