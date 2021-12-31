@@ -12,9 +12,13 @@
                 <?php
 
                 $string = str_replace('-',' ', request()->segment(count(request()->segments())));
-
+                    $max_price=0;
 				$categories_order = DB::table('categories')->join('products','products.category_id','=','categories.id')->join('users','users.id','=','products.user_id')->where('users.shop_name',$string)->select('categories.*')->distinct('categories.name')->orderby('categories.name' , 'ASC')->get();
+                    foreach ($vprods as $key => $value) {
+                        $price =   $value->price;
 
+
+                    }
 									?>
                   @foreach ($categories_order as $element)
                   <li>
@@ -173,9 +177,9 @@
                         </a>
                   </li>
                 </ul>
-              
+
               </div> -->
-<!-- 
+<!--
               <div class="footer-area">
                 <p class="title">
                   {{ $langg->lang229 }}
@@ -201,7 +205,7 @@
               </div>
             </div> -->
 
-<!-- 
+<!--
             @endif -->
 
 
