@@ -1853,6 +1853,13 @@ class ProductController extends Controller
 
                                 // dd($input,$line);
 
+                            }elseif(Auth::user()->email == "ozidealoptics@gmail.com"){
+
+                                if(isset($line[22]))
+                                {
+                                    $input['specification'] = $line[22];
+                                }
+
                             }else{
 
                                 if(isset($line[22]))
