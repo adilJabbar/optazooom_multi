@@ -33,7 +33,18 @@
 
 
     <?php
-        $max = DB::table('products')->max('price');
+    $pr =  DB::table('products')->get();
+        $max = 0;
+        foreach($pr as $p_k => $p_v)
+        {
+            $price = $p_v->price;
+            if($price>$max  )
+            {
+                $max = $price;
+            }
+        }
+
+
 
     ?>
     <input type="hidden" id="max_price_product" name="max_price_product" value="{{$max}}" />
