@@ -327,7 +327,7 @@
 
 												<li class="nav-item arrow-icon"> <a href="{{ route('front.featured')}}">Featured Products</a></li>
 												<li class="nav-item arrow-icon"><a id="check" href="{{ route('front.flash')}}">Flash Deals</a></li>											
-												<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaZoom News</a></li>
+												<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaNews</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
 											</ul>	
 										</div>

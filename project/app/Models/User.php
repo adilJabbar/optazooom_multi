@@ -32,11 +32,11 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->hasMany('App\Models\Order');
     }
-    
+
     public function transactions()
     {
         return $this->hasMany('App\Models\Transaction','user_id')->orderby('id','desc');
-    }    
+    }
 
     public function comments()
     {
@@ -155,7 +155,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function checkVerification()
     {
-        return count($this->verifies) > 0 ? 
+        return count($this->verifies) > 0 ?
         (empty($this->verifies()->where('admin_warning','=','0')->orderBy('id','desc')->first()->status) ? false : ($this->verifies()->orderBy('id','desc')->first()->status == 'Pending' ? true : false)) : false;
     }
 
@@ -175,57 +175,57 @@ class User extends Authenticatable implements JWTSubject
     }
 
     public static function chekValidation(){
-        
-        $settings = Generalsetting::findOrFail(1);
-        $lastchk = "";
-        if (file_exists(base_path().'/schedule.data')){
-            $lastchk = file_get_contents(base_path().'/schedule.data');
-        }
-        $today = Carbon::now()->format('Y-m-d');
-        if ($lastchk < $today || $lastchk == ""){
-            $newday = strtotime($today);
-        
-            foreach (DB::table('users')->where('is_vendor','=',2)->get() as  $user) {
-                $lastday = $user->date;
-                $secs = strtotime($lastday)-$newday;
-                $days = $secs / 86400;
-                if($days <= 5)
-                {
-                  if($user->mail_sent == 1)
-                  {
-                    if($settings->is_smtp == 1)
-                    {
-                        $data = [
-                            'to' => $user->email,
-                            'type' => "subscription_warning",
-                            'cname' => $user->name,
-                            'oamount' => "",
-                            'aname' => "",
-                            'aemail' => "",
-                            'onumber' => ""
-                        ];
-                        $mailer = new GeniusMailer();
-                        $mailer->sendAutoMail($data);
-                    }
-                    else
-                    {
-                    $headers = "From: ".$settings->from_name."<".$settings->from_email.">";
-                    mail($user->email,'Your subscription plan duration will end after five days. Please renew your plan otherwise all of your products will be deactivated.Thank You.',$headers);
-                    }
-                    DB::table('users')->where('id',$user->id)->update(['mail_sent' => 0]);
-                  }
-                }
-                if($today > $lastday)
-                {
-                    DB::table('users')->where('id',$user->id)->update(['is_vendor' => 1]);
-                }
-            }
 
-            $handle = fopen(base_path().'/schedule.data','w+');
-            fwrite($handle,$today);
-            fclose($handle);
+        // $settings = Generalsetting::findOrFail(1);
+        // $lastchk = "";
+        // if (file_exists(base_path().'/schedule.data')){
+        //     $lastchk = file_get_contents(base_path().'/schedule.data');
+        // }
+        // $today = Carbon::now()->format('Y-m-d');
+        // if ($lastchk < $today || $lastchk == ""){
+        //     $newday = strtotime($today);
 
-        }
+        //     foreach (DB::table('users')->where('is_vendor','=',2)->get() as  $user) {
+        //         $lastday = $user->date;
+        //         $secs = strtotime($lastday)-$newday;
+        //         $days = $secs / 86400;
+        //         if($days <= 5)
+        //         {
+        //           if($user->mail_sent == 1)
+        //           {
+        //             if($settings->is_smtp == 1)
+        //             {
+        //                 $data = [
+        //                     'to' => $user->email,
+        //                     'type' => "subscription_warning",
+        //                     'cname' => $user->name,
+        //                     'oamount' => "",
+        //                     'aname' => "",
+        //                     'aemail' => "",
+        //                     'onumber' => ""
+        //                 ];
+        //                 $mailer = new GeniusMailer();
+        //                 $mailer->sendAutoMail($data);
+        //             }
+        //             else
+        //             {
+        //             $headers = "From: ".$settings->from_name."<".$settings->from_email.">";
+        //             mail($user->email,'Your subscription plan duration will end after five days. Please renew your plan otherwise all of your products will be deactivated.Thank You.',$headers);
+        //             }
+        //             DB::table('users')->where('id',$user->id)->update(['mail_sent' => 0]);
+        //           }
+        //         }
+        //         if($today > $lastday)
+        //         {
+        //             DB::table('users')->where('id',$user->id)->update(['is_vendor' => 1]);
+        //         }
+        //     }
+
+        //     $handle = fopen(base_path().'/schedule.data','w+');
+        //     fwrite($handle,$today);
+        //     fclose($handle);
+
+        // }
     }
 
     /**

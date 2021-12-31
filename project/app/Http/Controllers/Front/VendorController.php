@@ -22,6 +22,7 @@ class VendorController extends Controller
 
     public function index(Request $request,$slug)
     {
+
         $this->code_image();
         // $sort = "";
         $minprice = $request->min;
@@ -69,7 +70,7 @@ class VendorController extends Controller
     //Vendor List
 
     public function vendorlist(Request $request){
-        
+
         $users = User::where('is_vendor','=','2')->get()->paginate(8);
         return view('front.vendorlist',['users'=>$users]);
 

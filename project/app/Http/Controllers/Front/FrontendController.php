@@ -789,6 +789,23 @@ public function deleteDir($dirPath) {
 
 public function optanews()
 {
+    $url = 'https://visionmonday.com/rss/eyecare/';
+    $rss = Feed::loadRss($url);
+\DB::table('news_feed')->where('site',1)->delete();
+foreach ($rss->item as $k => $item )
+{
+$data = array();
+$data['title'] = $item->title;
+$data['description'] = $item->description;
+$data['link'] = $item->link;
+$data['pubDate'] = $item->pubDate;
+$data['site'] = 1;
+
+\DB::table('news_feed')->insert($data);
+
+
+}
+// dd($rss->item);
      $this->code_image();
          if(!empty($request->reff))
          {
