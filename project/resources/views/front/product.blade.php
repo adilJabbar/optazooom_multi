@@ -730,7 +730,7 @@
                                     @if(!empty($productt->frame_size))
 
 
-                                    <div class="product-color">
+                                    <div>
                                         <p class="title">Frame Size :</p>
                                         <ul class="color-list">
                                         @php
@@ -1018,7 +1018,7 @@
         <div class="xzoom-container">
 
           <?php $img = explode(',', $productt->photo); ?>
-            <img class="xzoom5" id="xzoom-magnific" src="{{filter_var($img[0], FILTER_VALIDATE_URL) ?$img[0]:asset('assets/images/products/'.$productt->photo)}}" xoriginal="{{$img[0]}}" />
+            <img class="xzoom5" id="xzoom-magnific" src="{{filter_var($img[0], FILTER_VALIDATE_URL) ?$img[0]:asset('assets/images/products/'.$productt->photo)}}" style="height:200px; width:400px;" xoriginal="{{$img[0]}}" />
             <div class="xzoom-thumbs">
 
               <div class="all-slider">
