@@ -311,6 +311,7 @@
           return false;
         }
 
+
         $("#min_price").val(ui.values[0]);
         $("#max_price").val(ui.values[1]);
       }
