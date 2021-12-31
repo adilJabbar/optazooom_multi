@@ -14,7 +14,7 @@
 						                        <div class="row">
 						                          <div class="col-lg-4">
 						                            <div class="left-area">
-						                                <h4 class="heading">{{ __("Customer Profile Image") }} *</h4>
+						                                <h4 class="heading">{{ __("Practitioner Profile Image") }} *</h4>
 						                            </div>
 						                          </div>
 						                          <div class="col-lg-7">
