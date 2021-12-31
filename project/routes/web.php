@@ -1054,7 +1054,7 @@ Route::get('/deposit/payment/{number}', 'User\DepositController@sendDeposit')->n
 // User Subscription
 
   Route::get('/package', 'User\UserController@package')->name('user-package');
-  Route::get('/subscription/{id}', 'User\UserController@vendorrequest')->name('user-vendor-request');
+  Route::get('/subscription/{id}', 'User\UserController@subscription')->name('user-vendor-request');
   Route::post('/vendor-request', 'User\UserController@vendorrequestsub')->name('user-vendor-request-submit');
 
   Route::post('/paypal/submit', 'User\PaypalController@store')->name('user.paypal.submit');

@@ -1575,7 +1575,22 @@
 
                     </ul>
                   </div>
+                  @if(!empty($productt->size))
 
+                  <input type="hidden" id="stock" value="@if(isset($productt->size_qty[0]) && !empty($productt->size_qty[0])) {{ $productt->size_qty[0] }} @endif">
+                  @else
+                  @php
+                  $stck = (string)$productt->stock;
+                  @endphp
+                  @if($stck != null)
+                  <input type="hidden" id="stock" value="{{ $stck }}">
+                  @elseif($productt->type != 'Physical')
+                  <input type="hidden" id="stock" value="0">
+                  @else
+                  <input type="hidden" id="stock" value="">
+                  @endif
+
+                  @endif
 
                   @if(!empty($productt->size))
                   <div class="product-size">
@@ -1665,7 +1680,7 @@
                  }
 
                  ?>
-                 
+
 
                  @if(!empty($productt->title) && isset($productt->title))
 
@@ -1765,7 +1780,7 @@
                           <option value="525">525 XR</option>
                           <option value="550">550 XR</option>
                           <option value="570">570 XR</option>
-                         
+
                         </select>
 
                     </div>
