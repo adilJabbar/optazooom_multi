@@ -236,7 +236,7 @@
 
 										</div>
 									     </div>
-										 
+
 									@endif
 
 									@if(!Auth::user())
@@ -249,7 +249,7 @@
 										</a>
 									</li>
 									@endif
-									
+
                         			<!-- @if($gs->reg_vendor == 1)
 										<li>
                         				@if(Auth::check())
@@ -265,11 +265,11 @@
 										</li>
 										@endif
 									@endif -->
- 
+
 							<li class="my-dropdown"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang3 }}">
 								<a href="{{route('front.cart')}}" class="cart carticon">
 									<div class="icon">
-									
+
 									<img src="{{asset('assets/images/Cart.svg')}}" height="35"/>
 										<span class="cart-quantity" id="cart-count">{{ Session::has('cart') ? count(Session::get('cart')->items) : '0' }}</span>
 									</div>
@@ -292,7 +292,7 @@
 										<span id="wishlist-count">0</span>
 									</a> -->
 								@endif
-							</li> 
+							</li>
 							 <!-- <li class="compare"  data-toggle="tooltip" data-placement="top" title="{{ $langg->lang10 }}">
 								<a href="{{ route('product.compare') }}" class="wish compare-product">
 									<div class="icon">
@@ -326,10 +326,10 @@
 												<li class="nav-item arrow-icon"><a href="{{url('category')}}"> All Products</a></li>
 
 												<li class="nav-item arrow-icon"> <a href="{{ route('front.featured')}}">Featured Products</a></li>
-												<li class="nav-item arrow-icon"><a id="check" href="{{ route('front.flash')}}">Flash Deals</a></li>											
+												<li class="nav-item arrow-icon"><a id="check" href="{{ route('front.flash')}}">Flash Deals</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('user.optanews') }}">OptaNews</a></li>
 												<li class="nav-item arrow-icon"><a href="{{ route('front.vendorlist') }}">Vendors</a></li>
-											</ul>	
+											</ul>
 										</div>
 								</nav>
                             </div>
@@ -356,7 +356,7 @@
 	<footer class="footer" id="footer">
 		<div class="container-fluid">
 			<div class="row footer-wrap">
-			
+
 				<div class="col-md-6 col-lg-2">
 				<div class="footer-widget info-link-widget">
 						<h4 class="title">
@@ -469,26 +469,26 @@
 						</h4>
 						<ul style="overflow:auto;width:auto;height:200px; padding-right:10px;">
 
-						<?php 
+						<?php
 
 	// $url = 'https://visionmonday.com/rss/eyecare/';
 	// $rss = Feed::loadRss($url);
 	$rss = DB::table('news_feed')->get();
 
-	if(isset($rss))		
+	if(isset($rss))
 	{
-	
-	foreach ($rss as $item ) 
+
+	foreach ($rss as $item )
 	{
 
 	?>
-						
+
                       <p class="li-blog-heading pt-xs-25 pt-sm-25"><a class="a_title" href="<?php echo 'news_feed_detail?title='.$item->title.'&link='.$item->link; ?>">{{$item->title}}</a></p>
-					
+
 					  <?php
 						}
 					}
-					?>	
+					?>
 				  </ul>
 					</div>
 				</div>
@@ -499,7 +499,7 @@
 						</h4>
 						<div class="footer-static-middle">
 						<ul class="des">
-   
+
 							<li>
 								<span><i class="fa fa-envelope"></i></span>
 								&nbsp <a href="mailto://info@yourdomain.com">info@optazoom.com</a>
@@ -726,7 +726,7 @@
 												placeholder="{{ $langg->lang51 }}" required="">
 											<i class="icofont-refresh"></i>
 										</div>
-										
+
 
 
 										@endif
@@ -926,43 +926,43 @@
                            <div class="col-lg-12">
 
 <div class="form-input">
-                               
+
                                     <label>Select Supplier Category (You can check more then one)</label>
                                     <div style="border-bottom: 1px solid #cfcfcf;"></div>
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox" id="cases" name="category[]" value="case">
                                         <label for="cases">Cases</label>
-                                        
+
                                     </span>
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox" id="frames" name="category[]" value="frames">
                                         <label for="frames">Frames</label>
-                                        
+
                                     </span>
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox" id="supplies" name="category[]" value="supplies">
                                         <label for="supplies">Supplies</label>
-                                        
+
                                     </span>
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox" id="lenses" name="category[]" value="lenses">
                                         <label for="lenses">Contact Lenses</label>
-                                        
+
                                     </span>
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox"  id="all" name="category[]" value="all">
                                         <label for="all">All</label>
-                                        
+
                                     </span>
 
-                   
+
                                     <span class="check-box d-inline-block ml-0 ml-md-2 mt-10">
                                         <input type="checkbox" id="other" name="category[]" value="other">
                                         <label for="other">Others</label>
                                     </span>
-                                    
-                                
-     
+
+
+
                             </div>
                            	</div>
                          <!--   <div class="col-lg-6">
@@ -995,7 +995,7 @@
 						<option value="referral_from_colleague">Referral from Colleague </option>
 						<option value="kristie_nguyen">Kristie Nguyen</option>
                       </select>
-           
+
                   </div>
                            	</div>
 
@@ -1012,7 +1012,7 @@
                 <option value="uae">UAE</option>
                 <option value="uk">United Kingdom</option>
               </select>
-           
+
     </div>
 </div>
 
@@ -1143,7 +1143,7 @@
         </div>
     </div>
 <!-- Order Tracking modal End -->
-				
+
 <script type="text/javascript">
   var mainurl = "{{url('/')}}";
   var gs      = {!! json_encode(\App\Models\Generalsetting::first()->makeHidden(['stripe_key', 'stripe_secret', 'smtp_pass', 'instamojo_key', 'instamojo_token', 'paystack_key', 'paystack_email', 'paypal_business', 'paytm_merchant', 'paytm_secret', 'paytm_website', 'paytm_industry', 'paytm_mode', 'molly_key', 'razorpay_key', 'razorpay_secret'])) !!};
@@ -1171,7 +1171,7 @@
 	<script src="{{asset('assets/front/js/main.js')}}"></script>
 	<!-- custom -->
 	<script src="{{asset('assets/front/js/custom.js')}}"></script>
-	
+
 
     {!! $seo->google_analytics !!}
 
@@ -1186,6 +1186,7 @@
 
 	<script type="text/javascript">
   $(".tabs").keyup(function () {
+
     if (this.value.length == this.maxLength) {
       var $next = $(this).next('.tabs');
       if ($next.length)
