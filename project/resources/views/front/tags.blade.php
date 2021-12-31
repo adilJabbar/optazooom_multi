@@ -43,23 +43,23 @@
 									@endforeach
 
 								</div>
-								
+
                 			@if(isset($min) || isset($max))
 
 						        <div class="page-center category">
-						          {!! $products->appends(['min' => $min, 'max' => $max])->links() !!}          
+						          {!! $products->appends(['min' => $min, 'max' => $max])->links() !!}
 						        </div>
 
 						    @elseif(!empty($sort))
 
 						        <div class="page-center category">
-						          {!! $products->appends(['sort' => $sort])->links() !!}          
+						          {!! $products->appends(['sort' => $sort])->links() !!}
 						        </div>
 
-						    @else 
+						    @else
 
 						        <div class="page-center category">
-						          {!! $products->links() !!}                   
+						          {!! $products->links() !!}
 						        </div>
 
 						    @endif
@@ -68,7 +68,7 @@
 						</div>
 						@else
 							<div class="page-center">
-								<h4 class="text-center">{{ $langg->lang60 }}</h4>              
+								<h4 class="text-center">{{ $langg->lang60 }}</h4>
 							</div>
 						@endif
 					</div>
@@ -99,7 +99,7 @@
 		  if (ui.values[0] == ui.values[1]) {
 			  return false;
 		  }
-		  
+
 		  $("#min_price").val(ui.values[0]);
 		  $("#max_price").val(ui.values[1]);
 		}
@@ -109,7 +109,7 @@
 	  $("#max_price").val($("#slider-range").slider("values", 1));
 
 	});
-    	
+
 </script>
 
 @endsection
