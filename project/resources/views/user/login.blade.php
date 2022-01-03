@@ -143,7 +143,7 @@
                   <div class="form-input">
                       <select style=" width: 100%;height: 50px;
     background: #f3f8fc;
-    padding: 0px 30px 0px 10px;
+    padding: 0px 30px 0px 40px;
     border: 1px
     solid rgba(0, 0, 0, 0.1);
     font-size: 14px;
