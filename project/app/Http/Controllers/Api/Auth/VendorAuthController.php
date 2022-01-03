@@ -14,7 +14,7 @@ use App\{
 
 use Illuminate\Http\Request;
 use Validator;
-
+use Twilio\Rest\Client;
 class VendorAuthController extends Controller
 {
     /**
@@ -24,7 +24,7 @@ class VendorAuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register','verify_otp']]);
         $this->middleware('setapi');
     }
 
@@ -32,17 +32,13 @@ class VendorAuthController extends Controller
     {
       try{
         $rules = [
-            'fullname'     => 'required',
+            'first_name'     => 'required',
             'email'        => 'required|email|unique:users',
             'phone'        => 'required',
-            'address'      => 'required',
-            'password'     => 'required',
-            'shop_name'    => 'required|unique:users',
-            'shop_number'  => 'required|max:10',
-            'owner_name'   => 'required',
-            'shop_address' => 'required',
-            'reg_number'   => 'required',
-            'shop_message' => 'required'
+            'shop_name'        => 'required',
+            'country'        => 'required',
+            'vendor'        => 'required',
+            'password'        => 'required',
         ];
 
         $validator = Validator::make($request->all(), $rules);
@@ -53,48 +49,35 @@ class VendorAuthController extends Controller
         $gs = Generalsetting::first();
 
         $user = new User;
-        $user->name = $request->fullname;
+        $user->name = $request->first_name;
+        $user->l_name = $request->last_name;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        $user->address = $request->address;
         $user->password = bcrypt($request->password);
         $user->shop_name = $request->shop_name;
-        $user->shop_number = $request->shop_number;
-        $user->owner_name = $request->owner_name;
-        $user->shop_address = $request->shop_address;
-        $user->reg_number = $request->reg_number;
-        $user->shop_message = $request->shop_message;
-        $user->is_vendor = 2;
+        $user->website = $request->website;
+        $user->hear_from = $request->hear_from;
+        $user->country = $request->country;
 
-        if($gs->is_verification_email == 0)
+
+        $user->mobile_varification_status = '0';
+
+        if(!empty($request->vendor))
         {
-          $user->email_verified = 'Yes';
+              $user->is_vendor = 2;
+
+        }else{
+            $user->is_vendor = 1;
         }
-
-        // if($gs->is_verification_email == 1)
-        // {
-        //   $to = $request->email;
-        //   $subject = 'Verify your email address.';
-        //   $msg = "Dear Customer,<br> We noticed that you need to verify your email address. <a href=".url('user/register/verify/'.$token).">Simply click here to verify. </a>";
-        //   //Sending Email To Customer
-        //   if($gs->is_smtp == 1)
-        //   {
-        //   $data = [
-        //       'to' => $to,
-        //       'subject' => $subject,
-        //       'body' => $msg,
-        //   ];
-
-        //   $mailer = new GeniusMailer();
-        //   $mailer->sendCustomMail($data);
-        //   }
-        //   else
-        //   {
-        //   $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
-        //   mail($to,$subject,$msg,$headers);
-        //   }
-        // }
-
+        $user->admin_approval =  1;
+        $user->email_verified = 'no';
+        $token = md5(time().$request->first_name.$request->email);
+        $user->verification_link = $token;
+        $user->affilate_code = md5($request->name.$request->email);
+        $user->mobile_varification_code = rand(100000,999999);
+        $user->mobile_varification_status = 0;
+        $user->email_verified = 'Yes';
+        $this->send_message( $user->phone, $user->mobile_varification_code);
         $user->save();
         auth()->login($user);
 
@@ -103,6 +86,66 @@ class VendorAuthController extends Controller
       catch(\Exception $e){
         return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
       }
+    }
+
+    private function send_message($reciever_number,$vcode)
+    {
+    	$message = "OptaZoom verification code: ".$vcode;
+      	// $recipients = '+923099481244';
+       	$account_sid = getenv("TWILIO_SID");
+
+        $auth_token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_number = getenv("TWILIO_NUMBER");
+        $client = new Client($account_sid, $auth_token);
+       // dd($client);
+          try {
+
+            $account_sid = getenv("TWILIO_SID");
+            $auth_token = getenv("TWILIO_TOKEN");
+            $twilio_number = getenv("TWILIO_NUMBER");
+
+
+            $client = new Client($account_sid, $auth_token);
+           $clientt =  $client->messages->create($reciever_number, [
+                'from' => $twilio_number,
+                'body' => $message]);
+
+
+        } catch (Exception $e) {
+            dd("Error: ". $e->getMessage());
+        }
+        // $msg = $client->messages->create($recipients, ['from' => $twilio_number, 'body' => $message]);
+    }
+
+    public function verify_otp(Request $request)
+    {
+
+    	$id = $request->get('id');
+    	$gs = Generalsetting::findOrFail(1);
+    		$user = User::find($id);
+			$otp_number = $request->get('first').$request->get('second').$request->get('third').$request->get('fourth').$request->get('fifth').$request->get('sixth');
+            $token = $user->verification_link;
+            $mobile_verification_code = $user->mobile_varification_code;
+			if($otp_number == $mobile_verification_code )
+			{
+
+
+				$user->mobile_varification_status = 1;
+				$user->mobile_varification_code = '';
+				$user->update();
+                return response()->json(['status' => true, 'data' => new UserResource($user), 'error' => []]);
+                exit;
+
+
+                return response()->json(['status' => true, 'data' => [], 'error' => ['message' => 'Otp not correct']]);
+				 exit;
+
+			}else{
+				return response()->json(['message'=>'error']);
+				 exit;
+			}
+
+
     }
 
 
