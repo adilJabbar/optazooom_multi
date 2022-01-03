@@ -170,15 +170,13 @@
             <br>
             <div class="col-lg-12">
                     <div class="load-more load_more">
-
-                    </div>
                     <?php
                         if(!isset($key))
                         {
                         ?>
-                        <button style="margin-left:40%" type="button" id="loadMore">Load More</button>
+                        <button type="button" id="loadMore">Load More</button>
                     <?php } ?>
-
+                    </div>
                     <?php if(isset($pagination_links) && !empty($pagination_links)) : ?>
                         <div class="container Page navigation">
                             <nav aria-label="Page navigation example">

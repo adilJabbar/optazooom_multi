@@ -451,7 +451,7 @@
 							<a href="javascript:;" data-toggle="modal" data-target="#vendor-login">Vendor Log In</a>
 							</li>
 							<li>
-							<a href="{{ route('user.optanews')}}">Optazoom News</a>
+							<a href="{{ route('user.optanews')}}">OptaNews</a>
 							</li>
 							<li>
 							<a  href="javascript:;" data-toggle="modal" data-target="#vendor-login">Become a Vendor</a>
