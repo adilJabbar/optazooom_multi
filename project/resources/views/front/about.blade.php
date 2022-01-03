@@ -32,7 +32,7 @@
                         <img src="{{asset('assets/images/aron.jpg')}}"">
                     </div>
                 </div>
-                <div class="col-lg-8 col-md-8 offset-lg-1">
+                <div class="col-lg-9 col-md-9">
                     <div class="pt-30">
                         <p>
                         Hi! I’m Aaron, the founder of OptaZoom.<br>

@@ -128,7 +128,7 @@
             <!-- <button class="btn btn-success btn-ok order-btn" type="submit"> Add </button> -->
           </form>
             <div class="track-btn" style="text-align:center; padding-top:20px">
-            <button class="btn btn-success btn-ok order-btn" style="padding:6px 80px;" type="submit"> Add </button>
+            <button class="btn-order-track btn-ok order-btn" style="padding:6px 80px; background:#6199d6; border:1px solid #6199d6; color:#fff;" type="submit"> Add </button>
            </div>
           </form>
         </div>
