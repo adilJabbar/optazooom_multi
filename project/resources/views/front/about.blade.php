@@ -42,6 +42,9 @@
                         Click the link below and join the OptaZoom family making that ordering process one less thing to worry about in your practice.
                        </p>
                     </div>
+                    <div class="creation-account text-right">
+                    <a href="{{ route('user.login')}}"><button type="button" class="btn ">Join OptaZoom</button></a>
+                </div>
                 </div>
                 <div class="col-lg-7 col-md-7">
                     <div class="pt-30">
