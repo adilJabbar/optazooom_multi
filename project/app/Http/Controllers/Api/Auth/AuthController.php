@@ -17,7 +17,7 @@ use Validator;
 use Illuminate\Support\Str;
 use JWTAuth;
 use App\Classes\GeniusMailer;
-
+use Twilio\Rest\Client;
 class AuthController extends Controller
 {
     /**
@@ -27,7 +27,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login', 'register', 'logout','social_login','forgot','forgot_submit']]);
+        $this->middleware('auth:api', ['except' => ['login', 'register', 'logout','social_login','forgot','forgot_submit','verify_otp']]);
         $this->middleware('setapi');
     }
 
@@ -35,10 +35,9 @@ class AuthController extends Controller
     {
       try{
         $rules = [
-            'fullname' => 'required',
+            'first_name' => 'required',
             'email' => 'required|email|unique:users',
             'phone' => 'required',
-            'address' => 'required',
             'password' => 'required'
         ];
 
@@ -50,58 +49,102 @@ class AuthController extends Controller
         $gs = Generalsetting::first();
 
         $user = new User;
-        $user->name = $request->fullname;
+        $user->name = $request->first_name;
+        $user->l_name = $request->last_name;
         $user->email = $request->email;
         $user->phone = $request->phone;
-        $user->address = $request->address;
+        $user->work_phone = $request->work_phone;
+        $user->company = $request->company;
+        $user->hear_from = $request->hear_from;
+
         $user->password = bcrypt($request->password);
+        $token = md5(time().$request->name.$request->email);
+        $user->verification_link = $token;
+        $user->affilate_code = md5($request->name.$request->email);
+        $user->mobile_varification_code = rand(100000,999999);
+        $user->mobile_varification_status = 0;
+        $user->admin_approval = 1;
 
-        if($gs->is_verification_email == 0)
-        {
-          $user->email_verified = 'Yes';
-        }
+        $user->email_verified = 'Yes';
 
-        if($gs->is_verification_email == 1)
-        {
-          $to = $request->email;
-          $subject = 'Verify your email address.';
-          $msg = "Dear Customer,<br> We noticed that you need to verify your email address. <a href=".url('user/register/verify/'.$token).">Simply click here to verify. </a>";
-          //Sending Email To Customer
-          if($gs->is_smtp == 1)
-          {
-          $data = [
-              'to' => $to,
-              'subject' => $subject,
-              'body' => $msg,
-          ];
 
-          $mailer = new GeniusMailer();
-          $mailer->sendCustomMail($data);
-          }
-          else
-          {
-          $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
-          mail($to,$subject,$msg,$headers);
-          }
-        }
-
+        // dd($user);
         $user->save();
-        
-        $token = auth()->login($user);
+        $this->send_message( $user->phone,$user->mobile_varification_code);
+        // $token = auth()->login($user);
 
-        return response()->json(['status' => true, 'data' => ['token' => $token, 'user' => new UserResource($user)], 'error' => []]);
+        return response()->json(['status' => true, 'data' => [ 'user' => new UserResource($user)], 'error' => []]);
       }
       catch(\Exception $e){
         return response()->json(['status' => true, 'data' => [], 'error' => ['message' => $e->getMessage()]]);
       }
     }
 
+    public function verify_otp(Request $request)
+    {
 
+    	$id = $request->get('id');
+    	$gs = Generalsetting::findOrFail(1);
+    		$user = User::find($id);
+			$otp_number = $request->get('first').$request->get('second').$request->get('third').$request->get('fourth').$request->get('fifth').$request->get('sixth');
+            $token = $user->verification_link;
+            $mobile_verification_code = $user->mobile_varification_code;
+			if($otp_number == $mobile_verification_code )
+			{
+
+
+				$user->mobile_varification_status = 1;
+				$user->mobile_varification_code = '';
+				$user->update();
+                return response()->json(['status' => true, 'data' => new UserResource($user), 'error' => []]);
+                exit;
+
+
+                return response()->json(['status' => true, 'data' => [], 'error' => ['message' => 'Otp not correct']]);
+				 exit;
+
+			}else{
+				return response()->json(['message'=>'error']);
+				 exit;
+			}
+
+
+    }
     /**
      * Get a JWT via given credentials.
      *
      * @return \Illuminate\Http\JsonResponse
      */
+
+    private function send_message($reciever_number,$vcode)
+    {
+    	$message = "OptaZoom verification code: ".$vcode;
+      	// $recipients = '+923099481244';
+       	$account_sid = getenv("TWILIO_SID");
+
+        $auth_token = getenv("TWILIO_AUTH_TOKEN");
+        $twilio_number = getenv("TWILIO_NUMBER");
+        $client = new Client($account_sid, $auth_token);
+       // dd($client);
+          try {
+
+            $account_sid = getenv("TWILIO_SID");
+            $auth_token = getenv("TWILIO_TOKEN");
+            $twilio_number = getenv("TWILIO_NUMBER");
+
+
+            $client = new Client($account_sid, $auth_token);
+           $clientt =  $client->messages->create($reciever_number, [
+                'from' => $twilio_number,
+                'body' => $message]);
+
+
+        } catch (Exception $e) {
+            dd("Error: ". $e->getMessage());
+        }
+        // $msg = $client->messages->create($recipients, ['from' => $twilio_number, 'body' => $message]);
+    }
+
     public function login(Request $request)
     {
       try{
@@ -161,26 +204,26 @@ class AuthController extends Controller
         $user = User::where('email','=',$request->email)->first();
 
         if(!$user){
-            
+
                     $rules = [
                         'email' => 'email|unique:users'
                     ];
-            
+
                     $validator = Validator::make($request->all(), $rules);
                     if ($validator->fails()) {
                       return response()->json(['status' => false, 'data' => [], 'error' => $validator->errors()]);
                     }
-            
+
                    $user = new User;
                    $user->name = $request->name;
                    $user->email = $request->email;
                    $user->email_verified = 'Yes';
                    $user->affilate_code = md5($request->email);
                    $user->save();
-                  
+
                    $token = auth()->login($user);
                    return response()->json(['status' => true, 'data' => ['token' => $token], 'error' => []]);
-            
+
         }
 
         $userToken = JWTAuth::fromUser($user);
@@ -261,21 +304,21 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 300
         ]);
     }
-    
-    
-    
+
+
+
    public function forgot(Request $request){
         $gs = Generalsetting::findOrFail(1);
        $user = User::where('email',$request->email)->first();
        if($user){
-          
+
         $token = Str::random(6);
-        
+
         $subject = "Reset Password Request";
         $msg = "Your Forgot Password Token: ".$token;
         $user->reset_token = $token;
         $user->update();
-        
+
         if($gs->is_smtp == 1)
           {
               $data = [
@@ -283,46 +326,46 @@ class AuthController extends Controller
                       'subject' => $subject,
                       'body' => $msg,
               ];
-    
+
               $mailer = new GeniusMailer();
-              $mailer->sendCustomMail($data);                
+              $mailer->sendCustomMail($data);
           }
           else
           {
               $headers = "From: ".$gs->from_name."<".$gs->from_email.">";
-              mail($request->email,$subject,$msg,$headers);            
+              mail($request->email,$subject,$msg,$headers);
           }
-        
+
         return response()->json(['status' => true, 'data' => ['user_id' => $user->id,'reset_token' => $user->reset_token], 'error' => []]);
-           
+
        }else{
             return response()->json(['status' => false, 'data' => [], 'error' => 'Account not found']);
        }
-       
+
     }
-    
-    
+
+
     public function forgot_submit(Request $request){
-        
+
         if($request->new_password != $request->confirm_password){
             return response()->json(['status' => false, 'data' => [], 'error' => 'New password & confirm password not match']);
         }
-        
+
         $user = User::where('id',$request->user_id)->where('reset_token',$request->reset_token)->first();
         if($user){
-           
+
            $password = Hash::make($request->new_password);
            $user->password = $password;
            $user->reset_token = null;
            $user->update();
            return response()->json(['status' => true, 'data' => ['message' => 'Password Changed Successfully'], 'error' => []]);
-           
+
         }else{
             return response()->json(['status' => false, 'data' => [], 'error' => 'Something is wrong']);
         }
     }
-    
-    
-    
-    
+
+
+
+
 }

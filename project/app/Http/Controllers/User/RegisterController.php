@@ -80,6 +80,7 @@ class RegisterController extends Controller
 
 
             $user->email_verified = 'no';
+
             $user->update();
 	        $notification = new Notification;
 	        $notification->user_id = $user->id;
